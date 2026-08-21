@@ -8,7 +8,7 @@ const body = Outfit({ variable: '--font-body', subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'Game Master | Juegos digitales para Nintendo Switch',
   description: 'Catálogo de juegos digitales para Nintendo Switch y Switch 2. Consulta precio y disponibilidad con atención personalizada.',
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'),
+  metadataBase: new URL('https://game-master-digital-mx.mastr-z3ro.chatgpt.site'),
   icons: { icon: '/og.png' },
   openGraph: {
     type: 'website',
