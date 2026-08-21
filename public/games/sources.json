@@ -1,0 +1,4312 @@
+{
+  "generatedAt": "2026-08-21T15:45:17.968Z",
+  "total": 134,
+  "sources": [
+    {
+      "id": "castlestorm-ii",
+      "title": "Castlestorm II",
+      "localPath": "/games/castlestorm-ii.webp",
+      "alias": "Castlestorm II",
+      "pageTitle": "CastleStorm II",
+      "pageUrl": "https://www.nintendo.com/us/store/products/castlestorm-ii-switch/",
+      "imageUrls": [
+        "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/store/software/switch/70010000021226/a58600a508aa20f57ec39ccb34fb1b13ddaf65c00e8904e8a82cdb62cc25900b"
+      ],
+      "description": "Imagen oficial de Nintendo para CastleStorm II",
+      "imageUrl": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/store/software/switch/70010000021226/a58600a508aa20f57ec39ccb34fb1b13ddaf65c00e8904e8a82cdb62cc25900b",
+      "score": 1000,
+      "candidates": [
+        {
+          "title": "CastleStorm II",
+          "description": "Imagen oficial de Nintendo para CastleStorm II",
+          "score": 1000
+        }
+      ]
+    },
+    {
+      "id": "hellblade-senua-s-sacrifice",
+      "title": "Hellblade: Senua’s Sacrifice",
+      "localPath": "/games/hellblade-senua-s-sacrifice.webp",
+      "alias": "Hellblade: Senua’s Sacrifice",
+      "pageTitle": "Hellblade: Senua's Sacrifice",
+      "pageUrl": "https://en.wikipedia.org/wiki/Hellblade:_Senua%27s_Sacrifice",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/d/d4/Hellblade_-_Senua%27s_Sacrifice.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2017 action-adventure video game developed by Ninja Theory",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Hellblade: Senua's Sacrifice",
+          "description": "2017 action-adventure video game developed by Ninja Theory",
+          "score": 645
+        },
+        {
+          "title": "Senua's Saga: Hellblade II",
+          "description": "2024 video game developed by Ninja Theory",
+          "score": 201
+        },
+        {
+          "title": "Astro Bot",
+          "description": "2024 video game developed by Team Asobi",
+          "score": 100
+        },
+        {
+          "title": "AAA (video game industry)",
+          "description": "classification term used for video games",
+          "score": 94
+        }
+      ]
+    },
+    {
+      "id": "hotline-miami",
+      "title": "Hotline Miami Collection",
+      "localPath": "/games/hotline-miami.webp",
+      "alias": "Hotline Miami Collection",
+      "pageTitle": "Hotline Miami",
+      "pageUrl": "https://en.wikipedia.org/wiki/Hotline_Miami",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/f/f4/Hotline_Miami_cover.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2012 video game",
+      "score": 298,
+      "candidates": [
+        {
+          "title": "Hotline Miami",
+          "description": "2012 video game",
+          "score": 298
+        },
+        {
+          "title": "Hotline Miami 2: Wrong Number",
+          "description": "2015 video game",
+          "score": 201
+        },
+        {
+          "title": "Devolver Bootleg",
+          "description": "2019 video game",
+          "score": 98
+        },
+        {
+          "title": "The Binding of Isaac: Four Souls",
+          "description": "Card game in the universe of The Binding of Isaac",
+          "score": 37
+        }
+      ]
+    },
+    {
+      "id": "john-wick-hex",
+      "title": "John Wick Hex",
+      "localPath": "/games/john-wick-hex.webp",
+      "alias": "John Wick Hex",
+      "pageTitle": "John Wick Hex",
+      "pageUrl": "https://en.wikipedia.org/wiki/John_Wick_Hex",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/a/a0/John_wick_hex_cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2019 tactical role-playing video game",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "John Wick Hex",
+          "description": "2019 tactical role-playing video game",
+          "score": 645
+        },
+        {
+          "title": "Mike Bithell",
+          "description": "British video game designer and developer",
+          "score": 92
+        },
+        {
+          "title": "Lance Reddick",
+          "description": "American actor (1962–2023)",
+          "score": 43
+        },
+        {
+          "title": "John Wick (film)",
+          "description": "2014 film directed by Chad Stahelski and David Leitch",
+          "score": -34
+        }
+      ]
+    },
+    {
+      "id": "katana-zero",
+      "title": "Katana ZERO",
+      "localPath": "/games/katana-zero.webp",
+      "alias": "Katana ZERO",
+      "pageTitle": "Katana Zero",
+      "pageUrl": "https://en.wikipedia.org/wiki/Katana_Zero",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/d/da/Katana_Zero_cover.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2019 video game",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Katana Zero",
+          "description": "2019 video game",
+          "score": 645
+        },
+        {
+          "title": "Final Fight (video game)",
+          "description": "1989 beat-'em-up video game developed by Capcom",
+          "score": 102
+        },
+        {
+          "title": "Fatal Frame II: Crimson Butterfly Remake",
+          "description": "2026 video game remake",
+          "score": 96
+        },
+        {
+          "title": "Braid (video game)",
+          "description": "2008 video game",
+          "score": 94
+        }
+      ]
+    },
+    {
+      "id": "little-nightmares",
+      "title": "Little Nightmares",
+      "localPath": "/games/little-nightmares.webp",
+      "alias": "Little Nightmares",
+      "pageTitle": "Little Nightmares",
+      "pageUrl": "https://en.wikipedia.org/wiki/Little_Nightmares",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/d/d8/Little_Nightmares_Box_Art.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2017 puzzle-platform horror adventure video game",
+      "score": 643,
+      "candidates": [
+        {
+          "title": "Little Nightmares",
+          "description": "2017 puzzle-platform horror adventure video game",
+          "score": 643
+        },
+        {
+          "title": "Little Nightmares (series)",
+          "description": "video game series",
+          "score": 345
+        },
+        {
+          "title": "Little Nightmares III",
+          "description": "2025 video game developed by Supermassive Games",
+          "score": 341
+        },
+        {
+          "title": "Little Nightmares II",
+          "description": "2021 puzzle solving horror video game",
+          "score": 339
+        }
+      ]
+    },
+    {
+      "id": "little-nightmares-2",
+      "title": "Little Nightmares II",
+      "localPath": "/games/little-nightmares-2.webp",
+      "alias": "Little Nightmares II",
+      "pageTitle": "Little Nightmares II",
+      "pageUrl": "https://en.wikipedia.org/wiki/Little_Nightmares_II",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/8/84/Little_Nightmares_II_cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2021 puzzle solving horror video game",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Little Nightmares II",
+          "description": "2021 puzzle solving horror video game",
+          "score": 645
+        },
+        {
+          "title": "Little Nightmares",
+          "description": "2017 puzzle-platform horror adventure video game",
+          "score": 294
+        },
+        {
+          "title": "Little Nightmares III",
+          "description": "2025 video game developed by Supermassive Games",
+          "score": 292
+        },
+        {
+          "title": "Little Nightmares (series)",
+          "description": "video game series",
+          "score": 201
+        }
+      ]
+    },
+    {
+      "id": "my-friend-pedro",
+      "title": "My Friend Pedro",
+      "localPath": "/games/my-friend-pedro.webp",
+      "alias": "My Friend Pedro",
+      "pageTitle": "My Friend Pedro",
+      "pageUrl": "https://en.wikipedia.org/wiki/My_Friend_Pedro",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/5/5f/My_Friend_Pedro.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2019 shoot 'em up video game",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "My Friend Pedro",
+          "description": "2019 shoot 'em up video game",
+          "score": 645
+        },
+        {
+          "title": "Dispatch (video game)",
+          "description": "2025 video game developed by AdHoc Studio",
+          "score": 102
+        },
+        {
+          "title": "Omori (video game)",
+          "description": "2020 horror role-playing video game",
+          "score": 100
+        },
+        {
+          "title": "Pedro Pascal",
+          "description": "Chilean and American actor (born 1975)",
+          "score": 96
+        }
+      ]
+    },
+    {
+      "id": "ori-blind-forest",
+      "title": "Ori and the Blind Forest",
+      "localPath": "/games/ori-blind-forest.webp",
+      "alias": "Ori and the Blind Forest",
+      "pageTitle": "Ori and the Blind Forest",
+      "pageUrl": "https://en.wikipedia.org/wiki/Ori_and_the_Blind_Forest",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/b/b2/Ori_and_the_Blind_Forest_Logo.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2015 platform-adventure Metroidvania video game",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Ori and the Blind Forest",
+          "description": "2015 platform-adventure Metroidvania video game",
+          "score": 645
+        },
+        {
+          "title": "Ori and the Will of the Wisps",
+          "description": "2020 platform-adventure video game developed by Moon Studios",
+          "score": 192
+        },
+        {
+          "title": "No Rest for the Wicked (video game)",
+          "description": "2026 video game developed by Moon Studios",
+          "score": 134
+        },
+        {
+          "title": "Moon Studios",
+          "description": "Austrian video game developer",
+          "score": 104
+        }
+      ]
+    },
+    {
+      "id": "ori-wisps",
+      "title": "Ori and the Will of the Wisps",
+      "localPath": "/games/ori-wisps.webp",
+      "alias": "Ori and the Will of the Wisps",
+      "pageTitle": "Ori and the Will of the Wisps",
+      "pageUrl": "https://en.wikipedia.org/wiki/Ori_and_the_Will_of_the_Wisps",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/9/94/Ori_and_the_Will_of_the_Wisps.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2020 platform-adventure video game developed by Moon Studios",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Ori and the Will of the Wisps",
+          "description": "2020 platform-adventure video game developed by Moon Studios",
+          "score": 645
+        },
+        {
+          "title": "Ori and the Blind Forest",
+          "description": "2015 platform-adventure Metroidvania video game",
+          "score": 178
+        },
+        {
+          "title": "No Rest for the Wicked (video game)",
+          "description": "2026 video game developed by Moon Studios",
+          "score": 129
+        },
+        {
+          "title": "The Game Awards 2019",
+          "description": "annual video game award ceremony",
+          "score": 123
+        }
+      ]
+    },
+    {
+      "id": "shovel-knight-treasure-trove-con-expansion",
+      "title": "Shovel Knight: Treasure Trove (con expansión)",
+      "localPath": "/games/shovel-knight-treasure-trove-con-expansion.webp",
+      "alias": "Shovel Knight",
+      "pageTitle": "Shovel Knight",
+      "pageUrl": "https://en.wikipedia.org/wiki/Shovel_Knight",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/c/c8/Shovel_knight_cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2014 video game",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Shovel Knight",
+          "description": "2014 video game",
+          "score": 645
+        },
+        {
+          "title": "Shovel Knight Dig",
+          "description": "2022 video game",
+          "score": 343
+        },
+        {
+          "title": "Shovel Knight Pocket Dungeon",
+          "description": "2021 video game",
+          "score": 341
+        },
+        {
+          "title": "Shovel Knight Showdown",
+          "description": "2019 video game",
+          "score": 339
+        }
+      ]
+    },
+    {
+      "id": "steamworld-dig-2",
+      "title": "SteamWorld Dig 2",
+      "localPath": "/games/steamworld-dig-2.webp",
+      "alias": "SteamWorld Dig 2",
+      "pageTitle": "SteamWorld Dig 2",
+      "pageUrl": "https://en.wikipedia.org/wiki/SteamWorld_Dig_2",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/b/b8/SteamWorld_Dig_2_pre-release_Steam_header.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2017 video game",
+      "score": 643,
+      "candidates": [
+        {
+          "title": "SteamWorld Dig 2",
+          "description": "2017 video game",
+          "score": 643
+        },
+        {
+          "title": "SteamWorld Dig",
+          "description": "2013 platform action-adventure game",
+          "score": 345
+        },
+        {
+          "title": "SteamWorld",
+          "description": "video game series",
+          "score": 269
+        },
+        {
+          "title": "The Dig (video game)",
+          "description": "1995 video game",
+          "score": 176
+        }
+      ]
+    },
+    {
+      "id": "steamworld-heist",
+      "title": "SteamWorld Heist",
+      "localPath": "/games/steamworld-heist.webp",
+      "alias": "SteamWorld Heist",
+      "pageTitle": "SteamWorld Heist",
+      "pageUrl": "https://en.wikipedia.org/wiki/SteamWorld_Heist",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/1/12/SteamWorld_Heist_logo.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2015 video game",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "SteamWorld Heist",
+          "description": "2015 video game",
+          "score": 645
+        },
+        {
+          "title": "SteamWorld Heist II",
+          "description": "2024 video game",
+          "score": 343
+        },
+        {
+          "title": "SteamWorld",
+          "description": "video game series",
+          "score": 271
+        },
+        {
+          "title": "SteamWorld Dig 2",
+          "description": "2017 video game",
+          "score": 174
+        }
+      ]
+    },
+    {
+      "id": "void-bastards",
+      "title": "Void Bastards",
+      "localPath": "/games/void-bastards.webp",
+      "alias": "Void Bastards",
+      "pageTitle": "Void Bastards",
+      "pageUrl": "https://en.wikipedia.org/wiki/Void_Bastards",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/2/21/Void_Bastards_cover_art.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2019 video game",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Void Bastards",
+          "description": "2019 video game",
+          "score": 645
+        },
+        {
+          "title": "Wild Bastards",
+          "description": "2024 video game",
+          "score": 178
+        },
+        {
+          "title": "GTFO (video game)",
+          "description": "2021 first-person shooter video game developed by 10 Chambers Collective",
+          "score": 106
+        },
+        {
+          "title": "Revelations: Persona",
+          "description": "1996 video game",
+          "score": 102
+        }
+      ]
+    },
+    {
+      "id": "bioshock",
+      "title": "BioShock: The Collection",
+      "localPath": "/games/bioshock.webp",
+      "alias": "BioShock: The Collection",
+      "pageTitle": "BioShock: The Collection",
+      "pageUrl": "https://en.wikipedia.org/wiki/BioShock:_The_Collection",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/e/e7/BioShock-_The_Collection.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "video game compilation",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "BioShock: The Collection",
+          "description": "video game compilation",
+          "score": 645
+        },
+        {
+          "title": "BioShock",
+          "description": "2007 video game",
+          "score": 250
+        },
+        {
+          "title": "BioShock (series)",
+          "description": "first-person shooter video game series developed by Irrational Games",
+          "score": 153
+        },
+        {
+          "title": "BioShock 2",
+          "description": "2010 first-person shooter video game developed by 2K Marin",
+          "score": 151
+        }
+      ]
+    },
+    {
+      "id": "borderlands",
+      "title": "Borderlands Legendary Collection",
+      "localPath": "/games/borderlands.webp",
+      "alias": "Borderlands Legendary Collection",
+      "pageTitle": "Borderlands (video game)",
+      "pageUrl": "https://en.wikipedia.org/wiki/Borderlands_(video_game)",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/0/01/Borderlandscover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2009 action role-playing first-person shooter video game",
+      "score": 250,
+      "candidates": [
+        {
+          "title": "Borderlands (video game)",
+          "description": "2009 action role-playing first-person shooter video game",
+          "score": 250
+        },
+        {
+          "title": "Borderlands: The Handsome Collection",
+          "description": "2015 video game compilation",
+          "score": 203
+        },
+        {
+          "title": "Borderlands: The Pre-Sequel",
+          "description": "2014 action role-playing first-person shooter video game developed by 2K Australia",
+          "score": 149
+        },
+        {
+          "title": "Borderlands 2",
+          "description": "2012 action role-playing first-person shooter video game developed by Gearbox Software",
+          "score": 147
+        }
+      ]
+    },
+    {
+      "id": "crysis",
+      "title": "Crysis Remastered",
+      "localPath": "/games/crysis.webp",
+      "alias": "Crysis Remastered",
+      "pageTitle": "Crysis (video game)",
+      "pageUrl": "https://en.wikipedia.org/wiki/Crysis_(video_game)",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/e/e9/Crysis_Cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2007 first-person shooter video game",
+      "score": 275,
+      "candidates": [
+        {
+          "title": "Crysis (video game)",
+          "description": "2007 first-person shooter video game",
+          "score": 275
+        },
+        {
+          "title": "Crysis 2",
+          "description": "2011 first-person shooter video game developed by Crytek",
+          "score": 178
+        },
+        {
+          "title": "Crysis 3",
+          "description": "2013 first-person shooter video game",
+          "score": 176
+        },
+        {
+          "title": "Outcast (video game)",
+          "description": "action-adventure video game released in 1999",
+          "score": 94
+        }
+      ]
+    },
+    {
+      "id": "doom-2016",
+      "title": "DOOM (2016)",
+      "localPath": "/games/doom-2016.webp",
+      "alias": "DOOM (2016)",
+      "pageTitle": "Doom (2016 video game)",
+      "pageUrl": "https://en.wikipedia.org/wiki/Doom_(2016_video_game)",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/2/28/Doom_Cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2016 first-person shooter video game",
+      "score": 345,
+      "candidates": [
+        {
+          "title": "Doom (2016 video game)",
+          "description": "2016 first-person shooter video game",
+          "score": 345
+        },
+        {
+          "title": "Doom (1993 video game)",
+          "description": "1993 first-person shooter video game developed by id Software",
+          "score": 178
+        },
+        {
+          "title": "Doom (franchise)",
+          "description": "series of video games and other media",
+          "score": 176
+        },
+        {
+          "title": "Doom: The Dark Ages",
+          "description": "2025 video game developed by id Software",
+          "score": 172
+        }
+      ]
+    },
+    {
+      "id": "dying-light-platinum-edition",
+      "title": "Dying Light: Platinum Edition",
+      "localPath": "/games/dying-light-platinum-edition.webp",
+      "alias": "Dying Light: Platinum Edition",
+      "pageTitle": "Dying Light",
+      "pageUrl": "https://en.wikipedia.org/wiki/Dying_Light",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/c/c0/Dying_Light_cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2015 survival horror video game",
+      "score": 275,
+      "candidates": [
+        {
+          "title": "Dying Light",
+          "description": "2015 survival horror video game",
+          "score": 275
+        },
+        {
+          "title": "Dying Light 2",
+          "description": "2022 survival role-playing video game by Techland",
+          "score": 178
+        },
+        {
+          "title": "Dying Light: The Following",
+          "description": "2016 video game",
+          "score": 176
+        },
+        {
+          "title": "Bayonetta (video game)",
+          "description": "2009 video game",
+          "score": 104
+        }
+      ]
+    },
+    {
+      "id": "fortnite",
+      "title": "Fortnite",
+      "localPath": "/games/fortnite.webp",
+      "alias": "Fortnite",
+      "pageTitle": "Fortnite",
+      "pageUrl": "https://commons.wikimedia.org/wiki/File:FortniteLogo.svg",
+      "imageUrls": [
+        "https://commons.wikimedia.org/wiki/Special:Redirect/file/FortniteLogo.svg"
+      ],
+      "description": "Logotipo de Fortnite",
+      "imageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/FortniteLogo.svg",
+      "score": 1000,
+      "candidates": [
+        {
+          "title": "Fortnite",
+          "description": "Logotipo de Fortnite",
+          "score": 1000
+        }
+      ]
+    },
+    {
+      "id": "metroid-prime-remastered",
+      "title": "Metroid Prime Remastered",
+      "localPath": "/games/metroid-prime-remastered.webp",
+      "alias": "Metroid Prime Remastered",
+      "pageTitle": "Metroid Prime",
+      "pageUrl": "https://en.wikipedia.org/wiki/Metroid_Prime",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/b/ba/MetroidPrimebox.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2002 video game",
+      "score": 298,
+      "candidates": [
+        {
+          "title": "Metroid Prime",
+          "description": "2002 video game",
+          "score": 298
+        },
+        {
+          "title": "Metroid Prime 4: Beyond",
+          "description": "2025 video game developed by Retro Studios",
+          "score": 201
+        },
+        {
+          "title": "Metroidvania",
+          "description": "video game subgenre",
+          "score": 100
+        },
+        {
+          "title": "Kensuke Tanabe",
+          "description": "Japanese video game designer, producer and director",
+          "score": 94
+        }
+      ]
+    },
+    {
+      "id": "plants-vs-zombies-battle-for-neighborville",
+      "title": "Plants vs. Zombies: Battle for Neighborville",
+      "localPath": "/games/plants-vs-zombies-battle-for-neighborville.webp",
+      "alias": "Plants vs. Zombies: Battle for Neighborville",
+      "pageTitle": "Plants vs. Zombies: Battle for Neighborville",
+      "pageUrl": "https://en.wikipedia.org/wiki/Plants_vs._Zombies:_Battle_for_Neighborville",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/b/b5/PVZBFN.jpeg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2019 video game",
+      "score": 641,
+      "candidates": [
+        {
+          "title": "Plants vs. Zombies: Battle for Neighborville",
+          "description": "2019 video game",
+          "score": 641
+        },
+        {
+          "title": "Plants vs. Zombies (video game)",
+          "description": "2009 video game",
+          "score": 273
+        },
+        {
+          "title": "Plants vs. Zombies: Garden Warfare",
+          "description": "2014 third-person shooter video game",
+          "score": 174
+        },
+        {
+          "title": "Plants vs. Zombies: Garden Warfare 2",
+          "description": "2016 video game",
+          "score": 172
+        }
+      ]
+    },
+    {
+      "id": "resident-evil-revelations-2",
+      "title": "Resident Evil Revelations 2",
+      "localPath": "/games/resident-evil-revelations-2.webp",
+      "alias": "Resident Evil Revelations 2",
+      "pageTitle": "Resident Evil: Revelations 2",
+      "pageUrl": "https://en.wikipedia.org/wiki/Resident_Evil:_Revelations_2",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/7/74/ResidentEvilRevelations2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2015 survival horror video game",
+      "score": 643,
+      "candidates": [
+        {
+          "title": "Resident Evil: Revelations 2",
+          "description": "2015 survival horror video game",
+          "score": 643
+        },
+        {
+          "title": "Resident Evil: Revelations",
+          "description": "2012 survival horror video game",
+          "score": 345
+        },
+        {
+          "title": "Resident Evil Requiem",
+          "description": "2026 video game developed by Capcom",
+          "score": 197
+        },
+        {
+          "title": "Resident Evil: Resistance",
+          "description": "2020 survival horror multiplayer video game, part of the Resident Evil 3 package",
+          "score": 193
+        }
+      ]
+    },
+    {
+      "id": "splatoon-3",
+      "title": "Splatoon 3",
+      "localPath": "/games/splatoon-3.webp",
+      "alias": "Splatoon 3",
+      "pageTitle": "Splatoon 3",
+      "pageUrl": "https://en.wikipedia.org/wiki/Splatoon_3",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/4/4f/Splatoon.3.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2022 third-person shooter video game",
+      "score": 643,
+      "candidates": [
+        {
+          "title": "Splatoon 3",
+          "description": "2022 third-person shooter video game",
+          "score": 643
+        },
+        {
+          "title": "Splatoon (video game)",
+          "description": "2015 third-person shooter video game",
+          "score": 345
+        },
+        {
+          "title": "Splatoon",
+          "description": "video game series by Nintendo",
+          "score": 339
+        },
+        {
+          "title": "Splatoon 3: Side Order",
+          "description": "2024 video game expansion pack",
+          "score": 333
+        }
+      ]
+    },
+    {
+      "id": "wolfenstein-youngblood",
+      "title": "Wolfenstein: Youngblood",
+      "localPath": "/games/wolfenstein-youngblood.webp",
+      "alias": "Wolfenstein: Youngblood",
+      "pageTitle": "Wolfenstein: Youngblood",
+      "pageUrl": "https://en.wikipedia.org/wiki/Wolfenstein:_Youngblood",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/a/a0/Wolfenstein_Youngblood_cover_art.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2019 first-person shooter video game",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Wolfenstein: Youngblood",
+          "description": "2019 first-person shooter video game",
+          "score": 645
+        },
+        {
+          "title": "Wolfenstein 3D",
+          "description": "1992 first-person shooter video game",
+          "score": 176
+        },
+        {
+          "title": "Wolfenstein II: The New Colossus",
+          "description": "2017 video game",
+          "score": 174
+        },
+        {
+          "title": "Wolfenstein: Cyberpilot",
+          "description": "2019 virtual reality video game",
+          "score": 172
+        }
+      ]
+    },
+    {
+      "id": "xcom-2-collection",
+      "title": "XCOM 2 Collection",
+      "localPath": "/games/xcom-2-collection.webp",
+      "alias": "XCOM 2 Collection",
+      "pageTitle": "XCOM 2",
+      "pageUrl": "https://en.wikipedia.org/wiki/XCOM_2",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/c/c3/XCOM_2_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "turn-based tactical video game developed by Firaxis Games",
+      "score": 275,
+      "candidates": [
+        {
+          "title": "XCOM 2",
+          "description": "turn-based tactical video game developed by Firaxis Games",
+          "score": 275
+        },
+        {
+          "title": "XCOM: Enemy Unknown",
+          "description": "2012 video game",
+          "score": 176
+        },
+        {
+          "title": "Marvel's Midnight Suns",
+          "description": "2022 tactical role-playing video game developed by Firaxis Games",
+          "score": 104
+        },
+        {
+          "title": "X-COM: Terror from the Deep",
+          "description": "1995 video game",
+          "score": 98
+        }
+      ]
+    },
+    {
+      "id": "donkey-kong-bananza",
+      "title": "Donkey Kong Bananza",
+      "localPath": "/games/donkey-kong-bananza.webp",
+      "alias": "Donkey Kong Bananza",
+      "pageTitle": "Donkey Kong Bananza",
+      "pageUrl": "https://en.wikipedia.org/wiki/Donkey_Kong_Bananza",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/0/01/Donkey_Kong_Bananza_updated_box_art.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2025 video game",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Donkey Kong Bananza",
+          "description": "2025 video game",
+          "score": 645
+        },
+        {
+          "title": "Donkey Kong (1981 video game)",
+          "description": "1981 video game",
+          "score": 201
+        },
+        {
+          "title": "Donkey Kong 64",
+          "description": "1999 adventure platform video game for the Nintendo 64",
+          "score": 195
+        },
+        {
+          "title": "Donkey Kong Country",
+          "description": "1994 side-scroller platform video game for the SNES",
+          "score": 187
+        }
+      ]
+    },
+    {
+      "id": "mario-kart-world",
+      "title": "Mario Kart World",
+      "localPath": "/games/mario-kart-world.webp",
+      "alias": "Mario Kart World",
+      "pageTitle": "Mario Kart World",
+      "pageUrl": "https://en.wikipedia.org/wiki/Mario_Kart_World",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/6/65/Mario_Kart_World_Cover_Artwork.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2025 video game for Nintendo Switch 2",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Mario Kart World",
+          "description": "2025 video game for Nintendo Switch 2",
+          "score": 645
+        },
+        {
+          "title": "Mario Kart Wii",
+          "description": "2008 racing video game by Nintendo",
+          "score": 201
+        },
+        {
+          "title": "Super Mario Kart",
+          "description": "1992 racing video game",
+          "score": 199
+        },
+        {
+          "title": "Mario Kart DS",
+          "description": "2005 racing video game",
+          "score": 197
+        }
+      ]
+    },
+    {
+      "id": "metroid-prime-4",
+      "title": "Metroid Prime 4: Beyond",
+      "localPath": "/games/metroid-prime-4.webp",
+      "alias": "Metroid Prime 4: Beyond",
+      "pageTitle": "Metroid Prime 4: Beyond",
+      "pageUrl": "https://en.wikipedia.org/wiki/Metroid_Prime_4:_Beyond",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/4/48/Metroid_Prime_4_Beyond_cover_art.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2025 video game developed by Retro Studios",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Metroid Prime 4: Beyond",
+          "description": "2025 video game developed by Retro Studios",
+          "score": 645
+        },
+        {
+          "title": "Metroid Prime",
+          "description": "2002 video game",
+          "score": 296
+        },
+        {
+          "title": "Metroid (video game)",
+          "description": "1986 action-adventure shooter video game",
+          "score": 248
+        },
+        {
+          "title": "Metroid Prime 3: Corruption",
+          "description": "2007 video game",
+          "score": 197
+        }
+      ]
+    },
+    {
+      "id": "pokemon-pokopia",
+      "title": "Pokemon Pokopia",
+      "localPath": "/games/pokemon-pokopia.webp",
+      "alias": "Pokémon Pokopia",
+      "pageTitle": "Pokémon Pokopia",
+      "pageUrl": "https://en.wikipedia.org/wiki/Pok%C3%A9mon_Pokopia",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/6/6a/Pok%C3%A9mon_Pokopia_box_art.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2026 video game",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Pokémon Pokopia",
+          "description": "2026 video game",
+          "score": 645
+        },
+        {
+          "title": "Pokémon (video game series)",
+          "description": "Japanese video game series",
+          "score": 176
+        },
+        {
+          "title": "Game Freak",
+          "description": "Japanese video game developer",
+          "score": 108
+        },
+        {
+          "title": "Butterfree",
+          "description": "Pokémon species",
+          "score": 47
+        }
+      ]
+    },
+    {
+      "id": "resident-evil-9-requiem-8-7",
+      "title": "Resident Evil 9 Requiem, 8, 7",
+      "localPath": "/games/resident-evil-9-requiem-8-7.webp",
+      "alias": "Resident Evil 9 Requiem, 8, 7",
+      "pageTitle": "Resident Evil Requiem, Village y 7: Biohazard",
+      "pageUrl": "https://en.wikipedia.org/wiki/Resident_Evil_Requiem",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/en/1/15/Resident_Evil_Requiem_Cover_Art.jpg",
+        "https://upload.wikimedia.org/wikipedia/en/2/2c/Resident_Evil_Village.png",
+        "https://upload.wikimedia.org/wikipedia/en/f/fd/Resident_Evil_7_cover_art.jpg"
+      ],
+      "description": "Composición de los tres juegos incluidos en la oferta",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/1/15/Resident_Evil_Requiem_Cover_Art.jpg",
+      "score": 1000,
+      "candidates": [
+        {
+          "title": "Resident Evil Requiem, Village y 7: Biohazard",
+          "description": "Composición de los tres juegos incluidos en la oferta",
+          "score": 1000
+        }
+      ]
+    },
+    {
+      "id": "celeste",
+      "title": "Celeste",
+      "localPath": "/games/celeste.webp",
+      "alias": "Celeste",
+      "pageTitle": "Celeste (video game)",
+      "pageUrl": "https://en.wikipedia.org/wiki/Celeste_(video_game)",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Celeste_box_art_full.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2018 video game",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Celeste (video game)",
+          "description": "2018 video game",
+          "score": 645
+        },
+        {
+          "title": "Celeste 64: Fragments of the Mountain",
+          "description": "2024 video game",
+          "score": 341
+        },
+        {
+          "title": "Killing of Celeste Rivas Hernandez",
+          "description": "2025 killing in Los Angeles, California, USA",
+          "score": 280
+        },
+        {
+          "title": "Celeste Anderson",
+          "description": "Competitive Gamer, Reality TV Star",
+          "score": 274
+        }
+      ]
+    },
+    {
+      "id": "hollow-knight",
+      "title": "Hollow Knight",
+      "localPath": "/games/hollow-knight.webp",
+      "alias": "Hollow Knight",
+      "pageTitle": "Hollow Knight",
+      "pageUrl": "https://en.wikipedia.org/wiki/Hollow_Knight",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/d/de/Hollow_Knight_2026_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2017 video game",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Hollow Knight",
+          "description": "2017 video game",
+          "score": 645
+        },
+        {
+          "title": "Hollow Knight: Silksong",
+          "description": "2025 Metroidvania action-adventure video game developed by Team Cherry",
+          "score": 343
+        },
+        {
+          "title": "Hornet (Hollow Knight)",
+          "description": "character in Hollow Knight",
+          "score": 106
+        },
+        {
+          "title": "Matthew Griffin (game designer)",
+          "description": "American video game designer",
+          "score": 96
+        }
+      ]
+    },
+    {
+      "id": "membrane",
+      "title": "Membrane",
+      "localPath": "/games/membrane.webp",
+      "alias": "Membrane",
+      "pageTitle": "Membrane",
+      "pageUrl": "https://www.nintendo.com/fr-ca/store/products/membrane-switch/",
+      "imageUrls": [
+        "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/store/software/switch/70010000002864/f38c43a659c475c70c8aa6a16d1a27ac0bddcbc01ee178c226324524181b9aef"
+      ],
+      "description": "Imagen oficial de Nintendo para Membrane",
+      "imageUrl": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/store/software/switch/70010000002864/f38c43a659c475c70c8aa6a16d1a27ac0bddcbc01ee178c226324524181b9aef",
+      "score": 1000,
+      "candidates": [
+        {
+          "title": "Membrane",
+          "description": "Imagen oficial de Nintendo para Membrane",
+          "score": 1000
+        }
+      ]
+    },
+    {
+      "id": "pixeljunk-monsters-2",
+      "title": "PixelJunk Monsters 2",
+      "localPath": "/games/pixeljunk-monsters-2.webp",
+      "alias": "PixelJunk Monsters 2",
+      "pageTitle": "PixelJunk Monsters 2",
+      "pageUrl": "https://store.steampowered.com/app/749800/PixelJunk_Monsters_2/",
+      "imageUrls": [
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/749800/capsule_616x353.jpg?t=1715700492"
+      ],
+      "description": "Imagen oficial de la ficha de Steam para PixelJunk Monsters 2",
+      "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/749800/capsule_616x353.jpg?t=1715700492",
+      "score": 1000,
+      "candidates": [
+        {
+          "title": "PixelJunk Monsters 2",
+          "description": "Imagen oficial de la ficha de Steam para PixelJunk Monsters 2",
+          "score": 1000
+        }
+      ]
+    },
+    {
+      "id": "captain-toad",
+      "title": "Captain Toad: Treasure Tracker + DLC",
+      "localPath": "/games/captain-toad.webp",
+      "alias": "Captain Toad: Treasure Tracker + DLC",
+      "pageTitle": "Captain Toad: Treasure Tracker",
+      "pageUrl": "https://en.wikipedia.org/wiki/Captain_Toad:_Treasure_Tracker",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/9/90/CaptainToadtreasuretracker.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2014 action puzzle video game",
+      "score": 317,
+      "candidates": [
+        {
+          "title": "Captain Toad: Treasure Tracker",
+          "description": "2014 action puzzle video game",
+          "score": 317
+        },
+        {
+          "title": "Splatoon (video game)",
+          "description": "2015 third-person shooter video game",
+          "score": 108
+        },
+        {
+          "title": "Super Mario Odyssey",
+          "description": "2017 platform video game",
+          "score": 98
+        },
+        {
+          "title": "Super Mario",
+          "description": "video game series",
+          "score": 92
+        }
+      ]
+    },
+    {
+      "id": "luigi-mansion-3",
+      "title": "Luigi’s Mansion 3",
+      "localPath": "/games/luigi-mansion-3.webp",
+      "alias": "Luigi’s Mansion 3",
+      "pageTitle": "Luigi's Mansion 3",
+      "pageUrl": "https://en.wikipedia.org/wiki/Luigi%27s_Mansion_3",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/3/38/Luigi%27s_Mansion_3.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2019 action-adventure video game",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Luigi's Mansion 3",
+          "description": "2019 action-adventure video game",
+          "score": 645
+        },
+        {
+          "title": "Luigi's Mansion",
+          "description": "2001 video game",
+          "score": 339
+        },
+        {
+          "title": "Luigi's Mansion: Dark Moon",
+          "description": "2013 action-adventure video game",
+          "score": 248
+        },
+        {
+          "title": "Year of Luigi",
+          "description": "30th-anniversary celebration of Luigi in 2013",
+          "score": 115
+        }
+      ]
+    },
+    {
+      "id": "mario-and-sonic-at-the-olympic-games-tokyo-2020",
+      "title": "Mario & Sonic at the Olympic Games Tokyo 2020",
+      "localPath": "/games/mario-and-sonic-at-the-olympic-games-tokyo-2020.webp",
+      "alias": "Mario & Sonic at the Olympic Games Tokyo 2020",
+      "pageTitle": "Mario & Sonic at the Olympic Games Tokyo 2020",
+      "pageUrl": "https://en.wikipedia.org/wiki/Mario_%26_Sonic_at_the_Olympic_Games_Tokyo_2020",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/6/67/Mario_%26_Sonic_at_the_Olympic_Games_Tokyo_2020.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2019 video game",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Mario & Sonic at the Olympic Games Tokyo 2020",
+          "description": "2019 video game",
+          "score": 645
+        },
+        {
+          "title": "Mario & Sonic at the Rio 2016 Olympic Games",
+          "description": "2016 video game",
+          "score": 213
+        },
+        {
+          "title": "Olympic Games Tokyo 2020 - The Official Video Game",
+          "description": "2019 video game",
+          "score": 192
+        },
+        {
+          "title": "Sonic the Hedgehog (1991 video game)",
+          "description": "1991 video game",
+          "score": 135
+        }
+      ]
+    },
+    {
+      "id": "mario-rabbids",
+      "title": "Mario + Rabbids Sparks of Hope",
+      "localPath": "/games/mario-rabbids.webp",
+      "alias": "Mario + Rabbids Sparks of Hope",
+      "pageTitle": "Mario + Rabbids Sparks of Hope",
+      "pageUrl": "https://en.wikipedia.org/wiki/Mario_%2B_Rabbids_Sparks_of_Hope",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/6/66/Mario_%2B_Rabbids_Sparks_of_Hope_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2022 video game developed by Ubisoft Milan",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Mario + Rabbids Sparks of Hope",
+          "description": "2022 video game developed by Ubisoft Milan",
+          "score": 645
+        },
+        {
+          "title": "Rabbids",
+          "description": "computer game franchise",
+          "score": 174
+        },
+        {
+          "title": "Mario + Rabbids Kingdom Battle",
+          "description": "2017 video game",
+          "score": 164
+        },
+        {
+          "title": "Rayman Raving Rabbids: TV Party",
+          "description": "2008 video game",
+          "score": 130
+        }
+      ]
+    },
+    {
+      "id": "mario-kart-8",
+      "title": "Mario Kart 8 Deluxe",
+      "localPath": "/games/mario-kart-8.webp",
+      "alias": "Mario Kart 8 Deluxe",
+      "pageTitle": "Mario Kart 8",
+      "pageUrl": "https://en.wikipedia.org/wiki/Mario_Kart_8",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/b/b5/MarioKart8Boxart.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2014 racing video game",
+      "score": 298,
+      "candidates": [
+        {
+          "title": "Mario Kart 8",
+          "description": "2014 racing video game",
+          "score": 298
+        },
+        {
+          "title": "Mario Kart World",
+          "description": "2025 video game for Nintendo Switch 2",
+          "score": 201
+        },
+        {
+          "title": "Super Mario Kart",
+          "description": "1992 racing video game",
+          "score": 199
+        },
+        {
+          "title": "Mario Kart Wii",
+          "description": "2008 racing video game by Nintendo",
+          "score": 197
+        }
+      ]
+    },
+    {
+      "id": "mario-party-jamboree",
+      "title": "Mario Party Jamboree",
+      "localPath": "/games/mario-party-jamboree.webp",
+      "alias": "Mario Party Jamboree",
+      "pageTitle": "Super Mario Party Jamboree",
+      "pageUrl": "https://en.wikipedia.org/wiki/Super_Mario_Party_Jamboree",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/3/3a/Super_Mario_Party_Jamboree_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2024 video game developed by Nintendo",
+      "score": 345,
+      "candidates": [
+        {
+          "title": "Super Mario Party Jamboree",
+          "description": "2024 video game developed by Nintendo",
+          "score": 345
+        },
+        {
+          "title": "Mario Party (video game)",
+          "description": "1998 video game",
+          "score": 296
+        },
+        {
+          "title": "Mario Party",
+          "description": "party video game series published by Nintendo",
+          "score": 294
+        },
+        {
+          "title": "Mario Party Superstars",
+          "description": "2021 party video game developed by NDcube",
+          "score": 197
+        }
+      ]
+    },
+    {
+      "id": "mario-party-superstars",
+      "title": "Mario Party Superstars",
+      "localPath": "/games/mario-party-superstars.webp",
+      "alias": "Mario Party Superstars",
+      "pageTitle": "Mario Party Superstars",
+      "pageUrl": "https://en.wikipedia.org/wiki/Mario_Party_Superstars",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/1/1a/Mario_Party_Superstars_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2021 party video game developed by NDcube",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Mario Party Superstars",
+          "description": "2021 party video game developed by NDcube",
+          "score": 645
+        },
+        {
+          "title": "Mario Party (video game)",
+          "description": "1998 video game",
+          "score": 296
+        },
+        {
+          "title": "Mario Party",
+          "description": "party video game series published by Nintendo",
+          "score": 294
+        },
+        {
+          "title": "Super Mario Party Jamboree",
+          "description": "2024 video game developed by Nintendo",
+          "score": 197
+        }
+      ]
+    },
+    {
+      "id": "mario-strikers",
+      "title": "Mario Strikers: Battle League",
+      "localPath": "/games/mario-strikers.webp",
+      "alias": "Mario Strikers: Battle League",
+      "pageTitle": "Mario Strikers: Battle League",
+      "pageUrl": "https://en.wikipedia.org/wiki/Mario_Strikers:_Battle_League",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/4/4e/Mario_strikers_battle_league.jpeg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2022 video game developed by Next Level Games",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Mario Strikers: Battle League",
+          "description": "2022 video game developed by Next Level Games",
+          "score": 645
+        },
+        {
+          "title": "Mario Strikers Charged",
+          "description": "2007 sports video game published by Nintendo",
+          "score": 178
+        },
+        {
+          "title": "Mario Golf: Super Rush",
+          "description": "2021 sports video game developed by Camelot Software Planning",
+          "score": 129
+        },
+        {
+          "title": "Mario (franchise)",
+          "description": "media franchise",
+          "score": 84
+        }
+      ]
+    },
+    {
+      "id": "new-mario-u",
+      "title": "New Super Mario Bros. U Deluxe",
+      "localPath": "/games/new-mario-u.webp",
+      "alias": "New Super Mario Bros. U Deluxe",
+      "pageTitle": "New Super Mario Bros. U Deluxe",
+      "pageUrl": "https://www.nintendo.com/store/products/new-super-mario-bros-u-deluxe-us/",
+      "imageUrls": [
+        "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/en_US/products/games/switch/new-super-mario-bros-u-deluxe/107749-switch-new-super-mario-bros-u-deluxe-us-1200x675"
+      ],
+      "description": "Imagen oficial de Nintendo para New Super Mario Bros. U Deluxe",
+      "imageUrl": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/en_US/products/games/switch/new-super-mario-bros-u-deluxe/107749-switch-new-super-mario-bros-u-deluxe-us-1200x675",
+      "score": 1000,
+      "candidates": [
+        {
+          "title": "New Super Mario Bros. U Deluxe",
+          "description": "Imagen oficial de Nintendo para New Super Mario Bros. U Deluxe",
+          "score": 1000
+        }
+      ]
+    },
+    {
+      "id": "mario-origami",
+      "title": "Paper Mario: The Origami King",
+      "localPath": "/games/mario-origami.webp",
+      "alias": "Paper Mario: The Origami King",
+      "pageTitle": "Paper Mario: The Origami King",
+      "pageUrl": "https://en.wikipedia.org/wiki/Paper_Mario:_The_Origami_King",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/5/59/Paper_Mario_The_Origami_King.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2020 video game",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Paper Mario: The Origami King",
+          "description": "2020 video game",
+          "score": 645
+        },
+        {
+          "title": "Paper Mario: The Thousand-Year Door",
+          "description": "2004 role-playing video game",
+          "score": 186
+        },
+        {
+          "title": "Origami",
+          "description": "traditional Japanese art of paper folding",
+          "score": 164
+        },
+        {
+          "title": "Mario & Luigi: Paper Jam",
+          "description": "2015 video game",
+          "score": 162
+        }
+      ]
+    },
+    {
+      "id": "super-mario-3d-all-stars-coleccion-3-en-1",
+      "title": "Super Mario 3D All-Stars (colección 3 en 1)",
+      "localPath": "/games/super-mario-3d-all-stars-coleccion-3-en-1.webp",
+      "alias": "Super Mario 3D All-Stars",
+      "pageTitle": "Super Mario 3D All-Stars",
+      "pageUrl": "https://en.wikipedia.org/wiki/Super_Mario_3D_All-Stars",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/0/01/Super_Mario_3D_All_Stars.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2020 video game compilation developed by Nintendo",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Super Mario 3D All-Stars",
+          "description": "2020 video game compilation developed by Nintendo",
+          "score": 645
+        },
+        {
+          "title": "Super Mario",
+          "description": "video game series",
+          "score": 249
+        },
+        {
+          "title": "Super Mario All-Stars",
+          "description": "1993 video game developed by Nintendo Entertainment Analysis & Development",
+          "score": 220
+        },
+        {
+          "title": "Super Mario 3D World",
+          "description": "2013 platform video game developed by Nintendo",
+          "score": 190
+        }
+      ]
+    },
+    {
+      "id": "mario-3d-world",
+      "title": "Super Mario 3D World + Bowser’s Fury",
+      "localPath": "/games/mario-3d-world.webp",
+      "alias": "Super Mario 3D World + Bowser’s Fury",
+      "pageTitle": "Super Mario 3D World",
+      "pageUrl": "https://en.wikipedia.org/wiki/Super_Mario_3D_World",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/5/5e/Super_Mario_3D_World_box_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2013 platform video game developed by Nintendo",
+      "score": 298,
+      "candidates": [
+        {
+          "title": "Super Mario 3D World",
+          "description": "2013 platform video game developed by Nintendo",
+          "score": 298
+        },
+        {
+          "title": "Bowser's Fury",
+          "description": "2021 video game, bundled with Super Mario 3D World + Bowser's Fury",
+          "score": 250
+        },
+        {
+          "title": "Super Mario",
+          "description": "video game series",
+          "score": 248
+        },
+        {
+          "title": "Super Mario Bros.",
+          "description": "1985 platform video game",
+          "score": 151
+        }
+      ]
+    },
+    {
+      "id": "mario-wonder",
+      "title": "Super Mario Bros. Wonder",
+      "localPath": "/games/mario-wonder.webp",
+      "alias": "Super Mario Bros. Wonder",
+      "pageTitle": "Super Mario Bros. Wonder",
+      "pageUrl": "https://en.wikipedia.org/wiki/Super_Mario_Bros._Wonder",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/a/a3/Mariowonder.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2023 platform video game developed by Nintendo EPD",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Super Mario Bros. Wonder",
+          "description": "2023 platform video game developed by Nintendo EPD",
+          "score": 645
+        },
+        {
+          "title": "Super Mario Bros.",
+          "description": "1985 platform video game",
+          "score": 304
+        },
+        {
+          "title": "Super Mario",
+          "description": "video game series",
+          "score": 257
+        },
+        {
+          "title": "New Super Mario Bros.",
+          "description": "2006 side-scrolling platform video game developed by Nintendo",
+          "score": 213
+        }
+      ]
+    },
+    {
+      "id": "super-mario-galaxy-2",
+      "title": "Super Mario Galaxy 2",
+      "localPath": "/games/super-mario-galaxy-2.webp",
+      "alias": "Super Mario Galaxy 2",
+      "pageTitle": "Super Mario Galaxy 2",
+      "pageUrl": "https://en.wikipedia.org/wiki/Super_Mario_Galaxy_2",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/6/65/Super_Mario_Galaxy_2_Box_Art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2010 platforming video game",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Super Mario Galaxy 2",
+          "description": "2010 platforming video game",
+          "score": 645
+        },
+        {
+          "title": "Super Mario Galaxy",
+          "description": "2007 video game",
+          "score": 341
+        },
+        {
+          "title": "Super Mario",
+          "description": "video game series",
+          "score": 286
+        },
+        {
+          "title": "Super Mario Odyssey",
+          "description": "2017 platform video game",
+          "score": 197
+        }
+      ]
+    },
+    {
+      "id": "mario-maker-2",
+      "title": "Super Mario Maker 2",
+      "localPath": "/games/mario-maker-2.webp",
+      "alias": "Super Mario Maker 2",
+      "pageTitle": "Super Mario Maker 2",
+      "pageUrl": "https://en.wikipedia.org/wiki/Super_Mario_Maker_2",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/c/c7/Super_Mario_Maker_2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2019 level editor video game developed by Nintendo",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Super Mario Maker 2",
+          "description": "2019 level editor video game developed by Nintendo",
+          "score": 645
+        },
+        {
+          "title": "Super Mario Maker",
+          "description": "2015 level editor video game developed by Nintendo EAD",
+          "score": 343
+        },
+        {
+          "title": "Super Mario",
+          "description": "video game series",
+          "score": 290
+        },
+        {
+          "title": "Super Mario Land",
+          "description": "1989 video game for the Game Boy",
+          "score": 199
+        }
+      ]
+    },
+    {
+      "id": "mario-odyssey",
+      "title": "Super Mario Odyssey",
+      "localPath": "/games/mario-odyssey.webp",
+      "alias": "Super Mario Odyssey",
+      "pageTitle": "Super Mario Odyssey",
+      "pageUrl": "https://en.wikipedia.org/wiki/Super_Mario_Odyssey",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/8/8d/Super_Mario_Odyssey.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2017 platform video game",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Super Mario Odyssey",
+          "description": "2017 platform video game",
+          "score": 645
+        },
+        {
+          "title": "Super Mario",
+          "description": "video game series",
+          "score": 296
+        },
+        {
+          "title": "Super Mario Kart",
+          "description": "1992 racing video game",
+          "score": 197
+        },
+        {
+          "title": "Super Mario Sunshine",
+          "description": "2002 platform video game developed by Nintendo",
+          "score": 195
+        }
+      ]
+    },
+    {
+      "id": "super-mario-party",
+      "title": "Super Mario Party",
+      "localPath": "/games/super-mario-party.webp",
+      "alias": "Super Mario Party",
+      "pageTitle": "Super Mario Party",
+      "pageUrl": "https://en.wikipedia.org/wiki/Super_Mario_Party",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/6/6c/Super_Mario_Party.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2018 party video game",
+      "score": 643,
+      "candidates": [
+        {
+          "title": "Super Mario Party",
+          "description": "2018 party video game",
+          "score": 643
+        },
+        {
+          "title": "Super Mario Party Jamboree",
+          "description": "2024 video game developed by Nintendo",
+          "score": 341
+        },
+        {
+          "title": "Mario Party (video game)",
+          "description": "1998 video game",
+          "score": 298
+        },
+        {
+          "title": "Mario Party",
+          "description": "party video game series published by Nintendo",
+          "score": 292
+        }
+      ]
+    },
+    {
+      "id": "mario-rpg",
+      "title": "Super Mario RPG",
+      "localPath": "/games/mario-rpg.webp",
+      "alias": "Super Mario RPG",
+      "pageTitle": "Super Mario RPG",
+      "pageUrl": "https://en.wikipedia.org/wiki/Super_Mario_RPG",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/8/89/SuperMarioRPGSNESCoverArtUS.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "1996 action role-playing game",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Super Mario RPG",
+          "description": "1996 action role-playing game",
+          "score": 645
+        },
+        {
+          "title": "Super Paper Mario",
+          "description": "2007 video game",
+          "score": 199
+        },
+        {
+          "title": "Super Columbine Massacre RPG!",
+          "description": "2005 role-playing video game",
+          "score": 197
+        },
+        {
+          "title": "Paper Mario (video game)",
+          "description": "2000 video game",
+          "score": 145
+        }
+      ]
+    },
+    {
+      "id": "super-smash-bros-ultimate",
+      "title": "Super Smash Bros. Ultimate",
+      "localPath": "/games/super-smash-bros-ultimate.webp",
+      "alias": "Super Smash Bros. Ultimate",
+      "pageTitle": "Super Smash Bros. Ultimate",
+      "pageUrl": "https://en.wikipedia.org/wiki/Super_Smash_Bros._Ultimate",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/5/50/Super_Smash_Bros._Ultimate.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2018 fighting video game",
+      "score": 643,
+      "candidates": [
+        {
+          "title": "Super Smash Bros. Ultimate",
+          "description": "2018 fighting video game",
+          "score": 643
+        },
+        {
+          "title": "Super Smash Bros. Brawl",
+          "description": "2008 crossover fighting video game by Nintendo",
+          "score": 211
+        },
+        {
+          "title": "Super Smash Bros. for Nintendo 3DS and Wii U",
+          "description": "2014 fighting video games",
+          "score": 203
+        },
+        {
+          "title": "List of major Super Smash Bros. Ultimate tournaments",
+          "description": "Wikimedia list article",
+          "score": 116
+        }
+      ]
+    },
+    {
+      "id": "super-smash-bros-ultimate-pase-de-expansion",
+      "title": "Super Smash Bros. Ultimate + Pase de expansión",
+      "localPath": "/games/super-smash-bros-ultimate-pase-de-expansion.webp",
+      "alias": "Super Smash Bros Ultimate",
+      "pageTitle": "Super Smash Bros. Ultimate",
+      "pageUrl": "https://en.wikipedia.org/wiki/Super_Smash_Bros._Ultimate",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/5/50/Super_Smash_Bros._Ultimate.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2018 fighting video game",
+      "score": 641,
+      "candidates": [
+        {
+          "title": "Super Smash Bros. Ultimate",
+          "description": "2018 fighting video game",
+          "score": 641
+        },
+        {
+          "title": "Super Smash Bros. Brawl",
+          "description": "2008 crossover fighting video game by Nintendo",
+          "score": 213
+        },
+        {
+          "title": "Super Smash Bros. for Nintendo 3DS and Wii U",
+          "description": "2014 fighting video games",
+          "score": 201
+        },
+        {
+          "title": "List of major Super Smash Bros. Ultimate tournaments",
+          "description": "Wikimedia list article",
+          "score": 118
+        }
+      ]
+    },
+    {
+      "id": "warioware-get-it-together",
+      "title": "WarioWare: Get It Together!",
+      "localPath": "/games/warioware-get-it-together.webp",
+      "alias": "WarioWare: Get It Together!",
+      "pageTitle": "WarioWare: Get It Together!",
+      "pageUrl": "https://en.wikipedia.org/wiki/WarioWare:_Get_It_Together!",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/c/c5/WarioWare_Get_it_Together_icon.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2021 video game developed by Intelligent Systems",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "WarioWare: Get It Together!",
+          "description": "2021 video game developed by Intelligent Systems",
+          "score": 645
+        },
+        {
+          "title": "WarioWare",
+          "description": "video game series",
+          "score": 236
+        },
+        {
+          "title": "WarioWare: Move It!",
+          "description": "2023 video game developed by Intelligent Systems",
+          "score": 178
+        },
+        {
+          "title": "WarioWare: Smooth Moves",
+          "description": "2006 video game",
+          "score": 133
+        }
+      ]
+    },
+    {
+      "id": "yoshi-s-crafted-world",
+      "title": "Yoshi’s Crafted World",
+      "localPath": "/games/yoshi-s-crafted-world.webp",
+      "alias": "Yoshi’s Crafted World",
+      "pageTitle": "Yoshi's Crafted World",
+      "pageUrl": "https://en.wikipedia.org/wiki/Yoshi%27s_Crafted_World",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/3/38/Yoshi%27s_Crafted_World.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2019 side-scrolling platform video game developed by Good-Feel",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Yoshi's Crafted World",
+          "description": "2019 side-scrolling platform video game developed by Good-Feel",
+          "score": 645
+        },
+        {
+          "title": "Yoshi's Woolly World",
+          "description": "2015 platform video game",
+          "score": 193
+        },
+        {
+          "title": "Yoshi and the Mysterious Book",
+          "description": "2026 video game",
+          "score": 153
+        },
+        {
+          "title": "Yoshi's Story",
+          "description": "1997 video game by Nintendo",
+          "score": 149
+        }
+      ]
+    },
+    {
+      "id": "advance-wars-1-2-re-boot-camp",
+      "title": "Advance Wars 1+2: Re-Boot Camp",
+      "localPath": "/games/advance-wars-1-2-re-boot-camp.webp",
+      "alias": "Advance Wars 1+2: Re-Boot Camp",
+      "pageTitle": "Advance Wars 1+2: Re-Boot Camp",
+      "pageUrl": "https://en.wikipedia.org/wiki/Advance_Wars_1%2B2:_Re-Boot_Camp",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/7/71/Advance_Wars_1-2_Re-Boot_Camp.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2023 video game developed by WayForward",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Advance Wars 1+2: Re-Boot Camp",
+          "description": "2023 video game developed by WayForward",
+          "score": 645
+        },
+        {
+          "title": "Advance Wars",
+          "description": "2001 video game",
+          "score": 259
+        },
+        {
+          "title": "Advance Wars 2: Black Hole Rising",
+          "description": "2003 video game",
+          "score": 162
+        },
+        {
+          "title": "Teslagrad 2",
+          "description": "2023 video game developed by Rain Games",
+          "score": 100
+        }
+      ]
+    },
+    {
+      "id": "animal-crossing-new-horizons",
+      "title": "Animal Crossing: New Horizons",
+      "localPath": "/games/animal-crossing-new-horizons.webp",
+      "alias": "Animal Crossing: New Horizons",
+      "pageTitle": "Animal Crossing: New Horizons",
+      "pageUrl": "https://en.wikipedia.org/wiki/Animal_Crossing:_New_Horizons",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/1/1f/Animal_Crossing_New_Horizons.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2020 life simulation video game",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Animal Crossing: New Horizons",
+          "description": "2020 life simulation video game",
+          "score": 645
+        },
+        {
+          "title": "Animal Crossing",
+          "description": "video game series developed by Nintendo",
+          "score": 273
+        },
+        {
+          "title": "Animal Crossing: New Leaf",
+          "description": "2012 life simulation video game released by Nintendo",
+          "score": 205
+        },
+        {
+          "title": "Animal Crossing: Happy Home Designer",
+          "description": "2015 video game",
+          "score": 172
+        }
+      ]
+    },
+    {
+      "id": "batman-arkham-trilogy",
+      "title": "Batman: Arkham Trilogy",
+      "localPath": "/games/batman-arkham-trilogy.webp",
+      "alias": "Batman: Arkham Trilogy",
+      "pageTitle": "Batman: Arkham",
+      "pageUrl": "https://en.wikipedia.org/wiki/Batman:_Arkham",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/4/48/Batman_Arkham_series_logo.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "video game series",
+      "score": 286,
+      "candidates": [
+        {
+          "title": "Batman: Arkham",
+          "description": "video game series",
+          "score": 286
+        },
+        {
+          "title": "Batman: Arkham Asylum",
+          "description": "2009 action-adventure game",
+          "score": 203
+        },
+        {
+          "title": "Batman: Arkham Shadow",
+          "description": "2024 video game developed by Camouflaj",
+          "score": 201
+        },
+        {
+          "title": "Batman: Arkham Origins",
+          "description": "2013 action-adventure video game",
+          "score": 199
+        }
+      ]
+    },
+    {
+      "id": "bayonetta",
+      "title": "Bayonetta",
+      "localPath": "/games/bayonetta.webp",
+      "alias": "Bayonetta",
+      "pageTitle": "Bayonetta (video game)",
+      "pageUrl": "https://en.wikipedia.org/wiki/Bayonetta_(video_game)",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/8/81/Bayonetta_box_artwork.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2009 video game",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Bayonetta (video game)",
+          "description": "2009 video game",
+          "score": 645
+        },
+        {
+          "title": "Bayonetta",
+          "description": "video game series",
+          "score": 639
+        },
+        {
+          "title": "Bayonetta 3",
+          "description": "2022 video game developed by PlatinumGames",
+          "score": 341
+        },
+        {
+          "title": "Bayonetta 2",
+          "description": "2014 video game",
+          "score": 337
+        }
+      ]
+    },
+    {
+      "id": "bayonetta-3",
+      "title": "Bayonetta 3",
+      "localPath": "/games/bayonetta-3.webp",
+      "alias": "Bayonetta 3",
+      "pageTitle": "Bayonetta 3",
+      "pageUrl": "https://en.wikipedia.org/wiki/Bayonetta_3",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/f/fe/Bayonetta_3_cover.webp?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2022 video game developed by PlatinumGames",
+      "score": 643,
+      "candidates": [
+        {
+          "title": "Bayonetta 3",
+          "description": "2022 video game developed by PlatinumGames",
+          "score": 643
+        },
+        {
+          "title": "Bayonetta (video game)",
+          "description": "2009 video game",
+          "score": 345
+        },
+        {
+          "title": "Bayonetta",
+          "description": "video game series",
+          "score": 335
+        },
+        {
+          "title": "Bayonetta 2",
+          "description": "2014 video game",
+          "score": 246
+        }
+      ]
+    },
+    {
+      "id": "cuphead",
+      "title": "Cuphead",
+      "localPath": "/games/cuphead.webp",
+      "alias": "Cuphead",
+      "pageTitle": "Cuphead",
+      "pageUrl": "https://en.wikipedia.org/wiki/Cuphead",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/e/eb/Cuphead_%28artwork%29.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2017 video game",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Cuphead",
+          "description": "2017 video game",
+          "score": 645
+        },
+        {
+          "title": "Cuphead (character)",
+          "description": "video game character",
+          "score": 163
+        },
+        {
+          "title": "The Cuphead Show!",
+          "description": "animated streaming television series",
+          "score": 106
+        },
+        {
+          "title": "Boss (video games)",
+          "description": "significant and especially strong enemy in video games",
+          "score": 100
+        }
+      ]
+    },
+    {
+      "id": "dragon-ball-fighterz-fighterz-edition",
+      "title": "Dragon Ball FighterZ – FighterZ Edition",
+      "localPath": "/games/dragon-ball-fighterz-fighterz-edition.webp",
+      "alias": "Dragon Ball FighterZ",
+      "pageTitle": "Dragon Ball FighterZ",
+      "pageUrl": "https://en.wikipedia.org/wiki/Dragon_Ball_FighterZ",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/a/ad/DBFZ_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2018 2.5D fighting game developed by Arc System Works and published by Bandai Namco Entertainment",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Dragon Ball FighterZ",
+          "description": "2018 2.5D fighting game developed by Arc System Works and published by Bandai Namco Entertainment",
+          "score": 645
+        },
+        {
+          "title": "Dragon Ball Z: Budokai",
+          "description": "video game series",
+          "score": 199
+        },
+        {
+          "title": "Dragon Ball Z: Kakarot",
+          "description": "2020 video game",
+          "score": 197
+        },
+        {
+          "title": "Dragon Ball Z: Shin Budokai",
+          "description": "2006 video game",
+          "score": 195
+        }
+      ]
+    },
+    {
+      "id": "fall-guys",
+      "title": "Fall Guys",
+      "localPath": "/games/fall-guys.webp",
+      "alias": "Fall Guys",
+      "pageTitle": "Fall Guys",
+      "pageUrl": "https://www.fallguys.com/?lang=en-US",
+      "imageUrls": [
+        "https://cdn2.unrealengine.com/fg-10-3-evg-keyart-withlogo-1920x1080-11-1920x1080-198587253bf0.png"
+      ],
+      "description": "Arte oficial de Fall Guys",
+      "imageUrl": "https://cdn2.unrealengine.com/fg-10-3-evg-keyart-withlogo-1920x1080-11-1920x1080-198587253bf0.png",
+      "score": 1000,
+      "candidates": [
+        {
+          "title": "Fall Guys",
+          "description": "Arte oficial de Fall Guys",
+          "score": 1000
+        }
+      ]
+    },
+    {
+      "id": "fifa-20",
+      "title": "FIFA 20",
+      "localPath": "/games/fifa-20.webp",
+      "alias": "FIFA 20",
+      "pageTitle": "FIFA 20",
+      "pageUrl": "https://en.wikipedia.org/wiki/FIFA_20",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/2/21/FIFA_20_Standard_Edition_Cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2019 video game",
+      "score": 641,
+      "candidates": [
+        {
+          "title": "FIFA 20",
+          "description": "2019 video game",
+          "score": 641
+        },
+        {
+          "title": "FIFA (video game series)",
+          "description": "association football video game series",
+          "score": 180
+        },
+        {
+          "title": "FIFA Street (2005 video game)",
+          "description": "2005 video game",
+          "score": 178
+        },
+        {
+          "title": "FIFA International Soccer",
+          "description": "1993 sports video game",
+          "score": 174
+        }
+      ]
+    },
+    {
+      "id": "fifa-21",
+      "title": "FIFA 21",
+      "localPath": "/games/fifa-21.webp",
+      "alias": "FIFA 21",
+      "pageTitle": "FIFA 21",
+      "pageUrl": "https://en.wikipedia.org/wiki/FIFA_21",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/b/bb/FIFA_21_Standard_Edition_Cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2020 association football video game developed by Electronic Arts",
+      "score": 643,
+      "candidates": [
+        {
+          "title": "FIFA 21",
+          "description": "2020 association football video game developed by Electronic Arts",
+          "score": 643
+        },
+        {
+          "title": "FIFA (video game series)",
+          "description": "association football video game series",
+          "score": 180
+        },
+        {
+          "title": "FIFA Street (2005 video game)",
+          "description": "2005 video game",
+          "score": 176
+        },
+        {
+          "title": "FIFA Street (2012 video game)",
+          "description": "2012 video game",
+          "score": 174
+        }
+      ]
+    },
+    {
+      "id": "grand-theft-auto-the-trilogy-the-definitive-edition",
+      "title": "Grand Theft Auto: The Trilogy – The Definitive Edition",
+      "localPath": "/games/grand-theft-auto-the-trilogy-the-definitive-edition.webp",
+      "alias": "Grand Theft Auto: The Trilogy – The Definitive Edition",
+      "pageTitle": "Grand Theft Auto: The Trilogy – The Definitive Edition",
+      "pageUrl": "https://en.wikipedia.org/wiki/Grand_Theft_Auto:_The_Trilogy_%E2%80%93_The_Definitive_Edition",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/7/7f/Grand_Theft_Auto_-_The_Trilogy_-_The_Definitive_Edition.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2021 video game compilation published by Rockstar Games",
+      "score": 641,
+      "candidates": [
+        {
+          "title": "Grand Theft Auto: The Trilogy – The Definitive Edition",
+          "description": "2021 video game compilation published by Rockstar Games",
+          "score": 641
+        },
+        {
+          "title": "Grand Theft Auto",
+          "description": "action-adventure video game series",
+          "score": 263
+        },
+        {
+          "title": "Grand Theft Auto VI",
+          "description": "2026 video game developed by Rockstar Games",
+          "score": 170
+        },
+        {
+          "title": "Grand Theft Auto III",
+          "description": "2001 open-world action-adventure video game developed by DMA Design (Rockstar North).",
+          "score": 164
+        }
+      ]
+    },
+    {
+      "id": "hades",
+      "title": "Hades",
+      "localPath": "/games/hades.webp",
+      "alias": "Hades",
+      "pageTitle": "Hades (video game)",
+      "pageUrl": "https://en.wikipedia.org/wiki/Hades_(video_game)",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/c/cc/Hades_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2020 action role-playing game developed by Supergiant Games",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Hades (video game)",
+          "description": "2020 action role-playing game developed by Supergiant Games",
+          "score": 645
+        },
+        {
+          "title": "Hades II",
+          "description": "2024 action role-playing video game",
+          "score": 343
+        },
+        {
+          "title": "Saint Seiya: The Hades",
+          "description": "2007 video game",
+          "score": 335
+        },
+        {
+          "title": "Melinoë (Hades)",
+          "description": "protagonist of Hades II",
+          "score": 286
+        }
+      ]
+    },
+    {
+      "id": "jump-force-deluxe-edition",
+      "title": "Jump Force: Deluxe Edition",
+      "localPath": "/games/jump-force-deluxe-edition.webp",
+      "alias": "Jump Force: Deluxe Edition",
+      "pageTitle": "Jump Force",
+      "pageUrl": "https://en.wikipedia.org/wiki/Jump_Force",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/0/0c/Jumpforcegame.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2019 video game",
+      "score": 275,
+      "candidates": [
+        {
+          "title": "Jump Force",
+          "description": "2019 video game",
+          "score": 275
+        },
+        {
+          "title": "Lego Star Wars: The Force Awakens",
+          "description": "2016 video game",
+          "score": 135
+        },
+        {
+          "title": "Dead Rising (video game)",
+          "description": "2006 video game",
+          "score": 106
+        },
+        {
+          "title": "Another World (video game)",
+          "description": "action-adventure video game by Eric Chahi",
+          "score": 104
+        }
+      ]
+    },
+    {
+      "id": "just-dance-2021",
+      "title": "Just Dance 2021",
+      "localPath": "/games/just-dance-2021.webp",
+      "alias": "Just Dance 2021",
+      "pageTitle": "Just Dance 2021",
+      "pageUrl": "https://en.wikipedia.org/wiki/Just_Dance_2021",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/a/af/Just_Dance_2021.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2020 dance rhythm video game developed by Ubisoft Paris",
+      "score": 643,
+      "candidates": [
+        {
+          "title": "Just Dance 2021",
+          "description": "2020 dance rhythm video game developed by Ubisoft Paris",
+          "score": 643
+        },
+        {
+          "title": "Just Dance 2",
+          "description": "2010 Nintendo Wii video game",
+          "score": 286
+        },
+        {
+          "title": "Just Dance (video game series)",
+          "description": "dancing video game series",
+          "score": 203
+        },
+        {
+          "title": "Just Dance 2020",
+          "description": "2019 video game",
+          "score": 199
+        }
+      ]
+    },
+    {
+      "id": "kimetsu-no-yaiba-demon-slayer-the-hinokami-chronicles",
+      "title": "Kimetsu no Yaiba: Demon Slayer – The Hinokami Chronicles",
+      "localPath": "/games/kimetsu-no-yaiba-demon-slayer-the-hinokami-chronicles.webp",
+      "alias": "Demon Slayer The Hinokami Chronicles",
+      "pageTitle": "Demon Slayer: Kimetsu no Yaiba – The Hinokami Chronicles",
+      "pageUrl": "https://en.wikipedia.org/wiki/Demon_Slayer:_Kimetsu_no_Yaiba_%E2%80%93_The_Hinokami_Chronicles",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/4/40/Demon_Slayer_Kimetsu_no_Yaiba_%E2%80%93_The_Hinokami_Chronicles_box_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2021 video game",
+      "score": 250,
+      "candidates": [
+        {
+          "title": "Demon Slayer: Kimetsu no Yaiba – The Hinokami Chronicles",
+          "description": "2021 video game",
+          "score": 250
+        },
+        {
+          "title": "Demon Slayer: Kimetsu no Yaiba",
+          "description": "Japanese manga series",
+          "score": 109
+        },
+        {
+          "title": "Ufotable",
+          "description": "Japanese animation studio",
+          "score": 49
+        },
+        {
+          "title": "Jennie Kwan",
+          "description": "American actress",
+          "score": 45
+        }
+      ]
+    },
+    {
+      "id": "kirby-and-the-forgotten-land",
+      "title": "Kirby and the Forgotten Land",
+      "localPath": "/games/kirby-and-the-forgotten-land.webp",
+      "alias": "Kirby and the Forgotten Land",
+      "pageTitle": "Kirby and the Forgotten Land",
+      "pageUrl": "https://en.wikipedia.org/wiki/Kirby_and_the_Forgotten_Land",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/e/e7/Kirby_and_The_Forgotten_Land_Icon.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2022 video game",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Kirby and the Forgotten Land",
+          "description": "2022 video game",
+          "score": 645
+        },
+        {
+          "title": "Kirby's Dream Land",
+          "description": "1992 action platform video game",
+          "score": 164
+        },
+        {
+          "title": "Kirby (series)",
+          "description": "video game series",
+          "score": 134
+        },
+        {
+          "title": "Kirby Super Star Ultra",
+          "description": "2008 video game",
+          "score": 128
+        }
+      ]
+    },
+    {
+      "id": "metal-gear-solid-master-collection-vol-1",
+      "title": "Metal Gear Solid: Master Collection Vol. 1",
+      "localPath": "/games/metal-gear-solid-master-collection-vol-1.webp",
+      "alias": "Metal Gear Solid: Master Collection Vol. 1",
+      "pageTitle": "Metal Gear Solid (video game)",
+      "pageUrl": "https://en.wikipedia.org/wiki/Metal_Gear_Solid_(video_game)",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/3/33/Metal_Gear_Solid_cover_art.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "1998 adventure video game",
+      "score": 269,
+      "candidates": [
+        {
+          "title": "Metal Gear Solid (video game)",
+          "description": "1998 adventure video game",
+          "score": 269
+        },
+        {
+          "title": "Metal Gear (video game)",
+          "description": "1987 video game by Konami",
+          "score": 248
+        },
+        {
+          "title": "Metal Gear Solid HD Collection",
+          "description": "2011 video game compilation",
+          "score": 201
+        },
+        {
+          "title": "Metal Gear 2: Solid Snake",
+          "description": "1990 video game",
+          "score": 170
+        }
+      ]
+    },
+    {
+      "id": "metroid-dread",
+      "title": "Metroid Dread",
+      "localPath": "/games/metroid-dread.webp",
+      "alias": "Metroid Dread",
+      "pageTitle": "Metroid Dread",
+      "pageUrl": "https://en.wikipedia.org/wiki/Metroid_Dread",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/f/f7/Metroid_Dread_Banner.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2021 action-adventure video game developed by MercurySteam and Nintendo",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Metroid Dread",
+          "description": "2021 action-adventure video game developed by MercurySteam and Nintendo",
+          "score": 645
+        },
+        {
+          "title": "Metroid (video game)",
+          "description": "1986 action-adventure shooter video game",
+          "score": 273
+        },
+        {
+          "title": "Metroid: Samus Returns",
+          "description": "2017 action-adventure video game, remake of the 1991 video game Metroid II: Return of Samus",
+          "score": 176
+        },
+        {
+          "title": "Metroid Fusion",
+          "description": "2002 action-adventure video game published by Nintendo",
+          "score": 174
+        }
+      ]
+    },
+    {
+      "id": "minecraft",
+      "title": "Minecraft",
+      "localPath": "/games/minecraft.webp",
+      "alias": "Minecraft",
+      "pageTitle": "Minecraft",
+      "pageUrl": "https://commons.wikimedia.org/wiki/File:Minecraft_Logo-en.svg",
+      "imageUrls": [
+        "https://commons.wikimedia.org/wiki/Special:Redirect/file/Minecraft_Logo-en.svg"
+      ],
+      "description": "Logotipo oficial de Minecraft",
+      "imageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Minecraft_Logo-en.svg",
+      "score": 1000,
+      "candidates": [
+        {
+          "title": "Minecraft",
+          "description": "Logotipo oficial de Minecraft",
+          "score": 1000
+        }
+      ]
+    },
+    {
+      "id": "minecraft-dungeons",
+      "title": "Minecraft Dungeons",
+      "localPath": "/games/minecraft-dungeons.webp",
+      "alias": "Minecraft Dungeons",
+      "pageTitle": "Minecraft Dungeons",
+      "pageUrl": "https://en.wikipedia.org/wiki/Minecraft_Dungeons",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/7/73/Minecraft_Dungeons_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2020 video game developed by Mojang and Double Eleven",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Minecraft Dungeons",
+          "description": "2020 video game developed by Mojang and Double Eleven",
+          "score": 645
+        },
+        {
+          "title": "Minecraft Dungeons II",
+          "description": "2026 video game developed by Mojang Studios",
+          "score": 343
+        },
+        {
+          "title": "Minecraft Earth",
+          "description": "2019 augmented reality spin-off video game of Minecraft",
+          "score": 174
+        },
+        {
+          "title": "Minecraft Legends",
+          "description": "2023 video game developed by Mojang Studios and Blackbird Interactive",
+          "score": 172
+        }
+      ]
+    },
+    {
+      "id": "minecraft-legends",
+      "title": "Minecraft Legends",
+      "localPath": "/games/minecraft-legends.webp",
+      "alias": "Minecraft Legends",
+      "pageTitle": "Minecraft Legends",
+      "pageUrl": "https://en.wikipedia.org/wiki/Minecraft_Legends",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/2/23/Minecraft_Legends_Cover_Art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2023 video game developed by Mojang Studios and Blackbird Interactive",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Minecraft Legends",
+          "description": "2023 video game developed by Mojang Studios and Blackbird Interactive",
+          "score": 645
+        },
+        {
+          "title": "Minecraft modding",
+          "description": "act of creating mods for the video game Minecraft",
+          "score": 168
+        },
+        {
+          "title": "Steve (Minecraft)",
+          "description": "protagonist of Minecraft",
+          "score": 111
+        },
+        {
+          "title": "A Minecraft Movie Squared",
+          "description": "upcoming film directed by Jared Hess",
+          "score": -65
+        }
+      ]
+    },
+    {
+      "id": "mortal-kombat-11",
+      "title": "Mortal Kombat 11",
+      "localPath": "/games/mortal-kombat-11.webp",
+      "alias": "Mortal Kombat 11",
+      "pageTitle": "Mortal Kombat 11",
+      "pageUrl": "https://en.wikipedia.org/wiki/Mortal_Kombat_11",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/7/7e/Mortal_Kombat_11_cover_art.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2019 fighting video game developed by NetherRealm Studios",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Mortal Kombat 11",
+          "description": "2019 fighting video game developed by NetherRealm Studios",
+          "score": 645
+        },
+        {
+          "title": "Mortal Kombat",
+          "description": "video game series",
+          "score": 296
+        },
+        {
+          "title": "Mortal Kombat 1",
+          "description": "2023 fighting game developed by NetherRealm Studios",
+          "score": 282
+        },
+        {
+          "title": "Mortal Kombat (1992 video game)",
+          "description": "1992 video game",
+          "score": 199
+        }
+      ]
+    },
+    {
+      "id": "naruto-shippuden-ultimate-ninja-storm-4-road-to-boruto",
+      "title": "Naruto Shippuden: Ultimate Ninja Storm 4 Road to Boruto",
+      "localPath": "/games/naruto-shippuden-ultimate-ninja-storm-4-road-to-boruto.webp",
+      "alias": "Naruto Shippuden Ultimate Ninja Storm 4",
+      "pageTitle": "Naruto Shippuden: Ultimate Ninja Storm 4",
+      "pageUrl": "https://en.wikipedia.org/wiki/Naruto_Shippuden:_Ultimate_Ninja_Storm_4",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/5/54/NSUNS4_game_cover.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2016 video game",
+      "score": 643,
+      "candidates": [
+        {
+          "title": "Naruto Shippuden: Ultimate Ninja Storm 4",
+          "description": "2016 video game",
+          "score": 643
+        },
+        {
+          "title": "Naruto Shippuden: Ultimate Ninja Storm 2",
+          "description": "2010 video game",
+          "score": 246
+        },
+        {
+          "title": "Naruto Shippuden: Ultimate Ninja Storm 3",
+          "description": "2013 video game",
+          "score": 244
+        },
+        {
+          "title": "Naruto Shippuden: Ultimate Ninja Storm Revolution",
+          "description": "2014 video game",
+          "score": 242
+        }
+      ]
+    },
+    {
+      "id": "switch-sports",
+      "title": "Nintendo Switch Sports",
+      "localPath": "/games/switch-sports.webp",
+      "alias": "Nintendo Switch Sports",
+      "pageTitle": "Nintendo Switch Sports",
+      "pageUrl": "https://en.wikipedia.org/wiki/Nintendo_Switch_Sports",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/2/29/Nintendo_Switch_Sports_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2022 sports simulation video game developed by Nintendo",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Nintendo Switch Sports",
+          "description": "2022 sports simulation video game developed by Nintendo",
+          "score": 645
+        },
+        {
+          "title": "Nintendo Switch Sports Resort",
+          "description": "2026 video game",
+          "score": 343
+        },
+        {
+          "title": "Nintendo Switch 2",
+          "description": "video game console developed by Nintendo",
+          "score": 199
+        },
+        {
+          "title": "Nintendo Switch 2 Welcome Tour",
+          "description": "2025 video game",
+          "score": 187
+        }
+      ]
+    },
+    {
+      "id": "pikmin-1-2",
+      "title": "Pikmin 1+2",
+      "localPath": "/games/pikmin-1-2.webp",
+      "alias": "Pikmin 1+2",
+      "pageTitle": "Pikmin (video game)",
+      "pageUrl": "https://en.wikipedia.org/wiki/Pikmin_(video_game)",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/1/13/Pikmin_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2001 video game developed by Nintendo",
+      "score": 345,
+      "candidates": [
+        {
+          "title": "Pikmin (video game)",
+          "description": "2001 video game developed by Nintendo",
+          "score": 345
+        },
+        {
+          "title": "Pikmin Bloom",
+          "description": "2021 video game developed by Niantic",
+          "score": 246
+        },
+        {
+          "title": "Pikmin 2",
+          "description": "2004 video game",
+          "score": 244
+        },
+        {
+          "title": "Pikmin Finder",
+          "description": "2023 video game developed by Niantic",
+          "score": 242
+        }
+      ]
+    },
+    {
+      "id": "pikmin-3-deluxe",
+      "title": "Pikmin 3 Deluxe",
+      "localPath": "/games/pikmin-3-deluxe.webp",
+      "alias": "Pikmin 3 Deluxe",
+      "pageTitle": "Pikmin 3",
+      "pageUrl": "https://en.wikipedia.org/wiki/Pikmin_3",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/5/53/Pikmin_3_box_artwork.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "real-time strategy video game",
+      "score": 275,
+      "candidates": [
+        {
+          "title": "Pikmin 3",
+          "description": "real-time strategy video game",
+          "score": 275
+        },
+        {
+          "title": "Pikmin 2",
+          "description": "2004 video game",
+          "score": 176
+        },
+        {
+          "title": "Hey! Pikmin",
+          "description": "2017 video game",
+          "score": 172
+        },
+        {
+          "title": "Pikmin 4",
+          "description": "Un videojuego creado por Nintendo",
+          "score": 115
+        }
+      ]
+    },
+    {
+      "id": "pikmin-4",
+      "title": "Pikmin 4",
+      "localPath": "/games/pikmin-4.webp",
+      "alias": "Pikmin 4",
+      "pageTitle": "Pikmin 4",
+      "pageUrl": "https://en.wikipedia.org/wiki/Pikmin_4",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/4/4d/Pikmin_icon_4.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "Un videojuego creado por Nintendo",
+      "score": 588,
+      "candidates": [
+        {
+          "title": "Pikmin 4",
+          "description": "Un videojuego creado por Nintendo",
+          "score": 588
+        },
+        {
+          "title": "Pikmin (video game)",
+          "description": "2001 video game developed by Nintendo",
+          "score": 345
+        },
+        {
+          "title": "Pikmin Bloom",
+          "description": "2021 video game developed by Niantic",
+          "score": 244
+        },
+        {
+          "title": "Hey! Pikmin",
+          "description": "2017 video game",
+          "score": 242
+        }
+      ]
+    },
+    {
+      "id": "portal",
+      "title": "Portal: Companion Collection",
+      "localPath": "/games/portal.webp",
+      "alias": "Portal: Companion Collection",
+      "pageTitle": "Portal: Companion Collection",
+      "pageUrl": "https://www.nintendo.com/us/store/products/portal-companion-collection-switch/",
+      "imageUrls": [
+        "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/store/software/switch/70070000013722/ff4784d82e93dfed206cd2b3f9bb7cca37d4e4735cef790a4b8af9084816414b"
+      ],
+      "description": "Imagen oficial de Nintendo para Portal: Companion Collection",
+      "imageUrl": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/store/software/switch/70070000013722/ff4784d82e93dfed206cd2b3f9bb7cca37d4e4735cef790a4b8af9084816414b",
+      "score": 1000,
+      "candidates": [
+        {
+          "title": "Portal: Companion Collection",
+          "description": "Imagen oficial de Nintendo para Portal: Companion Collection",
+          "score": 1000
+        }
+      ]
+    },
+    {
+      "id": "red-dead",
+      "title": "Red Dead Redemption",
+      "localPath": "/games/red-dead.webp",
+      "alias": "Red Dead Redemption",
+      "pageTitle": "Red Dead Redemption",
+      "pageUrl": "https://en.wikipedia.org/wiki/Red_Dead_Redemption",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/a/a7/Red_Dead_Redemption.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2010 action-adventure video game",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Red Dead Redemption",
+          "description": "2010 action-adventure video game",
+          "score": 645
+        },
+        {
+          "title": "Red Dead Redemption 2",
+          "description": "2018 western-themed action-adventure video game",
+          "score": 343
+        },
+        {
+          "title": "Red Dead",
+          "description": "video game series",
+          "score": 292
+        },
+        {
+          "title": "Red Dead Revolver",
+          "description": "2004 third-person shooter video game",
+          "score": 185
+        }
+      ]
+    },
+    {
+      "id": "civilization-vi",
+      "title": "Sid Meier’s Civilization VI",
+      "localPath": "/games/civilization-vi.webp",
+      "alias": "Sid Meier’s Civilization VI",
+      "pageTitle": "Civilization VI",
+      "pageUrl": "https://en.wikipedia.org/wiki/Civilization_VI",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/3/3b/Civilization_VI_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2016 turn-based strategy video game",
+      "score": 271,
+      "candidates": [
+        {
+          "title": "Civilization VI",
+          "description": "2016 turn-based strategy video game",
+          "score": 271
+        },
+        {
+          "title": "Civilization (video game)",
+          "description": "1991 strategy video game",
+          "score": 240
+        },
+        {
+          "title": "Civilization V",
+          "description": "2010 turn-based strategy video game",
+          "score": 230
+        },
+        {
+          "title": "Sid Meier",
+          "description": "Canadian-American game programmer and designer",
+          "score": 218
+        }
+      ]
+    },
+    {
+      "id": "pokemon-detective",
+      "title": "Detective Pikachu Returns",
+      "localPath": "/games/pokemon-detective.webp",
+      "alias": "Detective Pikachu Returns",
+      "pageTitle": "Detective Pikachu Returns",
+      "pageUrl": "https://en.wikipedia.org/wiki/Detective_Pikachu_Returns",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/4/46/Detective_Pikachu_Returns_Artwork.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2023 video game developed by Creatures Inc.",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Detective Pikachu Returns",
+          "description": "2023 video game developed by Creatures Inc.",
+          "score": 645
+        },
+        {
+          "title": "Detective Pikachu (video game)",
+          "description": "video game for the Nintendo 3DS",
+          "score": 296
+        },
+        {
+          "title": "Pikachu",
+          "description": "Pokémon species, mascot of the Pokémon franchise",
+          "score": 187
+        },
+        {
+          "title": "Pokémon Red, Blue, and Yellow",
+          "description": "1998 video game",
+          "score": 96
+        }
+      ]
+    },
+    {
+      "id": "pokemon-snap",
+      "title": "New Pokémon Snap",
+      "localPath": "/games/pokemon-snap.webp",
+      "alias": "New Pokémon Snap",
+      "pageTitle": "New Pokémon Snap",
+      "pageUrl": "https://en.wikipedia.org/wiki/New_Pok%C3%A9mon_Snap",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/f/f1/Newpokemonsnap.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2021 first-person on-rails photography video game developed by Bandai Namco Studios",
+      "score": 643,
+      "candidates": [
+        {
+          "title": "New Pokémon Snap",
+          "description": "2021 first-person on-rails photography video game developed by Bandai Namco Studios",
+          "score": 643
+        },
+        {
+          "title": "Pokémon Snap",
+          "description": "1999 photography-based first-person rail shooter simulation video game",
+          "score": 298
+        },
+        {
+          "title": "Pokémon (video game series)",
+          "description": "Japanese video game series",
+          "score": 153
+        },
+        {
+          "title": "Pokémon Stadium",
+          "description": "1999 video game",
+          "score": 145
+        }
+      ]
+    },
+    {
+      "id": "pokemon-diamante-brillante",
+      "title": "Pokémon Diamante Brillante",
+      "localPath": "/games/pokemon-diamante-brillante.webp",
+      "alias": "Pokémon Brilliant Diamond and Shining Pearl",
+      "pageTitle": "Pokémon Brilliant Diamond and Shining Pearl",
+      "pageUrl": "https://en.wikipedia.org/wiki/Pok%C3%A9mon_Brilliant_Diamond_and_Shining_Pearl",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/3/3e/Pokemon_Brilliant_Diamond_Shining_Pearl.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2021 role-playing video game remakes of Pokémon Diamond and Pearl for the Nintendo Switch",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Pokémon Brilliant Diamond and Shining Pearl",
+          "description": "2021 role-playing video game remakes of Pokémon Diamond and Pearl for the Nintendo Switch",
+          "score": 645
+        },
+        {
+          "title": "Pokémon Diamond and Pearl",
+          "description": "2006 game developed by Game Freak and published by Nintendo for the Nintendo DS",
+          "score": 144
+        },
+        {
+          "title": "Pokémon HeartGold and SoulSilver",
+          "description": "2009 video games",
+          "score": 141
+        },
+        {
+          "title": "Pokémon Platinum",
+          "description": "2008 video game",
+          "score": 131
+        }
+      ]
+    },
+    {
+      "id": "pokemon-arceus",
+      "title": "Pokémon Leyendas: Arceus",
+      "localPath": "/games/pokemon-arceus.webp",
+      "alias": "Pokémon Legends Arceus",
+      "pageTitle": "Pokémon Legends: Arceus",
+      "pageUrl": "https://en.wikipedia.org/wiki/Pok%C3%A9mon_Legends:_Arceus",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/9/9c/Pokemon_Legends_Arceus_cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2022 role-playing video game",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Pokémon Legends: Arceus",
+          "description": "2022 role-playing video game",
+          "score": 645
+        },
+        {
+          "title": "Pokémon Legends: Z-A",
+          "description": "2025 video game developed by Game Freak",
+          "score": 199
+        },
+        {
+          "title": "Arceus",
+          "description": "Pokémon species",
+          "score": 195
+        },
+        {
+          "title": "Pokémon (video game series)",
+          "description": "Japanese video game series",
+          "score": 151
+        }
+      ]
+    },
+    {
+      "id": "pokemon-za",
+      "title": "Pokémon Leyendas: Z-A",
+      "localPath": "/games/pokemon-za.webp",
+      "alias": "Pokémon Legends Z-A",
+      "pageTitle": "Pokémon Legends: Z-A",
+      "pageUrl": "https://en.wikipedia.org/wiki/Pok%C3%A9mon_Legends:_Z-A",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/2/2d/Pokemon_Legends_Z-A_Key_Art_Logo.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2025 video game developed by Game Freak",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Pokémon Legends: Z-A",
+          "description": "2025 video game developed by Game Freak",
+          "score": 645
+        },
+        {
+          "title": "Pokémon Legends: Arceus",
+          "description": "2022 role-playing video game",
+          "score": 246
+        },
+        {
+          "title": "Pokémon (video game series)",
+          "description": "Japanese video game series",
+          "score": 178
+        },
+        {
+          "title": "Pokémon Champions",
+          "description": "2026 video game",
+          "score": 174
+        }
+      ]
+    },
+    {
+      "id": "pokemon-mystery",
+      "title": "Pokémon Mystery Dungeon: Rescue Team DX",
+      "localPath": "/games/pokemon-mystery.webp",
+      "alias": "Pokémon Mystery Dungeon: Rescue Team DX",
+      "pageTitle": "Pokémon Mystery Dungeon: Rescue Team DX",
+      "pageUrl": "https://en.wikipedia.org/wiki/Pok%C3%A9mon_Mystery_Dungeon:_Rescue_Team_DX",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/9/9e/Pok%C3%A9mon_Mystery_Dungeon_Rescue_Team_DX.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2020 video game",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Pokémon Mystery Dungeon: Rescue Team DX",
+          "description": "2020 video game",
+          "score": 645
+        },
+        {
+          "title": "Pokémon Mystery Dungeon",
+          "description": "spin-off series of role playing video games in the Pokémon franchise",
+          "score": 273
+        },
+        {
+          "title": "Pokémon Mystery Dungeon: Blue Rescue Team and Red Rescue Team",
+          "description": "2005 video game",
+          "score": 223
+        },
+        {
+          "title": "Pokémon (video game series)",
+          "description": "Japanese video game series",
+          "score": 125
+        }
+      ]
+    },
+    {
+      "id": "pokemon-perla-reluciente",
+      "title": "Pokémon Perla Reluciente",
+      "localPath": "/games/pokemon-perla-reluciente.webp",
+      "alias": "Pokémon Brilliant Diamond and Shining Pearl",
+      "pageTitle": "Pokémon Brilliant Diamond and Shining Pearl",
+      "pageUrl": "https://en.wikipedia.org/wiki/Pok%C3%A9mon_Brilliant_Diamond_and_Shining_Pearl",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/3/3e/Pokemon_Brilliant_Diamond_Shining_Pearl.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2021 role-playing video game remakes of Pokémon Diamond and Pearl for the Nintendo Switch",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Pokémon Brilliant Diamond and Shining Pearl",
+          "description": "2021 role-playing video game remakes of Pokémon Diamond and Pearl for the Nintendo Switch",
+          "score": 645
+        },
+        {
+          "title": "Pokémon Diamond and Pearl",
+          "description": "2006 game developed by Game Freak and published by Nintendo for the Nintendo DS",
+          "score": 144
+        },
+        {
+          "title": "Pokémon HeartGold and SoulSilver",
+          "description": "2009 video games",
+          "score": 141
+        },
+        {
+          "title": "Pokémon Platinum",
+          "description": "2008 video game",
+          "score": 131
+        }
+      ]
+    },
+    {
+      "id": "pokemon-scarlet",
+      "title": "Pokémon Scarlet + Pase de expansión",
+      "localPath": "/games/pokemon-scarlet.webp",
+      "alias": "Pokémon Scarlet and Violet",
+      "pageTitle": "Pokémon Scarlet and Violet",
+      "pageUrl": "https://en.wikipedia.org/wiki/Pok%C3%A9mon_Scarlet_and_Violet",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/0/00/Pok%C3%A9mon_Scarlet_and_Violet_banner.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2022 video games",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Pokémon Scarlet and Violet",
+          "description": "2022 video games",
+          "score": 645
+        },
+        {
+          "title": "Pokémon (video game series)",
+          "description": "Japanese video game series",
+          "score": 143
+        },
+        {
+          "title": "Pokémon Pokopia",
+          "description": "2026 video game",
+          "score": 139
+        },
+        {
+          "title": "Pokémon Champions",
+          "description": "2026 video game",
+          "score": 137
+        }
+      ]
+    },
+    {
+      "id": "pokemon-violet",
+      "title": "Pokémon Violet (sin expansión)",
+      "localPath": "/games/pokemon-violet.webp",
+      "alias": "Pokémon Scarlet and Violet",
+      "pageTitle": "Pokémon Scarlet and Violet",
+      "pageUrl": "https://en.wikipedia.org/wiki/Pok%C3%A9mon_Scarlet_and_Violet",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/0/00/Pok%C3%A9mon_Scarlet_and_Violet_banner.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2022 video games",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Pokémon Scarlet and Violet",
+          "description": "2022 video games",
+          "score": 645
+        },
+        {
+          "title": "Pokémon (video game series)",
+          "description": "Japanese video game series",
+          "score": 143
+        },
+        {
+          "title": "Pokémon Champions",
+          "description": "2026 video game",
+          "score": 137
+        },
+        {
+          "title": "Pokémon Pokopia",
+          "description": "2026 video game",
+          "score": 135
+        }
+      ]
+    },
+    {
+      "id": "assassin-s-creed-the-rebel-collection",
+      "title": "Assassin’s Creed: The Rebel Collection",
+      "localPath": "/games/assassin-s-creed-the-rebel-collection.webp",
+      "alias": "Assassin’s Creed: The Rebel Collection",
+      "pageTitle": "Assassin's Creed",
+      "pageUrl": "https://en.wikipedia.org/wiki/Assassin%27s_Creed",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/2/2a/Assassin%27s_Creed_Logo.svg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "video game series",
+      "score": 261,
+      "candidates": [
+        {
+          "title": "Assassin's Creed",
+          "description": "video game series",
+          "score": 261
+        },
+        {
+          "title": "Assassin's Creed Rogue",
+          "description": "2014 action adventure video game",
+          "score": 164
+        },
+        {
+          "title": "Assassin's Creed IV: Black Flag",
+          "description": "2013 video game",
+          "score": 160
+        },
+        {
+          "title": "Assassin's Creed Freedom Cry",
+          "description": "2013 downloadable content",
+          "score": 107
+        }
+      ]
+    },
+    {
+      "id": "bravely-default-ii",
+      "title": "Bravely Default II",
+      "localPath": "/games/bravely-default-ii.webp",
+      "alias": "Bravely Default II",
+      "pageTitle": "Bravely Default II",
+      "pageUrl": "https://en.wikipedia.org/wiki/Bravely_Default_II",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/f/f8/Bravely_Default_II.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2021 video game",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Bravely Default II",
+          "description": "2021 video game",
+          "score": 645
+        },
+        {
+          "title": "Bravely Default",
+          "description": "2012 role-playing video game developed by Square Enix",
+          "score": 296
+        },
+        {
+          "title": "Bravely Default: Fairy's Effect",
+          "description": "2017 video game",
+          "score": 199
+        },
+        {
+          "title": "Bravely Second: End Layer",
+          "description": "2015 video game",
+          "score": 151
+        }
+      ]
+    },
+    {
+      "id": "crash-bandicoot-4-it-s-about-time",
+      "title": "Crash Bandicoot 4: It’s About Time",
+      "localPath": "/games/crash-bandicoot-4-it-s-about-time.webp",
+      "alias": "Crash Bandicoot 4: It’s About Time",
+      "pageTitle": "Crash Bandicoot 4: It's About Time",
+      "pageUrl": "https://en.wikipedia.org/wiki/Crash_Bandicoot_4:_It%27s_About_Time",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/3/39/Crash_Bandicoot_4_Box_Art.jpeg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2020 platform video game developed by Toys for Bob",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Crash Bandicoot 4: It's About Time",
+          "description": "2020 platform video game developed by Toys for Bob",
+          "score": 645
+        },
+        {
+          "title": "Crash Bandicoot (video game)",
+          "description": "1996 platform video game",
+          "score": 259
+        },
+        {
+          "title": "Crash Bandicoot",
+          "description": "video game series",
+          "score": 257
+        },
+        {
+          "title": "Crash Bandicoot: Warped",
+          "description": "1998 PlayStation video game",
+          "score": 160
+        }
+      ]
+    },
+    {
+      "id": "crash-bandicoot-n-sane-trilogy",
+      "title": "Crash Bandicoot N. Sane Trilogy",
+      "localPath": "/games/crash-bandicoot-n-sane-trilogy.webp",
+      "alias": "Crash Bandicoot N. Sane Trilogy",
+      "pageTitle": "Crash Bandicoot N. Sane Trilogy",
+      "pageUrl": "https://en.wikipedia.org/wiki/Crash_Bandicoot_N._Sane_Trilogy",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/d/de/Crash_Bandicoot_N._Sane_Trilogy_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2017 video game",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Crash Bandicoot N. Sane Trilogy",
+          "description": "2017 video game",
+          "score": 645
+        },
+        {
+          "title": "Crash Bandicoot (video game)",
+          "description": "1996 platform video game",
+          "score": 273
+        },
+        {
+          "title": "Crash Bandicoot",
+          "description": "video game series",
+          "score": 271
+        },
+        {
+          "title": "Crash Bandicoot: Warped",
+          "description": "1998 PlayStation video game",
+          "score": 174
+        }
+      ]
+    },
+    {
+      "id": "diablo-ii-resurrected",
+      "title": "Diablo II: Resurrected",
+      "localPath": "/games/diablo-ii-resurrected.webp",
+      "alias": "Diablo II: Resurrected",
+      "pageTitle": "Diablo II: Resurrected",
+      "pageUrl": "https://en.wikipedia.org/wiki/Diablo_II:_Resurrected",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/8/88/Diablo_2_Resurrected_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2021 video game",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Diablo II: Resurrected",
+          "description": "2021 video game",
+          "score": 645
+        },
+        {
+          "title": "Diablo II",
+          "description": "2000 video game",
+          "score": 296
+        },
+        {
+          "title": "Diablo II: Lord of Destruction",
+          "description": "video game expansion pack",
+          "score": 199
+        },
+        {
+          "title": "Diablo (series)",
+          "description": "video game series initially developed by Blizzard North and continued by Blizzard Entertainment",
+          "score": 151
+        }
+      ]
+    },
+    {
+      "id": "diablo-3",
+      "title": "Diablo III: Eternal Collection",
+      "localPath": "/games/diablo-3.webp",
+      "alias": "Diablo III: Eternal Collection",
+      "pageTitle": "Diablo III",
+      "pageUrl": "https://en.wikipedia.org/wiki/Diablo_III",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/8/80/Diablo_III_cover.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2012 action role-playing video game developed and published by Blizzard Entertainment",
+      "score": 275,
+      "candidates": [
+        {
+          "title": "Diablo III",
+          "description": "2012 action role-playing video game developed and published by Blizzard Entertainment",
+          "score": 275
+        },
+        {
+          "title": "Diablo (series)",
+          "description": "video game series initially developed by Blizzard North and continued by Blizzard Entertainment",
+          "score": 139
+        },
+        {
+          "title": "Diablo III: Reaper of Souls",
+          "description": "Diablo III game downloadable content",
+          "score": 123
+        },
+        {
+          "title": "Diablo III: Rise of the Necromancer",
+          "description": "Diablo III game downloadable content",
+          "score": 121
+        }
+      ]
+    },
+    {
+      "id": "divinity-2",
+      "title": "Divinity: Original Sin 2 – Definitive Edition",
+      "localPath": "/games/divinity-2.webp",
+      "alias": "Divinity: Original Sin 2 – Definitive Edition",
+      "pageTitle": "Divinity: Original Sin II",
+      "pageUrl": "https://en.wikipedia.org/wiki/Divinity:_Original_Sin_II",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/4/48/Divinity_Original_Sin_2_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2017 video game",
+      "score": 194,
+      "candidates": [
+        {
+          "title": "Divinity: Original Sin II",
+          "description": "2017 video game",
+          "score": 194
+        },
+        {
+          "title": "Larian Studios",
+          "description": "Belgian video game development company",
+          "score": 108
+        },
+        {
+          "title": "Chris Avellone",
+          "description": "American video game designer",
+          "score": 102
+        },
+        {
+          "title": "List of Nintendo Switch 2 games",
+          "description": "",
+          "score": -109
+        }
+      ]
+    },
+    {
+      "id": "dragon-ball-z-kakarot-a-new-power-awakens-set",
+      "title": "Dragon Ball Z: Kakarot + A New Power Awakens Set",
+      "localPath": "/games/dragon-ball-z-kakarot-a-new-power-awakens-set.webp",
+      "alias": "Dragon Ball Z Kakarot",
+      "pageTitle": "Dragon Ball Z: Kakarot",
+      "pageUrl": "https://en.wikipedia.org/wiki/Dragon_Ball_Z:_Kakarot",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/e/e4/Dragon_Ball_Z_Kakarot_logo.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2020 video game",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Dragon Ball Z: Kakarot",
+          "description": "2020 video game",
+          "score": 645
+        },
+        {
+          "title": "Dragon Ball FighterZ",
+          "description": "2018 2.5D fighting game developed by Arc System Works and published by Bandai Namco Entertainment",
+          "score": 199
+        },
+        {
+          "title": "Dragon Ball Z: Dokkan Battle",
+          "description": "2015 video game",
+          "score": 185
+        },
+        {
+          "title": "List of Dragon Ball video games",
+          "description": "Wikimedia list article",
+          "score": -14
+        }
+      ]
+    },
+    {
+      "id": "dragon-quest-xi-s-echoes-of-an-elusive-age-definitive-edition",
+      "title": "Dragon Quest XI S: Echoes of an Elusive Age – Definitive Edition",
+      "localPath": "/games/dragon-quest-xi-s-echoes-of-an-elusive-age-definitive-edition.webp",
+      "alias": "Dragon Quest XI S: Echoes of an Elusive Age – Definitive Edition",
+      "pageTitle": "Dragon Quest XI",
+      "pageUrl": "https://en.wikipedia.org/wiki/Dragon_Quest_XI",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/4/4c/Dragon_Quest_XI_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2017 role-playing video game",
+      "score": 247,
+      "candidates": [
+        {
+          "title": "Dragon Quest XI",
+          "description": "2017 role-playing video game",
+          "score": 247
+        },
+        {
+          "title": "History of Eastern role-playing video games",
+          "description": "aspect of history",
+          "score": 65
+        },
+        {
+          "title": "List of Nintendo Switch 2 games",
+          "description": "",
+          "score": -101
+        },
+        {
+          "title": "Sylvando",
+          "description": "Fictional character in Dragon Quest XI",
+          "score": -137
+        }
+      ]
+    },
+    {
+      "id": "fire-emblem-engage-expansion-pass",
+      "title": "Fire Emblem Engage + Expansion Pass",
+      "localPath": "/games/fire-emblem-engage-expansion-pass.webp",
+      "alias": "Fire Emblem Engage",
+      "pageTitle": "Fire Emblem Engage",
+      "pageUrl": "https://en.wikipedia.org/wiki/Fire_Emblem_Engage",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/f/f6/Fire_Emblem_Engage.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2023 video game",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Fire Emblem Engage",
+          "description": "2023 video game",
+          "score": 645
+        },
+        {
+          "title": "Fire Emblem: Fortune's Weave",
+          "description": "2026 video game",
+          "score": 201
+        },
+        {
+          "title": "Fire Emblem Heroes",
+          "description": "2017 video game",
+          "score": 195
+        },
+        {
+          "title": "Fire Emblem: Mystery of the Emblem",
+          "description": "1994 tactical role-playing game by Nintendo",
+          "score": 193
+        }
+      ]
+    },
+    {
+      "id": "fire-emblem",
+      "title": "Fire Emblem: Three Houses + Expansion Pass",
+      "localPath": "/games/fire-emblem.webp",
+      "alias": "Fire Emblem Three Houses",
+      "pageTitle": "Fire Emblem: Three Houses",
+      "pageUrl": "https://en.wikipedia.org/wiki/Fire_Emblem:_Three_Houses",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/1/16/Fire_Emblem_Three_Houses.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2019 tactical role-playing video game",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Fire Emblem: Three Houses",
+          "description": "2019 tactical role-playing video game",
+          "score": 645
+        },
+        {
+          "title": "Fire Emblem Warriors: Three Hopes",
+          "description": "2022 video game",
+          "score": 205
+        },
+        {
+          "title": "Fire Emblem: Fortune's Weave",
+          "description": "2026 video game",
+          "score": 172
+        },
+        {
+          "title": "Fire Emblem Fates",
+          "description": "2015 video game developed by Intelligent Systems",
+          "score": 168
+        }
+      ]
+    },
+    {
+      "id": "hogwarts-legacy",
+      "title": "Hogwarts Legacy",
+      "localPath": "/games/hogwarts-legacy.webp",
+      "alias": "Hogwarts Legacy",
+      "pageTitle": "Hogwarts Legacy",
+      "pageUrl": "https://en.wikipedia.org/wiki/Hogwarts_Legacy",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/f/fb/Hogwarts_legacyboxart.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2023 open-world role-playing video game developed by Avalanche Software",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Hogwarts Legacy",
+          "description": "2023 open-world role-playing video game developed by Avalanche Software",
+          "score": 645
+        },
+        {
+          "title": "Harry Potter video games",
+          "description": "video game series",
+          "score": 108
+        },
+        {
+          "title": "Harry Potter and the Philosopher's Stone (PlayStation video game)",
+          "description": "2001 video game",
+          "score": 102
+        },
+        {
+          "title": "Harry Potter: Quidditch Champions",
+          "description": "2024 sports video game",
+          "score": 100
+        }
+      ]
+    },
+    {
+      "id": "immortals-fenyx-rising",
+      "title": "Immortals Fenyx Rising",
+      "localPath": "/games/immortals-fenyx-rising.webp",
+      "alias": "Immortals Fenyx Rising",
+      "pageTitle": "Immortals Fenyx Rising",
+      "pageUrl": "https://en.wikipedia.org/wiki/Immortals_Fenyx_Rising",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/5/5f/Immortals_Fenyx_Rising_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2020 video game developed by Ubisoft Quebec",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Immortals Fenyx Rising",
+          "description": "2020 video game developed by Ubisoft Quebec",
+          "score": 645
+        },
+        {
+          "title": "Uno (video game)",
+          "description": "2006 video game adaptation of the card game",
+          "score": 106
+        },
+        {
+          "title": "Assassin's Creed Odyssey",
+          "description": "2018 action-adventure video game",
+          "score": 98
+        },
+        {
+          "title": "Gareth Coker",
+          "description": "British composer",
+          "score": 49
+        }
+      ]
+    },
+    {
+      "id": "marvel-ultimate-alliance-3-the-black-order",
+      "title": "Marvel Ultimate Alliance 3: The Black Order",
+      "localPath": "/games/marvel-ultimate-alliance-3-the-black-order.webp",
+      "alias": "Marvel Ultimate Alliance 3: The Black Order",
+      "pageTitle": "Marvel Ultimate Alliance 3: The Black Order",
+      "pageUrl": "https://en.wikipedia.org/wiki/Marvel_Ultimate_Alliance_3:_The_Black_Order",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/6/6c/Marvelultimate3.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2019 video game developed by Team Ninja",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Marvel Ultimate Alliance 3: The Black Order",
+          "description": "2019 video game developed by Team Ninja",
+          "score": 645
+        },
+        {
+          "title": "Marvel: Ultimate Alliance",
+          "description": "2006 video game",
+          "score": 273
+        },
+        {
+          "title": "Marvel: Ultimate Alliance 2",
+          "description": "2009 video game",
+          "score": 176
+        },
+        {
+          "title": "Marvel Tokon: Fighting Souls",
+          "description": "2026 fighting game developed by Arc System Works",
+          "score": 117
+        }
+      ]
+    },
+    {
+      "id": "monster-hunter-rise",
+      "title": "Monster Hunter Rise",
+      "localPath": "/games/monster-hunter-rise.webp",
+      "alias": "Monster Hunter Rise",
+      "pageTitle": "Monster Hunter Rise",
+      "pageUrl": "https://en.wikipedia.org/wiki/Monster_Hunter_Rise",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/4/41/Monster_hunter_rise_cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2021 action/RPG video game developed by Capcom",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Monster Hunter Rise",
+          "description": "2021 action/RPG video game developed by Capcom",
+          "score": 645
+        },
+        {
+          "title": "Monster Hunter (video game)",
+          "description": "2004 video game",
+          "score": 296
+        },
+        {
+          "title": "Monster Hunter",
+          "description": "video game series",
+          "score": 294
+        },
+        {
+          "title": "Monster Hunter Wilds",
+          "description": "2025 video game developed by Capcom",
+          "score": 197
+        }
+      ]
+    },
+    {
+      "id": "ni-no-kuni-wrath-of-the-white-witch",
+      "title": "Ni no Kuni: Wrath of the White Witch",
+      "localPath": "/games/ni-no-kuni-wrath-of-the-white-witch.webp",
+      "alias": "Ni no Kuni: Wrath of the White Witch",
+      "pageTitle": "Ni no Kuni: Wrath of the White Witch",
+      "pageUrl": "https://en.wikipedia.org/wiki/Ni_no_Kuni:_Wrath_of_the_White_Witch",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/b/b9/NiNoKuni.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2011 video game",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Ni no Kuni: Wrath of the White Witch",
+          "description": "2011 video game",
+          "score": 645
+        },
+        {
+          "title": "Ni no Kuni: Dominion of the Dark Djinn",
+          "description": "2010 video game",
+          "score": 192
+        },
+        {
+          "title": "Ni no Kuni II: Revenant Kingdom",
+          "description": "2018 action role-playing video game developed by Level-5",
+          "score": 159
+        },
+        {
+          "title": "Monster-taming game",
+          "description": "subgenre of role-playing video games",
+          "score": 92
+        }
+      ]
+    },
+    {
+      "id": "nier",
+      "title": "NieR: Automata The End of YoRHa Edition",
+      "localPath": "/games/nier.webp",
+      "alias": "Nier Automata",
+      "pageTitle": "Nier: Automata",
+      "pageUrl": "https://en.wikipedia.org/wiki/Nier:_Automata",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/2/21/Nier_Automata_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2017 action role-playing video game",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Nier: Automata",
+          "description": "2017 action role-playing video game",
+          "score": 645
+        },
+        {
+          "title": "The Nier: Automata Church",
+          "description": "2022 video game mod",
+          "score": 337
+        },
+        {
+          "title": "Nier (video game)",
+          "description": "2010 video game",
+          "score": 273
+        },
+        {
+          "title": "Nier: Orchestra Concert 12024 – The end of data",
+          "description": "2024-2025 Concert tour for Nier video game series",
+          "score": 162
+        }
+      ]
+    },
+    {
+      "id": "ninja-gaiden-master-collection",
+      "title": "Ninja Gaiden: Master Collection",
+      "localPath": "/games/ninja-gaiden-master-collection.webp",
+      "alias": "Ninja Gaiden: Master Collection",
+      "pageTitle": "Ninja Gaiden II",
+      "pageUrl": "https://en.wikipedia.org/wiki/Ninja_Gaiden_II",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/4/4f/Ninja_Gaiden_II.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2008 video game developed by Team Ninja",
+      "score": 180,
+      "candidates": [
+        {
+          "title": "Ninja Gaiden II",
+          "description": "2008 video game developed by Team Ninja",
+          "score": 180
+        },
+        {
+          "title": "Ninja Gaiden (2004 video game)",
+          "description": "2004 video game developed by Team Ninja for the Xbox",
+          "score": 178
+        },
+        {
+          "title": "Ninja Gaiden Sigma 2",
+          "description": "2009 video game for PlayStation 3",
+          "score": 174
+        },
+        {
+          "title": "Ninja Gaiden 3",
+          "description": "2012 video game developed by Team Ninja",
+          "score": 172
+        }
+      ]
+    },
+    {
+      "id": "no-more-heroes-1-and-2",
+      "title": "No More Heroes 1 & 2",
+      "localPath": "/games/no-more-heroes-1-and-2.webp",
+      "alias": "No More Heroes 1 & 2",
+      "pageTitle": "No More Heroes 1 & 2",
+      "pageUrl": "https://www.nintendo.com/es-mx/store/products/no-more-heroes-switch/",
+      "imageUrls": [
+        "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/store/software/switch/70010000022435/ffd58e667cad903bdec4e013d76e2704c7b30140cbe8bb0f215a6118606ab581",
+        "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/store/software/switch/70010000022439/2dbf3253a8b19c579432545ef20c47f3202bdbff1284302e79b62b9e1d539a99"
+      ],
+      "description": "Composición de las imágenes oficiales de No More Heroes 1 y 2",
+      "imageUrl": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/store/software/switch/70010000022435/ffd58e667cad903bdec4e013d76e2704c7b30140cbe8bb0f215a6118606ab581",
+      "score": 1000,
+      "candidates": [
+        {
+          "title": "No More Heroes 1 & 2",
+          "description": "Composición de las imágenes oficiales de No More Heroes 1 y 2",
+          "score": 1000
+        }
+      ]
+    },
+    {
+      "id": "octopath-traveler",
+      "title": "Octopath Traveler",
+      "localPath": "/games/octopath-traveler.webp",
+      "alias": "Octopath Traveler",
+      "pageTitle": "Octopath Traveler",
+      "pageUrl": "https://en.wikipedia.org/wiki/Octopath_Traveler",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/3/34/Octopath_Traveler.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2018 role-playing video game",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Octopath Traveler",
+          "description": "2018 role-playing video game",
+          "score": 645
+        },
+        {
+          "title": "Octopath Traveler 0",
+          "description": "2025 video game",
+          "score": 343
+        },
+        {
+          "title": "Octopath Traveler II",
+          "description": "2023 video game developed by Square Enix and Acquire",
+          "score": 341
+        },
+        {
+          "title": "Octopath Traveler: Champions of the Continent",
+          "description": "2020 video game",
+          "score": 339
+        }
+      ]
+    },
+    {
+      "id": "pillars-of-eternity-complete-edition",
+      "title": "Pillars of Eternity: Complete Edition",
+      "localPath": "/games/pillars-of-eternity-complete-edition.webp",
+      "alias": "Pillars of Eternity: Complete Edition",
+      "pageTitle": "Pillars of Eternity",
+      "pageUrl": "https://en.wikipedia.org/wiki/Pillars_of_Eternity",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/c/ca/Pillars_of_Eternity.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "American role-playing video game",
+      "score": 289,
+      "candidates": [
+        {
+          "title": "Pillars of Eternity",
+          "description": "American role-playing video game",
+          "score": 289
+        },
+        {
+          "title": "Pillars of Eternity II: Deadfire",
+          "description": "2018 video game",
+          "score": 192
+        },
+        {
+          "title": "Tyranny (video game)",
+          "description": "2016 video game",
+          "score": 104
+        },
+        {
+          "title": "Avowed",
+          "description": "2025 video game developed by Obsidian Entertainment",
+          "score": 100
+        }
+      ]
+    },
+    {
+      "id": "sonic-frontiers",
+      "title": "Sonic Frontiers",
+      "localPath": "/games/sonic-frontiers.webp",
+      "alias": "Sonic Frontiers",
+      "pageTitle": "Sonic Frontiers",
+      "pageUrl": "https://en.wikipedia.org/wiki/Sonic_Frontiers",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/0/0f/SonicFrontiersCoverArt.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2022 platform video game developed by Sonic Team",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Sonic Frontiers",
+          "description": "2022 platform video game developed by Sonic Team",
+          "score": 645
+        },
+        {
+          "title": "Sonic the Hedgehog",
+          "description": "Sega video game series",
+          "score": 178
+        },
+        {
+          "title": "Sonic Superstars",
+          "description": "2023 video game developed by Arzest and Sonic Team",
+          "score": 170
+        },
+        {
+          "title": "Sonic Racing: CrossWorlds",
+          "description": "2025 video game",
+          "score": 168
+        }
+      ]
+    },
+    {
+      "id": "skyrim",
+      "title": "The Elder Scrolls V: Skyrim",
+      "localPath": "/games/skyrim.webp",
+      "alias": "The Elder Scrolls V: Skyrim",
+      "pageTitle": "The Elder Scrolls V: Skyrim",
+      "pageUrl": "https://en.wikipedia.org/wiki/The_Elder_Scrolls_V:_Skyrim",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/1/15/The_Elder_Scrolls_V_Skyrim_cover.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2011 open world action role-playing video game",
+      "score": 643,
+      "candidates": [
+        {
+          "title": "The Elder Scrolls V: Skyrim",
+          "description": "2011 open world action role-playing video game",
+          "score": 643
+        },
+        {
+          "title": "The Elder Scrolls V: Skyrim – Dragonborn",
+          "description": "video game expansion pack",
+          "score": 345
+        },
+        {
+          "title": "The Elder Scrolls V: Skyrim – Dawnguard",
+          "description": "expansion pack for The Elder Scrolls V: Skyrim",
+          "score": 284
+        },
+        {
+          "title": "The Elder Scrolls V: Skyrim – Hearthfire",
+          "description": "expansion pack for The Elder Scrolls V: Skyrim",
+          "score": 282
+        }
+      ]
+    },
+    {
+      "id": "the-outer-worlds",
+      "title": "The Outer Worlds",
+      "localPath": "/games/the-outer-worlds.webp",
+      "alias": "The Outer Worlds",
+      "pageTitle": "The Outer Worlds",
+      "pageUrl": "https://en.wikipedia.org/wiki/The_Outer_Worlds",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/e/e7/The_Outer_Worlds_cover_art.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2019 video game",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "The Outer Worlds",
+          "description": "2019 video game",
+          "score": 645
+        },
+        {
+          "title": "The Outer Worlds 2",
+          "description": "2025 action role-playing video game developed by Obsidian Entertainment",
+          "score": 343
+        },
+        {
+          "title": "Outer Wilds",
+          "description": "2019 video game developed by Mobius Digital",
+          "score": 153
+        },
+        {
+          "title": "Starfield (video game)",
+          "description": "2023 role-playing video game developed by Bethesda Game Studios",
+          "score": 104
+        }
+      ]
+    },
+    {
+      "id": "witcher-3",
+      "title": "The Witcher 3: Wild Hunt – Complete Edition",
+      "localPath": "/games/witcher-3.webp",
+      "alias": "The Witcher 3: Wild Hunt – Complete Edition",
+      "pageTitle": "The Witcher 3: Wild Hunt",
+      "pageUrl": "https://en.wikipedia.org/wiki/The_Witcher_3:_Wild_Hunt",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/0/0c/Witcher_3_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2015 action role-playing video game",
+      "score": 298,
+      "candidates": [
+        {
+          "title": "The Witcher 3: Wild Hunt",
+          "description": "2015 action role-playing video game",
+          "score": 298
+        },
+        {
+          "title": "The Witcher 3: Wild Hunt – Blood and Wine",
+          "description": "2016 video game expansion pack",
+          "score": 201
+        },
+        {
+          "title": "Wild Hunt",
+          "description": "motif in northern European folk myth",
+          "score": 187
+        },
+        {
+          "title": "The Witcher (video game series)",
+          "description": "video game series by CD Projekt RED",
+          "score": 153
+        }
+      ]
+    },
+    {
+      "id": "the-wonderful-101-remastered",
+      "title": "The Wonderful 101: Remastered",
+      "localPath": "/games/the-wonderful-101-remastered.webp",
+      "alias": "The Wonderful 101: Remastered",
+      "pageTitle": "The Wonderful 101",
+      "pageUrl": "https://en.wikipedia.org/wiki/The_Wonderful_101",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/e/ee/Wonderful_101_box_artwork.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2013 video game",
+      "score": 310,
+      "candidates": [
+        {
+          "title": "The Wonderful 101",
+          "description": "2013 video game",
+          "score": 310
+        },
+        {
+          "title": "Impact of the COVID-19 pandemic on the video game industry",
+          "description": "consequences of COVID-19 pandemic for the video game industry",
+          "score": 131
+        },
+        {
+          "title": "PlatinumGames",
+          "description": "Japanese computer- and video game development company",
+          "score": 108
+        },
+        {
+          "title": "Hideki Kamiya",
+          "description": "Japanese video game designer (born 1970)",
+          "score": 102
+        }
+      ]
+    },
+    {
+      "id": "triangle-strategy",
+      "title": "Triangle Strategy",
+      "localPath": "/games/triangle-strategy.webp",
+      "alias": "Triangle Strategy",
+      "pageTitle": "Triangle Strategy",
+      "pageUrl": "https://en.wikipedia.org/wiki/Triangle_Strategy",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/e/e9/Triangle_Strategy_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2022 video game",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Triangle Strategy",
+          "description": "2022 video game",
+          "score": 645
+        },
+        {
+          "title": "Sacrifice (video game)",
+          "description": "2000 video game",
+          "score": 108
+        },
+        {
+          "title": "Nobunaga's Ambition",
+          "description": "role-playing video game series",
+          "score": 100
+        },
+        {
+          "title": "Isometric video game graphics",
+          "description": "type of video game graphics and video game perspective",
+          "score": 96
+        }
+      ]
+    },
+    {
+      "id": "xenoblade-chronicles-2-expansion-pass",
+      "title": "Xenoblade Chronicles 2 + Expansion Pass",
+      "localPath": "/games/xenoblade-chronicles-2-expansion-pass.webp",
+      "alias": "Xenoblade Chronicles 2",
+      "pageTitle": "Xenoblade Chronicles 2",
+      "pageUrl": "https://en.wikipedia.org/wiki/Xenoblade_Chronicles_2",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/4/4a/Xenoblade_Chronicles_2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2017 video game",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Xenoblade Chronicles 2",
+          "description": "2017 video game",
+          "score": 645
+        },
+        {
+          "title": "Xenoblade Chronicles (video game)",
+          "description": "2010 video game",
+          "score": 343
+        },
+        {
+          "title": "Xenoblade Chronicles 2: Torna – The Golden Country",
+          "description": "2018 story expansion for Xenoblade Chronicles 2",
+          "score": 282
+        },
+        {
+          "title": "Xenoblade Chronicles X",
+          "description": "2015 Japanese role-playing video game",
+          "score": 246
+        }
+      ]
+    },
+    {
+      "id": "xenoblade-chronicles-3",
+      "title": "Xenoblade Chronicles 3",
+      "localPath": "/games/xenoblade-chronicles-3.webp",
+      "alias": "Xenoblade Chronicles 3",
+      "pageTitle": "Xenoblade Chronicles 3",
+      "pageUrl": "https://en.wikipedia.org/wiki/Xenoblade_Chronicles_3",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/7/76/Xenoblade_3.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2022 action-role playing video game developed by Monolith Soft",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Xenoblade Chronicles 3",
+          "description": "2022 action-role playing video game developed by Monolith Soft",
+          "score": 645
+        },
+        {
+          "title": "Xenoblade Chronicles (video game)",
+          "description": "2010 video game",
+          "score": 343
+        },
+        {
+          "title": "Xenoblade Chronicles 2",
+          "description": "2017 video game",
+          "score": 246
+        },
+        {
+          "title": "Xenoblade Chronicles X",
+          "description": "2015 Japanese role-playing video game",
+          "score": 244
+        }
+      ]
+    },
+    {
+      "id": "xenoblade-chronicles-definitive-edition",
+      "title": "Xenoblade Chronicles: Definitive Edition",
+      "localPath": "/games/xenoblade-chronicles-definitive-edition.webp",
+      "alias": "Xenoblade Chronicles: Definitive Edition",
+      "pageTitle": "Xenoblade Chronicles (video game)",
+      "pageUrl": "https://en.wikipedia.org/wiki/Xenoblade_Chronicles_(video_game)",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/d/d9/Xenoblade_box_artwork.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2010 video game",
+      "score": 269,
+      "candidates": [
+        {
+          "title": "Xenoblade Chronicles (video game)",
+          "description": "2010 video game",
+          "score": 269
+        },
+        {
+          "title": "Xenoblade Chronicles 3",
+          "description": "2022 action-role playing video game developed by Monolith Soft",
+          "score": 180
+        },
+        {
+          "title": "Xenoblade Chronicles 2",
+          "description": "2017 video game",
+          "score": 178
+        },
+        {
+          "title": "Xenoblade Chronicles X",
+          "description": "2015 Japanese role-playing video game",
+          "score": 176
+        }
+      ]
+    },
+    {
+      "id": "hyrule-warriors-age-of-calamity",
+      "title": "Hyrule Warriors: Age of Calamity",
+      "localPath": "/games/hyrule-warriors-age-of-calamity.webp",
+      "alias": "Hyrule Warriors: Age of Calamity",
+      "pageTitle": "Hyrule Warriors: Age of Calamity",
+      "pageUrl": "https://en.wikipedia.org/wiki/Hyrule_Warriors:_Age_of_Calamity",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/e/e1/Hyrule_Warriors_Age_Of_Calamity.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2020 hack-and-slash video game developed by Omega Force",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "Hyrule Warriors: Age of Calamity",
+          "description": "2020 hack-and-slash video game developed by Omega Force",
+          "score": 645
+        },
+        {
+          "title": "Hyrule Warriors",
+          "description": "2014 video game",
+          "score": 257
+        },
+        {
+          "title": "Hyrule Warriors: Age of Imprisonment",
+          "description": "2025 video game",
+          "score": 220
+        },
+        {
+          "title": "Dynasty Warriors",
+          "description": "hack and slash video game series",
+          "score": 132
+        }
+      ]
+    },
+    {
+      "id": "zelda-botw",
+      "title": "The Legend of Zelda: Breath of the Wild",
+      "localPath": "/games/zelda-botw.webp",
+      "alias": "The Legend of Zelda: Breath of the Wild",
+      "pageTitle": "The Legend of Zelda: Breath of the Wild",
+      "pageUrl": "https://en.wikipedia.org/wiki/The_Legend_of_Zelda:_Breath_of_the_Wild",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/c/c6/The_Legend_of_Zelda_Breath_of_the_Wild.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2017 action-adventure video game developed by Nintendo",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "The Legend of Zelda: Breath of the Wild",
+          "description": "2017 action-adventure video game developed by Nintendo",
+          "score": 645
+        },
+        {
+          "title": "The Legend of Zelda",
+          "description": "video game series",
+          "score": 294
+        },
+        {
+          "title": "The Legend of Zelda: Tears of the Kingdom",
+          "description": "2023 video game developed by Nintendo",
+          "score": 201
+        },
+        {
+          "title": "The Legend of Zelda: Link's Awakening (2019 video game)",
+          "description": "2019 remake of the 1993 video game",
+          "score": 197
+        }
+      ]
+    },
+    {
+      "id": "the-legend-of-zelda-breath-of-the-wild-pase-de-expansion",
+      "title": "The Legend of Zelda: Breath of the Wild + Pase de expansión",
+      "localPath": "/games/the-legend-of-zelda-breath-of-the-wild-pase-de-expansion.webp",
+      "alias": "The Legend of Zelda Breath of the Wild",
+      "pageTitle": "The Legend of Zelda: Breath of the Wild",
+      "pageUrl": "https://en.wikipedia.org/wiki/The_Legend_of_Zelda:_Breath_of_the_Wild",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/c/c6/The_Legend_of_Zelda_Breath_of_the_Wild.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2017 action-adventure video game developed by Nintendo",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "The Legend of Zelda: Breath of the Wild",
+          "description": "2017 action-adventure video game developed by Nintendo",
+          "score": 645
+        },
+        {
+          "title": "The Legend of Zelda",
+          "description": "video game series",
+          "score": 296
+        },
+        {
+          "title": "The Legend of Zelda: Tears of the Kingdom",
+          "description": "2023 video game developed by Nintendo",
+          "score": 199
+        },
+        {
+          "title": "The Legend of Zelda: Link's Awakening (2019 video game)",
+          "description": "2019 remake of the 1993 video game",
+          "score": 197
+        }
+      ]
+    },
+    {
+      "id": "zelda-echoes",
+      "title": "The Legend of Zelda: Echoes of Wisdom",
+      "localPath": "/games/zelda-echoes.webp",
+      "alias": "The Legend of Zelda: Echoes of Wisdom",
+      "pageTitle": "The Legend of Zelda: Echoes of Wisdom",
+      "pageUrl": "https://en.wikipedia.org/wiki/The_Legend_of_Zelda:_Echoes_of_Wisdom",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/1/1e/The_Legend_of_Zelda_%E2%80%93_Echoes_of_Wisdom.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2024 video game",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "The Legend of Zelda: Echoes of Wisdom",
+          "description": "2024 video game",
+          "score": 645
+        },
+        {
+          "title": "The Legend of Zelda",
+          "description": "video game series",
+          "score": 296
+        },
+        {
+          "title": "The Legend of Zelda (video game)",
+          "description": "1986 action-adventure video game",
+          "score": 294
+        },
+        {
+          "title": "The Legend of Zelda: Ocarina of Time",
+          "description": "1998 video game for the Nintendo 64",
+          "score": 191
+        }
+      ]
+    },
+    {
+      "id": "zelda-awakening",
+      "title": "The Legend of Zelda: Link’s Awakening",
+      "localPath": "/games/zelda-awakening.webp",
+      "alias": "The Legend of Zelda: Link’s Awakening",
+      "pageTitle": "The Legend of Zelda: Link's Awakening",
+      "pageUrl": "https://en.wikipedia.org/wiki/The_Legend_of_Zelda:_Link%27s_Awakening",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/c/c1/Link%27s_Awakening.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "1993 video game released by Nintendo",
+      "score": 643,
+      "candidates": [
+        {
+          "title": "The Legend of Zelda: Link's Awakening",
+          "description": "1993 video game released by Nintendo",
+          "score": 643
+        },
+        {
+          "title": "The Legend of Zelda: Link's Awakening (2019 video game)",
+          "description": "2019 remake of the 1993 video game",
+          "score": 345
+        },
+        {
+          "title": "The Legend of Zelda: Link's Awakening DX",
+          "description": "1998 video game",
+          "score": 341
+        },
+        {
+          "title": "The Legend of Zelda",
+          "description": "video game series",
+          "score": 292
+        }
+      ]
+    },
+    {
+      "id": "zelda-skyward",
+      "title": "The Legend of Zelda: Skyward Sword HD",
+      "localPath": "/games/zelda-skyward.webp",
+      "alias": "The Legend of Zelda: Skyward Sword HD",
+      "pageTitle": "The Legend of Zelda: Skyward Sword",
+      "pageUrl": "https://en.wikipedia.org/wiki/The_Legend_of_Zelda:_Skyward_Sword",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/9/99/Legend_of_Zelda_Skyward_Sword_boxart.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2011 video game on the Nintendo Wii",
+      "score": 325,
+      "candidates": [
+        {
+          "title": "The Legend of Zelda: Skyward Sword",
+          "description": "2011 video game on the Nintendo Wii",
+          "score": 325
+        },
+        {
+          "title": "The Legend of Zelda",
+          "description": "video game series",
+          "score": 281
+        },
+        {
+          "title": "The Legend of Zelda: Ocarina of Time",
+          "description": "1998 video game for the Nintendo 64",
+          "score": 174
+        },
+        {
+          "title": "The Legend of Zelda: Breath of the Wild",
+          "description": "2017 action-adventure video game developed by Nintendo",
+          "score": 172
+        }
+      ]
+    },
+    {
+      "id": "zelda-totk",
+      "title": "The Legend of Zelda: Tears of the Kingdom",
+      "localPath": "/games/zelda-totk.webp",
+      "alias": "The Legend of Zelda: Tears of the Kingdom",
+      "pageTitle": "The Legend of Zelda: Tears of the Kingdom",
+      "pageUrl": "https://en.wikipedia.org/wiki/The_Legend_of_Zelda:_Tears_of_the_Kingdom",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/f/fb/The_Legend_of_Zelda_Tears_of_the_Kingdom_cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2023 video game developed by Nintendo",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "The Legend of Zelda: Tears of the Kingdom",
+          "description": "2023 video game developed by Nintendo",
+          "score": 645
+        },
+        {
+          "title": "The Legend of Zelda",
+          "description": "video game series",
+          "score": 296
+        },
+        {
+          "title": "The Legend of Zelda: Echoes of Wisdom",
+          "description": "2024 video game",
+          "score": 199
+        },
+        {
+          "title": "The Legend of Zelda: A Link Between Worlds",
+          "description": "2013 video game",
+          "score": 191
+        }
+      ]
+    },
+    {
+      "id": "the-legend-of-zelda-tears-of-the-kingdom-pase-de-expansion",
+      "title": "The Legend of Zelda: Tears of the Kingdom + Pase de expansión",
+      "localPath": "/games/the-legend-of-zelda-tears-of-the-kingdom-pase-de-expansion.webp",
+      "alias": "The Legend of Zelda Tears of the Kingdom",
+      "pageTitle": "The Legend of Zelda: Tears of the Kingdom",
+      "pageUrl": "https://en.wikipedia.org/wiki/The_Legend_of_Zelda:_Tears_of_the_Kingdom",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/f/fb/The_Legend_of_Zelda_Tears_of_the_Kingdom_cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+      "description": "2023 video game developed by Nintendo",
+      "score": 645,
+      "candidates": [
+        {
+          "title": "The Legend of Zelda: Tears of the Kingdom",
+          "description": "2023 video game developed by Nintendo",
+          "score": 645
+        },
+        {
+          "title": "The Legend of Zelda",
+          "description": "video game series",
+          "score": 296
+        },
+        {
+          "title": "The Legend of Zelda: Echoes of Wisdom",
+          "description": "2024 video game",
+          "score": 199
+        },
+        {
+          "title": "The Legend of Zelda: Breath of the Wild",
+          "description": "2017 action-adventure video game developed by Nintendo",
+          "score": 193
+        }
+      ]
+    }
+  ],
+  "failures": []
+}

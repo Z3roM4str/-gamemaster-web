@@ -10,8 +10,23 @@ import {
 } from 'lucide-react';
 import { catalog, categories, type Game } from './data/catalog';
 
-const streamingServices = ['Netflix', 'Spotify', 'HBO Max', 'Crunchyroll', 'Apple TV+', 'Disney+', 'Amazon Prime', 'YouTube Music'];
-const gamingServices = ['Steam', 'Nintendo Switch', 'PlayStation', 'Xbox Game Pass'];
+const streamingServices = [
+  { name: 'Netflix', logo: '/services/netflix.svg' },
+  { name: 'Spotify', logo: '/services/spotify.svg' },
+  { name: 'HBO Max', logo: '/services/hbo-max.svg' },
+  { name: 'Crunchyroll', logo: '/services/crunchyroll.svg' },
+  { name: 'Apple TV+', logo: '/services/apple-tv-plus.svg' },
+  { name: 'Disney+', logo: '/services/disney-plus.svg' },
+  { name: 'Amazon Prime', logo: '/services/amazon-prime.svg' },
+  { name: 'YouTube Music', logo: '/services/youtube-music.svg' },
+];
+const gamingServices = [
+  { name: 'Steam', logo: '/services/steam.svg' },
+  { name: 'Nintendo Switch', logo: '/services/nintendo-switch.svg' },
+  { name: 'PlayStation', logo: '/services/playstation.svg' },
+  { name: 'Xbox Game Pass', logo: '/services/xbox-game-pass.svg' },
+];
+const categoryRank = new Map(categories.slice(1).map((category, index) => [category, index]));
 
 function BrandMark() {
   return (
@@ -23,17 +38,6 @@ function BrandMark() {
         <strong>Game</strong><b>Master</b><small>Digital services</small>
       </span>
     </span>
-  );
-}
-
-function AbstractCover({ game }: { game: Game }) {
-  const initials = game.title.split(/\s+/).slice(0, 2).map((word) => word[0]).join('');
-  return (
-    <div className={`abstract-cover cover-${game.category.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}>
-      <Gamepad2 size={34} strokeWidth={1.4} />
-      <strong>{initials}</strong>
-      <span>{game.category}</span>
-    </div>
   );
 }
 
@@ -52,7 +56,8 @@ export default function Home() {
       const categoryMatch = activeCategory === 'Todos' || game.category === activeCategory;
       const queryMatch = !normalized || game.title.toLocaleLowerCase('es').includes(normalized);
       return categoryMatch && queryMatch;
-    });
+    }).sort((a, b) => (categoryRank.get(a.category) ?? 99) - (categoryRank.get(b.category) ?? 99)
+      || a.title.localeCompare(b.title, 'es'));
   }, [activeCategory, query]);
 
   const toggleGame = (game: Game) => {
@@ -182,9 +187,7 @@ export default function Home() {
                 return (
                   <article className="catalog-card" key={game.id}>
                     <button className="game-visual" onClick={() => toggleGame(game)} aria-label={`${isSelected ? 'Quitar' : 'Añadir'} ${game.title}`}>
-                      {game.image ? (
-                        <Image src={game.image} alt={`Arte oficial de ${game.title}`} fill sizes="(max-width: 650px) 100vw, (max-width: 1000px) 50vw, 25vw" />
-                      ) : <AbstractCover game={game} />}
+                      <Image src={game.image} alt={`Imagen relacionada con ${game.title}`} fill sizes="(max-width: 650px) 100vw, (max-width: 1000px) 50vw, 25vw" />
                       <span className="platform-badge">{game.platform === 'Nintendo Switch 2' ? 'SWITCH 2' : 'SWITCH'}</span>
                       <span className={`select-mark ${isSelected ? 'selected' : ''}`}>{isSelected ? <Check /> : '+'}</span>
                     </button>
@@ -284,8 +287,10 @@ export default function Home() {
                 <small>01 · INTELIGENCIA ARTIFICIAL</small>
                 <h3>ChatGPT</h3>
                 <p>La única herramienta de IA ofrecida por Game Master.</p>
-                <div className="service-tags">
-                  <button className={interest === 'ChatGPT' ? 'selected' : ''} onClick={() => chooseInterest('ChatGPT')} type="button">ChatGPT</button>
+                <div className="service-tags service-logo-list ai-logo-list">
+                  <button className={`service-logo ${interest === 'ChatGPT' ? 'selected' : ''}`} onClick={() => chooseInterest('ChatGPT')} type="button" aria-label="Elegir ChatGPT" title="ChatGPT">
+                    <Image src="/services/chatgpt.svg" alt="Logotipo de ChatGPT" width={96} height={64} />
+                  </button>
                 </div>
               </div>
               <a href="#cotizar" onClick={() => chooseInterest('ChatGPT')} aria-label="Cotizar ChatGPT">Elegir ChatGPT <ArrowUpRight /></a>
@@ -297,9 +302,11 @@ export default function Home() {
                 <small>02 · MEMBRESÍAS</small>
                 <h3>Streaming &amp; música</h3>
                 <p>Series, películas, anime y música en tus servicios favoritos.</p>
-                <div className="service-tags">
+                <div className="service-tags service-logo-list streaming-logo-list" aria-label="Servicios de streaming y música">
                   {streamingServices.map((service) => (
-                    <button className={interest === service ? 'selected' : ''} onClick={() => chooseInterest(service)} type="button" key={service}>{service}</button>
+                    <button className={`service-logo ${interest === service.name ? 'selected' : ''}`} onClick={() => chooseInterest(service.name)} type="button" key={service.name} aria-label={`Elegir ${service.name}`} title={service.name}>
+                      <Image src={service.logo} alt={`Logotipo de ${service.name}`} width={180} height={64} />
+                    </button>
                   ))}
                 </div>
               </div>
@@ -312,9 +319,11 @@ export default function Home() {
                 <small>03 · VIDEOJUEGOS</small>
                 <h3>Juegos &amp; membresías</h3>
                 <p>Opciones digitales para consola y PC, además del catálogo de juegos.</p>
-                <div className="service-tags">
+                <div className="service-tags service-logo-list gaming-logo-list" aria-label="Plataformas de videojuegos">
                   {gamingServices.map((service) => (
-                    <button className={interest === service ? 'selected' : ''} onClick={() => chooseInterest(service)} type="button" key={service}>{service}</button>
+                    <button className={`service-logo ${interest === service.name ? 'selected' : ''}`} onClick={() => chooseInterest(service.name)} type="button" key={service.name} aria-label={`Elegir ${service.name}`} title={service.name}>
+                      <Image src={service.logo} alt={`Logotipo de ${service.name}`} width={180} height={64} />
+                    </button>
                   ))}
                 </div>
               </div>

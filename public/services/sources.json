@@ -1,0 +1,83 @@
+{
+  "generatedAt": "2026-08-21T15:32:22.541Z",
+  "sources": [
+    {
+      "name": "ChatGPT",
+      "localPath": "/services/chatgpt.svg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:OpenAI_logo_2025_(symbol).svg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/6/66/OpenAI_logo_2025_%28symbol%29.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"
+    },
+    {
+      "name": "Netflix",
+      "localPath": "/services/netflix.svg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Netflix_2015_logo.svg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"
+    },
+    {
+      "name": "Spotify",
+      "localPath": "/services/spotify.svg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Spotify_logo_with_text.svg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"
+    },
+    {
+      "name": "HBO Max",
+      "localPath": "/services/hbo-max.svg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:HBO_Max_(2025).svg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b3/HBO_Max_%282025%29.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"
+    },
+    {
+      "name": "Crunchyroll",
+      "localPath": "/services/crunchyroll.svg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Crunchyroll_2024.svg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Crunchyroll_2024.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"
+    },
+    {
+      "name": "Apple TV+",
+      "localPath": "/services/apple-tv-plus.svg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Apple_TV_Plus_Logo.svg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/2/28/Apple_TV_Plus_Logo.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"
+    },
+    {
+      "name": "Disney+",
+      "localPath": "/services/disney-plus.svg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Disney%2B_2024.svg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/6/64/Disney%2B_2024.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"
+    },
+    {
+      "name": "Amazon Prime",
+      "localPath": "/services/amazon-prime.svg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Amazon_Prime_logo_(2024).svg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Amazon_Prime_logo_%282024%29.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"
+    },
+    {
+      "name": "YouTube Music",
+      "localPath": "/services/youtube-music.svg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:YouTube_Music_full_logo.svg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0e/YouTube_Music_full_logo.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"
+    },
+    {
+      "name": "Steam",
+      "localPath": "/services/steam.svg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Steam_icon_logo.svg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/8/83/Steam_icon_logo.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"
+    },
+    {
+      "name": "Nintendo Switch",
+      "localPath": "/services/nintendo-switch.svg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Nintendo_Switch_logo.svg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Nintendo_Switch_logo.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"
+    },
+    {
+      "name": "PlayStation",
+      "localPath": "/services/playstation.svg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:PlayStation_logo_and_wordmark.svg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5c/PlayStation_logo_and_wordmark.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"
+    },
+    {
+      "name": "Xbox Game Pass",
+      "localPath": "/services/xbox-game-pass.svg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Xbox_Game_Pass_new_logo_-_colored_version.svg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/3/31/Xbox_Game_Pass_new_logo_-_colored_version.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"
+    }
+  ]
+}
