@@ -6,22 +6,22 @@ const display = Bebas_Neue({ variable: '--font-display', subsets: ['latin'], wei
 const body = Outfit({ variable: '--font-body', subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Game Master | Juegos, membresías e IA',
-  description: 'Juegos digitales, membresías de streaming y música, y herramientas de inteligencia artificial con atención personalizada.',
+  title: 'Game Master | ChatGPT, streaming y videojuegos',
+  description: 'Elige rápidamente entre ChatGPT, membresías de streaming y videojuegos con atención personalizada.',
   metadataBase: new URL('https://game-master-digital-mx.mastr-z3ro.chatgpt.site'),
-  icons: { icon: '/og.png' },
+  icons: { icon: '/brand/game-master-emblem-v2.png' },
   openGraph: {
     type: 'website',
     locale: 'es_MX',
     siteName: 'Game Master',
-    title: 'Game Master | Juegos, membresías e IA',
-    description: 'JUEGOS · MEMBRESÍAS · IA',
-    images: [{ url: '/og.png', width: 1200, height: 630, alt: 'Game Master — Juegos, membresías e IA' }],
+    title: 'Game Master | Tu universo digital',
+    description: 'CHATGPT · STREAMING · VIDEOJUEGOS',
+    images: [{ url: '/og.png', width: 1200, height: 630, alt: 'Game Master — IA, streaming y videojuegos' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Game Master | Juegos, membresías e IA',
-    description: 'JUEGOS · MEMBRESÍAS · IA',
+    title: 'Game Master | Tu universo digital',
+    description: 'CHATGPT · STREAMING · VIDEOJUEGOS',
     images: ['/og.png'],
   },
 };

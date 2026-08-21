@@ -6,22 +6,22 @@ import {
   ArrowRight, ArrowUpRight, BadgeCheck, BrainCircuit, Check, ChevronRight,
   Copy, Download, Gamepad2, Menu, MessageCircle,
   Search, ShieldCheck, Tv2, UserRound, UsersRound, Wifi, WifiOff,
-  X, Zap,
+  X,
 } from 'lucide-react';
 import { catalog, categories, type Game } from './data/catalog';
 
-const featured = catalog.filter((game) => game.image).slice(0, 4);
-
-const categoryStats = [
-  ['RPG y aventuras', '30'], ['Otros destacados', '30'], ['Mundo Mario', '22'],
-  ['Clásicos y joyas', '14'], ['Shooter', '12'], ['Pokémon', '9'], ['Zelda', '8'],
-  ['Switch 2', '5'], ['Indies', '4'],
-];
+const streamingServices = ['Netflix', 'Spotify', 'HBO Max', 'Crunchyroll', 'Apple TV+', 'Disney+', 'Amazon Prime', 'YouTube Music'];
+const gamingServices = ['Steam', 'Nintendo Switch', 'PlayStation', 'Xbox Game Pass'];
 
 function BrandMark() {
   return (
     <span className="brand-mark" aria-label="Game Master">
-      <Image src="/brand/game-master-logo.jpg" alt="Game Master" fill sizes="150px" priority />
+      <span className="brand-emblem">
+        <Image src="/brand/game-master-emblem-v2.png" alt="" fill sizes="64px" priority />
+      </span>
+      <span className="brand-wordmark">
+        <strong>Game</strong><b>Master</b><small>Digital universe</small>
+      </span>
     </span>
   );
 }
@@ -42,6 +42,7 @@ export default function Home() {
   const [activeCategory, setActiveCategory] = useState('Todos');
   const [visible, setVisible] = useState(12);
   const [selected, setSelected] = useState<string[]>([]);
+  const [interest, setInterest] = useState('');
   const [copied, setCopied] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -61,9 +62,15 @@ export default function Home() {
     setCopied(false);
   };
 
+  const chooseInterest = (value: string) => {
+    setInterest(value);
+    setCopied(false);
+  };
+
   const copyRequest = async () => {
-    const games = selected.length ? selected.join(', ') : 'Aún no he elegido un título';
-    const message = `Hola, quiero cotizar juegos digitales con Game Master. Me interesan: ${games}. ¿Me ayudan a revisar precio, modalidad y disponibilidad?`;
+    const focus = interest ? `Me interesa: ${interest}.` : 'Quiero orientación para elegir una opción digital.';
+    const games = selected.length ? ` Juegos seleccionados: ${selected.join(', ')}.` : '';
+    const message = `Hola, quiero cotizar con Game Master. ${focus}${games} ¿Me ayudan a revisar precio y disponibilidad?`;
     await navigator.clipboard.writeText(message);
     setCopied(true);
   };
@@ -73,10 +80,10 @@ export default function Home() {
       <header className="site-header">
         <a className="brand-link" href="#inicio" aria-label="Game Master, inicio"><BrandMark /></a>
         <nav className={menuOpen ? 'open' : ''} aria-label="Navegación principal">
-          <a href="#catalogo" onClick={() => setMenuOpen(false)}>Catálogo</a>
+          <a href="#inicio" onClick={() => setMenuOpen(false)}>Elegir</a>
+          <a href="#catalogo" onClick={() => setMenuOpen(false)}>Videojuegos</a>
           <a href="#modalidades" onClick={() => setMenuOpen(false)}>Cómo funciona</a>
           <a href="#servicios" onClick={() => setMenuOpen(false)}>Servicios</a>
-          <a href="#preguntas" onClick={() => setMenuOpen(false)}>Preguntas</a>
         </nav>
         <a className="header-cta" href="#cotizar">Cotizar ahora <ArrowUpRight size={15} /></a>
         <button
@@ -91,44 +98,46 @@ export default function Home() {
 
       <section className="hero" id="inicio">
         <div className="hero-copy">
-          <p className="eyebrow"><span /> TU PRÓXIMA PARTIDA EMPIEZA AQUÍ</p>
-          <h1>El juego que buscas.<em> Sin complicaciones.</em></h1>
+          <p className="eyebrow"><span /> ELIGE TU MUNDO DIGITAL</p>
+          <h1>¿Qué quieres hoy?<em> Empieza por aquí.</em></h1>
           <p className="hero-text">
-            Juegos digitales para Nintendo Switch y Switch 2. Explora el catálogo,
-            elige tus títulos y recibe una cotización personalizada.
+            Ve directo a lo que buscas. Elige una categoría y te ayudamos a revisar
+            opciones, precio y disponibilidad.
           </p>
-          <div className="hero-actions">
-            <a className="primary-button" href="#catalogo">Explorar catálogo <ArrowRight size={18} /></a>
-            <a className="secondary-button" href="#modalidades"><span><Zap size={14} /></span> Cómo funciona</a>
+          <div className="quick-choices" aria-label="Elegir categoría">
+            <a className="quick-choice choice-ai" href="#ia" onClick={() => chooseInterest('ChatGPT')}>
+              <span className="quick-icon"><BrainCircuit /></span>
+              <span><small>01 · IA</small><strong>ChatGPT</strong><em>Acceso y disponibilidad</em></span>
+              <ArrowUpRight />
+            </a>
+            <a className="quick-choice choice-streaming" href="#streaming" onClick={() => chooseInterest('Streaming')}>
+              <span className="quick-icon"><Tv2 /></span>
+              <span><small>02 · STREAMING</small><strong>Netflix y más</strong><em>Series · música · anime</em></span>
+              <ArrowUpRight />
+            </a>
+            <a className="quick-choice choice-games" href="#videojuegos" onClick={() => chooseInterest('Videojuegos')}>
+              <span className="quick-icon"><Gamepad2 /></span>
+              <span><small>03 · VIDEOJUEGOS</small><strong>Juegos y membresías</strong><em>Consola · PC</em></span>
+              <ArrowUpRight />
+            </a>
           </div>
           <div className="trust-row">
             <span><BadgeCheck /> Atención personal</span>
-            <span><Download /> Entrega digital</span>
+            <span><Download /> Opciones digitales</span>
             <span><ShieldCheck /> Cotización al momento</span>
           </div>
         </div>
 
-        <div className="hero-stage" aria-label="Selección destacada del catálogo">
-          <div className="stage-lines" />
-          {featured.slice(0, 3).map((game, index) => (
-            <button
-              className={`hero-game hero-game-${index + 1}`}
-              key={game.id}
-              onClick={() => toggleGame(game)}
-              aria-label={`Añadir ${game.title} a la cotización`}
-            >
-              <Image src={game.image!} alt={`Arte oficial de ${game.title}`} fill sizes="(max-width: 700px) 62vw, 300px" />
-              <span><small>{game.platform}</small><strong>{game.title}</strong></span>
-            </button>
-          ))}
-          <p className="stage-index">01 <span>/ 03</span></p>
-          <p className="stage-kicker">SELECCIÓN GAME MASTER</p>
-          <div className="catalog-count"><strong>134</strong><span>TÍTULOS<br />DOCUMENTADOS</span></div>
+        <div className="hero-visual" aria-label="Universo digital de Game Master: inteligencia artificial, streaming y videojuegos">
+          <Image src="/brand/game-master-universe-v2.png" alt="Universo digital original de Game Master" fill sizes="(max-width: 1050px) 100vw, 55vw" priority />
+          <div className="hero-visual-shade" />
+          <p className="hero-visual-label"><span>GM</span> UN UNIVERSO. TRES CAMINOS.</p>
+          <div className="hero-visual-index"><strong>03</strong><span>CATEGORÍAS<br />PARA ELEGIR</span></div>
         </div>
       </section>
 
       <div className="genre-strip">
-        {['SWITCH 2', 'MUNDO MARIO', 'ZELDA', 'POKÉMON', 'INDIES', 'RPG & AVENTURAS'].map((genre) => (
+        {['CHATGPT', 'NETFLIX', 'SPOTIFY', 'DISNEY+', 'NINTENDO SWITCH', 'PLAYSTATION', 'XBOX GAME PASS'].map((genre) => (
           <span key={genre}>{genre}<i /></span>
         ))}
       </div>
@@ -262,60 +271,54 @@ export default function Home() {
       <section className="services-section section-shell" id="servicios">
         <div className="section-heading services-heading">
           <div>
-            <p className="eyebrow"><span /> MÁS FORMAS DE DISFRUTAR</p>
-            <h2>Tu mundo digital,<br /><em>en un solo lugar.</em></h2>
+            <p className="eyebrow"><span /> ELIGE Y COTIZA</p>
+            <h2>Tres caminos,<br /><em>una sola entrada.</em></h2>
           </div>
-          <p>Esta es la oferta real comunicada por Game Master. Cada membresía, herramienta o plataforma se valida antes de cotizar.</p>
+          <p>Entra por la categoría que necesitas. Cada opción se revisa contigo antes de confirmar precio y disponibilidad.</p>
         </div>
         <div className="services-showcase">
-          <figure className="services-poster">
-            <Image
-              src="/brand/servicios-game-master.jpg"
-              alt="Servicios Game Master: Netflix, Spotify, HBO Max, Crunchyroll, Apple TV+, Disney+, Amazon Prime, YouTube Music, ChatGPT, Perplexity Pro, Abacus.AI, Gemini, Steam, Nintendo Switch, PlayStation y Xbox Game Pass"
-              fill
-              sizes="(max-width: 900px) 100vw, 430px"
-            />
-            <figcaption>Material oficial proporcionado por Game Master</figcaption>
-          </figure>
-
-          <div className="service-catalog">
-            <article className="service-category streaming-category">
-              <div className="service-category-icon"><Tv2 /></div>
-              <div className="service-category-copy">
-                <small>01 · MEMBRESÍAS</small>
-                <h3>Streaming &amp; música</h3>
-                <p>Entretenimiento, series, películas, anime y música.</p>
-                <div className="service-tags">
-                  {['Netflix', 'Spotify', 'HBO Max', 'Crunchyroll', 'Apple TV+', 'Disney+', 'Amazon Prime', 'YouTube Music'].map((service) => <span key={service}>{service}</span>)}
-                </div>
-              </div>
-              <a href="#cotizar" aria-label="Consultar membresías">Consultar <ArrowUpRight /></a>
-            </article>
-
-            <article className="service-category ai-category">
+          <div className="service-catalog service-catalog-full">
+            <article className="service-category ai-category" id="ia">
               <div className="service-category-icon"><BrainCircuit /></div>
               <div className="service-category-copy">
-                <small>02 · PRODUCTIVIDAD</small>
-                <h3>Inteligencia artificial</h3>
-                <p>Herramientas digitales sujetas a plan y disponibilidad.</p>
+                <small>01 · INTELIGENCIA ARTIFICIAL</small>
+                <h3>ChatGPT</h3>
+                <p>La única herramienta de IA ofrecida por Game Master.</p>
                 <div className="service-tags">
-                  {['ChatGPT', 'Perplexity Pro', 'Abacus.AI', 'Gemini'].map((service) => <span key={service}>{service}</span>)}
+                  <button className={interest === 'ChatGPT' ? 'selected' : ''} onClick={() => chooseInterest('ChatGPT')} type="button">ChatGPT</button>
                 </div>
               </div>
-              <a href="#cotizar" aria-label="Consultar herramientas de inteligencia artificial">Consultar <ArrowUpRight /></a>
+              <a href="#cotizar" onClick={() => chooseInterest('ChatGPT')} aria-label="Cotizar ChatGPT">Elegir ChatGPT <ArrowUpRight /></a>
             </article>
 
-            <article className="service-category gaming-category">
+            <article className="service-category streaming-category" id="streaming">
+              <div className="service-category-icon"><Tv2 /></div>
+              <div className="service-category-copy">
+                <small>02 · MEMBRESÍAS</small>
+                <h3>Streaming &amp; música</h3>
+                <p>Series, películas, anime y música en tus servicios favoritos.</p>
+                <div className="service-tags">
+                  {streamingServices.map((service) => (
+                    <button className={interest === service ? 'selected' : ''} onClick={() => chooseInterest(service)} type="button" key={service}>{service}</button>
+                  ))}
+                </div>
+              </div>
+              <a href="#cotizar" onClick={() => chooseInterest('Streaming')} aria-label="Cotizar streaming y música">Elegir streaming <ArrowUpRight /></a>
+            </article>
+
+            <article className="service-category gaming-category" id="videojuegos">
               <div className="service-category-icon"><Gamepad2 /></div>
               <div className="service-category-copy">
                 <small>03 · VIDEOJUEGOS</small>
-                <h3>Plataformas gamer</h3>
-                <p>Opciones digitales para consola y PC.</p>
+                <h3>Juegos &amp; membresías</h3>
+                <p>Opciones digitales para consola y PC, además del catálogo de juegos.</p>
                 <div className="service-tags">
-                  {['Steam', 'Nintendo Switch', 'PlayStation', 'Xbox Game Pass'].map((service) => <span key={service}>{service}</span>)}
+                  {gamingServices.map((service) => (
+                    <button className={interest === service ? 'selected' : ''} onClick={() => chooseInterest(service)} type="button" key={service}>{service}</button>
+                  ))}
                 </div>
               </div>
-              <a href="#cotizar" aria-label="Consultar plataformas de videojuegos">Consultar <ArrowUpRight /></a>
+              <a href="#catalogo" onClick={() => chooseInterest('Videojuegos')} aria-label="Explorar catálogo de videojuegos">Ver catálogo <ArrowUpRight /></a>
             </article>
 
             <p className="service-disclaimer">Las marcas pertenecen a sus respectivos titulares. Su presencia indica servicios consultables y no afiliación oficial.</p>
@@ -327,21 +330,30 @@ export default function Home() {
         <div className="section-shell quote-grid">
           <div className="quote-copy">
             <p className="eyebrow"><span /> TU COTIZACIÓN</p>
-            <h2>¿Listo para tu<br /><em>próxima partida?</em></h2>
-            <p>Selecciona juegos del catálogo y copia una solicitud lista para compartir por tu canal de contacto preferido.</p>
+            <h2>Tu acceso empieza<br /><em>con una elección.</em></h2>
+            <p>Elige una categoría o un servicio, agrega juegos si quieres y copia una solicitud lista para compartir.</p>
             <div className="quote-benefit"><MessageCircle /><span><strong>Atención humana</strong><small>Precio y disponibilidad revisados al momento.</small></span></div>
           </div>
           <div className="quote-builder">
-            <div className="quote-builder-top"><span>JUEGOS SELECCIONADOS</span><strong>{selected.length.toString().padStart(2, '0')}</strong></div>
+            <div className="quote-builder-top"><span>SOLICITUD RÁPIDA</span><strong>{interest ? '01' : '00'}</strong></div>
+            <div className="quote-interest">
+              <small>TE INTERESA</small>
+              <strong>{interest || 'Elige IA, streaming o videojuegos'}</strong>
+              <div>
+                <button className={interest === 'ChatGPT' ? 'active' : ''} onClick={() => chooseInterest('ChatGPT')} type="button">ChatGPT</button>
+                <button className={interest === 'Streaming' ? 'active' : ''} onClick={() => chooseInterest('Streaming')} type="button">Streaming</button>
+                <button className={interest === 'Videojuegos' ? 'active' : ''} onClick={() => chooseInterest('Videojuegos')} type="button">Videojuegos</button>
+              </div>
+            </div>
             <div className="selected-games">
               {selected.length ? selected.map((title) => (
                 <button key={title} onClick={() => setSelected((current) => current.filter((item) => item !== title))}>{title}<span>×</span></button>
               )) : (
-                <p>Agrega títulos con el botón <strong>+</strong> del catálogo.</p>
+                <p>Si buscas juegos, puedes agregarlos con el botón <strong>+</strong> del catálogo.</p>
               )}
             </div>
             <button className="copy-button" onClick={copyRequest}>
-              {copied ? <><Check /> Solicitud copiada</> : <><Copy /> Copiar solicitud de cotización</>}
+              {copied ? <><Check /> Solicitud copiada</> : <><Copy /> Copiar solicitud rápida</>}
             </button>
             <small>No se publica un precio fijo: se confirma antes de cada compra.</small>
           </div>
@@ -372,8 +384,8 @@ export default function Home() {
       <footer>
         <div className="section-shell footer-top">
           <BrandMark />
-          <p>Juegos digitales y servicios para disfrutar más de tu mundo gamer.</p>
-          <a href="#catalogo">Volver al catálogo <ArrowRight /></a>
+          <p>ChatGPT, streaming y videojuegos en un universo digital propio.</p>
+          <a href="#inicio">Volver a elegir <ArrowRight /></a>
         </div>
         <div className="section-shell footer-bottom">
           <span>© 2026 GAME MASTER</span>
