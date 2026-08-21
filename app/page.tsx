@@ -17,10 +17,10 @@ function BrandMark() {
   return (
     <span className="brand-mark" aria-label="Game Master">
       <span className="brand-emblem">
-        <Image src="/brand/game-master-emblem-v2.png" alt="" fill sizes="64px" priority />
+        <Image src="/brand/game-master-emblem-v3.png" alt="" fill sizes="64px" priority />
       </span>
       <span className="brand-wordmark">
-        <strong>Game</strong><b>Master</b><small>Digital universe</small>
+        <strong>Game</strong><b>Master</b><small>Digital services</small>
       </span>
     </span>
   );
@@ -98,8 +98,8 @@ export default function Home() {
 
       <section className="hero" id="inicio">
         <div className="hero-copy">
-          <p className="eyebrow"><span /> ELIGE TU MUNDO DIGITAL</p>
-          <h1>¿Qué quieres hoy?<em> Empieza por aquí.</em></h1>
+          <p className="eyebrow"><span /> SERVICIOS DIGITALES, CLAROS</p>
+          <h1>¿Qué necesitas hoy?<em> Elige una solución.</em></h1>
           <p className="hero-text">
             Ve directo a lo que buscas. Elige una categoría y te ayudamos a revisar
             opciones, precio y disponibilidad.
@@ -128,10 +128,10 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="hero-visual" aria-label="Universo digital de Game Master: inteligencia artificial, streaming y videojuegos">
-          <Image src="/brand/game-master-universe-v2.png" alt="Universo digital original de Game Master" fill sizes="(max-width: 1050px) 100vw, 55vw" priority />
+        <div className="hero-visual" aria-label="Tres soluciones digitales de Game Master: inteligencia artificial, streaming y videojuegos">
+          <Image src="/brand/game-master-studio-v3.png" alt="Tres accesos digitales representados con una composición arquitectónica sobria" fill sizes="(max-width: 1050px) 100vw, 55vw" priority />
           <div className="hero-visual-shade" />
-          <p className="hero-visual-label"><span>GM</span> UN UNIVERSO. TRES CAMINOS.</p>
+          <p className="hero-visual-label"><span>GM</span> UNA MARCA. TRES SOLUCIONES.</p>
           <div className="hero-visual-index"><strong>03</strong><span>CATEGORÍAS<br />PARA ELEGIR</span></div>
         </div>
       </section>
@@ -384,7 +384,7 @@ export default function Home() {
       <footer>
         <div className="section-shell footer-top">
           <BrandMark />
-          <p>ChatGPT, streaming y videojuegos en un universo digital propio.</p>
+          <p>ChatGPT, streaming y videojuegos en una experiencia digital clara y profesional.</p>
           <a href="#inicio">Volver a elegir <ArrowRight /></a>
         </div>
         <div className="section-shell footer-bottom">

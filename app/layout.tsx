@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: 'Game Master | ChatGPT, streaming y videojuegos',
   description: 'Elige rápidamente entre ChatGPT, membresías de streaming y videojuegos con atención personalizada.',
   metadataBase: new URL('https://game-master-digital-mx.mastr-z3ro.chatgpt.site'),
-  icons: { icon: '/brand/game-master-emblem-v2.png' },
+  icons: { icon: '/brand/game-master-emblem-v3.png' },
   openGraph: {
     type: 'website',
     locale: 'es_MX',
