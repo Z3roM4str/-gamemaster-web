@@ -6,22 +6,22 @@ const display = Bebas_Neue({ variable: '--font-display', subsets: ['latin'], wei
 const body = Outfit({ variable: '--font-body', subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Game Master | Juegos digitales para Nintendo Switch',
-  description: 'Catálogo de juegos digitales para Nintendo Switch y Switch 2. Consulta precio y disponibilidad con atención personalizada.',
+  title: 'Game Master | Juegos, membresías e IA',
+  description: 'Juegos digitales, membresías de streaming y música, y herramientas de inteligencia artificial con atención personalizada.',
   metadataBase: new URL('https://game-master-digital-mx.mastr-z3ro.chatgpt.site'),
   icons: { icon: '/og.png' },
   openGraph: {
     type: 'website',
     locale: 'es_MX',
     siteName: 'Game Master',
-    title: 'Game Master | El juego que buscas',
-    description: 'Nintendo Switch · Switch 2 · Cotización personalizada',
-    images: [{ url: '/og.png', width: 1200, height: 630, alt: 'Game Master — El juego que buscas' }],
+    title: 'Game Master | Juegos, membresías e IA',
+    description: 'JUEGOS · MEMBRESÍAS · IA',
+    images: [{ url: '/og.png', width: 1200, height: 630, alt: 'Game Master — Juegos, membresías e IA' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Game Master | El juego que buscas',
-    description: 'Nintendo Switch · Switch 2 · Cotización personalizada',
+    title: 'Game Master | Juegos, membresías e IA',
+    description: 'JUEGOS · MEMBRESÍAS · IA',
     images: ['/og.png'],
   },
 };

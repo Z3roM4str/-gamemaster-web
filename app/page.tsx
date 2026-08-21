@@ -4,9 +4,9 @@ import Image from 'next/image';
 import { useMemo, useState } from 'react';
 import {
   ArrowRight, ArrowUpRight, BadgeCheck, BrainCircuit, Check, ChevronRight,
-  Copy, Download, Gamepad2, Headphones, Menu, MessageCircle, MonitorPlay,
-  Search, ShieldCheck, Sparkles, Tv2, UserRound, UsersRound, Wifi, WifiOff,
-  Zap,
+  Copy, Download, Gamepad2, Menu, MessageCircle,
+  Search, ShieldCheck, Tv2, UserRound, UsersRound, Wifi, WifiOff,
+  X, Zap,
 } from 'lucide-react';
 import { catalog, categories, type Game } from './data/catalog';
 
@@ -21,7 +21,7 @@ const categoryStats = [
 function BrandMark() {
   return (
     <span className="brand-mark" aria-label="Game Master">
-      <span>GAME</span><strong>MASTER</strong><i aria-hidden="true" />
+      <Image src="/brand/game-master-logo.jpg" alt="Game Master" fill sizes="150px" priority />
     </span>
   );
 }
@@ -43,6 +43,7 @@ export default function Home() {
   const [visible, setVisible] = useState(12);
   const [selected, setSelected] = useState<string[]>([]);
   const [copied, setCopied] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const results = useMemo(() => {
     const normalized = query.trim().toLocaleLowerCase('es');
@@ -71,14 +72,21 @@ export default function Home() {
     <main>
       <header className="site-header">
         <a className="brand-link" href="#inicio" aria-label="Game Master, inicio"><BrandMark /></a>
-        <nav aria-label="Navegación principal">
-          <a href="#catalogo">Catálogo</a>
-          <a href="#modalidades">Cómo funciona</a>
-          <a href="#servicios">Servicios</a>
-          <a href="#preguntas">Preguntas</a>
+        <nav className={menuOpen ? 'open' : ''} aria-label="Navegación principal">
+          <a href="#catalogo" onClick={() => setMenuOpen(false)}>Catálogo</a>
+          <a href="#modalidades" onClick={() => setMenuOpen(false)}>Cómo funciona</a>
+          <a href="#servicios" onClick={() => setMenuOpen(false)}>Servicios</a>
+          <a href="#preguntas" onClick={() => setMenuOpen(false)}>Preguntas</a>
         </nav>
         <a className="header-cta" href="#cotizar">Cotizar ahora <ArrowUpRight size={15} /></a>
-        <button className="menu-button" aria-label="Abrir menú"><Menu /></button>
+        <button
+          className="menu-button"
+          aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen((current) => !current)}
+        >
+          {menuOpen ? <X /> : <Menu />}
+        </button>
       </header>
 
       <section className="hero" id="inicio">
@@ -257,37 +265,61 @@ export default function Home() {
             <p className="eyebrow"><span /> MÁS FORMAS DE DISFRUTAR</p>
             <h2>Tu mundo digital,<br /><em>en un solo lugar.</em></h2>
           </div>
-          <p>Consulta disponibilidad de entretenimiento, música y herramientas de IA. Cada servicio se valida antes de cotizar.</p>
+          <p>Esta es la oferta real comunicada por Game Master. Cada membresía, herramienta o plataforma se valida antes de cotizar.</p>
         </div>
-        <div className="service-grid">
-          <article className="service-card">
-            <span className="service-icon"><Tv2 /></span>
-            <small>01 · ENTRETENIMIENTO</small>
-            <h3>Streaming</h3>
-            <p>Netflix, Max, Disney+, Prime Video, Apple TV+ y Crunchyroll.</p>
-            <a href="#cotizar">Consultar <ArrowUpRight /></a>
-          </article>
-          <article className="service-card featured-service">
-            <span className="service-icon"><Headphones /></span>
-            <small>02 · ESCUCHA SIN LÍMITES</small>
-            <h3>Música</h3>
-            <p>Spotify y YouTube Music, sujetos a disponibilidad y condiciones.</p>
-            <a href="#cotizar">Consultar <ArrowUpRight /></a>
-          </article>
-          <article className="service-card">
-            <span className="service-icon"><BrainCircuit /></span>
-            <small>03 · HERRAMIENTAS DIGITALES</small>
-            <h3>Inteligencia artificial</h3>
-            <p>ChatGPT, Gemini, Perplexity Pro y Abacus.AI.</p>
-            <a href="#cotizar">Consultar <ArrowUpRight /></a>
-          </article>
-          <article className="service-card coming-soon">
-            <span className="service-icon"><MonitorPlay /></span>
-            <small>04 · PRÓXIMAMENTE</small>
-            <h3>Game Night + Karaoke</h3>
-            <p>Experiencias presenciales para eventos, grupos y empresas.</p>
-            <span className="soon-label"><Sparkles /> EN PREPARACIÓN</span>
-          </article>
+        <div className="services-showcase">
+          <figure className="services-poster">
+            <Image
+              src="/brand/servicios-game-master.jpg"
+              alt="Servicios Game Master: Netflix, Spotify, HBO Max, Crunchyroll, Apple TV+, Disney+, Amazon Prime, YouTube Music, ChatGPT, Perplexity Pro, Abacus.AI, Gemini, Steam, Nintendo Switch, PlayStation y Xbox Game Pass"
+              fill
+              sizes="(max-width: 900px) 100vw, 430px"
+            />
+            <figcaption>Material oficial proporcionado por Game Master</figcaption>
+          </figure>
+
+          <div className="service-catalog">
+            <article className="service-category streaming-category">
+              <div className="service-category-icon"><Tv2 /></div>
+              <div className="service-category-copy">
+                <small>01 · MEMBRESÍAS</small>
+                <h3>Streaming &amp; música</h3>
+                <p>Entretenimiento, series, películas, anime y música.</p>
+                <div className="service-tags">
+                  {['Netflix', 'Spotify', 'HBO Max', 'Crunchyroll', 'Apple TV+', 'Disney+', 'Amazon Prime', 'YouTube Music'].map((service) => <span key={service}>{service}</span>)}
+                </div>
+              </div>
+              <a href="#cotizar" aria-label="Consultar membresías">Consultar <ArrowUpRight /></a>
+            </article>
+
+            <article className="service-category ai-category">
+              <div className="service-category-icon"><BrainCircuit /></div>
+              <div className="service-category-copy">
+                <small>02 · PRODUCTIVIDAD</small>
+                <h3>Inteligencia artificial</h3>
+                <p>Herramientas digitales sujetas a plan y disponibilidad.</p>
+                <div className="service-tags">
+                  {['ChatGPT', 'Perplexity Pro', 'Abacus.AI', 'Gemini'].map((service) => <span key={service}>{service}</span>)}
+                </div>
+              </div>
+              <a href="#cotizar" aria-label="Consultar herramientas de inteligencia artificial">Consultar <ArrowUpRight /></a>
+            </article>
+
+            <article className="service-category gaming-category">
+              <div className="service-category-icon"><Gamepad2 /></div>
+              <div className="service-category-copy">
+                <small>03 · VIDEOJUEGOS</small>
+                <h3>Plataformas gamer</h3>
+                <p>Opciones digitales para consola y PC.</p>
+                <div className="service-tags">
+                  {['Steam', 'Nintendo Switch', 'PlayStation', 'Xbox Game Pass'].map((service) => <span key={service}>{service}</span>)}
+                </div>
+              </div>
+              <a href="#cotizar" aria-label="Consultar plataformas de videojuegos">Consultar <ArrowUpRight /></a>
+            </article>
+
+            <p className="service-disclaimer">Las marcas pertenecen a sus respectivos titulares. Su presencia indica servicios consultables y no afiliación oficial.</p>
+          </div>
         </div>
       </section>
 
