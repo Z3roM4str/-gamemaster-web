@@ -16,21 +16,43 @@ Depth must come from a **single 2D composition containing distinct red, blue and
 
 If any older repository wording conflicts with `docs/CODEX_VISUAL_GUARDRAILS.md`, the guardrail file wins.
 
-## Read before changing code
+## Mandatory read order before changing code
 
-Always read, in this order:
+Read in this order:
 
 1. `docs/CODEX_VISUAL_GUARDRAILS.md`
-2. `docs/PRODUCT_VISION.md`
-3. `docs/BUSINESS_RULES.md`
-4. `docs/CHROMOSTEREOPSIS.md`
-5. `docs/VISUAL_SYSTEM.md`
-6. `docs/REFERENCE_IMAGES.md`
-7. `data/catalog.ts`
+2. `docs/research/README.md`
+3. `docs/research/EVIDENCE_MAP.md`
+4. `docs/research/IMPLEMENTATION_RULES.md`
+5. `docs/PRODUCT_VISION.md`
+6. `docs/BUSINESS_RULES.md`
+7. `docs/CHROMOSTEREOPSIS.md`
+8. `docs/VISUAL_SYSTEM.md`
+9. `docs/REFERENCE_IMAGES.md`
+10. `data/catalog.ts`
 
-For deeper reasoning also read `docs/research/CHROMO_RESEARCH_NOTES.md`.
+For deeper visual/perceptual reasoning, also read:
+
+- `docs/research/SOURCE_A_INVESTIGACION_ESPECIFICACION.md`
+- `docs/research/SOURCE_B_LENGUAJES_VISUALES.md`
+- `docs/research/SOURCE_C_AUDITORIA.md`
+- `docs/research/CHROMO_RESEARCH_NOTES.md`
+- `docs/research/PDF_MANIFEST.md`
 
 Treat these files as the source of truth unless the user explicitly changes a business rule or visual direction.
+
+## Research precedence
+
+Do not silently reconcile contradictions in the research.
+
+When sources differ:
+
+1. preserve direct/strong evidence as strong;
+2. use later audit/correction when it explicitly revises an earlier operational statement;
+3. keep unresolved items labeled as hypotheses/tests;
+4. distinguish GameMaster product decisions from scientific claims.
+
+Examples: near-black background, vivid red/blue and red-forward/blue-rear are useful product defaults, but must not be presented as universal perceptual laws.
 
 ## Product principles
 
@@ -142,6 +164,7 @@ Run or reason through:
 - very long game title wrapping
 - grayscale/single-geometry sanity check: important objects must not reveal duplicated copies
 - visual check: the page must not resemble a red/cyan 3D-glasses demo
+- research check: every visual claim should be traceable as strong, conditional, test/hypothesis or product decision
 
 ## Current priority backlog
 
