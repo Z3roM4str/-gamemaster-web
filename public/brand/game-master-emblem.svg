@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">GameMaster emblem</title>
+  <desc id="desc">Temporary geometric GameMaster emblem using red, blue, black and white chromatic planes.</desc>
+  <rect width="256" height="256" fill="#050505"/>
+  <rect x="34" y="52" width="164" height="152" fill="none" stroke="#1616ff" stroke-width="10"/>
+  <rect x="58" y="28" width="164" height="152" fill="none" stroke="#ff1a1a" stroke-width="10"/>
+  <rect x="46" y="40" width="164" height="152" fill="#050505" stroke="#f4f4ef" stroke-width="4"/>
+  <path d="M78 82h54v18H96v16h31v18H96v18h38v18H78V82Z" fill="#f4f4ef"/>
+  <path d="M144 82h36c28 0 38 17 38 44s-10 44-38 44h-36V82Zm18 18v52h16c15 0 21-8 21-26s-6-26-21-26h-16Z" fill="#f4f4ef"/>
+  <path d="M30 214h102" stroke="#ff1a1a" stroke-width="8"/>
+  <path d="M124 226h102" stroke="#1616ff" stroke-width="8"/>
+</svg>
