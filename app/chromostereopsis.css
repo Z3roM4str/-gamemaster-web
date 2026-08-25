@@ -1,0 +1,136 @@
+/*
+ * GameMaster chromostereopsis corrections.
+ *
+ * This file intentionally loads after globals.css and removes older
+ * anaglyph-like red/blue ghosting without requiring a full visual rewrite.
+ * See docs/CODEX_VISUAL_GUARDRAILS.md.
+ */
+
+.brandMark {
+  box-shadow: none;
+  border: 0;
+  border-left: 4px solid var(--gm-red);
+  border-bottom: 2px solid var(--gm-blue);
+  background: #090909;
+}
+
+.chromaticEdge,
+.inverseEdge {
+  box-shadow: none;
+}
+
+.chromaticEdge {
+  border-left: 3px solid var(--gm-red);
+  border-bottom: 2px solid var(--gm-blue);
+}
+
+.inverseEdge {
+  border-left-color: var(--gm-blue);
+  border-bottom-color: var(--gm-red);
+}
+
+.heroAccent {
+  color: var(--gm-red);
+  text-shadow: none;
+  background:
+    linear-gradient(
+      to bottom,
+      transparent 0 78%,
+      var(--gm-blue) 78% 84%,
+      transparent 84% 100%
+    );
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+/*
+ * The old hero used three similarly sized offset poster rectangles.
+ * Keep the existing DOM for now, but turn the red and blue pieces into
+ * materially different shapes: a blue rear technical field and a sparse
+ * red foreground bar. They are no longer chromatic copies of one poster.
+ */
+.posterBlue {
+  z-index: 1;
+  width: min(46vw, 520px);
+  height: min(37vw, 430px);
+  aspect-ratio: auto;
+  left: 58%;
+  top: 43%;
+  border: 0;
+  opacity: .62;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 27px,
+      rgba(22, 22, 255, .95) 27px 29px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0 27px,
+      rgba(22, 22, 255, .45) 27px 29px
+    );
+  clip-path: polygon(6% 0, 100% 0, 86% 100%, 0 88%);
+  transform: translate(-50%, -50%) rotate(2deg);
+}
+
+.posterRed {
+  z-index: 7;
+  width: 18px;
+  height: min(44vw, 510px);
+  aspect-ratio: auto;
+  left: 26%;
+  top: 53%;
+  border: 0;
+  background: var(--gm-red);
+  transform: translate(-50%, -50%);
+}
+
+.posterNeutral {
+  z-index: 4;
+}
+
+/* Keep interactive states crisp; do not increase chromatic separation. */
+.chromaticEdge:hover,
+.chromaticEdge:focus-visible,
+.inverseEdge:hover,
+.inverseEdge:focus-visible {
+  box-shadow: none;
+}
+
+@media (max-width: 760px) {
+  .brandMark {
+    border-left-width: 3px;
+    border-bottom-width: 2px;
+  }
+
+  .chromaticEdge {
+    border-left-width: 2px;
+    border-bottom-width: 2px;
+  }
+
+  .heroAccent {
+    background:
+      linear-gradient(
+        to bottom,
+        transparent 0 81%,
+        var(--gm-blue) 81% 86%,
+        transparent 86% 100%
+      );
+  }
+
+  .posterBlue {
+    width: 88%;
+    height: 58%;
+    left: 56%;
+    top: 44%;
+    background-size: auto;
+    opacity: .5;
+  }
+
+  .posterRed {
+    width: 10px;
+    height: 66%;
+    left: 19%;
+    top: 54%;
+  }
+}
