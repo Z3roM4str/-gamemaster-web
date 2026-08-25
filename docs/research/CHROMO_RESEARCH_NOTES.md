@@ -1,10 +1,28 @@
-# Detailed Chromostereopsis Research Notes
+# Detailed Chromostereopsis Research Notes — Corrected Implementation Reading
 
 This file preserves the implementation-relevant substance of the owner's supplied chromostereopsis research so Codex can reason from it without needing the original PDFs.
 
+## Critical interpretation rule
+
+The research distinguishes chromostereopsis from an anaglyph. **Do not translate the research into red/blue duplicate offsets.**
+
+A traditional anaglyph creates stereo disparity from two displaced image channels. Chromostereopsis can arise from a **single 2D image** containing spectrally separated color regions, especially red and blue, because of binocular ocular chromatic aberration and related observer-dependent factors.
+
+For GameMaster, the safe translation is:
+
+- one geometry per object;
+- distinct red, blue and neutral regions;
+- crisp color boundaries;
+- red often used as a focal/front plane;
+- blue often used as a structural/rear plane;
+- black/near-black used as neutral space;
+- no red/blue ghost copies of the same text, icon, border, image or card.
+
+See `docs/CODEX_VISUAL_GUARDRAILS.md` for implementation rules.
+
 ## 1. Core mechanism
 
-The research frames chromostereopsis as a binocular depth phenomenon in which different colors—especially red and blue—produce different retinal positions because of ocular chromatic aberration. The principal mechanism discussed is transverse chromatic aberration (TCA), modulated by pupil position and the Stiles–Crawford effect.
+The research frames chromostereopsis as a binocular depth phenomenon in which different colors—especially red and blue—can produce different retinal positions because of ocular chromatic aberration. The principal mechanism discussed is transverse chromatic aberration (TCA), modulated by pupil position and the Stiles–Crawford effect.
 
 Important implications:
 
@@ -22,7 +40,7 @@ The research distinguishes stronger evidence from inference/hypothesis. Codex mu
 ### Relatively strong / repeatedly supported
 
 - red/blue separation is an effective chromostereoscopic pair;
-- the effect is binocular;
+- the phenomenon is binocular;
 - pupil geometry and TCA affect direction/magnitude;
 - luminance/adaptation matter;
 - observer-to-observer variability is real;
@@ -50,6 +68,7 @@ Status for web design: **FIXED DIRECTION / TUNABLE VALUES**
 Implementation:
 
 - keep red and blue clearly separated;
+- use them in different real regions of the composition;
 - tune digital colors for the actual display context;
 - never claim a particular hex pair is universally optimal.
 
@@ -61,13 +80,13 @@ Status: **RANGE / TEST**
 
 Implementation:
 
-- start vivid;
-- reduce saturation in long-reading or fatigue-prone areas;
+- start vivid in focal art;
+- reduce saturation/density in long-reading or fatigue-prone areas;
 - test hero vs card strengths separately.
 
 ### Luminance
 
-Research direction: luminance can materially alter perceived depth and may even invert it under some conditions. Equiluminance is useful experimentally to isolate chromatic mechanisms but is not automatically the strongest artistic configuration.
+Research direction: luminance can materially alter perceived depth and may even invert it under some conditions. Equiluminance can be useful experimentally to isolate chromatic mechanisms but is not automatically the strongest artistic configuration.
 
 Status: **RANGE / TEST**
 
@@ -95,15 +114,16 @@ Research direction: crisp chromatic boundaries are useful; blur and antialiasing
 
 Status: **STRONGLY PREFERRED FOR ART DIRECTION**
 
-Implementation:
+Correct implementation:
 
-- favor hard red/blue offsets and solid planes;
+- favor hard boundaries between genuinely different red/blue regions;
+- favor solid planes, vector lines and posterized shapes;
 - avoid soft RGB glow as the default treatment;
-- use blur only for neutral atmospheric layers, not primary chromatic edges.
+- do **not** interpret “hard edge” as permission to put red and blue offset copies around the same contour.
 
 ### Spatial frequency / density
 
-Research direction: exact optimum is not established. Very fine patterns may become noisy or fatiguing; very broad fields may produce less repeated boundary information.
+Research direction: exact optimum is not established. Very fine patterns may become noisy or fatiguing; very broad fields may provide fewer boundaries.
 
 Status: **TEST**
 
@@ -115,14 +135,15 @@ Implementation:
 
 ### Orientation
 
-Research explores the idea that vertical edges may convert horizontal chromatic displacement into effective binocular disparity more directly than other orientations, but this should be treated as an implementation hypothesis rather than a universal aesthetic rule.
+Research explores whether vertical boundaries may translate chromatic displacement into effective binocular disparity more directly than other orientations, but this remains an implementation hypothesis rather than a universal aesthetic rule.
 
 Status: **TEST**
 
 Implementation:
 
-- vertical red/blue framing is a good starting motif;
-- compare with diagonal/topographic/curved systems.
+- vertical red/blue region boundaries are a valid experiment;
+- compare with curved/topographic, horizontal and diagonal structures;
+- the two colors should still occupy separate regions rather than duplicate one boundary as ghost outlines.
 
 ### Repetition / regularity
 
@@ -133,7 +154,8 @@ Status: **TEST**
 Implementation:
 
 - useful for identity, rhythm and multiple chromatic boundaries;
-- do not assume denser repetition = better.
+- do not assume denser repetition = better;
+- alternate actual cells/modules rather than cloning the same module in two offset colors.
 
 ### Antialiasing / blur
 
@@ -144,7 +166,8 @@ Status: **PREFER HARD / TEST SOFT**
 Implementation:
 
 - CSS borders, SVG lines and posterized shapes are preferred;
-- if raster artwork uses halftone, preserve crisp color separation.
+- if raster artwork uses halftone, preserve crisp color separation;
+- avoid red/blue blur halos and chromatic-aberration effects.
 
 ### Display / medium
 
@@ -167,26 +190,24 @@ Status: **UNCONTROLLED**
 Implementation:
 
 - design must remain understandable without the effect;
-- never require users to “see” chromostereopsis to navigate.
+- never require users to perceive chromostereopsis to navigate.
 
 ## 4. Experimental benchmark described in the research
 
 The research proposes a deliberately simple reference stimulus roughly consisting of:
 
-- neutral gray background;
-- adjacent large red and blue rectangles;
-- matched or known luminance;
-- hard central boundary;
+- neutral gray or controlled background;
+- adjacent large red and blue rectangles/regions;
+- matched or known luminance for controlled testing;
+- hard shared boundary;
 - no textures, gradients or pictorial depth cues;
 - controlled viewing distance and display calibration.
 
-This benchmark is useful as a test harness, not as a finished website design.
+This is important because it demonstrates the intended logic: **adjacent color regions in one image**, not two displaced copies of an image.
 
-A future internal `/lab` page could reproduce simplified variants to tune GameMaster's web palette and offsets subjectively.
+A future internal `/lab` page could reproduce simplified variants to tune GameMaster's web palette, region size, density and background luminance subjectively.
 
 ## 5. Visual language candidates identified by the research
-
-The reports explore many structural families. Particularly relevant to GameMaster:
 
 ### Geometric / Op-art structures
 
@@ -218,7 +239,7 @@ Risks:
 Strengths:
 
 - strong identity;
-- compatible with the supplied reference images;
+- compatible with supplied references;
 - can bridge figurative art and limited palette.
 
 Risks:
@@ -243,7 +264,7 @@ Risks:
 Strengths:
 
 - modular and generative;
-- supports red/blue plane encoding;
+- supports red/blue region encoding;
 - useful for dynamic placeholders.
 
 Risks:
@@ -279,28 +300,26 @@ Risks:
 
 Strengths:
 
-- could become a truly ownable identity independent of color;
+- could become an ownable identity independent of color;
 - useful for category glyphs, navigation and procedural covers.
 
 Risks:
 
 - needs a consistent grammar, not random symbols.
 
-## 6. White-space opportunities from the research
+## 6. Reference-image reading
 
-Promising less-obvious areas include:
+The owner's supplied visual references are especially useful because they demonstrate **plane hierarchy without duplicated stereo contours**.
 
-- non-periodic tessellations;
-- organic fractal systems;
-- scientific diagrams reinterpreted as art;
-- architecture/parametric grids;
-- modular cultural ornament interpreted abstractly;
-- imaginary maps;
-- symbolic alphabets;
-- reaction-diffusion / cellular structures;
-- hybrids such as fractal + circuit, map + L-system, tessellation + ornament.
+Recurring patterns include:
 
-Codex should explore one family at a time and measure whether it improves the brand, rather than combining all of them in one page.
+- red engraved/halftone figure against blue repeating geometric structure;
+- blue technical/halftone portrait with one solid red vertical bar;
+- red architectural/ornamental frame around a blue/black scene;
+- mostly blue field with one small red object as a focal/front plane;
+- strong black negative space separating red and blue systems.
+
+These should be treated as compositional precedents, not copied literally.
 
 ## 7. Production pipeline implied by the research
 
@@ -309,15 +328,17 @@ A high-control asset workflow is:
 1. define structural composition;
 2. generate or draw geometry;
 3. vectorize/clean if necessary;
-4. remap into a restricted palette;
-5. preserve hard boundaries;
-6. check relative area of red/blue/neutral;
-7. export losslessly where practical;
-8. test on phone and desktop;
-9. evaluate comfort/readability;
-10. iterate.
+4. segment the geometry into distinct red/blue/neutral regions;
+5. remap colors into the restricted palette;
+6. preserve hard boundaries;
+7. check relative area of red/blue/neutral;
+8. export losslessly where practical;
+9. test on phone and desktop;
+10. evaluate comfort/readability;
+11. confirm no duplicated red/blue geometry was introduced;
+12. iterate.
 
-For AI-generated imagery, the research strongly favors using AI for structure and then deterministic post-processing for color/edges rather than trusting unconstrained generation to preserve the exact palette.
+For AI-generated imagery, the research favors using AI for structure and deterministic post-processing for color/edges rather than trusting unconstrained generation to preserve exact color relationships.
 
 ## 8. Comfort and fatigue
 
@@ -339,39 +360,35 @@ A key limitation is that not every observer sees the same depth direction. Some 
 
 Therefore:
 
-- the site's semantic depth hierarchy must exist through layout, size and spacing too;
+- the site's semantic hierarchy must exist through layout, size and spacing too;
 - red/blue depth is an enhancement, not a dependency;
 - marketing copy should not claim “everyone sees 3D”.
 
-## 10. Practical GameMaster v1 strategy
+## 10. Practical GameMaster strategy
 
 Use near-black as the dominant canvas, off-white for text, and red/blue for selected planar structures.
 
-Recommended distribution:
-
-- 70–85% neutral/dark space;
-- 5–15% red;
-- 5–15% blue;
-
-This ratio is an art-direction starting point, not a research-proven optimum.
+A practical starting distribution is mostly neutral/dark space with smaller red and blue regions. Exact percentages are an art-direction variable, not a research-proven optimum.
 
 Best first modules:
 
-- hero with a neutral content plane between red and blue offset planes;
-- procedural game placeholders with red/blue geometry;
+- hero with a blue structural rear field and an independent red focal mass;
+- procedural game placeholders with segmented red/blue geometry;
 - technical line accents around content rails;
 - one category-specific motif per universe;
 - sparse chromatic section separators.
 
 ## 11. What to test next inside the product
 
-Create controlled A/B variants for:
+Create controlled variants for:
 
 - black vs dark-gray card surfaces;
-- 1px / 2px / 3px / 5px red-blue offsets;
+- sparse vs medium red area;
+- sparse vs medium blue structural density;
 - low vs medium pattern density;
 - circuit vs topographic vs halftone hero background;
 - saturated vs slightly reduced red/blue on long pages;
+- vertical vs curved shared color boundaries;
 - mobile simplified vs full desktop art.
 
 Collect subjective feedback on:
@@ -380,4 +397,9 @@ Collect subjective feedback on:
 - attractiveness;
 - professionalism;
 - reading comfort;
-- brand memorability.
+- brand memorability;
+- whether the page ever reads as an anaglyph or RGB glitch.
+
+## Final implementation rule
+
+When translating research into UI, **color-region separation is allowed; cloned chromatic offset is not**. If a technique creates a second displaced copy of the same semantic object, it is outside the intended GameMaster chromostereopsis system.
