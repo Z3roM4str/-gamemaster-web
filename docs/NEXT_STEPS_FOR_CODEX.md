@@ -1,6 +1,6 @@
 # Next Steps for Codex
 
-Start by reading `AGENTS.md` and, before touching visual code, `docs/CODEX_VISUAL_GUARDRAILS.md`.
+Start by reading `AGENTS.md`. The repository now contains a dedicated research library derived from the owner's three chromostereopsis investigations. Before touching visual code, read `docs/CODEX_HANDOFF.md` and follow the mandatory research order in `AGENTS.md`.
 
 ## Phase 0 — Correct the visual model
 
@@ -28,6 +28,25 @@ Replace them with a **single-geometry chromostereoscopic composition**:
 - no duplicated red/blue copies of the same contour.
 
 The site must not resemble content intended for red/cyan 3D glasses.
+
+## Research check before implementation
+
+Read:
+
+- `docs/research/README.md`
+- `docs/research/EVIDENCE_MAP.md`
+- `docs/research/IMPLEMENTATION_RULES.md`
+- `docs/research/SOURCE_A_INVESTIGACION_ESPECIFICACION.md`
+- `docs/research/SOURCE_B_LENGUAJES_VISUALES.md`
+- `docs/research/SOURCE_C_AUDITORIA.md`
+- `docs/research/CHROMO_RESEARCH_NOTES.md`
+
+Do not silently reconcile research contradictions. Keep a distinction between:
+
+- strong/direct findings;
+- conditional findings;
+- hypotheses/tests;
+- GameMaster product decisions.
 
 ## Phase 1 — Validate and stabilize
 
@@ -142,4 +161,5 @@ A revision is not complete until:
 - build passes;
 - no text, logo, icon, card or poster is represented by red/blue displaced copies;
 - the grayscale sanity check still shows one coherent geometry;
-- the page does not read as an anaglyph, RGB glitch or chromatic-aberration demo.
+- the page does not read as an anaglyph, RGB glitch or chromatic-aberration demo;
+- unresolved research variables are described as tests/hypotheses rather than facts.
