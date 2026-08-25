@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./chromostereopsis.css";
 
 export const metadata: Metadata = {
   title: "GameMaster | Gaming, Streaming e IA",
