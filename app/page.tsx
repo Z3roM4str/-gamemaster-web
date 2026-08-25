@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import {
   ArrowRight, ArrowUpRight, BrainCircuit, Check, ChevronRight,
   Copy, Gamepad2, Menu, MessageCircle,
@@ -38,6 +38,8 @@ const catalogShelves = categories.slice(1).map((category) => ({
   category,
   games: catalog.filter((game) => game.category === category).sort((a, b) => a.title.localeCompare(b.title, 'es')),
 }));
+const heroGame = catalog.find((game) => game.id === 'mario-kart-world') ?? catalog[0];
+const heroCompanion = catalog.find((game) => game.id === 'donkey-kong-bananza') ?? catalog[1];
 
 function BrandMark() {
   return (
@@ -62,12 +64,12 @@ function GameTile({ game, isSelected, onToggle, onOpen, index }: { game: Game; i
       <button className="game-visual" onClick={onOpen} aria-label={`Ver detalles de ${game.title}`}>
         <Image src={game.image} alt={`Imagen relacionada con ${game.title}`} fill sizes="(max-width: 650px) 44vw, (max-width: 1000px) 28vw, 210px" />
         <span className="platform-badge">{game.platform === 'Nintendo Switch 2' ? 'SWITCH 2' : 'SWITCH'}</span>
-        <span className={`select-mark ${isSelected ? 'selected' : ''}`}>{isSelected ? <Check /> : '+'}</span>
+        <span className={`select-mark ${isSelected ? 'selected' : ''}`} aria-hidden="true">{isSelected ? <Check /> : '+'}</span>
       </button>
       <div className="game-info">
         <p>{String(index + 1).padStart(2, '0')} · {game.category}</p>
         <h3>{game.title}</h3>
-        <button onClick={onToggle}>
+        <button onClick={onToggle} aria-pressed={isSelected}>
           {isSelected ? 'Quitar de cotización' : 'Agregar y consultar'} <ChevronRight size={15} />
         </button>
       </div>
@@ -83,6 +85,8 @@ export default function Home() {
   const [copied, setCopied] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [focusedGame, setFocusedGame] = useState<Game | null>(null);
+  const modalRef = useRef<HTMLElement>(null);
+  const previousFocusRef = useRef<HTMLElement | null>(null);
 
   const results = useMemo(() => {
     const normalized = query.trim().toLocaleLowerCase('es');
@@ -105,16 +109,43 @@ export default function Home() {
   useEffect(() => {
     if (!focusedGame) return;
     const previousOverflow = document.body.style.overflow;
-    const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setFocusedGame(null);
+    previousFocusRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    const modal = modalRef.current;
+    const focusable = modal?.querySelectorAll<HTMLElement>('button, a[href], input, [tabindex]:not([tabindex="-1"])');
+    const handleModalKeys = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setFocusedGame(null);
+        return;
+      }
+      if (event.key !== 'Tab' || !focusable?.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
     };
     document.body.style.overflow = 'hidden';
-    window.addEventListener('keydown', closeOnEscape);
+    window.addEventListener('keydown', handleModalKeys);
+    focusable?.[0]?.focus();
     return () => {
       document.body.style.overflow = previousOverflow;
-      window.removeEventListener('keydown', closeOnEscape);
+      window.removeEventListener('keydown', handleModalKeys);
+      previousFocusRef.current?.focus();
     };
   }, [focusedGame]);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const closeMenu = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setMenuOpen(false);
+    };
+    window.addEventListener('keydown', closeMenu);
+    return () => window.removeEventListener('keydown', closeMenu);
+  }, [menuOpen]);
 
   const toggleGame = (game: Game) => {
     setSelected((current) => current.includes(game.title)
@@ -129,63 +160,95 @@ export default function Home() {
   };
 
   const copyRequest = async () => {
-    await navigator.clipboard.writeText(quoteMessage);
-    setCopied(true);
+    try {
+      await navigator.clipboard.writeText(quoteMessage);
+      setCopied(true);
+    } catch {
+      setCopied(false);
+    }
   };
 
   return (
     <main>
       <header className="site-header">
         <a className="brand-link" href="#inicio" aria-label="Game Master, inicio"><BrandMark /></a>
-        <nav className={menuOpen ? 'open' : ''} aria-label="Navegación principal">
+        <nav id="primary-navigation" className={menuOpen ? 'open' : ''} aria-label="Navegación principal">
           <a href="#inicio" onClick={() => setMenuOpen(false)}>Inicio</a>
-          <a href="#catalogo" onClick={() => setMenuOpen(false)}>Videojuegos</a>
+          <a href="#catalogo" onClick={() => setMenuOpen(false)}>Gaming</a>
           <a href="#streaming" onClick={() => setMenuOpen(false)}>Streaming</a>
-          <a href="#ia" onClick={() => setMenuOpen(false)}>ChatGPT</a>
+          <a href="#ia" onClick={() => setMenuOpen(false)}>IA</a>
           <a href="#modalidades" onClick={() => setMenuOpen(false)}>Cómo funciona</a>
-          <a href="#preguntas" onClick={() => setMenuOpen(false)}>Preguntas</a>
+          <a href="#preguntas" onClick={() => setMenuOpen(false)}>FAQ</a>
         </nav>
-        <a className="header-cta" href="#cotizar">Cotizar ahora <ArrowUpRight size={15} /></a>
+        <a className="header-cta" href="#cotizar">{selected.length ? `Cotización · ${selected.length}` : 'Cotizar ahora'} <ArrowUpRight size={15} /></a>
         <button
           className="menu-button"
           aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
           aria-expanded={menuOpen}
+          aria-controls="primary-navigation"
           onClick={() => setMenuOpen((current) => !current)}
         >
           {menuOpen ? <X /> : <Menu />}
         </button>
       </header>
 
-      <section className="cinema-hero" id="inicio">
-        <div className="cinema-backdrop">
-          <Image src="/games/mario-kart-world.webp" alt="Mario Kart World, título destacado" fill sizes="100vw" priority />
-        </div>
-        <div className="cinema-shade" />
-        <div className="cinema-copy">
-          <p className="cinema-kicker"><span>GM</span> SEÑAL DIGITAL · MX</p>
-          <h1>Tu universo digital, <em>en una sola señal.</em></h1>
-          <p>Videojuegos, streaming y ChatGPT con atención directa. Explora el catálogo, elige lo que buscas y prepara tu cotización en segundos.</p>
-          <div className="cinema-meta"><span>134 juegos</span><i /> <span>ChatGPT + streaming</span><i /> <span>Atención directa</span></div>
-          <div className="cinema-actions">
-            <a className="primary" href="#catalogo"><Gamepad2 /> Explorar catálogo</a>
-            <a className="secondary" href={toWhatsApp('Hola, quiero conocer las opciones de Game Master para videojuegos, streaming y ChatGPT.')} target="_blank" rel="noreferrer"><MessageCircle /> WhatsApp directo</a>
+      <section className="signal-hero" id="inicio">
+        <div className="signal-hero-copy">
+          <div className="signal-hero-label">
+            <span>GM/01</span>
+            <p>CATÁLOGO DIGITAL · MÉXICO</p>
+          </div>
+          <h1>
+            Todo lo que<br />
+            quieres <span>jugar.</span>
+            <em>En una sola señal.</em>
+          </h1>
+          <p className="signal-hero-lede">
+            Videojuegos, streaming e IA reunidos en una experiencia editorial. Explora con calma y confirma precio y disponibilidad con atención directa.
+          </p>
+          <div className="signal-hero-actions">
+            <a className="signal-primary" href="#catalogo"><Gamepad2 /> Explorar catálogo <ArrowRight /></a>
+            <a className="signal-secondary" href={toWhatsApp('Hola, quiero conocer las opciones de Game Master para videojuegos, streaming e IA.')} target="_blank" rel="noreferrer"><MessageCircle /> Hablar por WhatsApp</a>
+          </div>
+          <div className="signal-hero-proof" aria-label="Resumen del catálogo">
+            <span><strong>{catalog.length}</strong><small>títulos</small></span>
+            <span><strong>03</strong><small>universos</small></span>
+            <span><strong>1:1</strong><small>atención</small></span>
           </div>
         </div>
-        <div className="cinema-poster" aria-hidden="true">
-          <Image src="/games/donkey-kong-bananza.webp" alt="" fill sizes="280px" priority />
-          <span>DESTACADO</span>
+
+        <div className="signal-hero-art" aria-label="Selección editorial Game Master">
+          <div className="signal-rear-field" aria-hidden="true">
+            <span /><span /><span /><span /><span />
+          </div>
+          <p className="signal-art-code">ARCHIVO / GM—2026</p>
+          <button className="signal-cover-main" onClick={() => setFocusedGame(heroGame)} aria-label={`Ver detalles de ${heroGame.title}`}>
+            <Image src={heroGame.image} alt={`Portada de ${heroGame.title}`} fill sizes="(max-width: 760px) 62vw, 360px" priority />
+            <span><small>AHORA EN CATÁLOGO</small><strong>{heroGame.title}</strong></span>
+          </button>
+          <button className="signal-cover-companion" onClick={() => setFocusedGame(heroCompanion)} aria-label={`Ver detalles de ${heroCompanion.title}`}>
+            <Image src={heroCompanion.image} alt={`Portada de ${heroCompanion.title}`} fill sizes="(max-width: 760px) 34vw, 190px" priority />
+            <span>02</span>
+          </button>
+          <div className="signal-front-plane" aria-hidden="true">
+            <strong>PLAY</strong>
+            <span>CATÁLOGO VIVO</span>
+          </div>
+          <div className="signal-art-meta" aria-hidden="true">
+            <span>19.4326° N</span><span>99.1332° W</span><span>SWITCH / STREAM / AI</span>
+          </div>
         </div>
       </section>
 
       <section className="quick-launch-section" aria-labelledby="quick-launch-title">
         <div className="quick-launch-heading">
-          <div><span>EMPIEZA AQUÍ</span><h2 id="quick-launch-title">¿Qué quieres hoy?</h2></div>
-          <p>Elige una categoría y ve directo a lo que estás buscando.</p>
+          <div><span>ELIGE TU UNIVERSO</span><h2 id="quick-launch-title">Tres mundos.<br />Una sola entrada.</h2></div>
+          <p>Cada universo tiene su propio ritmo visual, con la misma atención directa antes de confirmar cualquier compra.</p>
         </div>
         <div className="quick-launch-grid">
           <a href="#ia" onClick={() => chooseInterest('ChatGPT')} className="launch-card launch-ai">
             <ServiceMark src="/services/chatgpt.svg" className="launch-single-mark" />
-            <span><small>INTELIGENCIA ARTIFICIAL</small><strong>ChatGPT</strong><em>Consultar acceso</em></span>
+            <span><small>INTELIGENCIA ARTIFICIAL</small><strong>IA</strong><em>Consultar ChatGPT</em></span>
             <ArrowRight />
           </a>
           <a href="#streaming" onClick={() => chooseInterest('Streaming')} className="launch-card launch-streaming">
@@ -195,7 +258,7 @@ export default function Home() {
           </a>
           <a href="#catalogo" onClick={() => chooseInterest('Videojuegos')} className="launch-card launch-games">
             <span className="launch-game-icon"><Gamepad2 /></span>
-            <span><small>NINTENDO SWITCH Y MÁS</small><strong>Videojuegos</strong><em>Explorar 134 títulos</em></span>
+            <span><small>NINTENDO SWITCH Y MÁS</small><strong>Gaming</strong><em>Explorar {catalog.length} títulos</em></span>
             <ArrowRight />
           </a>
         </div>
@@ -224,6 +287,7 @@ export default function Home() {
               <button
                 className={activeCategory === category ? 'active' : ''}
                 onClick={() => setActiveCategory(category)}
+                aria-pressed={activeCategory === category}
                 key={category}
               >
                 {category}
@@ -334,7 +398,7 @@ export default function Home() {
                 <h3>ChatGPT</h3>
                 <p>La única herramienta de IA ofrecida por Game Master.</p>
                 <div className="service-tags service-logo-list ai-logo-list">
-                  <button className={`service-logo ${interest === 'ChatGPT' ? 'selected' : ''}`} onClick={() => chooseInterest('ChatGPT')} type="button" aria-label="Elegir ChatGPT" title="ChatGPT">
+                  <button className={`service-logo ${interest === 'ChatGPT' ? 'selected' : ''}`} onClick={() => chooseInterest('ChatGPT')} type="button" aria-label="Elegir ChatGPT" aria-pressed={interest === 'ChatGPT'} title="ChatGPT">
                     <ServiceMark src="/services/chatgpt.svg" />
                   </button>
                 </div>
@@ -350,7 +414,7 @@ export default function Home() {
                 <p>Series, películas, anime y música en tus servicios favoritos.</p>
                 <div className="service-tags service-logo-list streaming-logo-list" aria-label="Servicios de streaming y música">
                   {streamingServices.map((service) => (
-                    <button className={`service-logo ${interest === service.name ? 'selected' : ''}`} onClick={() => chooseInterest(service.name)} type="button" key={service.name} aria-label={`Elegir ${service.name}`} title={service.name}>
+                    <button className={`service-logo ${interest === service.name ? 'selected' : ''}`} onClick={() => chooseInterest(service.name)} type="button" key={service.name} aria-label={`Elegir ${service.name}`} aria-pressed={interest === service.name} title={service.name}>
                       <ServiceMark src={service.logo} />
                     </button>
                   ))}
@@ -367,7 +431,7 @@ export default function Home() {
                 <p>Opciones digitales para consola y PC, además del catálogo de juegos.</p>
                 <div className="service-tags service-logo-list gaming-logo-list" aria-label="Plataformas de videojuegos">
                   {gamingServices.map((service) => (
-                    <button className={`service-logo ${interest === service.name ? 'selected' : ''}`} onClick={() => chooseInterest(service.name)} type="button" key={service.name} aria-label={`Elegir ${service.name}`} title={service.name}>
+                    <button className={`service-logo ${interest === service.name ? 'selected' : ''}`} onClick={() => chooseInterest(service.name)} type="button" key={service.name} aria-label={`Elegir ${service.name}`} aria-pressed={interest === service.name} title={service.name}>
                       <ServiceMark src={service.logo} />
                     </button>
                   ))}
@@ -395,9 +459,9 @@ export default function Home() {
               <small>TE INTERESA</small>
               <strong>{interest || 'Elige IA, streaming o videojuegos'}</strong>
               <div>
-                <button className={interest === 'ChatGPT' ? 'active' : ''} onClick={() => chooseInterest('ChatGPT')} type="button">ChatGPT</button>
-                <button className={interest === 'Streaming' ? 'active' : ''} onClick={() => chooseInterest('Streaming')} type="button">Streaming</button>
-                <button className={interest === 'Videojuegos' ? 'active' : ''} onClick={() => chooseInterest('Videojuegos')} type="button">Videojuegos</button>
+                <button className={interest === 'ChatGPT' ? 'active' : ''} onClick={() => chooseInterest('ChatGPT')} type="button" aria-pressed={interest === 'ChatGPT'}>ChatGPT</button>
+                <button className={interest === 'Streaming' ? 'active' : ''} onClick={() => chooseInterest('Streaming')} type="button" aria-pressed={interest === 'Streaming'}>Streaming</button>
+                <button className={interest === 'Videojuegos' ? 'active' : ''} onClick={() => chooseInterest('Videojuegos')} type="button" aria-pressed={interest === 'Videojuegos'}>Videojuegos</button>
               </div>
             </div>
             <div className="selected-games">
@@ -407,7 +471,7 @@ export default function Home() {
                 <p>Si buscas juegos, puedes agregarlos con el botón <strong>+</strong> del catálogo.</p>
               )}
             </div>
-            <button className="copy-button" onClick={copyRequest}>
+            <button className="copy-button" onClick={copyRequest} aria-live="polite">
               {copied ? <><Check /> Solicitud copiada</> : <><Copy /> Copiar solicitud rápida</>}
             </button>
             <a className="whatsapp-button" href={whatsappUrl} target="_blank" rel="noreferrer">
@@ -462,7 +526,7 @@ export default function Home() {
         <div className="product-modal-backdrop" onMouseDown={(event) => {
           if (event.target === event.currentTarget) setFocusedGame(null);
         }}>
-          <section className="product-modal" role="dialog" aria-modal="true" aria-labelledby="product-modal-title">
+          <section ref={modalRef} className="product-modal" role="dialog" aria-modal="true" aria-labelledby="product-modal-title" aria-describedby="product-modal-description">
             <button className="product-modal-close" onClick={() => setFocusedGame(null)} aria-label="Cerrar detalles"><X /></button>
             <div className="product-modal-art">
               <Image src={focusedGame.image} alt={`Imagen relacionada con ${focusedGame.title}`} fill sizes="(max-width: 720px) 100vw, 42vw" />
@@ -470,13 +534,13 @@ export default function Home() {
             <div className="product-modal-copy">
               <p>{focusedGame.category} · {focusedGame.platform}</p>
               <h2 id="product-modal-title">{focusedGame.title}</h2>
-              <p className="product-modal-description">Título digital para {focusedGame.platform}. El precio, la modalidad y la disponibilidad se confirman contigo al momento de cotizar.</p>
+              <p className="product-modal-description" id="product-modal-description">Título digital para {focusedGame.platform}. El precio, la modalidad y la disponibilidad se confirman contigo al momento de cotizar.</p>
               <div className="product-modal-status">
                 <span><small>PRECIO</small><strong>Consultar precio</strong></span>
                 <span><small>DISPONIBILIDAD</small><strong>Sujeto a confirmación</strong></span>
               </div>
               <div className="product-modal-actions">
-                <button onClick={() => toggleGame(focusedGame)}>{selected.includes(focusedGame.title) ? <Check /> : '+'} {selected.includes(focusedGame.title) ? 'Agregado a tu solicitud' : 'Agregar a tu solicitud'}</button>
+                <button onClick={() => toggleGame(focusedGame)} aria-pressed={selected.includes(focusedGame.title)}>{selected.includes(focusedGame.title) ? <Check /> : '+'} {selected.includes(focusedGame.title) ? 'Agregado a tu solicitud' : 'Agregar a tu solicitud'}</button>
                 <a href={toWhatsApp(`Hola, quiero cotizar ${focusedGame.title} para ${focusedGame.platform}. ¿Me ayudan a revisar precio, modalidad y disponibilidad?`)} target="_blank" rel="noreferrer"><MessageCircle /> Cotizar por WhatsApp</a>
               </div>
               <small className="product-modal-note">Game Master es un negocio independiente. La imagen se muestra como referencia del título.</small>
