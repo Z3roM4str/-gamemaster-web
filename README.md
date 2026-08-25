@@ -34,34 +34,38 @@ Construir una web comercial que combine:
 
 ## Fuente de verdad para Codex
 
-Antes de modificar la web, leer en este orden:
+Empieza siempre por `AGENTS.md`. Ahí está el orden obligatorio de lectura.
 
-1. `AGENTS.md`
-2. `docs/CODEX_VISUAL_GUARDRAILS.md`
-3. `docs/PRODUCT_VISION.md`
-4. `docs/BUSINESS_RULES.md`
-5. `docs/CHROMOSTEREOPSIS.md`
-6. `docs/VISUAL_SYSTEM.md`
-7. `docs/REFERENCE_IMAGES.md`
-8. `data/catalog.ts`
+La biblioteca de investigación está en `docs/research/` e incluye:
 
-Para profundizar en la investigación: `docs/research/CHROMO_RESEARCH_NOTES.md`.
+- `README.md` — índice y jerarquía de las tres investigaciones;
+- `EVIDENCE_MAP.md` — evidencia fuerte, condicional, hipótesis y decisiones de producto;
+- `IMPLEMENTATION_RULES.md` — traducción concreta a CSS/React/diseño web;
+- `SOURCE_A_INVESTIGACION_ESPECIFICACION.md` — mapa de la investigación técnica de 20 páginas;
+- `SOURCE_B_LENGUAJES_VISUALES.md` — mapa de la investigación de lenguajes visuales de 19 páginas;
+- `SOURCE_C_AUDITORIA.md` — mapa de la auditoría de 13 páginas;
+- `CHROMO_RESEARCH_NOTES.md` — síntesis técnica previa;
+- `PDF_MANIFEST.md` — nombres, páginas y SHA-256 de los PDFs originales suministrados por el propietario.
+
+Para iniciar una nueva sesión de Codex, usar `docs/CODEX_HANDOFF.md`.
 
 ## Dirección visual resumida
 
-- rojo = plano focal/delantero;
+- rojo = plano focal/delantero intencional;
 - negro o casi negro = plano neutro y espacio negativo;
-- azul = plano estructural/posterior;
+- azul = plano estructural/posterior intencional;
 - texto de lectura = neutro;
 - cada color debe ocupar geometría real diferente;
 - arte técnico, topográfico, modular, halftone/engraving y diagramático son familias prioritarias;
-- el diseño debe seguir siendo coherente aunque el espectador no perciba la profundidad cromática.
+- el diseño debe seguir siendo coherente aunque el espectador no perciba la profundidad cromática o la perciba invertida.
+
+Estos son defaults de producto; no deben venderse como leyes perceptuales universales.
 
 ## Estado actual
 
 Se incluye una base funcional en Next.js/TypeScript para que Codex no empiece desde cero. El diseño debe evolucionar, no degradarse a una plantilla genérica.
 
-Existe deuda visual en la base actual: algunos tratamientos CSS anteriores pueden parecer anaglifo. Codex debe reemplazarlos antes de considerar terminada la siguiente iteración visual. Ver `docs/NEXT_STEPS_FOR_CODEX.md`.
+Existe deuda visual en la base actual: algunos tratamientos CSS anteriores pueden parecer anaglifo. Codex debe reemplazarlos antes de considerar terminada la siguiente iteración visual. Ver `docs/NEXT_STEPS_FOR_CODEX.md` e Issue #1.
 
 ## Contacto comercial
 
