@@ -2,28 +2,51 @@
 
 ## Purpose
 
-GameMaster uses chromostereopsis as a brand language, not as a gimmick filter. The goal is a site that can feel spatial through color while remaining readable, comfortable and commercially credible.
+GameMaster uses chromostereopsis as a brand language, not as an anaglyph filter, RGB-split effect or retro 3D-glasses gimmick. The goal is a site that can feel spatial through color while remaining readable, comfortable and commercially credible.
 
-This document distills the owner's research into a practical web specification. The research itself notes uncertainty and observer variability, so this is an **artistic-depth implementation**, not a laboratory claim of universal depth perception.
+This document translates the owner's research into an **artistic-depth implementation** for a public website. It does not claim laboratory-level reproducibility or identical depth perception for every observer.
 
-## What the research supports strongly
+## First principle: one image, one geometry
 
-The supplied reports consistently treat the phenomenon as binocular and strongly associated with large spectral separation between red and blue. They also identify observer variability, luminance/adaptation and display characteristics as important factors.
+Chromostereopsis is not produced by making two displaced copies of the same object. A traditional anaglyph uses two offset image channels intended to be separated by colored filters. The chromostereoscopic phenomenon discussed in the supplied research can occur in a single 2D composition because red and blue regions are processed differently by the binocular visual system.
+
+Therefore GameMaster must preserve a **single-geometry invariant**:
+
+- one heading shape, not red/blue copies of the same heading;
+- one button body, not two offset button shells;
+- one logo, not red/blue ghost logos;
+- one card body, not chromatically duplicated outlines;
+- one visual object per semantic object.
+
+Color depth comes from the relationship between **different red, blue and neutral regions**, not cloned contours.
+
+## What the research supports strongly enough for art direction
+
+The supplied research repeatedly treats chromostereopsis as:
+
+- binocular;
+- strongly associated with large spectral separation, especially red vs blue;
+- sensitive to luminance and adaptation;
+- affected by pupil position and observer-specific ocular optics;
+- dependent on display characteristics;
+- variable across observers, including possible inversion or weak/no effect;
+- easier to isolate when chromatic regions are crisp and not muddied by gradients or color mixing.
 
 Operational consequences for the website:
 
-- use strongly separated red and blue planes;
+- use strongly separated red and blue regions;
 - keep boundaries crisp where the effect matters;
-- use dark or neutral space around chromatic structures;
+- keep substantial black/neutral negative space;
 - avoid mixing red and blue into purple in the primary depth cues;
-- do not rely on the effect as the only way to communicate hierarchy;
-- expect some users to perceive weaker, inverted or no chromostereoscopic depth.
+- avoid blur and soft glow on the main chromatic structures;
+- never rely on the illusion as the only communication channel;
+- expect some users to perceive a different depth direction.
 
 ## Important nuance from the research set
 
-The research documents are not perfectly uniform on every parameter. Earlier material strongly favors a black background, maximum saturation and hard red/blue contrast. The later audit is more cautious: it treats some claims such as “black is always optimal”, “maximum saturation is always best” and exact spatial-frequency rules as insufficiently demonstrated.
+The research documents are not uniform on every secondary parameter. Earlier material strongly favors a black background, high saturation and hard contrast. Later auditing is more cautious and treats absolute claims such as “black is always optimal”, “maximum saturation always maximizes depth” and exact spatial-frequency rules as insufficiently demonstrated.
 
-Therefore the site should treat these as adjustable design variables rather than dogma.
+Therefore GameMaster uses a dark brand base and vivid red/blue as a practical starting system, not as a claim of universal optical optimality.
 
 ## GameMaster implementation profile
 
@@ -40,134 +63,214 @@ Initial digital palette:
 - `--gm-white: #f4f4ef`
 - `--gm-muted: #a6a6ad`
 
-These are web implementation values, not claims that a specific hex pair is scientifically optimal. The research explicitly warns that actual display output depends on gamut, SPD, luminance and calibration.
+These are implementation values, not scientific claims that a specific hex pair is physically optimal. Actual output depends on gamut, spectral power distribution, luminance, calibration and viewing conditions.
 
-### Depth grammar
+### Three-plane grammar
 
 Use three conceptual planes:
 
-1. **Front plane:** red accents and selected foreground structures.
-2. **Neutral plane:** near-black surfaces and off-white text.
-3. **Rear plane:** blue structural lines, frames or background motifs.
+1. **Front/focal plane — red**
+   - primary focal motifs;
+   - selected accents;
+   - price/CTA emphasis when appropriate;
+   - sparse foreground bars, symbols or masses.
 
-Do not color all foreground copy red and all backgrounds blue. The effect should emerge from selective planar relationships.
+2. **Neutral plane — black / near-black / off-white**
+   - body copy;
+   - card surfaces;
+   - reading areas;
+   - spacing and visual rest.
 
-### Hard chromatic edge
+3. **Rear/structural plane — blue**
+   - grids;
+   - topographic lines;
+   - circuit/network structures;
+   - modular patterns;
+   - secondary spatial fields.
 
-Preferred pattern:
+These planes must be **different shapes or regions with different compositional roles**. Do not make red and blue copies of the same plane.
 
-- primary neutral object
-- red crisp offset on one side
-- blue crisp offset on the opposite side
-- no large blur radius
+## Forbidden implementation patterns
 
-Example CSS concept:
+Do not use the following to represent chromostereopsis:
 
 ```css
-.chromatic-edge {
-  box-shadow:
-    -3px 0 0 var(--gm-red),
-     3px 0 0 var(--gm-blue);
+/* anaglyph-like: forbidden */
+.title {
+  text-shadow: -2px 0 red, 2px 0 blue;
 }
 ```
 
-The exact offset should scale down on mobile.
+```css
+/* anaglyph-like: forbidden */
+.card {
+  box-shadow: -3px 0 red, 3px 0 blue;
+}
+```
 
-### Borders
+Also forbidden:
 
-Use deliberate red/blue border fragments, rails, corner brackets, underlines and planar strips. Crisp geometry is preferred over neon fog.
+- duplicate DOM elements offset in red/blue;
+- pseudo-elements cloning the same shape in opposing colors;
+- red/cyan ghost contours;
+- RGB channel splitting;
+- chromatic-aberration filters;
+- blur halos as the main depth cue;
+- repeated left/right copies of logos, typography, posters or icons.
 
-### Typography
+These mechanisms visually read as anaglyph/glitch rather than the intended chromostereoscopic design system.
 
-Primary body copy remains neutral for legibility. Chromatic duplication can be used on large hero words or short labels, not paragraphs.
+## Preferred chromatic relationships
 
-### Cards
+### Figure vs structural field
 
-Cards should feel layered, not glassy:
+A red independent foreground object can sit against a blue structural field on black. The red and blue areas are different geometry.
 
-- black/near-black base
-- blue rear frame displaced slightly
-- red active/front accent
-- cover art or procedural graphic centered in its own plane
-- strong focus/hover state without dramatic blur
+### Alternating regions
 
-### Backgrounds
+Use bars, cells, tessellations, glyphs or panels where red and blue occupy different adjacent regions. Crisp boundaries are useful.
 
-Allowed:
+### Sparse focal red
 
-- sparse grids
-- circuit-like line systems
-- topographic contours
-- modular diagrams
-- halftone fields
-- technical/vector motifs
+Several supplied references demonstrate that a small red foreground element can dominate against a larger blue field. GameMaster should not assume red and blue need equal area.
 
-These directions match the owner's research into technical diagrams, vector systems, topography, flow fields, tessellations and generative structures as promising visual grammars.
+### Blue rear system + red editorial mass
 
-Avoid using a single repeated “RGB glitch” texture across the entire page.
+Technical diagrams, grids, topographic contours and repeated glyphs work well as blue rear structures, while red is reserved for one focal figurative or abstract mass.
+
+### Posterized / halftone segmentation
+
+Figurative artwork may use red/black or blue/black posterization, with the other chromatic plane introduced as a separate pattern, frame or object. Avoid red and blue tracing the exact same silhouette at offsets.
+
+## Typography
+
+Primary body copy remains neutral for legibility.
+
+Large typography may use:
+
+- one red word against neutral text;
+- one blue word as a rear label;
+- a red bar crossing a neutral title;
+- a separate blue geometric field near the title;
+- different colored typographic modules with different content.
+
+Do **not** use duplicated red/blue text shadows or pseudo-element copies to fake depth.
+
+## Cards
+
+Cards should feel layered through composition, not ghosting.
+
+Recommended structure:
+
+- one black/near-black card body;
+- one independent blue rear motif inside or behind a defined region;
+- one independent red foreground marker, strip or focal graphic;
+- cover art/procedural art occupying a real region;
+- strong focus/hover behavior without chromatic duplication.
+
+Do not place a red clone and blue clone of the entire card shell behind the neutral card.
+
+## Background visual languages
+
+Allowed and encouraged when kept controlled:
+
+- sparse grids;
+- circuit/network lines;
+- topographic contours;
+- modular diagrams;
+- halftone fields;
+- tessellations;
+- flow fields;
+- technical/vector motifs;
+- posterized engraving-inspired imagery.
+
+These directions match the owner's research and supplied references better than a generic RGB glitch texture.
 
 ## Motion
 
-Motion can reinforce layers through small relative translations, but it must not become continuous eye strain.
+Motion can reinforce independent planes through small translations or parallax, but it must never turn them into a stereo pair of duplicated objects.
 
 Recommended:
 
-- hero plane parallax of only a few pixels
-- cards translate 2–4px on hover
-- red/blue edge offsets react subtly to pointer/focus
-- rails use normal inertial scrolling
+- independent blue background structure moves slightly slower than red focal art;
+- cards translate 2–4px as a whole on hover;
+- red foreground marker may move independently from a blue background motif if they are different shapes;
+- rails use normal inertial scrolling.
+
+Forbidden:
+
+- oscillating red/blue ghost copies;
+- animated channel splitting;
+- continuous chromatic jitter.
 
 Always support `prefers-reduced-motion: reduce`.
 
 ## Comfort guardrails
 
-The research notes that intense red/blue combinations and dense repetitive patterns can create visual fatigue.
+The research notes possible visual fatigue from intense red/blue combinations and dense repetitive structures.
 
 Therefore:
 
-- reserve the strongest effect for hero, section transitions and selected cards;
+- reserve the strongest chromatic composition for hero, selected feature art and section transitions;
 - keep reading surfaces mostly neutral;
 - avoid high-density chromatic vibration behind text;
-- include negative/black space;
-- do not animate saturated red/blue patterns continuously;
-- mobile should use lower chromatic offset amplitudes.
+- use substantial black/neutral space;
+- do not animate saturated patterns continuously;
+- simplify art and reduce density on mobile.
 
 ## Responsive rules
 
 ### Desktop
 
-- larger chromatic offsets: ~3–5px
-- deeper layered hero composition
-- more visible structural background patterns
+- richer three-plane composition;
+- larger fields of independent red and blue art;
+- more visible structural backgrounds;
+- several discovery rails visible at once.
 
 ### Mobile
 
-- offsets: ~1–3px
-- fewer simultaneous planes
-- simplify background ornament
-- preserve full-width readability
-- never cause horizontal viewport overflow
+- fewer simultaneous chromatic structures;
+- larger simple color masses instead of thin doubled edges;
+- simplified background ornament;
+- full-width readability;
+- no horizontal viewport overflow;
+- no desktop composition merely scaled down.
+
+## Reference-derived artistic directions
+
+The supplied references repeatedly show combinations such as:
+
+- red engraved/halftone figure + blue repeating geometric background;
+- blue technical portrait + a single red foreground bar;
+- red architectural/ornamental frame + blue/black inner scene;
+- blue figurative field + one sparse red focal object;
+- large black negative areas separating the chromatic planes.
+
+These are excellent GameMaster directions because each color occupies a **different visual role**.
 
 ## What Codex should experiment with next
 
-The owner's research identifies several promising visual territories. Test these as distinct modules rather than mixing all at once:
+Test distinct modules rather than mixing everything at once:
 
-1. topographic contour system
-2. technical/circuit diagram system
-3. modular tessellation
-4. halftone/engraving reinterpretation
-5. flow-field or generative line system
-6. abstract typographic symbols
+1. topographic rear field + red focal mass;
+2. technical/circuit blue system + red product marker;
+3. modular tessellation with genuinely alternating cells;
+4. halftone/engraving foreground + independent geometric background;
+5. flow-field rear structure + sparse red foreground elements;
+6. abstract typographic symbols using separate red/blue modules.
 
-For each experiment, evaluate:
+For each experiment evaluate:
 
-- perceived depth
-- readability
-- brand distinctiveness
-- fatigue after 30–60 seconds
-- mobile performance
-- whether the system still looks recognizable without the chromatic effect
+- perceived depth;
+- whether any element looks duplicated;
+- readability;
+- brand distinctiveness;
+- fatigue after 30–60 seconds;
+- mobile performance;
+- whether the design still looks coherent in grayscale.
 
 ## Scientific humility
 
-Never present the website as scientifically guaranteed to create the same depth effect for every viewer. The source research explicitly notes individual differences, possible inversion and display-dependent results.
+Never present the website as scientifically guaranteed to create identical depth for every viewer. The source research explicitly notes individual differences, possible inversion and display-dependent results.
+
+The product goal is a **controlled chromostereoscopic art direction**, not an optical claim.
