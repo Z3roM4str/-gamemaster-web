@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import {
   ArrowRight, ArrowUpRight, BrainCircuit, Check, ChevronRight,
   Copy, Gamepad2, Menu, MessageCircle,
@@ -9,6 +9,13 @@ import {
   X,
 } from 'lucide-react';
 import { catalog, categories, type Game } from './data/catalog';
+
+const WHATSAPP_BASE = 'https://wa.me/525527699426';
+const FACEBOOK_URL = 'https://www.facebook.com/share/1JKTPgejVZ/?mibextid=wwXIfr';
+
+function toWhatsApp(message: string) {
+  return `${WHATSAPP_BASE}?text=${encodeURIComponent(message)}`;
+}
 
 const streamingServices = [
   { name: 'Netflix', logo: '/services/netflix.svg' },
@@ -49,10 +56,10 @@ function ServiceMark({ src, className = '' }: { src: string; className?: string 
   return <span className={`service-mark ${className}`} style={{ WebkitMaskImage: `url(${src})`, maskImage: `url(${src})` }} aria-hidden="true" />;
 }
 
-function GameTile({ game, isSelected, onToggle, index }: { game: Game; isSelected: boolean; onToggle: () => void; index: number }) {
+function GameTile({ game, isSelected, onToggle, onOpen, index }: { game: Game; isSelected: boolean; onToggle: () => void; onOpen: () => void; index: number }) {
   return (
     <article className={`catalog-card ${isSelected ? 'is-selected' : ''}`}>
-      <button className="game-visual" onClick={onToggle} aria-label={`${isSelected ? 'Quitar' : 'Añadir'} ${game.title}`}>
+      <button className="game-visual" onClick={onOpen} aria-label={`Ver detalles de ${game.title}`}>
         <Image src={game.image} alt={`Imagen relacionada con ${game.title}`} fill sizes="(max-width: 650px) 44vw, (max-width: 1000px) 28vw, 210px" />
         <span className="platform-badge">{game.platform === 'Nintendo Switch 2' ? 'SWITCH 2' : 'SWITCH'}</span>
         <span className={`select-mark ${isSelected ? 'selected' : ''}`}>{isSelected ? <Check /> : '+'}</span>
@@ -61,7 +68,7 @@ function GameTile({ game, isSelected, onToggle, index }: { game: Game; isSelecte
         <p>{String(index + 1).padStart(2, '0')} · {game.category}</p>
         <h3>{game.title}</h3>
         <button onClick={onToggle}>
-          {isSelected ? 'En tu cotización' : 'Consultar'} <ChevronRight size={15} />
+          {isSelected ? 'Quitar de cotización' : 'Agregar y consultar'} <ChevronRight size={15} />
         </button>
       </div>
     </article>
@@ -75,6 +82,7 @@ export default function Home() {
   const [interest, setInterest] = useState('');
   const [copied, setCopied] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [focusedGame, setFocusedGame] = useState<Game | null>(null);
 
   const results = useMemo(() => {
     const normalized = query.trim().toLocaleLowerCase('es');
@@ -85,6 +93,28 @@ export default function Home() {
     }).sort((a, b) => (categoryRank.get(a.category) ?? 99) - (categoryRank.get(b.category) ?? 99)
       || a.title.localeCompare(b.title, 'es'));
   }, [activeCategory, query]);
+
+  const quoteMessage = useMemo(() => {
+    const focus = interest ? `Me interesa: ${interest}.` : 'Quiero orientación para elegir una opción digital.';
+    const games = selected.length ? ` Juegos seleccionados: ${selected.join(', ')}.` : '';
+    return `Hola, quiero cotizar con Game Master. ${focus}${games} ¿Me ayudan a revisar precio y disponibilidad?`;
+  }, [interest, selected]);
+
+  const whatsappUrl = useMemo(() => toWhatsApp(quoteMessage), [quoteMessage]);
+
+  useEffect(() => {
+    if (!focusedGame) return;
+    const previousOverflow = document.body.style.overflow;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setFocusedGame(null);
+    };
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', closeOnEscape);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', closeOnEscape);
+    };
+  }, [focusedGame]);
 
   const toggleGame = (game: Game) => {
     setSelected((current) => current.includes(game.title)
@@ -99,10 +129,7 @@ export default function Home() {
   };
 
   const copyRequest = async () => {
-    const focus = interest ? `Me interesa: ${interest}.` : 'Quiero orientación para elegir una opción digital.';
-    const games = selected.length ? ` Juegos seleccionados: ${selected.join(', ')}.` : '';
-    const message = `Hola, quiero cotizar con Game Master. ${focus}${games} ¿Me ayudan a revisar precio y disponibilidad?`;
-    await navigator.clipboard.writeText(message);
+    await navigator.clipboard.writeText(quoteMessage);
     setCopied(true);
   };
 
@@ -115,6 +142,8 @@ export default function Home() {
           <a href="#catalogo" onClick={() => setMenuOpen(false)}>Videojuegos</a>
           <a href="#streaming" onClick={() => setMenuOpen(false)}>Streaming</a>
           <a href="#ia" onClick={() => setMenuOpen(false)}>ChatGPT</a>
+          <a href="#modalidades" onClick={() => setMenuOpen(false)}>Cómo funciona</a>
+          <a href="#preguntas" onClick={() => setMenuOpen(false)}>Preguntas</a>
         </nav>
         <a className="header-cta" href="#cotizar">Cotizar ahora <ArrowUpRight size={15} /></a>
         <button
@@ -139,7 +168,7 @@ export default function Home() {
           <div className="cinema-meta"><span>134 juegos</span><i /> <span>ChatGPT + streaming</span><i /> <span>Atención directa</span></div>
           <div className="cinema-actions">
             <a className="primary" href="#catalogo"><Gamepad2 /> Explorar catálogo</a>
-            <a className="secondary" href="#cotizar" onClick={() => chooseInterest('Videojuegos')}><MessageCircle /> Quiero cotizar</a>
+            <a className="secondary" href={toWhatsApp('Hola, quiero conocer las opciones de Game Master para videojuegos, streaming y ChatGPT.')} target="_blank" rel="noreferrer"><MessageCircle /> WhatsApp directo</a>
           </div>
         </div>
         <div className="cinema-poster" aria-hidden="true">
@@ -206,7 +235,7 @@ export default function Home() {
         {results.length ? (query || activeCategory !== 'Todos' ? (
           <div className="game-grid search-results-grid">
             {results.map((game, index) => (
-              <GameTile key={game.id} game={game} index={index} isSelected={selected.includes(game.title)} onToggle={() => toggleGame(game)} />
+              <GameTile key={game.id} game={game} index={index} isSelected={selected.includes(game.title)} onToggle={() => toggleGame(game)} onOpen={() => setFocusedGame(game)} />
             ))}
           </div>
         ) : (
@@ -219,7 +248,7 @@ export default function Home() {
                 </div>
                 <div className="media-row">
                   {games.map((game, index) => (
-                    <GameTile key={game.id} game={game} index={index} isSelected={selected.includes(game.title)} onToggle={() => toggleGame(game)} />
+                    <GameTile key={game.id} game={game} index={index} isSelected={selected.includes(game.title)} onToggle={() => toggleGame(game)} onOpen={() => setFocusedGame(game)} />
                   ))}
                 </div>
               </section>
@@ -381,6 +410,9 @@ export default function Home() {
             <button className="copy-button" onClick={copyRequest}>
               {copied ? <><Check /> Solicitud copiada</> : <><Copy /> Copiar solicitud rápida</>}
             </button>
+            <a className="whatsapp-button" href={whatsappUrl} target="_blank" rel="noreferrer">
+              <MessageCircle /> Cotizar por WhatsApp <ArrowUpRight />
+            </a>
             <small>No se publica un precio fijo: se confirma antes de cada compra.</small>
           </div>
         </div>
@@ -411,13 +443,47 @@ export default function Home() {
         <div className="section-shell footer-top">
           <BrandMark />
           <p>ChatGPT, streaming y videojuegos en una experiencia digital clara y profesional.</p>
-          <a href="#inicio">Volver a elegir <ArrowRight /></a>
+          <div className="footer-contact">
+            <a href={whatsappUrl} target="_blank" rel="noreferrer">WhatsApp <ArrowUpRight /></a>
+            <a href={FACEBOOK_URL} target="_blank" rel="noreferrer">Facebook <ArrowUpRight /></a>
+          </div>
         </div>
         <div className="section-shell footer-bottom">
           <span>© 2026 GAME MASTER</span>
           <p>Negocio independiente. Las marcas y artes mostradas pertenecen a sus respectivos titulares. No implican afiliación o patrocinio.</p>
         </div>
       </footer>
+
+      <a className="mobile-whatsapp" href={whatsappUrl} target="_blank" rel="noreferrer" aria-label="Cotizar por WhatsApp">
+        <MessageCircle /> <span>Cotizar</span>
+      </a>
+
+      {focusedGame && (
+        <div className="product-modal-backdrop" onMouseDown={(event) => {
+          if (event.target === event.currentTarget) setFocusedGame(null);
+        }}>
+          <section className="product-modal" role="dialog" aria-modal="true" aria-labelledby="product-modal-title">
+            <button className="product-modal-close" onClick={() => setFocusedGame(null)} aria-label="Cerrar detalles"><X /></button>
+            <div className="product-modal-art">
+              <Image src={focusedGame.image} alt={`Imagen relacionada con ${focusedGame.title}`} fill sizes="(max-width: 720px) 100vw, 42vw" />
+            </div>
+            <div className="product-modal-copy">
+              <p>{focusedGame.category} · {focusedGame.platform}</p>
+              <h2 id="product-modal-title">{focusedGame.title}</h2>
+              <p className="product-modal-description">Título digital para {focusedGame.platform}. El precio, la modalidad y la disponibilidad se confirman contigo al momento de cotizar.</p>
+              <div className="product-modal-status">
+                <span><small>PRECIO</small><strong>Consultar precio</strong></span>
+                <span><small>DISPONIBILIDAD</small><strong>Sujeto a confirmación</strong></span>
+              </div>
+              <div className="product-modal-actions">
+                <button onClick={() => toggleGame(focusedGame)}>{selected.includes(focusedGame.title) ? <Check /> : '+'} {selected.includes(focusedGame.title) ? 'Agregado a tu solicitud' : 'Agregar a tu solicitud'}</button>
+                <a href={toWhatsApp(`Hola, quiero cotizar ${focusedGame.title} para ${focusedGame.platform}. ¿Me ayudan a revisar precio, modalidad y disponibilidad?`)} target="_blank" rel="noreferrer"><MessageCircle /> Cotizar por WhatsApp</a>
+              </div>
+              <small className="product-modal-note">Game Master es un negocio independiente. La imagen se muestra como referencia del título.</small>
+            </div>
+          </section>
+        </div>
+      )}
     </main>
   );
 }
