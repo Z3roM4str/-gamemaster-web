@@ -3,8 +3,8 @@
 import Image from 'next/image';
 import { useMemo, useState } from 'react';
 import {
-  ArrowRight, ArrowUpRight, BadgeCheck, BrainCircuit, Check, ChevronRight,
-  Copy, Download, Gamepad2, Menu, MessageCircle,
+  ArrowRight, ArrowUpRight, BrainCircuit, Check, ChevronRight,
+  Copy, Gamepad2, Menu, MessageCircle,
   Search, ShieldCheck, Tv2, UserRound, UsersRound, Wifi, WifiOff,
   X,
 } from 'lucide-react';
@@ -27,24 +27,50 @@ const gamingServices = [
   { name: 'Xbox Game Pass', logo: '/services/xbox-game-pass.svg' },
 ];
 const categoryRank = new Map(categories.slice(1).map((category, index) => [category, index]));
+const catalogShelves = categories.slice(1).map((category) => ({
+  category,
+  games: catalog.filter((game) => game.category === category).sort((a, b) => a.title.localeCompare(b.title, 'es')),
+}));
 
 function BrandMark() {
   return (
     <span className="brand-mark" aria-label="Game Master">
       <span className="brand-emblem">
-        <Image src="/brand/game-master-emblem-v3.png" alt="" fill sizes="64px" priority />
+        <Image src="/brand/game-master-emblem-v4.png" alt="" fill sizes="64px" priority />
       </span>
       <span className="brand-wordmark">
-        <strong>Game</strong><b>Master</b><small>Digital services</small>
+        <strong>Game</strong><b>Master</b><small>Entertainment club</small>
       </span>
     </span>
+  );
+}
+
+function ServiceMark({ src, className = '' }: { src: string; className?: string }) {
+  return <span className={`service-mark ${className}`} style={{ WebkitMaskImage: `url(${src})`, maskImage: `url(${src})` }} aria-hidden="true" />;
+}
+
+function GameTile({ game, isSelected, onToggle, index }: { game: Game; isSelected: boolean; onToggle: () => void; index: number }) {
+  return (
+    <article className={`catalog-card ${isSelected ? 'is-selected' : ''}`}>
+      <button className="game-visual" onClick={onToggle} aria-label={`${isSelected ? 'Quitar' : 'Añadir'} ${game.title}`}>
+        <Image src={game.image} alt={`Imagen relacionada con ${game.title}`} fill sizes="(max-width: 650px) 44vw, (max-width: 1000px) 28vw, 210px" />
+        <span className="platform-badge">{game.platform === 'Nintendo Switch 2' ? 'SWITCH 2' : 'SWITCH'}</span>
+        <span className={`select-mark ${isSelected ? 'selected' : ''}`}>{isSelected ? <Check /> : '+'}</span>
+      </button>
+      <div className="game-info">
+        <p>{String(index + 1).padStart(2, '0')} · {game.category}</p>
+        <h3>{game.title}</h3>
+        <button onClick={onToggle}>
+          {isSelected ? 'En tu cotización' : 'Consultar'} <ChevronRight size={15} />
+        </button>
+      </div>
+    </article>
   );
 }
 
 export default function Home() {
   const [query, setQuery] = useState('');
   const [activeCategory, setActiveCategory] = useState('Todos');
-  const [visible, setVisible] = useState(12);
   const [selected, setSelected] = useState<string[]>([]);
   const [interest, setInterest] = useState('');
   const [copied, setCopied] = useState(false);
@@ -85,10 +111,10 @@ export default function Home() {
       <header className="site-header">
         <a className="brand-link" href="#inicio" aria-label="Game Master, inicio"><BrandMark /></a>
         <nav className={menuOpen ? 'open' : ''} aria-label="Navegación principal">
-          <a href="#inicio" onClick={() => setMenuOpen(false)}>Elegir</a>
+          <a href="#inicio" onClick={() => setMenuOpen(false)}>Inicio</a>
           <a href="#catalogo" onClick={() => setMenuOpen(false)}>Videojuegos</a>
-          <a href="#modalidades" onClick={() => setMenuOpen(false)}>Cómo funciona</a>
-          <a href="#servicios" onClick={() => setMenuOpen(false)}>Servicios</a>
+          <a href="#streaming" onClick={() => setMenuOpen(false)}>Streaming</a>
+          <a href="#ia" onClick={() => setMenuOpen(false)}>ChatGPT</a>
         </nav>
         <a className="header-cta" href="#cotizar">Cotizar ahora <ArrowUpRight size={15} /></a>
         <button
@@ -101,61 +127,59 @@ export default function Home() {
         </button>
       </header>
 
-      <section className="hero" id="inicio">
-        <div className="hero-copy">
-          <p className="eyebrow"><span /> SERVICIOS DIGITALES, CLAROS</p>
-          <h1>¿Qué necesitas hoy?<em> Elige una solución.</em></h1>
-          <p className="hero-text">
-            Ve directo a lo que buscas. Elige una categoría y te ayudamos a revisar
-            opciones, precio y disponibilidad.
-          </p>
-          <div className="quick-choices" aria-label="Elegir categoría">
-            <a className="quick-choice choice-ai" href="#ia" onClick={() => chooseInterest('ChatGPT')}>
-              <span className="quick-icon"><BrainCircuit /></span>
-              <span><small>01 · IA</small><strong>ChatGPT</strong><em>Acceso y disponibilidad</em></span>
-              <ArrowUpRight />
-            </a>
-            <a className="quick-choice choice-streaming" href="#streaming" onClick={() => chooseInterest('Streaming')}>
-              <span className="quick-icon"><Tv2 /></span>
-              <span><small>02 · STREAMING</small><strong>Netflix y más</strong><em>Series · música · anime</em></span>
-              <ArrowUpRight />
-            </a>
-            <a className="quick-choice choice-games" href="#videojuegos" onClick={() => chooseInterest('Videojuegos')}>
-              <span className="quick-icon"><Gamepad2 /></span>
-              <span><small>03 · VIDEOJUEGOS</small><strong>Juegos y membresías</strong><em>Consola · PC</em></span>
-              <ArrowUpRight />
-            </a>
-          </div>
-          <div className="trust-row">
-            <span><BadgeCheck /> Atención personal</span>
-            <span><Download /> Opciones digitales</span>
-            <span><ShieldCheck /> Cotización al momento</span>
+      <section className="cinema-hero" id="inicio">
+        <div className="cinema-backdrop">
+          <Image src="/games/mario-kart-world.webp" alt="Mario Kart World, título destacado" fill sizes="100vw" priority />
+        </div>
+        <div className="cinema-shade" />
+        <div className="cinema-copy">
+          <p className="cinema-kicker"><span>GM</span> SEÑAL DIGITAL · MX</p>
+          <h1>Tu universo digital, <em>en una sola señal.</em></h1>
+          <p>Videojuegos, streaming y ChatGPT con atención directa. Explora el catálogo, elige lo que buscas y prepara tu cotización en segundos.</p>
+          <div className="cinema-meta"><span>134 juegos</span><i /> <span>ChatGPT + streaming</span><i /> <span>Atención directa</span></div>
+          <div className="cinema-actions">
+            <a className="primary" href="#catalogo"><Gamepad2 /> Explorar catálogo</a>
+            <a className="secondary" href="#cotizar" onClick={() => chooseInterest('Videojuegos')}><MessageCircle /> Quiero cotizar</a>
           </div>
         </div>
-
-        <div className="hero-visual" aria-label="Tres soluciones digitales de Game Master: inteligencia artificial, streaming y videojuegos">
-          <Image src="/brand/game-master-studio-v3.png" alt="Tres accesos digitales representados con una composición arquitectónica sobria" fill sizes="(max-width: 1050px) 100vw, 55vw" priority />
-          <div className="hero-visual-shade" />
-          <p className="hero-visual-label"><span>GM</span> UNA MARCA. TRES SOLUCIONES.</p>
-          <div className="hero-visual-index"><strong>03</strong><span>CATEGORÍAS<br />PARA ELEGIR</span></div>
+        <div className="cinema-poster" aria-hidden="true">
+          <Image src="/games/donkey-kong-bananza.webp" alt="" fill sizes="280px" priority />
+          <span>DESTACADO</span>
         </div>
       </section>
 
-      <div className="genre-strip">
-        {['CHATGPT', 'NETFLIX', 'SPOTIFY', 'DISNEY+', 'NINTENDO SWITCH', 'PLAYSTATION', 'XBOX GAME PASS'].map((genre) => (
-          <span key={genre}>{genre}<i /></span>
-        ))}
-      </div>
+      <section className="quick-launch-section" aria-labelledby="quick-launch-title">
+        <div className="quick-launch-heading">
+          <div><span>EMPIEZA AQUÍ</span><h2 id="quick-launch-title">¿Qué quieres hoy?</h2></div>
+          <p>Elige una categoría y ve directo a lo que estás buscando.</p>
+        </div>
+        <div className="quick-launch-grid">
+          <a href="#ia" onClick={() => chooseInterest('ChatGPT')} className="launch-card launch-ai">
+            <ServiceMark src="/services/chatgpt.svg" className="launch-single-mark" />
+            <span><small>INTELIGENCIA ARTIFICIAL</small><strong>ChatGPT</strong><em>Consultar acceso</em></span>
+            <ArrowRight />
+          </a>
+          <a href="#streaming" onClick={() => chooseInterest('Streaming')} className="launch-card launch-streaming">
+            <span className="launch-brand-stack"><ServiceMark src="/services/netflix.svg" /><ServiceMark src="/services/spotify.svg" /><ServiceMark src="/services/disney-plus.svg" /></span>
+            <span><small>SERIES, MÚSICA Y ANIME</small><strong>Streaming</strong><em>Ver membresías</em></span>
+            <ArrowRight />
+          </a>
+          <a href="#catalogo" onClick={() => chooseInterest('Videojuegos')} className="launch-card launch-games">
+            <span className="launch-game-icon"><Gamepad2 /></span>
+            <span><small>NINTENDO SWITCH Y MÁS</small><strong>Videojuegos</strong><em>Explorar 134 títulos</em></span>
+            <ArrowRight />
+          </a>
+        </div>
+      </section>
 
       <section className="catalog-section section-shell" id="catalogo">
         <div className="section-heading catalog-heading">
           <div>
-            <p className="eyebrow"><span /> CATÁLOGO DESDE NOTION</p>
-            <h2>Encuentra tu<br /><em>próxima aventura.</em></h2>
+            <p className="eyebrow"><span /> {catalog.length} TÍTULOS PARA ELEGIR</p>
+            <h2>Explora como en<br /><em>tu plataforma favorita.</em></h2>
           </div>
           <p>
-            La base maestra reúne 134 títulos. Mostramos una selección para explorar;
-            si no ves el tuyo, agrégalo en tu solicitud.
+            Desliza por género, busca por nombre y toca el símbolo + para preparar tu cotización.
           </p>
         </div>
 
@@ -163,14 +187,14 @@ export default function Home() {
           <label className="search-box">
             <Search size={19} />
             <span className="sr-only">Buscar juego</span>
-            <input value={query} onChange={(event) => { setQuery(event.target.value); setVisible(12); }} placeholder="Buscar por título..." />
+            <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Buscar por título..." />
             <kbd>{results.length}</kbd>
           </label>
           <div className="filter-row" aria-label="Filtrar por categoría">
             {categories.map((category) => (
               <button
                 className={activeCategory === category ? 'active' : ''}
-                onClick={() => { setActiveCategory(category); setVisible(12); }}
+                onClick={() => setActiveCategory(category)}
                 key={category}
               >
                 {category}
@@ -179,36 +203,29 @@ export default function Home() {
           </div>
         </div>
 
-        {results.length ? (
-          <>
-            <div className="game-grid">
-              {results.slice(0, visible).map((game, index) => {
-                const isSelected = selected.includes(game.title);
-                return (
-                  <article className="catalog-card" key={game.id}>
-                    <button className="game-visual" onClick={() => toggleGame(game)} aria-label={`${isSelected ? 'Quitar' : 'Añadir'} ${game.title}`}>
-                      <Image src={game.image} alt={`Imagen relacionada con ${game.title}`} fill sizes="(max-width: 650px) 100vw, (max-width: 1000px) 50vw, 25vw" />
-                      <span className="platform-badge">{game.platform === 'Nintendo Switch 2' ? 'SWITCH 2' : 'SWITCH'}</span>
-                      <span className={`select-mark ${isSelected ? 'selected' : ''}`}>{isSelected ? <Check /> : '+'}</span>
-                    </button>
-                    <div className="game-info">
-                      <p>{String(index + 1).padStart(2, '0')} · {game.category}</p>
-                      <h3>{game.title}</h3>
-                      <button onClick={() => toggleGame(game)}>
-                        {isSelected ? 'En tu cotización' : 'Consultar disponibilidad'} <ChevronRight size={15} />
-                      </button>
-                    </div>
-                  </article>
-                );
-              })}
-            </div>
-            {visible < results.length && (
-              <button className="load-more" onClick={() => setVisible((current) => current + 12)}>
-                Ver más juegos <span>{visible} / {results.length}</span>
-              </button>
-            )}
-          </>
+        {results.length ? (query || activeCategory !== 'Todos' ? (
+          <div className="game-grid search-results-grid">
+            {results.map((game, index) => (
+              <GameTile key={game.id} game={game} index={index} isSelected={selected.includes(game.title)} onToggle={() => toggleGame(game)} />
+            ))}
+          </div>
         ) : (
+          <div className="catalog-shelves">
+            {catalogShelves.map(({ category, games }) => (
+              <section className="media-shelf" key={category} aria-labelledby={`shelf-${category}`}>
+                <div className="shelf-heading">
+                  <h3 id={`shelf-${category}`}>{category}</h3>
+                  <span>{games.length} títulos <ChevronRight /></span>
+                </div>
+                <div className="media-row">
+                  {games.map((game, index) => (
+                    <GameTile key={game.id} game={game} index={index} isSelected={selected.includes(game.title)} onToggle={() => toggleGame(game)} />
+                  ))}
+                </div>
+              </section>
+            ))}
+          </div>
+        )) : (
           <div className="empty-results">
             <Search />
             <h3>No aparece en esta selección</h3>
@@ -289,7 +306,7 @@ export default function Home() {
                 <p>La única herramienta de IA ofrecida por Game Master.</p>
                 <div className="service-tags service-logo-list ai-logo-list">
                   <button className={`service-logo ${interest === 'ChatGPT' ? 'selected' : ''}`} onClick={() => chooseInterest('ChatGPT')} type="button" aria-label="Elegir ChatGPT" title="ChatGPT">
-                    <Image src="/services/chatgpt.svg" alt="Logotipo de ChatGPT" width={96} height={64} />
+                    <ServiceMark src="/services/chatgpt.svg" />
                   </button>
                 </div>
               </div>
@@ -305,7 +322,7 @@ export default function Home() {
                 <div className="service-tags service-logo-list streaming-logo-list" aria-label="Servicios de streaming y música">
                   {streamingServices.map((service) => (
                     <button className={`service-logo ${interest === service.name ? 'selected' : ''}`} onClick={() => chooseInterest(service.name)} type="button" key={service.name} aria-label={`Elegir ${service.name}`} title={service.name}>
-                      <Image src={service.logo} alt={`Logotipo de ${service.name}`} width={180} height={64} />
+                      <ServiceMark src={service.logo} />
                     </button>
                   ))}
                 </div>
@@ -322,7 +339,7 @@ export default function Home() {
                 <div className="service-tags service-logo-list gaming-logo-list" aria-label="Plataformas de videojuegos">
                   {gamingServices.map((service) => (
                     <button className={`service-logo ${interest === service.name ? 'selected' : ''}`} onClick={() => chooseInterest(service.name)} type="button" key={service.name} aria-label={`Elegir ${service.name}`} title={service.name}>
-                      <Image src={service.logo} alt={`Logotipo de ${service.name}`} width={180} height={64} />
+                      <ServiceMark src={service.logo} />
                     </button>
                   ))}
                 </div>
