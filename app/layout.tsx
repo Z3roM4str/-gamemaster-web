@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import { Bebas_Neue, Outfit } from 'next/font/google';
 import { getSiteUrl } from '@/lib/site';
 import './globals.css';
+import './art-direction.css';
 
 const display = Bebas_Neue({ variable: '--font-display', subsets: ['latin'], weight: '400' });
 const body = Outfit({ variable: '--font-body', subsets: ['latin'] });
@@ -41,7 +42,7 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   colorScheme: 'dark',
-  themeColor: '#050505',
+  themeColor: '#030304',
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
