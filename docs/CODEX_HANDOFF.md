@@ -2,111 +2,178 @@
 
 Use this file when starting the next Codex session.
 
-## Immediate task
+## Current baseline
 
-Do not redesign from memory and do not interpret “red/blue depth” generically.
+Continue from the latest `main`. Do **not** reset to an older visual baseline and do not rebuild from memory.
 
-First read the repository source of truth in the order defined by `AGENTS.md`, especially:
+Current reference commit when this handoff was refreshed:
 
-1. `docs/CODEX_VISUAL_GUARDRAILS.md`
-2. `docs/research/README.md`
-3. `docs/research/EVIDENCE_MAP.md`
-4. `docs/research/IMPLEMENTATION_RULES.md`
-5. `docs/CHROMOSTEREOPSIS.md`
-6. `docs/VISUAL_SYSTEM.md`
-7. `docs/REFERENCE_IMAGES.md`
-8. the three source-derived research maps under `docs/research/`
+- `05e2245d7b8aa860a82ddc7a5ab14f81e32c8757` — `Strengthen contextual chromostereoscopic depth`
 
-Then inspect the current code before proposing changes.
+That pass already strengthens the blue rear world, red foreground plane, contextual rail art and differential motion. Treat it as the current starting point, not as a disposable prototype.
 
-## Goal of the next iteration
+## Mandatory first step
 
-Rebuild the current visual implementation so it expresses **chromostereopsis rather than anaglyph stereoscopy** while improving the site into a premium, discovery-first entertainment catalog.
+Before changing code:
 
-The intended visual model is one 2D composition with materially different regions:
+1. pull/read the latest `main`;
+2. read `AGENTS.md` completely;
+3. read `docs/PROJECT_SCOPE.md`;
+4. read `docs/CODEX_VISUAL_GUARDRAILS.md`;
+5. read `docs/DESIGN_DIRECTION_STYLITES.md`;
+6. read `docs/research/README.md`;
+7. read `docs/research/EVIDENCE_MAP.md`;
+8. read `docs/research/IMPLEMENTATION_RULES.md`;
+9. inspect the current implementation and latest commits before proposing changes.
 
-- red = focal/front-oriented region;
-- near-black = neutral/reading/commercial region;
-- blue = rear/structural region.
+The repository is the source of truth. Do not assume an older handoff describes the current UI better than the code on `main`.
 
-These are different shapes/regions, not duplicated versions of the same object.
+## Immediate objective
 
-## Mandatory audit
+This iteration is **art-direction elevation**, not another small recolor or component shuffle.
 
-Search the entire codebase for:
+Push the current GameMaster site toward a distinctive premium entertainment experience inspired by:
 
-- `text-shadow` using red/blue/cyan;
-- paired red/blue `box-shadow`;
-- RGB split / chromatic aberration;
-- duplicated red/blue pseudo-elements;
-- cloned text/icons/cards/posters with transform offsets;
-- `chromaticEdge`, `inverseEdge` and other legacy names;
-- hero planes that are merely duplicate rectangles of the same geometry.
+- **STYLITES** → page-scale composition, integrated art, chromatic depth, asymmetry, movement and visual surprise;
+- **Game Pass** → discovery, rails, catalog structure and game-first browsing;
+- **Netflix** → cinematic hierarchy and effortless content exploration;
+- **GameMaster** → real chromostereopsis using independent red / blue / black regions, never anaglyph duplication.
 
-Remove or redesign any anaglyph-like implementation.
+Do not clone any reference literally.
 
-## Visual target
+## What must be preserved
 
-The page should feel like:
-
-- a premium entertainment catalog;
-- cinematic/editorial rather than SaaS;
-- dark, elegant and highly intentional;
-- red/blue/black but not neon-glitch cyberpunk;
-- technically/artfully layered using topography, circuit/network structures, modular glyphs, controlled halftone/engraving and negative space;
-- visually strong on desktop and independently composed for mobile.
-
-Reference-image DNA is documented in `docs/REFERENCE_IMAGES.md`.
-
-## Suggested hero direction
-
-Prototype **one** coherent hero language first rather than mixing every research candidate.
-
-Recommended first option:
-
-- near-black canvas;
-- blue topographic/circuit rear structure;
-- neutral editorial content aperture;
-- one sparse but dominant red foreground/focal mass;
-- crisp edges;
-- optional controlled halftone or engraved figurative/procedural element;
-- no chromatic ghosting.
-
-## Commercial/product constraints
-
-Preserve:
+Do not break or discard working commercial functionality:
 
 - Gaming / Streaming / IA architecture;
-- Nintendo Switch catalog data;
-- price/availability as consultation unless canonical data exists;
+- Nintendo Switch catalog and current data source;
+- search / filters / discovery behavior;
+- product selection/detail behavior already implemented;
 - WhatsApp conversion;
 - Facebook contact;
-- no implied official affiliation with third-party brands;
-- mobile-first usability.
+- price / availability consultation rules;
+- accessibility behaviors;
+- responsive support;
+- recognizable, normal-color game cover artwork.
 
-Do not invent products, prices, stock or benefits.
+Do not invent prices, stock, promotions, plans or benefits.
 
-## Validation
+## Art-direction target
 
-Before finishing:
+The page should feel like **one continuous authored composition**, not a hero followed by generic ecommerce sections.
 
-- run `npm run lint`;
-- run `npm run build`;
-- inspect ~1440px desktop;
-- inspect ~390px and ~430px mobile;
-- confirm no horizontal overflow;
-- confirm body text remains readable;
-- confirm the site still makes sense in grayscale;
-- confirm no important object appears as two red/blue/cyan displaced copies;
-- confirm the result does not resemble a red/cyan 3D-glasses demo.
+### Spatial system
+
+Use three material planes:
+
+- **black / near-black** = neutral base, reading space, breathing room;
+- **blue** = substantial rear structural world;
+- **red** = sparse but assertive foreground/focal intervention.
+
+Depth must come from different shapes, fields, scale, contrast and differential motion. Never create depth by offsetting duplicate red/blue versions of the same object.
+
+### Composition
+
+Prioritize:
+
+- large-scale fields that can cross section boundaries;
+- stronger use of black negative space so blue does not saturate the whole page;
+- blue technical/topographic/network structures as rear environments;
+- red focal masses that feel physically nearer without covering critical UI;
+- editorial asymmetry;
+- controlled halftone / engraving / technical-diagram language;
+- art integrated into rails and section transitions, not decorative stickers added afterward;
+- clear calm zones between high-intensity chromatic moments.
+
+### Catalog
+
+Keep Game Pass / Netflix-like browsing mechanics, but integrate them into the GameMaster composition:
+
+- horizontal rails remain easy to scan;
+- full-color covers remain recognizable;
+- surrounding art may vary by collection/genre;
+- avoid wrapping every rail in the same rectangular shell;
+- use context-specific rear blue structures + independent red foreground interventions;
+- functional content should remain above decorative planes and easy to interact with.
+
+### Mobile
+
+Mobile is a separate composition, not a squeezed desktop layout.
+
+At ~390px and ~430px:
+
+- recompose the hero and major art fields;
+- simplify motion and art density;
+- preserve hierarchy and tap targets;
+- prevent horizontal overflow;
+- keep key catalog actions immediately usable.
+
+## Reference behavior to retain from the latest pass
+
+The latest implementation intentionally strengthened:
+
+- blue rear-world presence;
+- red as a coherent foreground plane rather than ghost outline;
+- game covers / functional UI above decorative color planes;
+- independent blue/red motion in contextual catalog rails;
+- black as a neutral visual layer rather than eliminating it.
+
+Improve these ideas rather than reverting to duplicated chromatic effects.
+
+## Forbidden visual shortcuts
+
+Do not introduce:
+
+- red/blue text ghosting;
+- RGB split;
+- chromatic aberration;
+- red/cyan anaglyph duplication;
+- paired red/blue box shadows used as depth;
+- duplicated card borders;
+- offset duplicate game covers;
+- blur-heavy generic neon cyberpunk;
+- purple overlap as the primary depth mechanism;
+- generic SaaS component-library aesthetics.
+
+## Recommended focus for this iteration
+
+Work from highest visual impact downward:
+
+1. **Hero** — make it the strongest brand statement and clearly authored at desktop + mobile.
+2. **Page-scale art system** — make black / blue / red depth continue coherently beyond the hero.
+3. **Section transitions** — reduce the feeling of stacked independent blocks.
+4. **Catalog rails** — keep usability while giving different collections contextual art grammar.
+5. **Universe sections** — Gaming / Streaming / IA should belong to one brand but have distinct internal visual languages.
+6. **Typography / spacing / rhythm** — refine hierarchy after the composition works.
+7. **Motion** — subtle differential parallax only where it improves depth and never usability.
+
+Do not spend the iteration on microscopic polish before the page-scale composition is convincing.
+
+## Validation before finishing
+
+Run and report:
+
+- `npm run lint`;
+- `npm run build`;
+- desktop review around 1440px;
+- mobile review around 390px and 430px;
+- no horizontal overflow;
+- keyboard focus / modal behavior still works;
+- `prefers-reduced-motion` remains respected;
+- body text remains readable;
+- game covers remain recognizable and untinted;
+- the page still works if chromostereopsis is weak or perceived inverted;
+- grayscale/single-geometry sanity check shows no duplicated important objects;
+- the result does not resemble a 3D-glasses/anaglyph demo.
 
 ## Response expected from Codex
 
-After making the changes, report:
+After making the changes, report concisely:
 
-1. what anaglyph-like implementation was found and removed;
-2. which research-backed/product-default rules were applied;
+1. the main compositional changes;
+2. why they improve the current direction;
 3. files changed;
 4. lint/build result;
-5. what remains to improve next;
-6. any visual assumption that should be tested rather than treated as fact.
+5. desktop/mobile checks performed;
+6. anything still visually weak;
+7. the commit SHA created on `main` (or clearly state if changes were not pushed).
