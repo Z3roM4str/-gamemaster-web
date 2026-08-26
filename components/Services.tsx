@@ -23,6 +23,7 @@ export function Services() {
 
   return (
     <section className="servicesSection sectionShell" id="servicios" aria-labelledby="services-title">
+      <div className="servicesAtmosphere" aria-hidden="true"><span data-gm-depth="0.028" /><i data-gm-depth="-0.055" /></div>
       <div className="splitHeading">
         <div>
           <p className="eyebrow"><span /> UNIVERSOS BAJO CONSULTA</p>

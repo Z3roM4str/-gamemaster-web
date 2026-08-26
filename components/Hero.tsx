@@ -12,8 +12,8 @@ export function Hero() {
     <section className="hero" id="inicio" aria-labelledby="hero-title">
       <div className="heroCopy">
         <div className="heroLabel">
-          <span>GM / ARCHIVO 01</span>
-          <p>NINTENDO DIGITAL · MÉXICO</p>
+          <span>GM / SEÑAL 01</span>
+          <p>BIBLIOTECA DIGITAL · MÉXICO</p>
         </div>
         <h1 id="hero-title">
           Todo lo que<br />
@@ -35,7 +35,7 @@ export function Hero() {
       </div>
 
       <div className="heroArt" aria-label="Selección editorial de juegos Nintendo Switch">
-        <div className="heroRearGrid" aria-hidden="true">
+        <div className="heroRearGrid" data-gm-depth="0.025" aria-hidden="true">
           <span /><span /><span /><span /><span />
         </div>
         <div className="heroArtIndex" aria-hidden="true">
@@ -50,7 +50,7 @@ export function Hero() {
           <Image src={heroCompanion.image} alt={`Portada de ${heroCompanion.title}`} fill sizes="(max-width: 760px) 31vw, 190px" priority />
           <span aria-hidden="true">02</span>
         </ProductPreviewTrigger>
-        <div className="heroFrontPlane" aria-hidden="true">
+        <div className="heroFrontPlane" data-gm-depth="-0.09" aria-hidden="true">
           <small>PLANO FOCAL</small>
           <strong>PLAY</strong>
           <span>SWITCH / SWITCH 2</span>
@@ -59,6 +59,7 @@ export function Hero() {
           <strong>{catalog.length}</strong>
           <span>TÍTULOS<br />EN ARCHIVO</span>
         </div>
+        <div className="heroDepthLegend" aria-hidden="true"><i /> AZUL / FONDO <b /> ROJO / FRENTE</div>
       </div>
     </section>
   );

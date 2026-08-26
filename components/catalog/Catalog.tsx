@@ -61,6 +61,9 @@ export function Catalog() {
 
   return (
     <section className="catalogSection sectionShell" id="catalogo" aria-labelledby="catalog-title">
+      <div className="catalogDepthArt" aria-hidden="true">
+        <span data-gm-depth="0.035" /><span data-gm-depth="-0.075" /><i />
+      </div>
       <div className="splitHeading catalogHeading">
         <div>
           <p className="eyebrow"><span /> BIBLIOTECA NINTENDO DIGITAL</p>

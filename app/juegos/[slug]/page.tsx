@@ -6,6 +6,7 @@ import { ArrowLeft, ArrowRight, ArrowUpRight, Check, MessageCircle, UserRound, U
 import { catalog, getGameBySlug, getRelatedGames } from '@/app/data/catalog';
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
+import { SiteArt } from '@/components/SiteArt';
 import { gameQuoteMessage, toWhatsApp } from '@/lib/contact';
 import { getSiteUrl } from '@/lib/site';
 
@@ -58,6 +59,7 @@ export default async function GamePage({ params }: GamePageProps) {
 
   return (
     <>
+      <SiteArt />
       <Header homePath="/" />
       <main className="gameDetailPage" id="inicio">
         <section className="gameDetailHero sectionShell" aria-labelledby="game-title">

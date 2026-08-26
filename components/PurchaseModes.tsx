@@ -10,6 +10,8 @@ export function PurchaseModes() {
 
   return (
     <section className="modesSection" id="modalidades" aria-labelledby="modes-title">
+      <div className="modesBlueWorld" data-gm-depth="0.025" aria-hidden="true" />
+      <div className="modesRedGate" data-gm-depth="-0.065" aria-hidden="true" />
       <div className="sectionShell">
         <div className="splitHeading splitHeadingDark">
           <div>
