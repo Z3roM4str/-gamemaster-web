@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    locale: 'es-MX',
+    locale: 'es_MX',
     siteName: 'GameMaster',
     title: 'GameMaster | Nintendo, streaming, IA y privacidad',
     description: 'Gaming, streaming, IA y privacidad en una sola señal.',
