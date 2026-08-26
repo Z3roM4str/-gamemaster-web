@@ -26,19 +26,14 @@ const aliases = {
   'Pokémon Leyendas: Arceus': 'Pokémon Legends Arceus',
   'Pokémon Diamante Brillante': 'Pokémon Brilliant Diamond and Shining Pearl',
   'Pokémon Perla Reluciente': 'Pokémon Brilliant Diamond and Shining Pearl',
-  'Pokémon Scarlet + Pase de expansión': 'Pokémon Scarlet and Violet',
+  'Pokémon Scarlet': 'Pokémon Scarlet and Violet',
   'Pokémon Violet (sin expansión)': 'Pokémon Scarlet and Violet',
   'NieR: Automata The End of YoRHa Edition': 'Nier Automata',
   'Dragon Ball FighterZ – FighterZ Edition': 'Dragon Ball FighterZ',
   'Kimetsu no Yaiba: Demon Slayer – The Hinokami Chronicles': 'Demon Slayer The Hinokami Chronicles',
   'Naruto Shippuden: Ultimate Ninja Storm 4 Road to Boruto': 'Naruto Shippuden Ultimate Ninja Storm 4',
   'Dragon Ball Z: Kakarot + A New Power Awakens Set': 'Dragon Ball Z Kakarot',
-  'Fire Emblem Engage + Expansion Pass': 'Fire Emblem Engage',
-  'Fire Emblem: Three Houses + Expansion Pass': 'Fire Emblem Three Houses',
-  'Xenoblade Chronicles 2 + Expansion Pass': 'Xenoblade Chronicles 2',
-  'Super Smash Bros. Ultimate + Pase de expansión': 'Super Smash Bros Ultimate',
-  'The Legend of Zelda: Breath of the Wild + Pase de expansión': 'The Legend of Zelda Breath of the Wild',
-  'The Legend of Zelda: Tears of the Kingdom + Pase de expansión': 'The Legend of Zelda Tears of the Kingdom',
+  'Fire Emblem: Three Houses': 'Fire Emblem Three Houses',
 };
 
 const directImageOverrides = {
@@ -59,12 +54,6 @@ const directImageOverrides = {
     pageUrl: 'https://store.steampowered.com/app/749800/PixelJunk_Monsters_2/',
     imageUrls: ['https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/749800/capsule_616x353.jpg?t=1715700492'],
     description: 'Imagen oficial de la ficha de Steam para PixelJunk Monsters 2',
-  },
-  fortnite: {
-    pageTitle: 'Fortnite',
-    pageUrl: 'https://commons.wikimedia.org/wiki/File:FortniteLogo.svg',
-    imageUrls: ['https://commons.wikimedia.org/wiki/Special:Redirect/file/FortniteLogo.svg'],
-    description: 'Logotipo de Fortnite',
   },
   'resident-evil-9-requiem-8-7': {
     pageTitle: 'Resident Evil Requiem, Village y 7: Biohazard',
@@ -291,7 +280,7 @@ async function runPool(items, worker, concurrency = 5) {
 
 await mkdir(outputDir, { recursive: true });
 const catalog = readCatalog(await readFile(catalogPath, 'utf8'));
-if (catalog.length !== 134) throw new Error(`Se esperaban 134 juegos y se leyeron ${catalog.length}`);
+if (catalog.length !== 130) throw new Error(`Se esperaban 130 juegos y se leyeron ${catalog.length}`);
 const selected = (selectedIds ? catalog.filter((game) => selectedIds.has(game.id)) : catalog).slice(0, limit);
 if (selectedIds && selected.length !== selectedIds.size) throw new Error('Uno o más ids solicitados no existen en el catálogo');
 const audit = [];

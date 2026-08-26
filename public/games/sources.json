@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-21T15:45:17.968Z",
-  "total": 134,
+  "generatedAt": "2026-08-26T04:46:40.200Z",
+  "total": 130,
   "sources": [
     {
       "id": "castlestorm-ii",
@@ -614,27 +614,6 @@
           "title": "Bayonetta (video game)",
           "description": "2009 video game",
           "score": 104
-        }
-      ]
-    },
-    {
-      "id": "fortnite",
-      "title": "Fortnite",
-      "localPath": "/games/fortnite.webp",
-      "alias": "Fortnite",
-      "pageTitle": "Fortnite",
-      "pageUrl": "https://commons.wikimedia.org/wiki/File:FortniteLogo.svg",
-      "imageUrls": [
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/FortniteLogo.svg"
-      ],
-      "description": "Logotipo de Fortnite",
-      "imageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/FortniteLogo.svg",
-      "score": 1000,
-      "candidates": [
-        {
-          "title": "Fortnite",
-          "description": "Logotipo de Fortnite",
-          "score": 1000
         }
       ]
     },
@@ -1711,39 +1690,6 @@
           "title": "List of major Super Smash Bros. Ultimate tournaments",
           "description": "Wikimedia list article",
           "score": 116
-        }
-      ]
-    },
-    {
-      "id": "super-smash-bros-ultimate-pase-de-expansion",
-      "title": "Super Smash Bros. Ultimate + Pase de expansión",
-      "localPath": "/games/super-smash-bros-ultimate-pase-de-expansion.webp",
-      "alias": "Super Smash Bros Ultimate",
-      "pageTitle": "Super Smash Bros. Ultimate",
-      "pageUrl": "https://en.wikipedia.org/wiki/Super_Smash_Bros._Ultimate",
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/5/50/Super_Smash_Bros._Ultimate.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
-      "description": "2018 fighting video game",
-      "score": 641,
-      "candidates": [
-        {
-          "title": "Super Smash Bros. Ultimate",
-          "description": "2018 fighting video game",
-          "score": 641
-        },
-        {
-          "title": "Super Smash Bros. Brawl",
-          "description": "2008 crossover fighting video game by Nintendo",
-          "score": 213
-        },
-        {
-          "title": "Super Smash Bros. for Nintendo 3DS and Wii U",
-          "description": "2014 fighting video games",
-          "score": 201
-        },
-        {
-          "title": "List of major Super Smash Bros. Ultimate tournaments",
-          "description": "Wikimedia list article",
-          "score": 118
         }
       ]
     },
@@ -3000,7 +2946,7 @@
     },
     {
       "id": "pokemon-scarlet",
-      "title": "Pokémon Scarlet + Pase de expansión",
+      "title": "Pokémon Scarlet",
       "localPath": "/games/pokemon-scarlet.webp",
       "alias": "Pokémon Scarlet and Violet",
       "pageTitle": "Pokémon Scarlet and Violet",
@@ -3362,9 +3308,9 @@
       ]
     },
     {
-      "id": "fire-emblem-engage-expansion-pass",
-      "title": "Fire Emblem Engage + Expansion Pass",
-      "localPath": "/games/fire-emblem-engage-expansion-pass.webp",
+      "id": "fire-emblem-engage",
+      "title": "Fire Emblem Engage",
+      "localPath": "/games/fire-emblem-engage.webp",
       "alias": "Fire Emblem Engage",
       "pageTitle": "Fire Emblem Engage",
       "pageUrl": "https://en.wikipedia.org/wiki/Fire_Emblem_Engage",
@@ -3396,7 +3342,7 @@
     },
     {
       "id": "fire-emblem",
-      "title": "Fire Emblem: Three Houses + Expansion Pass",
+      "title": "Fire Emblem: Three Houses",
       "localPath": "/games/fire-emblem.webp",
       "alias": "Fire Emblem Three Houses",
       "pageTitle": "Fire Emblem: Three Houses",
@@ -3945,9 +3891,9 @@
       ]
     },
     {
-      "id": "xenoblade-chronicles-2-expansion-pass",
-      "title": "Xenoblade Chronicles 2 + Expansion Pass",
-      "localPath": "/games/xenoblade-chronicles-2-expansion-pass.webp",
+      "id": "xenoblade-chronicles-2",
+      "title": "Xenoblade Chronicles 2",
+      "localPath": "/games/xenoblade-chronicles-2.webp",
       "alias": "Xenoblade Chronicles 2",
       "pageTitle": "Xenoblade Chronicles 2",
       "pageUrl": "https://en.wikipedia.org/wiki/Xenoblade_Chronicles_2",
@@ -4110,39 +4056,6 @@
       ]
     },
     {
-      "id": "the-legend-of-zelda-breath-of-the-wild-pase-de-expansion",
-      "title": "The Legend of Zelda: Breath of the Wild + Pase de expansión",
-      "localPath": "/games/the-legend-of-zelda-breath-of-the-wild-pase-de-expansion.webp",
-      "alias": "The Legend of Zelda Breath of the Wild",
-      "pageTitle": "The Legend of Zelda: Breath of the Wild",
-      "pageUrl": "https://en.wikipedia.org/wiki/The_Legend_of_Zelda:_Breath_of_the_Wild",
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/c/c6/The_Legend_of_Zelda_Breath_of_the_Wild.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
-      "description": "2017 action-adventure video game developed by Nintendo",
-      "score": 645,
-      "candidates": [
-        {
-          "title": "The Legend of Zelda: Breath of the Wild",
-          "description": "2017 action-adventure video game developed by Nintendo",
-          "score": 645
-        },
-        {
-          "title": "The Legend of Zelda",
-          "description": "video game series",
-          "score": 296
-        },
-        {
-          "title": "The Legend of Zelda: Tears of the Kingdom",
-          "description": "2023 video game developed by Nintendo",
-          "score": 199
-        },
-        {
-          "title": "The Legend of Zelda: Link's Awakening (2019 video game)",
-          "description": "2019 remake of the 1993 video game",
-          "score": 197
-        }
-      ]
-    },
-    {
       "id": "zelda-echoes",
       "title": "The Legend of Zelda: Echoes of Wisdom",
       "localPath": "/games/zelda-echoes.webp",
@@ -4271,39 +4184,6 @@
           "title": "The Legend of Zelda: A Link Between Worlds",
           "description": "2013 video game",
           "score": 191
-        }
-      ]
-    },
-    {
-      "id": "the-legend-of-zelda-tears-of-the-kingdom-pase-de-expansion",
-      "title": "The Legend of Zelda: Tears of the Kingdom + Pase de expansión",
-      "localPath": "/games/the-legend-of-zelda-tears-of-the-kingdom-pase-de-expansion.webp",
-      "alias": "The Legend of Zelda Tears of the Kingdom",
-      "pageTitle": "The Legend of Zelda: Tears of the Kingdom",
-      "pageUrl": "https://en.wikipedia.org/wiki/The_Legend_of_Zelda:_Tears_of_the_Kingdom",
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/f/fb/The_Legend_of_Zelda_Tears_of_the_Kingdom_cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
-      "description": "2023 video game developed by Nintendo",
-      "score": 645,
-      "candidates": [
-        {
-          "title": "The Legend of Zelda: Tears of the Kingdom",
-          "description": "2023 video game developed by Nintendo",
-          "score": 645
-        },
-        {
-          "title": "The Legend of Zelda",
-          "description": "video game series",
-          "score": 296
-        },
-        {
-          "title": "The Legend of Zelda: Echoes of Wisdom",
-          "description": "2024 video game",
-          "score": 199
-        },
-        {
-          "title": "The Legend of Zelda: Breath of the Wild",
-          "description": "2017 action-adventure video game developed by Nintendo",
-          "score": 193
         }
       ]
     }

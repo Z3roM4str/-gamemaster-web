@@ -87,4 +87,12 @@ Commercial copy should be concise, clear and credible. Avoid exaggerated claims 
 
 ## Catalog provenance
 
-The game list in `data/catalog.ts` is transcribed from the owner's source catalog. It is not a market-verified database. Preserve source titles as entered unless the owner asks for a factual catalog audit.
+The commercial game list in `app/data/catalog.ts` descends from the owner's source catalog. It is not a market-verified database. Preserve its provenance and `sourceCategory`; owner-confirmed normalization rules, such as the exclusions below, take precedence over historical titles or records.
+
+## Current catalog exclusions and normalization
+
+- **Fortnite is not part of the current GameMaster offer.** It must not appear as an available product, taxonomy record, rail item, filter result or related game.
+- **`Resident Evil 9 Requiem, 8, 7` is one confirmed 3-in-1 product.** Keep the three games together in a single catalog record; do not flag the grouping as doubtful or pending manual review.
+- GameMaster does not offer separate **Pase de expansión / Expansion Pass** catalog records.
+- When a pass record and a base-game record both exist, keep only the base game and remove the pass record.
+- When only a pass record exists, convert that record into the base game instead of deleting the entire game. Remove pass wording and any pass-specific metadata, and update its ID/slug only when needed to represent the base game correctly.

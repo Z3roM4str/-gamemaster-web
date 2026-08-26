@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     default: 'GameMaster | Nintendo, streaming, IA y privacidad',
     template: '%s | GameMaster',
   },
-  description: 'Explora 134 juegos digitales para Nintendo Switch y Switch 2, además de streaming, IA y privacidad bajo consulta directa.',
+  description: 'Explora 130 juegos digitales para Nintendo Switch y Switch 2, además de streaming, IA y privacidad bajo consulta directa.',
   metadataBase: siteUrl,
   alternates: siteUrl ? { canonical: siteUrl } : undefined,
   icons: {
