@@ -21,5 +21,5 @@ export function gameQuoteMessage(title: string, platform: string) {
 }
 
 export const GENERAL_CONTACT_URL = toWhatsApp(
-  'Hola, quiero conocer las opciones de GameMaster para Nintendo Switch, streaming e IA.',
+  'Hola, quiero conocer las opciones de GameMaster para Nintendo Switch, streaming, IA o privacidad digital.',
 );

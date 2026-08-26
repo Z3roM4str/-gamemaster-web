@@ -1,8 +1,8 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import { ArrowRight, Search } from 'lucide-react';
-import { catalog, catalogShelves } from '@/app/data/catalog';
+import { ArrowRight, ChevronDown, Compass, Search } from 'lucide-react';
+import { catalog, exploreCatalogShelves, homepageCatalogShelves } from '@/app/data/catalog';
 import { toWhatsApp } from '@/lib/contact';
 import { CatalogShelf } from './CatalogShelf';
 import { Filters, type CatalogFilterState } from './Filters';
@@ -11,37 +11,35 @@ import { GameCard } from './GameCard';
 const initialFilters: CatalogFilterState = {
   platform: 'Todas',
   genres: [],
-  franchises: [],
+  worlds: [],
   collections: [],
-  featured: false,
 };
 
 export function Catalog() {
   const [query, setQuery] = useState('');
   const [filters, setFilters] = useState<CatalogFilterState>(initialFilters);
   const [filtersOpen, setFiltersOpen] = useState(false);
+  const [showExploreMore, setShowExploreMore] = useState(false);
 
   const results = useMemo(() => {
     const normalizedQuery = query.trim().toLocaleLowerCase('es');
     return catalog.filter((game) => {
       const queryMatch = !normalizedQuery || game.title.toLocaleLowerCase('es').includes(normalizedQuery);
       const platformMatch = filters.platform === 'Todas' || game.platform === filters.platform;
-      const genresMatch = !filters.genres.length || filters.genres.some((genre) => game.genres.includes(genre));
-      const franchiseMatch = !filters.franchises.length || Boolean(game.franchise && filters.franchises.includes(game.franchise));
-      const collectionMatch = !filters.collections.length || filters.collections.some((collection) => game.collections.includes(collection));
-      const featuredMatch = !filters.featured || game.featured;
-      return queryMatch && platformMatch && genresMatch && franchiseMatch && collectionMatch && featuredMatch;
+      const genresMatch = !filters.genres.length || game.genres.some((genre) => filters.genres.includes(genre));
+      const worldsMatch = !filters.worlds.length || game.worlds.some((world) => filters.worlds.includes(world));
+      const collectionMatch = !filters.collections.length || game.collections.some((collection) => filters.collections.includes(collection));
+      return queryMatch && platformMatch && genresMatch && worldsMatch && collectionMatch;
     }).sort((a, b) => a.title.localeCompare(b.title, 'es'));
   }, [filters, query]);
 
   const isExploring = Boolean(query.trim())
     || filters.platform !== 'Todas'
     || filters.genres.length > 0
-    || filters.franchises.length > 0
+    || filters.worlds.length > 0
     || filters.collections.length > 0
-    || filters.featured;
 
-  const toggleFacet = (facet: 'genres' | 'franchises' | 'collections', value: string) => {
+  const toggleFacet = (facet: 'genres' | 'worlds' | 'collections', value: string) => {
     setFilters((current) => ({
       ...current,
       [facet]: current[facet].includes(value)
@@ -79,7 +77,6 @@ export function Catalog() {
         onQueryChange={setQuery}
         onPlatformChange={(platform) => setFilters((current) => ({ ...current, platform }))}
         onFacetToggle={toggleFacet}
-        onFeaturedToggle={() => setFilters((current) => ({ ...current, featured: !current.featured }))}
         onFiltersOpenChange={setFiltersOpen}
         onClear={clearFilters}
       />
@@ -103,7 +100,18 @@ export function Catalog() {
         )
       ) : (
         <div className="catalogShelves">
-          {catalogShelves.map((shelf) => <CatalogShelf {...shelf} key={shelf.id} />)}
+          {homepageCatalogShelves.map((shelf) => <CatalogShelf {...shelf} key={shelf.id} />)}
+          <div className="exploreMoreControl">
+            <div><Compass aria-hidden="true" /><span><strong>Explorar más géneros</strong><small>Estrategia, pelea, carreras, terror, puzzle, mundo abierto y más.</small></span></div>
+            <button type="button" aria-expanded={showExploreMore} aria-controls="explore-more-shelves" onClick={() => setShowExploreMore((current) => !current)}>
+              {showExploreMore ? 'Mostrar menos' : 'Abrir más rails'} <ChevronDown aria-hidden="true" />
+            </button>
+          </div>
+          {showExploreMore && (
+            <div className="exploreMoreShelves" id="explore-more-shelves">
+              {exploreCatalogShelves.map((shelf) => <CatalogShelf {...shelf} key={shelf.id} />)}
+            </div>
+          )}
         </div>
       )}
     </section>

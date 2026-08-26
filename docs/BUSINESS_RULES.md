@@ -49,16 +49,37 @@ If a title may be unavailable, say `Sujeto a disponibilidad` or `Consultar dispo
 
 The current source catalog explicitly asks customers to provide the main titles they are interested in so price and stock/availability can be checked. Preserve that operational reality.
 
-## Streaming and AI
+## Commercial service families
 
-The supplied visual material shows GameMaster as a broader digital-membership business including examples such as streaming platforms and AI tools. However, no canonical price/availability table for those products has been supplied in the repository yet.
+The current commercial architecture is:
+
+- Gaming → Nintendo Switch / Nintendo Switch 2 digital.
+- Streaming & music.
+- AI → ChatGPT and Claude.
+- Privacy / digital services → Proton VPN.
+
+The supplied material positions GameMaster as a broader digital-membership business, but no canonical price/availability table for Streaming & music, AI or Privacy / digital services has been supplied in the repository yet.
 
 Therefore:
 
 - list service families for discovery;
 - do not invent plan names, prices, durations, account rules or warranties;
+- use `Consultar precio` when no canonical value exists;
 - route the customer to WhatsApp for a current quote;
 - do not imply official affiliation with third-party brands.
+
+### AI offer
+
+- The current AI offer is **ChatGPT and Claude**.
+- **Abacus is not part of the current offer.** Historical references or legacy assets must not be interpreted as present availability and must not make Abacus visible as an available product.
+- Do not describe ChatGPT or Claude as the only tool offered beyond the explicit current pair unless the owner changes this rule.
+- Do not publish a price, plan, duration, benefit or availability claim without a canonical source supplied by the owner.
+
+### Privacy / digital services
+
+- **Proton VPN** belongs to the separate family **Privacy / digital services**.
+- Proton VPN must not be classified as AI or Streaming & music.
+- Do not publish a price, plan, duration, benefit or availability claim without a canonical source supplied by the owner.
 
 ## Tone
 

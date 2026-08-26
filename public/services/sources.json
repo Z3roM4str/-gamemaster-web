@@ -1,11 +1,23 @@
 {
-  "generatedAt": "2026-08-21T15:32:22.541Z",
+  "generatedAt": "2026-08-26T00:00:00.000Z",
   "sources": [
     {
       "name": "ChatGPT",
       "localPath": "/services/chatgpt.svg",
       "sourcePage": "https://commons.wikimedia.org/wiki/File:OpenAI_logo_2025_(symbol).svg",
       "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/6/66/OpenAI_logo_2025_%28symbol%29.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"
+    },
+    {
+      "name": "Claude",
+      "localPath": "/services/claude.svg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Claude_AI_logo.svg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Claude_AI_logo.svg"
+    },
+    {
+      "name": "Proton VPN",
+      "localPath": "/services/proton-vpn.svg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Proton_VPN_Logo.svg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Proton_VPN_Logo.svg"
     },
     {
       "name": "Netflix",

@@ -1,17 +1,16 @@
 'use client';
 
 import { Check, Search, SlidersHorizontal, X } from 'lucide-react';
-import { collections, franchises, genres, platforms, type Platform } from '@/app/data/catalog';
+import { collections, genres, platforms, worlds, type Platform } from '@/app/data/catalog';
 
 export type CatalogFilterState = {
   platform: 'Todas' | Platform;
   genres: string[];
-  franchises: string[];
+  worlds: string[];
   collections: string[];
-  featured: boolean;
 };
 
-type FacetName = 'genres' | 'franchises' | 'collections';
+type FacetName = 'genres' | 'worlds' | 'collections';
 
 function FacetGroup({ label, values, selected, onToggle }: {
   label: string;
@@ -44,7 +43,6 @@ export function Filters({
   onQueryChange,
   onPlatformChange,
   onFacetToggle,
-  onFeaturedToggle,
   onFiltersOpenChange,
   onClear,
 }: {
@@ -55,11 +53,10 @@ export function Filters({
   onQueryChange: (value: string) => void;
   onPlatformChange: (value: CatalogFilterState['platform']) => void;
   onFacetToggle: (facet: FacetName, value: string) => void;
-  onFeaturedToggle: () => void;
   onFiltersOpenChange: (open: boolean) => void;
   onClear: () => void;
 }) {
-  const activeFacetCount = filters.genres.length + filters.franchises.length + filters.collections.length + (filters.featured ? 1 : 0);
+  const activeFacetCount = filters.genres.length + filters.worlds.length + filters.collections.length;
   const hasAnyFilter = Boolean(query.trim()) || filters.platform !== 'Todas' || activeFacetCount > 0;
 
   return (
@@ -111,14 +108,12 @@ export function Filters({
             <button type="button" onClick={() => onFiltersOpenChange(false)} aria-label="Cerrar filtros"><X aria-hidden="true" /></button>
           </div>
           <div className="filterFeaturedRow">
-            <button type="button" className={filters.featured ? 'isActive' : ''} aria-pressed={filters.featured} onClick={onFeaturedToggle}>
-              {filters.featured && <Check aria-hidden="true" />} Solo destacados
-            </button>
+            <p>Destacados, Switch 2 y otros grupos editoriales viven en Colecciones.</p>
             {hasAnyFilter && <button type="button" className="clearFilters" onClick={onClear}>Limpiar selección</button>}
           </div>
           <div className="filterFacetGrid">
             <FacetGroup label="Género" values={genres} selected={filters.genres} onToggle={(value) => onFacetToggle('genres', value)} />
-            <FacetGroup label="Franquicia" values={franchises} selected={filters.franchises} onToggle={(value) => onFacetToggle('franchises', value)} />
+            <FacetGroup label="Mundo / franquicia" values={worlds} selected={filters.worlds} onToggle={(value) => onFacetToggle('worlds', value)} />
             <FacetGroup label="Colección" values={collections} selected={filters.collections} onToggle={(value) => onFacetToggle('collections', value)} />
           </div>
         </div>

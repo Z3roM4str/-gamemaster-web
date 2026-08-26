@@ -3,7 +3,8 @@ const questions = [
   ['¿Cuánto cuesta cada juego?', 'El precio y la disponibilidad se confirman al momento para cada título. La web no publica importes exactos cuando no existe un valor canónico vigente.'],
   ['¿Qué diferencia hay entre Principal y Secundaria?', 'La Principal permite jugar desde cualquier usuario y puede abrirse sin conexión. La Secundaria se usa desde el perfil proporcionado y necesita una verificación breve por internet al abrir.'],
   ['¿Puedo jugar en línea?', 'Depende del título y de la modalidad. Esa condición se revisa antes de confirmar para no prometer una función que no aplique.'],
-  ['¿Streaming e IA tienen planes publicados?', 'Todavía no. Esos universos sirven para descubrir y consultar; plan, duración, beneficios, precio y disponibilidad se confirman directamente.'],
+  ['¿Qué herramientas de IA ofrece GameMaster?', 'La oferta actual de IA incluye ChatGPT y Claude. Abacus no forma parte de la oferta. Precio, modalidad y disponibilidad se confirman directamente.'],
+  ['¿Dónde aparece Proton VPN?', 'Proton VPN pertenece a Privacidad / servicios digitales; no se clasifica como IA ni como streaming. Su precio, duración y disponibilidad se consultan al momento.'],
   ['¿GameMaster está afiliado con las marcas mostradas?', 'No. GameMaster es un negocio independiente. Las marcas y artes pertenecen a sus respectivos titulares y se muestran como referencia.'],
 ];
 

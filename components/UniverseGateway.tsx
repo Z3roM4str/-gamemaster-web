@@ -1,4 +1,4 @@
-import { ArrowRight, BrainCircuit, Gamepad2, RadioTower } from 'lucide-react';
+import { ArrowRight, BrainCircuit, Gamepad2, RadioTower, ShieldCheck } from 'lucide-react';
 import { catalog } from '@/app/data/catalog';
 import { ServiceMark } from './ServiceMark';
 
@@ -8,9 +8,9 @@ export function UniverseGateway() {
       <div className="splitHeading">
         <div>
           <p className="eyebrow"><span /> ELIGE TU UNIVERSO</p>
-          <h2 id="universe-title">Tres mundos.<br /><em>Una sola entrada.</em></h2>
+          <h2 id="universe-title">Cuatro mundos.<br /><em>Una sola entrada.</em></h2>
         </div>
-        <p>Gaming es una biblioteca Nintendo digital. Streaming e IA son espacios de descubrimiento y cotización directa, sin planes ni precios supuestos.</p>
+        <p>Gaming es una biblioteca Nintendo digital. Streaming, IA y privacidad son espacios de descubrimiento y cotización directa, sin planes ni precios supuestos.</p>
       </div>
       <div className="universeGrid">
         <a className="universeCard universeGaming" href="#catalogo">
@@ -31,9 +31,15 @@ export function UniverseGateway() {
         </a>
         <a className="universeCard universeAi" href="#ia">
           <span className="universeIcon"><BrainCircuit aria-hidden="true" /></span>
-          <span className="universeCopy"><small>UNIVERSO 03</small><strong>IA</strong><em>ChatGPT y atención bajo consulta</em></span>
+          <span className="universeCopy"><small>UNIVERSO 03</small><strong>IA</strong><em>ChatGPT + Claude · Consultar precio</em></span>
           <ArrowRight className="universeArrow" aria-hidden="true" />
           <span className="universeNodeField" aria-hidden="true"><i /><i /><i /><i /><i /></span>
+        </a>
+        <a className="universeCard universePrivacy" href="#privacidad">
+          <span className="universeIcon"><ShieldCheck aria-hidden="true" /></span>
+          <span className="universeCopy"><small>UNIVERSO 04</small><strong>Privacidad</strong><em>Proton VPN · Consultar precio</em></span>
+          <ArrowRight className="universeArrow" aria-hidden="true" />
+          <span className="universePrivacyField" aria-hidden="true"><i /><i /><i /></span>
         </a>
       </div>
     </section>

@@ -54,7 +54,7 @@ export default async function GamePage({ params }: GamePageProps) {
 
   const relatedGames = getRelatedGames(game, 8);
   const quoteUrl = toWhatsApp(gameQuoteMessage(game.title, game.platform));
-  const metadataTags = [...game.genres, ...(game.franchise ? [game.franchise] : []), ...game.tags];
+  const metadataTags = [...game.genres, ...game.worlds, ...game.features];
 
   return (
     <>

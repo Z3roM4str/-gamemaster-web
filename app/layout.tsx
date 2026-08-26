@@ -11,10 +11,10 @@ const socialImage = siteUrl ? new URL('/og.png', siteUrl).toString() : undefined
 
 export const metadata: Metadata = {
   title: {
-    default: 'GameMaster | Nintendo, streaming e IA',
+    default: 'GameMaster | Nintendo, streaming, IA y privacidad',
     template: '%s | GameMaster',
   },
-  description: 'Explora 134 juegos digitales para Nintendo Switch y Switch 2, además de universos de streaming e IA bajo consulta directa.',
+  description: 'Explora 134 juegos digitales para Nintendo Switch y Switch 2, además de streaming, IA y privacidad bajo consulta directa.',
   metadataBase: siteUrl,
   alternates: siteUrl ? { canonical: siteUrl } : undefined,
   icons: {
@@ -26,15 +26,15 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'es_MX',
     siteName: 'GameMaster',
-    title: 'GameMaster | Nintendo, streaming e IA',
-    description: 'Tu universo digital, en una sola señal.',
+    title: 'GameMaster | Nintendo, streaming, IA y privacidad',
+    description: 'Gaming, streaming, IA y privacidad en una sola señal.',
     url: siteUrl,
-    images: socialImage ? [{ url: socialImage, width: 1200, height: 630, alt: 'GameMaster — Gaming Nintendo, streaming e IA' }] : [],
+    images: socialImage ? [{ url: socialImage, width: 1200, height: 630, alt: 'GameMaster — Gaming Nintendo, streaming, IA y privacidad' }] : [],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'GameMaster | Nintendo, streaming e IA',
-    description: 'Tu universo digital, en una sola señal.',
+    title: 'GameMaster | Nintendo, streaming, IA y privacidad',
+    description: 'Gaming, streaming, IA y privacidad en una sola señal.',
     images: socialImage ? [socialImage] : [],
   },
 };

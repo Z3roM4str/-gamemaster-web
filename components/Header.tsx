@@ -10,6 +10,7 @@ const navigation = [
   ['Gaming', '#catalogo'],
   ['Streaming', '#streaming'],
   ['IA', '#ia'],
+  ['Privacidad', '#privacidad'],
   ['Cómo funciona', '#modalidades'],
   ['FAQ', '#preguntas'],
   ['Contacto', '#cotizar'],

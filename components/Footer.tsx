@@ -7,7 +7,7 @@ export function Footer() {
     <footer>
       <div className="sectionShell footerTop">
         <BrandMark />
-        <p>Gaming Nintendo digital, streaming e IA en una experiencia de descubrimiento clara, visual y atendida directamente.</p>
+        <p>Gaming Nintendo digital, streaming, IA y privacidad en una experiencia de descubrimiento clara, visual y atendida directamente.</p>
         <div className="footerContact">
           <a href={GENERAL_CONTACT_URL} target="_blank" rel="noreferrer">WhatsApp <ArrowUpRight aria-hidden="true" /></a>
           <a href={FACEBOOK_URL} target="_blank" rel="noreferrer">Facebook <ArrowUpRight aria-hidden="true" /></a>

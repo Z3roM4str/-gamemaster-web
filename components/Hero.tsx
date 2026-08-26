@@ -21,7 +21,7 @@ export function Hero() {
           <em>En una sola señal.</em>
         </h1>
         <p className="heroLede">
-          Descubre {catalog.length} títulos para Nintendo Switch y Switch 2. Streaming e IA viven aquí como universos de consulta, siempre con precio y disponibilidad confirmados al momento.
+          Descubre {catalog.length} títulos para Nintendo Switch y Switch 2. Streaming, IA y privacidad viven aquí como universos de consulta, siempre con precio y disponibilidad confirmados al momento.
         </p>
         <div className="heroActions">
           <a className="buttonPrimary" href="#catalogo"><Gamepad2 aria-hidden="true" /> Explorar biblioteca <ArrowRight aria-hidden="true" /></a>

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { ArrowUpRight, Check, Copy, MessageCircle, X } from 'lucide-react';
 import { useExperience } from './experience/useExperience';
 
-const interests = ['Nintendo Switch digital', 'Streaming', 'IA / ChatGPT'];
+const interests = ['Nintendo Switch digital', 'Streaming', 'IA / ChatGPT + Claude', 'Privacidad / Proton VPN'];
 
 export function QuoteBuilder() {
   const [copied, setCopied] = useState(false);
@@ -44,7 +44,9 @@ export function QuoteBuilder() {
             <p>{interest || 'Elige una categoría para orientar tu solicitud.'}</p>
             <div>
               {interests.map((option) => {
-                const active = interest === option || (option === 'IA / ChatGPT' && interest === 'ChatGPT');
+                const active = interest === option
+                  || (option === 'IA / ChatGPT + Claude' && ['ChatGPT', 'Claude'].includes(interest))
+                  || (option === 'Privacidad / Proton VPN' && interest === 'Proton VPN');
                 return (
                   <button type="button" className={active ? 'isActive' : ''} aria-pressed={active} onClick={() => chooseInterest(option)} key={option}>
                     {active && <Check aria-hidden="true" />} {option}

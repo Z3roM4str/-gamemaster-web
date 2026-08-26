@@ -69,7 +69,7 @@ export function ProductPreviewModal() {
           <h2 id="preview-title">{game.title}</h2>
           <div className="modalTags" aria-label="Metadatos del juego">
             {game.genres.slice(0, 3).map((genre) => <span key={genre}>{genre}</span>)}
-            {game.franchise && <span>{game.franchise}</span>}
+            {game.worlds.slice(0, 2).map((world) => <span key={world}>{world}</span>)}
           </div>
           <p id="preview-description" className="modalDescription">Título digital registrado para {game.platform}. La modalidad, el precio y la disponibilidad se confirman al momento de cotizar.</p>
           <dl className="modalStatus">

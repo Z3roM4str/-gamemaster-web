@@ -16,8 +16,13 @@ export const streamingServices: Service[] = [
 
 export const aiServices: Service[] = [
   { name: 'ChatGPT', logo: '/services/chatgpt.svg' },
+  { name: 'Claude', logo: '/services/claude.svg' },
 ];
 
 export const gamingServices: Service[] = [
   { name: 'Nintendo Switch / Switch 2', logo: '/services/nintendo-switch.svg' },
+];
+
+export const privacyServices: Service[] = [
+  { name: 'Proton VPN', logo: '/services/proton-vpn.svg' },
 ];
