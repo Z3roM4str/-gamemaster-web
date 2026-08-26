@@ -4,6 +4,7 @@ import { getSiteUrl } from '@/lib/site';
 import './globals.css';
 import './art-direction.css';
 import './art-fixes.css';
+import './art-pass-v2.css';
 
 const display = Bebas_Neue({ variable: '--font-display', subsets: ['latin'], weight: '400' });
 const body = Outfit({ variable: '--font-body', subsets: ['latin'] });

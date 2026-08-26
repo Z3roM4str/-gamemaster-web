@@ -1,0 +1,911 @@
+/*
+ * GameMaster contextual depth pass — 2026-08-26
+ * Owner direction: more blue rear-world presence, red as a coherent foreground
+ * plane, and functional/catalog imagery above the red plane. Horizontal rails
+ * also drive independent rear/front motion. No duplicated red/blue geometry.
+ */
+
+:root {
+  --gm-blue-field: #071df7;
+  --gm-blue-electric: #3150ff;
+  --gm-red-front: #ff2018;
+}
+
+/* --------------------------------------------------------------------------
+   Page-scale depth: make the blue world materially present without removing
+   the black neutral plane. Red travels faster because it is the focal plane.
+   -------------------------------------------------------------------------- */
+
+.siteArtWorld {
+  opacity: .84;
+  background-position: 64% center;
+  transform: translate3d(
+    calc(var(--gm-pointer-x) * -.42),
+    calc((var(--gm-scroll-y) * -.018) + (var(--gm-pointer-y) * -.3)),
+    0
+  ) scale(1.1);
+}
+
+.siteArtBlackField {
+  background:
+    linear-gradient(90deg, rgba(3, 3, 4, .98) 0 15%, rgba(3, 3, 4, .73) 34%, rgba(3, 3, 4, .1) 68%, rgba(3, 3, 4, .5) 100%),
+    linear-gradient(180deg, rgba(3, 3, 4, .18) 0 55%, rgba(3, 3, 4, .78) 100%);
+}
+
+.siteArtNetwork {
+  opacity: .58;
+  stroke-width: 4;
+  transform: translate3d(
+    calc(var(--gm-pointer-x) * -.24),
+    calc(var(--gm-scroll-y) * -.026),
+    0
+  );
+}
+
+.siteArtTopo {
+  opacity: .5;
+  stroke-width: 6;
+  transform: translate3d(
+    calc(var(--gm-pointer-x) * -.28),
+    calc(var(--gm-scroll-y) * -.032),
+    0
+  ) rotate(8deg);
+}
+
+.siteArtRedFore {
+  width: min(48vw, 820px);
+  opacity: .98;
+  transform: translate3d(
+    calc(var(--gm-pointer-x) * .72),
+    calc((var(--gm-scroll-y) * -.076) + (var(--gm-pointer-y) * .5)),
+    0
+  );
+}
+
+/* --------------------------------------------------------------------------
+   Hero stacking. Blue = rear. Red = focal plane. Covers/UI = top plane.
+   This specifically keeps the recognizable game artwork above the red mass.
+   -------------------------------------------------------------------------- */
+
+.heroRearGrid {
+  z-index: 1;
+  border-color: rgba(49, 80, 255, .92);
+  background-color: rgba(3, 3, 8, .2);
+  background-image:
+    linear-gradient(rgba(49, 80, 255, .28) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(49, 80, 255, .28) 1px, transparent 1px);
+  background-size: 42px 42px;
+}
+
+.heroRearGrid::before {
+  border-color: rgba(7, 29, 247, .92);
+}
+
+.heroRearGrid::after {
+  opacity: .9;
+}
+
+.heroFrontPlane {
+  z-index: 4;
+  width: 48%;
+  min-height: 172px;
+}
+
+.heroCoverMain { z-index: 6; }
+.heroCoverCompanion { z-index: 7; }
+.heroCatalogPlate { z-index: 8; }
+.heroArtIndex,
+.heroDepthLegend { z-index: 9; }
+
+.heroCoverMain,
+.heroCoverCompanion {
+  box-shadow: 0 38px 92px rgba(0, 0, 0, .7);
+}
+
+/* --------------------------------------------------------------------------
+   Universe gateways: the colored fields now read as themed environments,
+   with red wedges underneath the real copy/icons instead of floating accents.
+   -------------------------------------------------------------------------- */
+
+.universeCard {
+  --universe-blue-opacity: .88;
+  background: rgba(3, 3, 5, .84);
+}
+
+.universeCard::before {
+  width: 66%;
+  height: 88%;
+  right: -11%;
+  top: -8%;
+  opacity: var(--universe-blue-opacity);
+  background-color: var(--gm-blue-field);
+  background-image:
+    linear-gradient(rgba(3, 3, 4, .24) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(3, 3, 4, .24) 2px, transparent 2px);
+  background-size: 38px 38px;
+}
+
+.universeCard::after {
+  z-index: 2;
+  width: 31%;
+  height: 44%;
+  right: 4%;
+  bottom: -5%;
+  background: var(--gm-red-front);
+  clip-path: polygon(19% 0, 100% 8%, 87% 78%, 55% 100%, 0 83%, 13% 42%);
+  transform: rotate(-5deg);
+}
+
+.universeCard > .universeIcon,
+.universeCard > .universeBrandStack,
+.universeCard > .universeCopy,
+.universeCard > .universeArrow {
+  z-index: 5;
+}
+
+.universeGaming::before {
+  background-color: var(--gm-blue-field);
+  background-image:
+    radial-gradient(circle at 68% 35%, transparent 0 46px, rgba(3, 3, 4, .66) 47px 54px, transparent 55px),
+    radial-gradient(circle at 83% 58%, rgba(3, 3, 4, .78) 0 10px, transparent 11px),
+    radial-gradient(circle at 72% 58%, rgba(3, 3, 4, .78) 0 10px, transparent 11px),
+    linear-gradient(rgba(3, 3, 4, .28) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(3, 3, 4, .28) 2px, transparent 2px);
+  background-size: auto, auto, auto, 34px 34px, 34px 34px;
+}
+
+.universeGamingField {
+  z-index: 3;
+  width: 42%;
+  height: 64%;
+  right: -4%;
+  bottom: -14%;
+  background: var(--gm-red-front);
+  clip-path: polygon(22% 0, 100% 13%, 82% 100%, 0 79%, 18% 43%);
+  transform: translate3d(0, var(--gm-depth-y), 0) rotate(5deg);
+}
+
+.universeStreaming {
+  --universe-blue-opacity: .94;
+}
+
+.universeSignalField {
+  z-index: 1;
+  width: 58%;
+  color: var(--gm-white);
+  background-color: var(--gm-blue-field);
+  background-image:
+    linear-gradient(90deg, rgba(3, 3, 4, .34) 0 7%, transparent 7% 46%, rgba(3, 3, 4, .34) 46% 54%, transparent 54% 93%, rgba(3, 3, 4, .34) 93%),
+    linear-gradient(rgba(3, 3, 4, .22) 2px, transparent 2px);
+  background-size: 100% 100%, 100% 32px;
+  transform: translate3d(0, var(--gm-depth-y), 0);
+}
+
+.universeSignalField svg {
+  width: 112px;
+  height: 112px;
+  opacity: .9;
+}
+
+.universeAi::before {
+  background-color: var(--gm-blue-field);
+  background-image:
+    radial-gradient(circle, rgba(3, 3, 4, .74) 0 4px, transparent 5px),
+    linear-gradient(32deg, transparent 48%, rgba(3, 3, 4, .5) 49% 51%, transparent 52%),
+    linear-gradient(146deg, transparent 48%, rgba(3, 3, 4, .38) 49% 51%, transparent 52%);
+  background-size: 54px 54px, 92px 92px, 118px 118px;
+}
+
+.universeNodeField {
+  z-index: 1;
+  width: 66%;
+  right: -19%;
+  top: -24%;
+  border-width: 4px;
+  border-color: rgba(49, 80, 255, .98);
+  opacity: .9;
+  transform: translate3d(0, var(--gm-depth-y), 0);
+}
+
+.universeNodeField i {
+  width: 11px;
+  height: 11px;
+  background: var(--gm-white);
+}
+
+.universePrivacyField {
+  z-index: 1;
+  width: 52%;
+  background-color: var(--gm-blue-field);
+  background-image:
+    linear-gradient(rgba(3, 3, 4, .28) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(3, 3, 4, .2) 1px, transparent 1px);
+  background-size: 100% 28px, 28px 100%;
+  transform: translate3d(0, var(--gm-depth-y), 0);
+}
+
+/* --------------------------------------------------------------------------
+   Catalog: stronger continuous blue field + coherent red plane, but the
+   controls, headings and every game cover remain above both color planes.
+   -------------------------------------------------------------------------- */
+
+.catalogDepthArt {
+  height: 900px;
+  z-index: -1;
+}
+
+.catalogDepthArt span:first-child {
+  width: min(82vw, 1320px);
+  right: -19vw;
+  top: 0;
+  border-width: 34px;
+  border-color: rgba(7, 29, 247, .88);
+}
+
+.catalogDepthArt span:nth-child(2) {
+  width: min(28vw, 450px);
+  height: 720px;
+  right: 2vw;
+  top: 76px;
+  opacity: .96;
+}
+
+.catalogDepthArt i {
+  width: 58vw;
+  height: 9px;
+  top: 368px;
+  background: var(--gm-blue-field);
+}
+
+.catalogHeading,
+.catalogControls,
+.catalogResults,
+.catalogShelves {
+  position: relative;
+  z-index: 4;
+}
+
+.catalogShelf {
+  --gm-rail-blue-shift: 0px;
+  --gm-rail-red-shift: 0px;
+  --gm-rail-glyph-shift: 0px;
+  isolation: isolate;
+  min-height: 520px;
+  padding-top: 54px;
+}
+
+.catalogShelf::before {
+  display: none;
+}
+
+.shelfContextArt {
+  position: absolute;
+  z-index: 0;
+  inset: 0 calc(50% - 50vw) auto;
+  height: 450px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.shelfContextBlue,
+.shelfContextRed,
+.shelfContextGlyph {
+  position: absolute;
+  display: block;
+}
+
+.shelfContextBlue {
+  z-index: 1;
+  width: min(61vw, 980px);
+  height: 340px;
+  right: -7vw;
+  top: 34px;
+  overflow: hidden;
+  background-color: var(--gm-blue-field);
+  background-image:
+    linear-gradient(rgba(3, 3, 4, .25) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(3, 3, 4, .25) 2px, transparent 2px);
+  background-size: 40px 40px;
+  clip-path: polygon(12% 0, 100% 8%, 92% 76%, 67% 100%, 0 86%, 10% 42%);
+  transform: translate3d(var(--gm-rail-blue-shift), var(--gm-depth-y), 0) rotate(3deg);
+  will-change: transform;
+}
+
+.shelfContextBlue i {
+  position: absolute;
+  display: block;
+  border: 7px solid rgba(3, 3, 4, .62);
+}
+
+.shelfContextBlue i:nth-child(1) {
+  width: 140px;
+  height: 140px;
+  right: 13%;
+  top: 15%;
+  border-radius: 50%;
+}
+
+.shelfContextBlue i:nth-child(2) {
+  width: 26px;
+  height: 26px;
+  right: 31%;
+  top: 34%;
+  border: 0;
+  background: rgba(3, 3, 4, .7);
+}
+
+.shelfContextBlue i:nth-child(3) {
+  width: 190px;
+  height: 7px;
+  right: 5%;
+  top: 52%;
+  border: 0;
+  background: rgba(3, 3, 4, .62);
+  transform: rotate(-13deg);
+}
+
+.shelfContextRed {
+  z-index: 2;
+  width: min(24vw, 390px);
+  height: 270px;
+  right: 8vw;
+  top: 128px;
+  background: var(--gm-red-front);
+  clip-path: polygon(27% 0, 100% 14%, 79% 48%, 96% 84%, 38% 100%, 0 70%, 14% 31%);
+  transform: translate3d(var(--gm-rail-red-shift), var(--gm-depth-y), 0) rotate(-5deg);
+  will-change: transform;
+}
+
+.shelfContextGlyph {
+  z-index: 2;
+  right: 4vw;
+  top: 56px;
+  max-width: 54vw;
+  color: rgba(3, 3, 4, .66);
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(48px, 6vw, 98px);
+  font-weight: 400;
+  letter-spacing: .035em;
+  line-height: .82;
+  text-align: right;
+  text-transform: uppercase;
+  transform: translate3d(var(--gm-rail-glyph-shift), 0, 0) rotate(2deg);
+  white-space: nowrap;
+  will-change: transform;
+}
+
+.catalogShelf > .shelfHeading,
+.catalogShelf > .catalogRail {
+  position: relative;
+  z-index: 5;
+}
+
+.catalogShelf:nth-of-type(even) .shelfContextBlue {
+  right: auto;
+  left: -10vw;
+  clip-path: polygon(0 8%, 88% 0, 100% 42%, 90% 88%, 26% 100%, 7% 76%);
+  transform: translate3d(var(--gm-rail-blue-shift), var(--gm-depth-y), 0) rotate(-3deg);
+}
+
+.catalogShelf:nth-of-type(even) .shelfContextRed {
+  right: auto;
+  left: 9vw;
+  transform: translate3d(var(--gm-rail-red-shift), var(--gm-depth-y), 0) rotate(6deg);
+}
+
+.catalogShelf:nth-of-type(even) .shelfContextGlyph {
+  right: auto;
+  left: 2vw;
+  text-align: left;
+  transform: translate3d(var(--gm-rail-glyph-shift), 0, 0) rotate(-2deg);
+}
+
+/* Franchise/category-specific structural imagery built from real blue regions. */
+.catalogShelf[data-shelf-theme='mario'] .shelfContextBlue i {
+  border-radius: 0;
+  border: 0;
+  background: rgba(3, 3, 4, .7);
+}
+
+.catalogShelf[data-shelf-theme='mario'] .shelfContextBlue i:nth-child(1) {
+  width: 76px;
+  height: 76px;
+  right: 22%;
+  top: 18%;
+  box-shadow: -88px 72px 0 rgba(3, 3, 4, .7), 88px 72px 0 rgba(3, 3, 4, .7);
+}
+
+.catalogShelf[data-shelf-theme='mario'] .shelfContextBlue i:nth-child(2) {
+  width: 74px;
+  height: 150px;
+  right: 8%;
+  top: 44%;
+  border-radius: 20px 20px 0 0;
+}
+
+.catalogShelf[data-shelf-theme='mario'] .shelfContextBlue i:nth-child(3) {
+  width: 126px;
+  height: 34px;
+  right: 5%;
+  top: 40%;
+}
+
+.catalogShelf[data-shelf-theme='pokemon'] .shelfContextBlue i:nth-child(1) {
+  width: 176px;
+  height: 176px;
+  right: 10%;
+  top: 13%;
+  border-width: 10px;
+}
+
+.catalogShelf[data-shelf-theme='pokemon'] .shelfContextBlue i:nth-child(1)::before,
+.catalogShelf[data-shelf-theme='pokemon'] .shelfContextBlue i:nth-child(1)::after {
+  content: '';
+  position: absolute;
+}
+
+.catalogShelf[data-shelf-theme='pokemon'] .shelfContextBlue i:nth-child(1)::before {
+  left: -10px;
+  right: -10px;
+  top: calc(50% - 5px);
+  height: 10px;
+  background: rgba(3, 3, 4, .72);
+}
+
+.catalogShelf[data-shelf-theme='pokemon'] .shelfContextBlue i:nth-child(1)::after {
+  width: 42px;
+  height: 42px;
+  left: calc(50% - 26px);
+  top: calc(50% - 26px);
+  border: 8px solid rgba(3, 3, 4, .72);
+  border-radius: 50%;
+  background: var(--gm-blue-field);
+}
+
+.catalogShelf[data-shelf-theme='pokemon'] .shelfContextBlue i:nth-child(2),
+.catalogShelf[data-shelf-theme='pokemon'] .shelfContextBlue i:nth-child(3) {
+  display: none;
+}
+
+.catalogShelf[data-shelf-theme='zelda'] .shelfContextBlue i:nth-child(1),
+.catalogShelf[data-shelf-theme='zelda'] .shelfContextBlue i:nth-child(2),
+.catalogShelf[data-shelf-theme='zelda'] .shelfContextBlue i:nth-child(3) {
+  width: 0;
+  height: 0;
+  border: 0;
+  background: transparent;
+  border-left: 58px solid transparent;
+  border-right: 58px solid transparent;
+  border-bottom: 102px solid rgba(3, 3, 4, .62);
+  border-radius: 0;
+}
+
+.catalogShelf[data-shelf-theme='zelda'] .shelfContextBlue i:nth-child(1) { right: 18%; top: 14%; }
+.catalogShelf[data-shelf-theme='zelda'] .shelfContextBlue i:nth-child(2) { right: 25%; top: 46%; }
+.catalogShelf[data-shelf-theme='zelda'] .shelfContextBlue i:nth-child(3) { right: 11%; top: 46%; }
+
+.catalogShelf[data-shelf-theme='switch2'] .shelfContextBlue i:nth-child(1) {
+  width: 230px;
+  height: 118px;
+  right: 8%;
+  top: 28%;
+  border-radius: 58px;
+}
+
+.catalogShelf[data-shelf-theme='switch2'] .shelfContextBlue i:nth-child(2) {
+  width: 20px;
+  height: 20px;
+  right: 17%;
+  top: 44%;
+  border-radius: 50%;
+}
+
+.catalogShelf[data-shelf-theme='switch2'] .shelfContextBlue i:nth-child(3) {
+  width: 20px;
+  height: 20px;
+  right: 29%;
+  top: 44%;
+  border-radius: 50%;
+}
+
+.catalogShelf[data-shelf-theme='shooter'] .shelfContextBlue i:nth-child(1) {
+  width: 170px;
+  height: 170px;
+  right: 12%;
+  top: 14%;
+  border-width: 5px;
+}
+
+.catalogShelf[data-shelf-theme='shooter'] .shelfContextBlue i:nth-child(2) {
+  width: 250px;
+  height: 5px;
+  right: 4%;
+  top: 39%;
+}
+
+.catalogShelf[data-shelf-theme='shooter'] .shelfContextBlue i:nth-child(3) {
+  width: 5px;
+  height: 230px;
+  right: 22%;
+  top: 6%;
+  transform: none;
+}
+
+.catalogShelf[data-shelf-theme='indie'] .shelfContextBlue i:nth-child(1),
+.catalogShelf[data-shelf-theme='indie'] .shelfContextBlue i:nth-child(2),
+.catalogShelf[data-shelf-theme='indie'] .shelfContextBlue i:nth-child(3) {
+  width: 54px;
+  height: 54px;
+  border: 0;
+  border-radius: 0;
+  background: rgba(3, 3, 4, .7);
+}
+
+.catalogShelf[data-shelf-theme='indie'] .shelfContextBlue i:nth-child(1) { right: 9%; top: 20%; box-shadow: -64px 64px 0 rgba(3, 3, 4, .7); }
+.catalogShelf[data-shelf-theme='indie'] .shelfContextBlue i:nth-child(2) { right: 22%; top: 42%; box-shadow: 64px 64px 0 rgba(3, 3, 4, .7); }
+.catalogShelf[data-shelf-theme='indie'] .shelfContextBlue i:nth-child(3) { right: 35%; top: 18%; transform: none; }
+
+/* The rail remains stable and readable while the background layers travel. */
+.catalogRail {
+  position: relative;
+  z-index: 6;
+}
+
+.gameCard {
+  z-index: 7;
+}
+
+.gameCardVisual {
+  box-shadow: 0 24px 58px rgba(0, 0, 0, .42);
+}
+
+/* --------------------------------------------------------------------------
+   Services: each blue environment carries subject-specific structure. Red is
+   a substantial layer beneath the actual service logos and text.
+   -------------------------------------------------------------------------- */
+
+.serviceCard {
+  isolation: isolate;
+  background: rgba(3, 3, 5, .87);
+}
+
+.serviceCard::before,
+.serviceCard::after {
+  z-index: 0;
+}
+
+.serviceCard > * {
+  z-index: 4;
+}
+
+.serviceGaming::before {
+  inset: 0 0 0 auto;
+  width: 58%;
+  height: 100%;
+  background-color: var(--gm-blue-field);
+  background-image:
+    radial-gradient(circle at 70% 35%, transparent 0 48px, rgba(3, 3, 4, .66) 49px 58px, transparent 59px),
+    radial-gradient(circle at 82% 56%, rgba(3, 3, 4, .72) 0 11px, transparent 12px),
+    linear-gradient(rgba(3, 3, 4, .25) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(3, 3, 4, .25) 2px, transparent 2px);
+  background-size: auto, auto, 38px 38px, 38px 38px;
+}
+
+.serviceGaming::after {
+  content: '';
+  position: absolute;
+  width: 34%;
+  height: 48%;
+  right: 7%;
+  bottom: -7%;
+  background: var(--gm-red-front);
+  clip-path: polygon(18% 0, 100% 11%, 87% 79%, 54% 100%, 0 84%, 14% 42%);
+  transform: rotate(-5deg);
+}
+
+.serviceStreaming {
+  background: rgba(3, 3, 5, .9);
+}
+
+.serviceStreaming::before {
+  width: 67%;
+  background-color: var(--gm-blue-field);
+  background-image:
+    linear-gradient(90deg, rgba(3, 3, 4, .36) 0 8%, transparent 8% 46%, rgba(3, 3, 4, .36) 46% 54%, transparent 54% 92%, rgba(3, 3, 4, .36) 92%),
+    linear-gradient(rgba(3, 3, 4, .24) 2px, transparent 2px);
+  background-size: 100% 100%, 100% 42px;
+}
+
+.serviceStreaming::after {
+  content: '';
+  position: absolute;
+  width: 31%;
+  height: 39%;
+  right: 5%;
+  bottom: -3%;
+  background: var(--gm-red-front);
+  clip-path: polygon(17% 0, 100% 12%, 83% 100%, 0 77%, 14% 39%);
+}
+
+.serviceAi::before {
+  width: 74%;
+  right: -19%;
+  top: -18%;
+  border: 4px solid var(--gm-blue-electric);
+  background-color: var(--gm-blue-field);
+  background-image:
+    radial-gradient(circle, rgba(3, 3, 4, .8) 0 4px, transparent 5px),
+    linear-gradient(35deg, transparent 48%, rgba(3, 3, 4, .4) 49% 51%, transparent 52%),
+    linear-gradient(145deg, transparent 48%, rgba(3, 3, 4, .34) 49% 51%, transparent 52%);
+  background-size: 58px 58px, 100px 100px, 126px 126px;
+  opacity: .96;
+}
+
+.serviceAi::after {
+  left: auto;
+  right: 2%;
+  bottom: -2%;
+  width: 31%;
+  height: 42%;
+  clip-path: polygon(21% 0, 100% 13%, 78% 100%, 0 76%, 16% 37%);
+}
+
+.servicePrivacy::before {
+  width: 61%;
+  background-color: var(--gm-blue-field);
+  background-image:
+    linear-gradient(rgba(3, 3, 4, .25) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(3, 3, 4, .18) 1px, transparent 1px);
+  background-size: 100% 30px, 30px 100%;
+}
+
+.servicePrivacy::after {
+  width: 29%;
+  height: 42%;
+  right: 4%;
+  bottom: -3%;
+  clip-path: polygon(19% 0, 100% 9%, 83% 100%, 0 78%, 16% 38%);
+}
+
+.serviceLogo {
+  position: relative;
+  z-index: 6;
+  box-shadow: 0 18px 46px rgba(0, 0, 0, .34);
+}
+
+/* More blue continuity around purchase/quote areas; real content stays above. */
+.modesBlueWorld {
+  border-color: rgba(7, 29, 247, .94);
+  border-width: 36px;
+}
+
+.modesRedGate {
+  width: min(29vw, 470px);
+}
+
+.quoteSection::after {
+  border-color: rgba(7, 29, 247, .72);
+  border-width: 28px;
+}
+
+.quoteBuilder {
+  z-index: 5;
+}
+
+/* --------------------------------------------------------------------------
+   Desktop interaction polish: larger differential motion without moving the
+   semantic UI itself. Cards still get only a small conventional hover lift.
+   -------------------------------------------------------------------------- */
+
+@media (hover: hover) and (min-width: 821px) {
+  .catalogShelf:hover .shelfContextRed { filter: brightness(1.04); }
+  .catalogShelf:hover .shelfContextBlue { filter: saturate(1.08); }
+}
+
+/* --------------------------------------------------------------------------
+   Tablet/mobile are recomposed, not cropped desktop. Fewer motifs, larger
+   fields, smaller parallax amplitude and guaranteed content-over-red order.
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1050px) {
+  .siteArtWorld { opacity: .76; }
+  .siteArtRedFore { width: 58vw; right: -27vw; }
+
+  .universeCard::before { width: 72%; }
+  .universeCard::after { width: 35%; height: 42%; }
+
+  .catalogShelf { min-height: 500px; }
+  .shelfContextBlue { width: 74vw; right: -15vw; }
+  .shelfContextRed { width: 31vw; right: 2vw; }
+  .catalogShelf:nth-of-type(even) .shelfContextBlue { left: -20vw; }
+  .catalogShelf:nth-of-type(even) .shelfContextRed { left: 2vw; }
+  .shelfContextGlyph { max-width: 66vw; font-size: clamp(46px, 8vw, 82px); }
+}
+
+@media (max-width: 820px) {
+  .siteArtWorld {
+    opacity: .78;
+    transform: translate3d(0, calc(var(--gm-scroll-y) * -.012), 0) scale(1.06);
+  }
+
+  .siteArtBlackField {
+    background:
+      linear-gradient(180deg, rgba(3, 3, 4, .58) 0, rgba(3, 3, 4, .28) 37%, rgba(3, 3, 4, .78) 100%),
+      linear-gradient(90deg, rgba(3, 3, 4, .86) 0, rgba(3, 3, 4, .15) 62%, rgba(3, 3, 4, .58) 100%);
+  }
+
+  .siteArtNetwork { opacity: .38; }
+  .siteArtTopo { opacity: .36; }
+  .siteArtRedFore {
+    width: 82vw;
+    right: -44vw;
+    opacity: .9;
+    transform: translate3d(0, calc(var(--gm-scroll-y) * -.042), 0);
+  }
+
+  .heroRearGrid { background-size: 52px 52px; }
+  .heroFrontPlane { z-index: 4; width: 55%; }
+  .heroCoverMain { z-index: 6; }
+  .heroCoverCompanion { z-index: 7; }
+
+  .universeCard::before {
+    width: 78%;
+    height: 82%;
+    opacity: .85;
+    background-size: 46px 46px;
+  }
+
+  .universeCard::after {
+    width: 39%;
+    height: 39%;
+    right: -2%;
+    bottom: -6%;
+  }
+
+  .universeSignalField { width: 47%; opacity: .82; }
+  .universeNodeField { width: 72%; opacity: .7; }
+  .universePrivacyField { width: 48%; opacity: .82; }
+
+  .catalogDepthArt span:first-child {
+    width: 134vw;
+    right: -79vw;
+    border-width: 18px;
+  }
+
+  .catalogDepthArt span:nth-child(2) {
+    width: 48vw;
+    right: -20vw;
+    opacity: .9;
+  }
+
+  .catalogShelf {
+    min-height: 470px;
+    padding-top: 42px;
+  }
+
+  .shelfContextArt { height: 390px; }
+
+  .shelfContextBlue {
+    width: 92vw;
+    height: 280px;
+    right: -44vw;
+    top: 42px;
+    background-size: 48px 48px;
+  }
+
+  .shelfContextRed {
+    width: 42vw;
+    height: 220px;
+    right: -9vw;
+    top: 132px;
+  }
+
+  .shelfContextGlyph {
+    right: -5vw;
+    top: 66px;
+    max-width: 76vw;
+    font-size: clamp(39px, 12vw, 62px);
+    white-space: normal;
+  }
+
+  .catalogShelf:nth-of-type(even) .shelfContextBlue { left: -46vw; }
+  .catalogShelf:nth-of-type(even) .shelfContextRed { left: -8vw; }
+  .catalogShelf:nth-of-type(even) .shelfContextGlyph { left: -4vw; }
+
+  .shelfContextBlue i:nth-child(n+3) { display: none; }
+
+  .serviceGaming::before,
+  .serviceStreaming::before,
+  .servicePrivacy::before { width: 58%; }
+
+  .serviceGaming::after,
+  .serviceStreaming::after,
+  .serviceAi::after,
+  .servicePrivacy::after {
+    width: 36%;
+    height: 36%;
+  }
+
+  .modesBlueWorld { border-width: 22px; }
+  .quoteSection::after { border-width: 16px; }
+}
+
+@media (max-width: 720px) {
+  .heroFrontPlane {
+    width: 57%;
+    min-height: 126px;
+  }
+
+  .heroCoverMain { width: 64%; }
+  .heroCoverCompanion { width: 31%; }
+
+  .catalogShelf > .shelfHeading,
+  .catalogShelf > .catalogRail { z-index: 7; }
+
+  .shelfContextGlyph {
+    color: rgba(3, 3, 4, .56);
+    letter-spacing: .025em;
+  }
+
+  .catalogShelf[data-shelf-theme='mario'] .shelfContextBlue i:nth-child(1) {
+    width: 54px;
+    height: 54px;
+    right: 10%;
+    box-shadow: -62px 54px 0 rgba(3, 3, 4, .7), 62px 54px 0 rgba(3, 3, 4, .7);
+  }
+
+  .catalogShelf[data-shelf-theme='pokemon'] .shelfContextBlue i:nth-child(1) {
+    width: 124px;
+    height: 124px;
+    right: 5%;
+  }
+
+  .catalogShelf[data-shelf-theme='zelda'] .shelfContextBlue i:nth-child(1),
+  .catalogShelf[data-shelf-theme='zelda'] .shelfContextBlue i:nth-child(2),
+  .catalogShelf[data-shelf-theme='zelda'] .shelfContextBlue i:nth-child(3) {
+    border-left-width: 42px;
+    border-right-width: 42px;
+    border-bottom-width: 74px;
+  }
+
+  .catalogShelf[data-shelf-theme='switch2'] .shelfContextBlue i:nth-child(1) {
+    width: 165px;
+    height: 88px;
+    right: 3%;
+  }
+
+  .serviceCard > * { z-index: 5; }
+}
+
+@media (max-width: 430px) {
+  .siteArtWorld { opacity: .74; }
+  .siteArtRedFore { width: 88vw; right: -50vw; }
+
+  .heroFrontPlane { width: 60%; }
+
+  .universeCard::before { width: 83%; }
+  .universeCard::after { width: 43%; }
+
+  .catalogShelf { min-height: 450px; }
+  .shelfContextBlue { width: 98vw; right: -53vw; }
+  .shelfContextRed { width: 46vw; right: -14vw; }
+  .catalogShelf:nth-of-type(even) .shelfContextBlue { left: -54vw; }
+  .catalogShelf:nth-of-type(even) .shelfContextRed { left: -13vw; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .siteArtWorld,
+  .siteArtNetwork,
+  .siteArtTopo,
+  .siteArtRedFore,
+  .shelfContextBlue,
+  .shelfContextRed,
+  .shelfContextGlyph,
+  .universeGamingField,
+  .universeSignalField,
+  .universeNodeField,
+  .universePrivacyField {
+    transform: none !important;
+    will-change: auto;
+  }
+}
