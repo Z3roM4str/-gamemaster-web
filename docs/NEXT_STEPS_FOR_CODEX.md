@@ -1,165 +1,154 @@
 # Next Steps for Codex
 
-Start by reading `AGENTS.md`. The repository now contains a dedicated research library derived from the owner's three chromostereopsis investigations. Before touching visual code, read `docs/CODEX_HANDOFF.md` and follow the mandatory research order in `AGENTS.md`.
+Start by reading `AGENTS.md` and `docs/CODEX_HANDOFF.md`.
 
-## Phase 0 — Correct the visual model
+This file describes the **current** next stage. Earlier anti-anaglyph cleanup has already been substantially implemented; do not restart from an old baseline.
 
-Before adding new polish, remove the current anaglyph-like implementation.
+## Current starting point
 
-Audit at minimum:
+Work from the latest `main`.
 
-- `.chromaticEdge`
-- `.inverseEdge`
-- `.heroAccent`
-- `.brandMark`
-- `.posterBlue`
-- `.posterRed`
-- all red/blue `text-shadow`
-- all paired red/blue `box-shadow`
-- duplicate red/blue pseudo-elements or transformed copies
+The visual baseline immediately before this handoff refresh was:
 
-Replace them with a **single-geometry chromostereoscopic composition**:
+- `05e2245d7b8aa860a82ddc7a5ab14f81e32c8757` — `Strengthen contextual chromostereoscopic depth`
 
-- one object per semantic object;
-- red focal/foreground regions;
-- black/near-black neutral regions;
-- blue rear/structural regions;
-- crisp boundaries;
-- no duplicated red/blue copies of the same contour.
+A handoff refresh was committed after that. Always inspect the latest `main` before editing.
 
-The site must not resemble content intended for red/cyan 3D glasses.
+## Current priority — Art direction at page scale
 
-## Research check before implementation
+The site is functional enough to support the next design pass. The priority now is to make it feel like a distinctive premium entertainment experience rather than another incremental UI variation.
 
-Read:
+Target synthesis:
 
-- `docs/research/README.md`
-- `docs/research/EVIDENCE_MAP.md`
-- `docs/research/IMPLEMENTATION_RULES.md`
-- `docs/research/SOURCE_A_INVESTIGACION_ESPECIFICACION.md`
-- `docs/research/SOURCE_B_LENGUAJES_VISUALES.md`
-- `docs/research/SOURCE_C_AUDITORIA.md`
-- `docs/research/CHROMO_RESEARCH_NOTES.md`
+- STYLITES → large-scale art composition, depth, motion, asymmetry;
+- Game Pass → discovery-first catalog and rails;
+- Netflix → cinematic hierarchy and browsing clarity;
+- GameMaster → chromostereopsis through independent red / blue / black regions.
 
-Do not silently reconcile research contradictions. Keep a distinction between:
+Do not copy any reference literally.
 
-- strong/direct findings;
-- conditional findings;
-- hypotheses/tests;
-- GameMaster product decisions.
+## Phase 1 — Inspect the current implementation
 
-## Phase 1 — Validate and stabilize
+Before changing anything:
 
-- install dependencies;
-- run `npm run lint`;
-- run `npm run build`;
-- fix version-specific Next.js issues without changing product intent;
-- inspect at desktop (~1440px) and mobile (~390/430px);
-- confirm no horizontal overflow;
-- confirm important objects exist only once geometrically.
+- read the mandatory documents in `AGENTS.md`;
+- inspect the latest page/component/CSS implementation;
+- inspect the most recent commits;
+- identify what already works visually and commercially;
+- preserve functioning catalog, search, filters, detail/modal, WhatsApp, Facebook and accessibility behavior.
 
-## Phase 2 — Raise the art direction
+Do not undo working functionality to make visual experimentation easier.
 
-The current site is a functional foundation, not the final visual target.
+## Phase 2 — Strengthen the hero
 
-Improve it toward a premium editorial entertainment experience using the supplied visual language:
+The hero should be the clearest expression of the GameMaster visual system.
 
-- red / blue / black planar depth;
-- engraving / halftone references;
-- technical diagrams, topology, modular glyphs;
-- crisp color-region boundaries;
-- asymmetry and negative space;
-- sparse red focal objects against larger blue structural systems;
-- one chromatic language per module, not every visual idea at once.
+Improve the existing layered model rather than replacing it with chromatic duplicates:
 
-Do not replace the design with a generic component-library aesthetic.
+- near-black neutral base;
+- substantial blue rear artistic/technical environment;
+- one sparse but dominant red foreground/focal intervention;
+- normal full-color game artwork above decorative planes;
+- stronger editorial asymmetry and scale;
+- clear proposition and CTAs;
+- desktop and mobile compositions designed independently.
 
-Do not use:
+Avoid decorative clutter that weakens the hierarchy.
+
+## Phase 3 — Make the full page one composition
+
+Reduce the feeling of vertically stacked independent components.
+
+Use:
+
+- art fields that continue across section boundaries;
+- black negative space as deliberate relief;
+- contextual blue rear structures;
+- red foreground interventions at selected moments;
+- visual rhythm between dense and calm zones;
+- transitions that make Gaming / Streaming / IA feel related without identical shells.
+
+The page should remain legible and commercially clear.
+
+## Phase 4 — Refine discovery rails
+
+Keep the familiar horizontal discovery mechanics but make their surrounding compositions more authored.
+
+- retain normal recognizable covers;
+- allow collection/genre-specific contextual art;
+- avoid identical container treatments for every rail;
+- keep controls, headings and cards above decorative layers;
+- use motion decoratively, never in a way that harms browsing.
+
+Do not invent catalog data or prices.
+
+## Phase 5 — Distinguish the three universes
+
+Use one GameMaster system with different supporting grammars:
+
+- Gaming → circuits, modular grids, controller/game geometry, controlled halftone/tessellation;
+- Streaming → cinematic apertures, signal bands, frame systems, waveforms;
+- IA → node networks, vector fields, topology/scientific/data-flow structures.
+
+All three still obey the red / blue / black spatial model.
+
+## Phase 6 — Mobile recomposition
+
+At ~390px and ~430px:
+
+- recompose hero art rather than cropping desktop blindly;
+- reduce decorative density;
+- simplify parallax;
+- preserve tap targets and hierarchy;
+- remove horizontal overflow;
+- keep catalog exploration fast and natural.
+
+Mobile is a first-class design target.
+
+## Phase 7 — Motion and polish
+
+Only after the composition works:
+
+- refine differential parallax;
+- tune typography and vertical rhythm;
+- refine hover/focus states;
+- optimize generated/procedural art assets;
+- reduce any fatigue from excessive blue/red intensity;
+- keep long reading/catalog regions calmer than hero/editorial moments.
+
+Respect `prefers-reduced-motion`.
+
+## Forbidden regression
+
+Do not reintroduce:
 
 - red/blue text ghosting;
 - RGB split;
 - chromatic aberration;
-- offset duplicate card borders;
-- cyan ghost copies;
-- blur-heavy neon cyberpunk as the default language.
+- paired red/blue shadows as depth;
+- duplicated red/cyan geometry;
+- offset duplicate covers/cards/logos;
+- generic neon cyberpunk blur;
+- purple overlap as the main spatial device.
 
-## Phase 3 — Rebuild the hero correctly
+## Definition of done for this iteration
 
-The hero should be the strongest expression of the brand.
+A major revision is complete only when:
 
-Recommended directions to prototype one at a time:
+- it looks intentionally composed at ~1440px, ~430px and ~390px;
+- the hero is materially stronger than the current baseline;
+- the page reads as one composition rather than stacked sections;
+- black remains meaningful negative/neutral space;
+- blue has strong rear-world presence without exhausting the page;
+- red remains a selective focal/front plane;
+- catalog items remain easy to discover;
+- original covers remain recognizable;
+- WhatsApp conversion still works;
+- unknown prices/availability remain unknown;
+- `npm run lint` passes;
+- `npm run build` passes;
+- no important object exists as displaced red/blue duplicates;
+- the page does not resemble an anaglyph/RGB-glitch demo;
+- reduced motion and accessibility remain intact.
 
-1. blue topographic/technical rear field + red independent focal mass;
-2. red engraved/halftone focal art + blue repeating glyph field;
-3. blue technical portrait/system + one red vertical foreground bar;
-4. red ornamental frame + black aperture + blue inner scene.
-
-Do not use multiple identical poster rectangles offset in red, neutral and blue.
-
-Keep the proposition and CTAs clear at first glance.
-
-## Phase 4 — Content discovery
-
-Transform Gaming from a large grid into a richer discovery system:
-
-- featured hero rail;
-- horizontal collection rails;
-- search;
-- category filters;
-- optional genre tags;
-- “related games” logic;
-- individual game detail pages.
-
-Use `data/catalog.ts` as source data. Do not invent prices.
-
-## Phase 5 — Artwork architecture
-
-Create a maintainable asset layer:
-
-- `public/games/...` for owner/authorized covers;
-- procedural fallback component for titles without art;
-- metadata field for artwork source/provenance;
-- no uncontrolled hotlink dependency.
-
-The fallback should look intentionally GameMaster, not like a missing-image placeholder.
-
-Procedural fallbacks should use real segmented red/blue/black regions, not anaglyph outlines.
-
-## Phase 6 — Streaming and IA
-
-Keep these sections commercially useful without fabricating plans/prices:
-
-- service discovery cards;
-- current-quote CTA;
-- dedicated landing sections;
-- later migrate to canonical data files when owner supplies exact offerings.
-
-Give each universe a related but distinct internal visual grammar.
-
-## Phase 7 — Conversion and polish
-
-- prefilled WhatsApp messages per game/service;
-- FAQ;
-- trust/explanation section;
-- sticky mobile CTA if it improves usability;
-- metadata / OpenGraph;
-- favicon / brand assets;
-- performance audit;
-- accessibility audit.
-
-## Definition of done for a major design iteration
-
-A revision is not complete until:
-
-- it looks intentionally designed at 390px and 1440px;
-- the mobile page is not merely a squeezed desktop layout;
-- red/blue regions remain crisp and legible;
-- the strongest chromatic effect does not overwhelm body copy;
-- all catalog items remain discoverable;
-- WhatsApp conversion works;
-- unknown prices remain unknown;
-- build passes;
-- no text, logo, icon, card or poster is represented by red/blue displaced copies;
-- the grayscale sanity check still shows one coherent geometry;
-- the page does not read as an anaglyph, RGB glitch or chromatic-aberration demo;
-- unresolved research variables are described as tests/hypotheses rather than facts.
+After completion, commit/push the work and report the resulting SHA.
