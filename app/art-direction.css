@@ -34,8 +34,12 @@ body {
 main,
 footer,
 .mobileQuoteBar {
-  position: relative;
   z-index: 2;
+}
+
+main,
+footer {
+  position: relative;
 }
 
 .siteArtBlueMass,
