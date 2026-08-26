@@ -1,29 +1,47 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Bebas_Neue, Outfit } from 'next/font/google';
+import { getSiteUrl } from '@/lib/site';
 import './globals.css';
 
 const display = Bebas_Neue({ variable: '--font-display', subsets: ['latin'], weight: '400' });
 const body = Outfit({ variable: '--font-body', subsets: ['latin'] });
 
+const siteUrl = getSiteUrl();
+const socialImage = siteUrl ? new URL('/og.png', siteUrl).toString() : undefined;
+
 export const metadata: Metadata = {
-  title: 'Game Master | Gaming, streaming e IA',
-  description: 'Explora videojuegos, streaming y ChatGPT en un catálogo digital premium con atención directa y cotización personalizada.',
-  metadataBase: new URL('https://game-master-digital-mx.mastr-z3ro.chatgpt.site'),
-  icons: { icon: '/brand/game-master-emblem-v3.png' },
+  title: {
+    default: 'GameMaster | Nintendo, streaming e IA',
+    template: '%s | GameMaster',
+  },
+  description: 'Explora 134 juegos digitales para Nintendo Switch y Switch 2, además de universos de streaming e IA bajo consulta directa.',
+  metadataBase: siteUrl,
+  alternates: siteUrl ? { canonical: siteUrl } : undefined,
+  icons: {
+    icon: '/brand/game-master-emblem-v4.png',
+    shortcut: '/brand/game-master-emblem-v4.png',
+    apple: '/brand/game-master-emblem-v4.png',
+  },
   openGraph: {
     type: 'website',
     locale: 'es_MX',
-    siteName: 'Game Master',
-    title: 'Game Master | Gaming, streaming e IA',
-    description: 'Tu universo digital en una sola señal.',
-    images: [{ url: '/og.png', width: 1200, height: 630, alt: 'Game Master — ChatGPT, streaming y videojuegos' }],
+    siteName: 'GameMaster',
+    title: 'GameMaster | Nintendo, streaming e IA',
+    description: 'Tu universo digital, en una sola señal.',
+    url: siteUrl,
+    images: socialImage ? [{ url: socialImage, width: 1200, height: 630, alt: 'GameMaster — Gaming Nintendo, streaming e IA' }] : [],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Game Master | Gaming, streaming e IA',
-    description: 'Tu universo digital en una sola señal.',
-    images: ['/og.png'],
+    title: 'GameMaster | Nintendo, streaming e IA',
+    description: 'Tu universo digital, en una sola señal.',
+    images: socialImage ? [socialImage] : [],
   },
+};
+
+export const viewport: Viewport = {
+  colorScheme: 'dark',
+  themeColor: '#050505',
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

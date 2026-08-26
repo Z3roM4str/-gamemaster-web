@@ -1,4 +1,4 @@
-export type Game = {
+type SourceGame = {
   id: string;
   title: string;
   category: string;
@@ -7,8 +7,20 @@ export type Game = {
   notionUrl: string;
 };
 
+export type Platform = SourceGame['platform'];
+
+export type Game = Omit<SourceGame, 'category'> & {
+  slug: string;
+  sourceCategory: string;
+  genres: string[];
+  franchise?: string;
+  collections: string[];
+  tags: string[];
+  featured: boolean;
+};
+
 // Sincronizado con la base maestra de Notion: 134 registros.
-export const catalog: Game[] = [
+const sourceCatalog: SourceGame[] = [
   { id: "castlestorm-ii", title: "Castlestorm II", category: "Clásicos y joyas", platform: "Nintendo Switch", image: "/games/castlestorm-ii.webp", notionUrl: "https://app.notion.com/3c3c151f9f0381b7aec6ff753e22f2d2" },
   { id: "hellblade-senua-s-sacrifice", title: "Hellblade: Senua’s Sacrifice", category: "Clásicos y joyas", platform: "Nintendo Switch", image: "/games/hellblade-senua-s-sacrifice.webp", notionUrl: "https://app.notion.com/3c3c151f9f0381c18eabdc1215a47498" },
   { id: "hotline-miami", title: "Hotline Miami Collection", category: "Clásicos y joyas", platform: "Nintendo Switch", image: "/games/hotline-miami.webp", notionUrl: "https://app.notion.com/3c3c151f9f0381d49bc4e466db364ca8" },
@@ -145,4 +157,171 @@ export const catalog: Game[] = [
   { id: "the-legend-of-zelda-tears-of-the-kingdom-pase-de-expansion", title: "The Legend of Zelda: Tears of the Kingdom + Pase de expansión", category: "Zelda", platform: "Nintendo Switch", image: "/games/the-legend-of-zelda-tears-of-the-kingdom-pase-de-expansion.webp", notionUrl: "https://app.notion.com/3c3c151f9f038101b21bcbdf0d99d283" },
 ];
 
-export const categories = ['Todos', 'Switch 2', 'Mundo Mario', 'Zelda', 'Pokémon', 'Indies', 'RPG y aventuras', 'Shooter', 'Clásicos y joyas', 'Otros destacados'];
+const sourceCollectionMap: Record<string, string> = {
+  'Switch 2': 'Nintendo Switch 2',
+  'Mundo Mario': 'Mundo Mario',
+  Zelda: 'Universo Zelda',
+  Pokémon: 'Universo Pokémon',
+  Indies: 'Indie esenciales',
+  'RPG y aventuras': 'RPG y aventuras',
+  Shooter: 'Shooters',
+  'Clásicos y joyas': 'Clásicos modernos',
+  'Otros destacados': 'Otros destacados',
+};
+
+const sourceGenreMap: Record<string, string[]> = {
+  'Mundo Mario': ['Aventura'],
+  Zelda: ['Aventura'],
+  Pokémon: ['RPG'],
+  Indies: ['Indie'],
+  'RPG y aventuras': ['RPG', 'Aventura'],
+  Shooter: ['Shooter'],
+};
+
+const featuredIds = new Set([
+  'mario-kart-world',
+  'donkey-kong-bananza',
+  'metroid-prime-4',
+  'mario-wonder',
+  'mario-odyssey',
+  'zelda-totk',
+  'zelda-botw',
+  'pokemon-arceus',
+  'pokemon-za',
+  'metroid-dread',
+  'hollow-knight',
+  'celeste',
+  'hades',
+  'witcher-3',
+  'minecraft',
+  'animal-crossing-new-horizons',
+]);
+
+const franchiseRules: Array<[RegExp, string]> = [
+  [/mario|luigi|yoshi|wario|captain toad|smash bros/i, 'Mario'],
+  [/zelda|hyrule/i, 'The Legend of Zelda'],
+  [/pok[eé]mon|pokemon|pikachu/i, 'Pokémon'],
+  [/metroid/i, 'Metroid'],
+  [/minecraft/i, 'Minecraft'],
+  [/resident evil/i, 'Resident Evil'],
+  [/dragon ball/i, 'Dragon Ball'],
+  [/xenoblade/i, 'Xenoblade Chronicles'],
+  [/diablo/i, 'Diablo'],
+  [/fire emblem/i, 'Fire Emblem'],
+  [/ori and the/i, 'Ori'],
+  [/little nightmares/i, 'Little Nightmares'],
+  [/steamworld/i, 'SteamWorld'],
+  [/pikmin/i, 'Pikmin'],
+  [/bayonetta/i, 'Bayonetta'],
+  [/sonic/i, 'Sonic'],
+];
+
+const genreRules: Array<[RegExp, string]> = [
+  [/mario kart/i, 'Carreras'],
+  [/mario party|super mario party|warioware/i, 'Fiesta'],
+  [/fifa|switch sports|olympic games/i, 'Deportes'],
+  [/smash bros|mortal kombat|fighterz|jump force|naruto shippuden|hinokami chronicles/i, 'Pelea'],
+  [/xcom|fire emblem|triangle strategy|civilization|advance wars|mario \+ rabbids|steamworld heist|pixeljunk monsters/i, 'Estrategia'],
+  [/portal|captain toad|membrane/i, 'Puzzle'],
+  [/resident evil|dying light|little nightmares/i, 'Terror'],
+  [/mario|crash bandicoot|ori and the|celeste|hollow knight|shovel knight|donkey kong|yoshi|kirby/i, 'Plataformas'],
+];
+
+function unique(values: Array<string | undefined>) {
+  return [...new Set(values.filter((value): value is string => Boolean(value)))];
+}
+
+function enrichGame(game: SourceGame): Game {
+  const franchise = franchiseRules.find(([pattern]) => pattern.test(game.title))?.[1];
+  const inferredGenres = genreRules
+    .filter(([pattern]) => pattern.test(game.title))
+    .map(([, genre]) => genre);
+  const collections = unique([
+    sourceCollectionMap[game.category],
+    game.platform === 'Nintendo Switch 2' ? 'Nintendo Switch 2' : undefined,
+  ]);
+  const tags = unique([
+    'Digital',
+    /expansi[oó]n|dlc/i.test(game.title) ? 'Contenido adicional' : undefined,
+    /collection|trilogy|1\+2|1 & 2|3 en 1/i.test(game.title) ? 'Colección' : undefined,
+  ]);
+
+  return {
+    id: game.id,
+    slug: game.id,
+    title: game.title,
+    sourceCategory: game.category,
+    platform: game.platform,
+    image: game.image,
+    notionUrl: game.notionUrl,
+    genres: unique([...(sourceGenreMap[game.category] ?? []), ...inferredGenres]),
+    franchise,
+    collections,
+    tags,
+    featured: featuredIds.has(game.id),
+  };
+}
+
+export const catalog: Game[] = sourceCatalog.map(enrichGame);
+
+export const platforms: Platform[] = ['Nintendo Switch', 'Nintendo Switch 2'];
+export const sourceCategories = [...new Set(catalog.map((game) => game.sourceCategory))];
+export const genres = [...new Set(catalog.flatMap((game) => game.genres))].sort((a, b) => a.localeCompare(b, 'es'));
+export const franchises = [...new Set(catalog.flatMap((game) => game.franchise ? [game.franchise] : []))].sort((a, b) => a.localeCompare(b, 'es'));
+export const collections = [...new Set(catalog.flatMap((game) => game.collections))].sort((a, b) => a.localeCompare(b, 'es'));
+
+const shelfSourceOrder = ['Mundo Mario', 'Zelda', 'Pokémon', 'RPG y aventuras', 'Indies', 'Shooter', 'Clásicos y joyas', 'Otros destacados'];
+const shelfDescriptions: Record<string, string> = {
+  'Mundo Mario': 'Plataformas, carreras, fiesta y aventura.',
+  Zelda: 'Exploración, aventura y el universo de Hyrule.',
+  Pokémon: 'Aventuras y RPG dentro de la colección fuente.',
+  'RPG y aventuras': 'Mundos largos, progresión y exploración.',
+  Indies: 'Producciones independientes esenciales.',
+  Shooter: 'Acción, disparos y combate táctico.',
+  'Clásicos y joyas': 'Títulos de culto y clásicos modernos.',
+  'Otros destacados': 'Más juegos para seguir descubriendo.',
+};
+
+export const catalogShelves = [
+  {
+    id: 'seleccion-gamemaster',
+    title: 'Selección GameMaster',
+    description: 'Una entrada editorial al catálogo.',
+    games: catalog.filter((game) => game.featured),
+  },
+  {
+    id: 'nintendo-switch-2',
+    title: 'Nintendo Switch 2',
+    description: 'Títulos registrados para la nueva generación.',
+    games: catalog.filter((game) => game.platform === 'Nintendo Switch 2'),
+  },
+  ...shelfSourceOrder.map((sourceCategory) => ({
+    id: `fuente-${sourceCategory.toLocaleLowerCase('es').replace(/[^a-z0-9]+/g, '-')}`,
+    title: sourceCategory,
+    description: shelfDescriptions[sourceCategory],
+    games: catalog
+      .filter((game) => game.sourceCategory === sourceCategory)
+      .sort((a, b) => a.title.localeCompare(b.title, 'es')),
+  })),
+];
+
+export function getGameBySlug(slug: string) {
+  return catalog.find((game) => game.slug === slug);
+}
+
+export function getRelatedGames(game: Game, limit = 8) {
+  return catalog
+    .filter((candidate) => candidate.id !== game.id)
+    .map((candidate) => {
+      const score =
+        (candidate.platform === game.platform ? 2 : 0) +
+        (candidate.sourceCategory === game.sourceCategory ? 3 : 0) +
+        (candidate.franchise && candidate.franchise === game.franchise ? 5 : 0) +
+        candidate.genres.filter((genre) => game.genres.includes(genre)).length * 2 +
+        candidate.collections.filter((collection) => game.collections.includes(collection)).length;
+      return { candidate, score };
+    })
+    .sort((a, b) => b.score - a.score || a.candidate.title.localeCompare(b.candidate.title, 'es'))
+    .slice(0, limit)
+    .map(({ candidate }) => candidate);
+}
