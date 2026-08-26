@@ -1,8 +1,24 @@
-# GameMaster Web
+# GameMaster
 
-Repositorio maestro del sitio de **GameMaster**, un catálogo digital de Gaming, Streaming e IA con experiencia visual premium, mobile-first y una identidad propia basada en cromoestereopsis.
+GameMaster is a **business growth and automation project**, not only a website project.
 
-Este repositorio está preparado para que ChatGPT y Codex trabajen sobre la misma fuente de verdad.
+The website in this repository is the customer-facing storefront for a wider system whose objective is to help GameMaster **sell more, reduce repetitive manual work, improve customer trust and scale operations**.
+
+The wider project can include the website, marketing, publication workflows, lead follow-up, customer-service flows, catalog operations, analytics, internal tools, automations and integrations.
+
+See `docs/PROJECT_SCOPE.md` for the project-wide operating rules.
+
+## Maximum-capability rule
+
+For every GameMaster task, use the best combination of available capabilities and tools when they materially improve the result. Do not artificially restrict solutions to only code, only SVG, only Image Gen, only the website, or any single tool.
+
+The owner is not expected to be technical. Questions and explanations should be brief, plain-language and easy to understand. If a safe professional default can be chosen without changing a business rule, choose it and continue.
+
+## GameMaster Web
+
+This repository contains the commercial website: a catalog for Gaming, Streaming and IA with a premium, mobile-first experience and a distinctive identity based on chromostereopsis.
+
+ChatGPT and Codex should work from the same source of truth.
 
 ## Regla visual crítica
 
@@ -21,7 +37,7 @@ No usar como lenguaje principal:
 
 La autoridad final sobre esta regla es `docs/CODEX_VISUAL_GUARDRAILS.md`.
 
-## Objetivo
+## Objetivo de la web
 
 Construir una web comercial que combine:
 
@@ -30,7 +46,8 @@ Construir una web comercial que combine:
 - secciones independientes para Streaming e IA;
 - contacto y cierre de venta por WhatsApp / Facebook;
 - una dirección artística reconocible basada en rojo, azul y negro, regiones cromáticas nítidas, planos reales de composición y cromoestereopsis;
-- experiencia completa y específica para móvil y escritorio.
+- experiencia completa y específica para móvil y escritorio;
+- una estructura preparada para futuras automatizaciones, medición e integraciones del negocio.
 
 ## Fuente de verdad para Codex
 
@@ -57,6 +74,8 @@ Para iniciar una nueva sesión de Codex, usar `docs/CODEX_HANDOFF.md`.
 - texto de lectura = neutro;
 - cada color debe ocupar geometría real diferente;
 - arte técnico, topográfico, modular, halftone/engraving y diagramático son familias prioritarias;
+- Image Gen puede producir capas artísticas cuando supere la calidad alcanzable con SVG/CSS;
+- parallax puede reforzar la separación de planos: azul más lento/trasero, rojo más activo/delantero;
 - el diseño debe seguir siendo coherente aunque el espectador no perciba la profundidad cromática o la perciba invertida.
 
 Estos son defaults de producto; no deben venderse como leyes perceptuales universales.
