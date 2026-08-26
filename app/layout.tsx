@@ -3,6 +3,7 @@ import { Bebas_Neue, Outfit } from 'next/font/google';
 import { getSiteUrl } from '@/lib/site';
 import './globals.css';
 import './art-direction.css';
+import './art-fixes.css';
 
 const display = Bebas_Neue({ variable: '--font-display', subsets: ['latin'], weight: '400' });
 const body = Outfit({ variable: '--font-body', subsets: ['latin'] });
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    locale: 'es_MX',
+    locale: 'es-MX',
     siteName: 'GameMaster',
     title: 'GameMaster | Nintendo, streaming, IA y privacidad',
     description: 'Gaming, streaming, IA y privacidad en una sola señal.',
