@@ -8,11 +8,13 @@ import { ProductPreviewModal } from '@/components/ProductPreviewModal';
 import { PurchaseModes } from '@/components/PurchaseModes';
 import { QuoteBuilder } from '@/components/QuoteBuilder';
 import { Services } from '@/components/Services';
+import { SiteArt } from '@/components/SiteArt';
 import { UniverseGateway } from '@/components/UniverseGateway';
 
 export default function HomePage() {
   return (
     <>
+      <SiteArt />
       <Header />
       <main>
         <Hero />
