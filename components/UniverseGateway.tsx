@@ -5,14 +5,15 @@ import { ServiceMark } from './ServiceMark';
 export function UniverseGateway() {
   return (
     <section className="universeSection sectionShell" aria-labelledby="universe-title">
-      <div className="splitHeading">
+      <div className="splitHeading universeHeading">
         <div>
           <p className="eyebrow"><span /> ELIGE TU UNIVERSO</p>
           <h2 id="universe-title">Cuatro mundos.<br /><em>Una sola entrada.</em></h2>
         </div>
         <p>Gaming es una biblioteca Nintendo digital. Streaming, IA y privacidad son espacios de descubrimiento y cotización directa, sin planes ni precios supuestos.</p>
       </div>
-      <div className="universeGrid">
+      <div className="universeGrid" aria-label="Índice de universos GameMaster">
+        <div className="universeRoute" aria-hidden="true"><span>GM</span><i /><b>04</b></div>
         <a className="universeCard universeGaming" href="#catalogo">
           <span className="universeIcon"><Gamepad2 aria-hidden="true" /></span>
           <span className="universeCopy"><small>UNIVERSO 01</small><strong>Gaming</strong><em>Nintendo Switch / Switch 2 · {catalog.length} títulos</em></span>

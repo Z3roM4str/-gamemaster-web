@@ -20,6 +20,7 @@ function ServiceButton({ service, selected, onSelect }: {
 
 export function Services() {
   const { interest, setInterest } = useExperience();
+  const streamingInterest = streamingServices.some((service) => service.name === interest) ? interest : 'Streaming';
 
   return (
     <section className="servicesSection sectionShell" id="servicios" aria-labelledby="services-title">
@@ -34,6 +35,7 @@ export function Services() {
 
       <div className="serviceGrid">
         <article className="serviceCard serviceGaming">
+          <span className="serviceScene serviceSceneGaming" aria-hidden="true"><i /><i /><i /></span>
           <div className="serviceCardIcon"><Gamepad2 aria-hidden="true" /></div>
           <div className="serviceCardCopy">
             <small>UNIVERSO 01 · OFERTA CONFIRMADA</small>
@@ -49,6 +51,7 @@ export function Services() {
         </article>
 
         <article className="serviceCard serviceStreaming" id="streaming">
+          <span className="serviceScene serviceSceneStreaming" aria-hidden="true"><i /><i /><i /></span>
           <div className="serviceCardIcon"><Tv2 aria-hidden="true" /></div>
           <div className="serviceCardCopy">
             <small>UNIVERSO 02 · MEMBRESÍAS</small>
@@ -60,10 +63,11 @@ export function Services() {
               ))}
             </div>
           </div>
-          <a href="#cotizar" onClick={() => setInterest(interest || 'Streaming')}>Consultar precio <ArrowUpRight aria-hidden="true" /></a>
+          <a href="#cotizar" onClick={() => setInterest(streamingInterest)}>Consultar precio <ArrowUpRight aria-hidden="true" /></a>
         </article>
 
         <article className="serviceCard serviceAi" id="ia">
+          <span className="serviceScene serviceSceneAi" aria-hidden="true"><i /><i /><i /><i /><i /></span>
           <div className="serviceCardIcon"><BrainCircuit aria-hidden="true" /></div>
           <div className="serviceCardCopy">
             <small>UNIVERSO 03 · INTELIGENCIA ARTIFICIAL</small>
@@ -79,6 +83,7 @@ export function Services() {
         </article>
 
         <article className="serviceCard servicePrivacy" id="privacidad">
+          <span className="serviceScene serviceScenePrivacy" aria-hidden="true"><i /><i /><i /></span>
           <div className="serviceCardIcon"><ShieldCheck aria-hidden="true" /></div>
           <div className="serviceCardCopy">
             <small>UNIVERSO 04 · SERVICIOS DIGITALES</small>
@@ -94,6 +99,12 @@ export function Services() {
         </article>
 
         <p className="serviceDisclaimer">Las marcas pertenecen a sus respectivos titulares y su presencia no implica afiliación, patrocinio ni disponibilidad garantizada.</p>
+      </div>
+      <div className="servicesOutro">
+        <span>SEÑAL / LISTA</span>
+        <strong>UNA ELECCIÓN.<br /><em>UN MENSAJE.</em></strong>
+        <p>Reúne juegos o elige un servicio. GameMaster confirma contigo precio y disponibilidad antes de cualquier pago.</p>
+        <a href="#cotizar">Construir mi solicitud <ArrowUpRight aria-hidden="true" /></a>
       </div>
     </section>
   );

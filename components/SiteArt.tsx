@@ -6,7 +6,7 @@ export function SiteArt() {
   useEffect(() => {
     const root = document.documentElement;
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const depthLayers = Array.from(document.querySelectorAll<HTMLElement>('[data-gm-depth]'));
+    let depthLayers = Array.from(document.querySelectorAll<HTMLElement>('[data-gm-depth]'));
     let frame = 0;
 
     const renderDepth = () => {
@@ -40,6 +40,11 @@ export function SiteArt() {
     };
 
     renderDepth();
+    const observer = new MutationObserver(() => {
+      depthLayers = Array.from(document.querySelectorAll<HTMLElement>('[data-gm-depth]'));
+      requestRender();
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
     window.addEventListener('scroll', requestRender, { passive: true });
     window.addEventListener('resize', requestRender);
     window.addEventListener('pointermove', handlePointer, { passive: true });
@@ -47,6 +52,7 @@ export function SiteArt() {
 
     return () => {
       if (frame) window.cancelAnimationFrame(frame);
+      observer.disconnect();
       window.removeEventListener('scroll', requestRender);
       window.removeEventListener('resize', requestRender);
       window.removeEventListener('pointermove', handlePointer);

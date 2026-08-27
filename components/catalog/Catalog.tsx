@@ -8,6 +8,13 @@ import { CatalogShelf } from './CatalogShelf';
 import { Filters, type CatalogFilterState } from './Filters';
 import { GameCard } from './GameCard';
 
+function normalizeSearch(value: string) {
+  return value
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLocaleLowerCase('es');
+}
+
 const initialFilters: CatalogFilterState = {
   platform: 'Todas',
   genres: [],
@@ -22,9 +29,9 @@ export function Catalog() {
   const [showExploreMore, setShowExploreMore] = useState(false);
 
   const results = useMemo(() => {
-    const normalizedQuery = query.trim().toLocaleLowerCase('es');
+    const normalizedQuery = normalizeSearch(query.trim());
     return catalog.filter((game) => {
-      const queryMatch = !normalizedQuery || game.title.toLocaleLowerCase('es').includes(normalizedQuery);
+      const queryMatch = !normalizedQuery || normalizeSearch(game.title).includes(normalizedQuery);
       const platformMatch = filters.platform === 'Todas' || game.platform === filters.platform;
       const genresMatch = !filters.genres.length || game.genres.some((genre) => filters.genres.includes(genre));
       const worldsMatch = !filters.worlds.length || game.worlds.some((world) => filters.worlds.includes(world));
@@ -115,6 +122,11 @@ export function Catalog() {
               {exploreCatalogShelves.map((shelf) => <CatalogShelf {...shelf} key={shelf.id} />)}
             </div>
           )}
+          <div className="catalogOutro" aria-hidden="true">
+            <span>GM / ARCHIVO ABIERTO</span>
+            <strong>ELIGE <i /> AGRUPA <b /> COTIZA</strong>
+            <small>DEL CATÁLOGO A TU CONSOLA</small>
+          </div>
         </div>
       )}
     </section>

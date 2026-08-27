@@ -19,6 +19,7 @@ const navigation = [
 export function Header({ homePath = '' }: { homePath?: string }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const navRef = useRef<HTMLElement>(null);
   const { selectedCount } = useExperience();
 
   useEffect(() => {
@@ -33,6 +34,11 @@ export function Header({ homePath = '' }: { homePath?: string }) {
     return () => window.removeEventListener('keydown', closeOnEscape);
   }, [menuOpen]);
 
+  useEffect(() => {
+    if (!menuOpen) return;
+    window.requestAnimationFrame(() => navRef.current?.querySelector<HTMLAnchorElement>('a')?.focus());
+  }, [menuOpen]);
+
   const resolveHref = (hash: string) => `${homePath}${hash}`;
 
   return (
@@ -40,7 +46,7 @@ export function Header({ homePath = '' }: { homePath?: string }) {
       <a className="brandLink" href={resolveHref('#inicio')} aria-label="GameMaster, ir al inicio">
         <BrandMark />
       </a>
-      <nav id="primary-navigation" className={menuOpen ? 'isOpen' : ''} aria-label="Navegación principal">
+      <nav ref={navRef} id="primary-navigation" className={menuOpen ? 'isOpen' : ''} aria-label="Navegación principal">
         {navigation.map(([label, href]) => (
           <a href={resolveHref(href)} onClick={() => setMenuOpen(false)} key={href}>{label}</a>
         ))}

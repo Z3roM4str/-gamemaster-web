@@ -6,10 +6,14 @@ import { ProductPreviewTrigger } from './ProductPreviewTrigger';
 
 const heroGame = catalog.find((game) => game.id === 'mario-kart-world') ?? catalog[0];
 const heroCompanion = catalog.find((game) => game.id === 'donkey-kong-bananza') ?? catalog[1];
+const heroSignal = catalog.find((game) => game.id === 'metroid-prime-4') ?? catalog[2];
 
 export function Hero() {
   return (
     <section className="hero" id="inicio" aria-labelledby="hero-title">
+      <div className="heroSceneField" aria-hidden="true">
+        <span /><span /><span /><span /><span /><span />
+      </div>
       <div className="heroCopy">
         <div className="heroLabel">
           <span>GM / SEÑAL 01</span>
@@ -50,16 +54,22 @@ export function Hero() {
           <Image src={heroCompanion.image} alt={`Portada de ${heroCompanion.title}`} fill sizes="(max-width: 760px) 31vw, 190px" priority />
           <span aria-hidden="true">02</span>
         </ProductPreviewTrigger>
+        <ProductPreviewTrigger slug={heroSignal.slug} label={`Abrir vista rápida de ${heroSignal.title}`} className="heroCoverSignal">
+          <Image src={heroSignal.image} alt={`Portada de ${heroSignal.title}`} fill sizes="(max-width: 760px) 24vw, 160px" priority />
+          <span aria-hidden="true">03</span>
+        </ProductPreviewTrigger>
         <div className="heroFrontPlane" data-gm-depth="-0.09" aria-hidden="true">
-          <small>PLANO FOCAL</small>
+          <small>SEÑAL ABIERTA</small>
           <strong>PLAY</strong>
-          <span>SWITCH / SWITCH 2</span>
+          <span>DESCUBRE · ELIGE · COTIZA</span>
         </div>
         <div className="heroCatalogPlate" aria-hidden="true">
           <strong>{catalog.length}</strong>
           <span>TÍTULOS<br />EN ARCHIVO</span>
         </div>
-        <div className="heroDepthLegend" aria-hidden="true"><i /> AZUL / FONDO <b /> ROJO / FRENTE</div>
+        <div className="heroTransmission" aria-hidden="true">
+          <span>01 / DESCUBRIR</span><i /><span>02 / SELECCIONAR</span><b /><span>03 / COTIZAR</span>
+        </div>
       </div>
     </section>
   );
