@@ -2240,3 +2240,462 @@
     will-change: auto !important;
   }
 }
+
+/* ===========================================================================
+   Final art-direction audit — GM / SIGNAL 04
+   Open the remaining boxed moments, give the catalog three real tempos and
+   preserve distinct service silhouettes on small screens.
+   ========================================================================== */
+
+.siteHeader { z-index: 80; }
+.mobileQuoteBar {
+  z-index: 90;
+  bottom: max(13px, env(safe-area-inset-bottom));
+}
+
+/* Local interventions now carry the red peaks; the fixed plate becomes a
+   quieter connective trace instead of following every rail at full force. */
+.siteArtRedFore { opacity: .34; }
+.servicesAtmosphere { opacity: .34; }
+
+.catalogSearch:focus-within {
+  border-color: var(--gm-white);
+  outline: 2px solid var(--gm-white);
+  outline-offset: 3px;
+}
+
+/* The gateway is an open editorial index, not a framed four-card component. */
+.universeHeading {
+  border-top: 0;
+  border-left: 5px solid var(--gm-blue-electric);
+  background: linear-gradient(90deg, rgba(3, 3, 4, .92) 0 68%, transparent 100%);
+}
+
+@media (min-width: 1051px) {
+  .universeSection { padding-bottom: clamp(172px, 13vw, 214px); }
+
+  .universeHeading {
+    width: min(88%, 1110px);
+    padding: 22px 0 24px 28px;
+  }
+
+  .universeGrid {
+    min-height: 358px;
+    overflow: visible;
+    border: 0;
+    background: transparent;
+  }
+
+  .universeGrid::before {
+    width: 50%;
+    height: 116%;
+    right: calc((100vw - 100%) / -2);
+    top: -12%;
+  }
+
+  .universeGrid::after {
+    width: 38%;
+    left: -2%;
+    bottom: 33px;
+  }
+
+  .universeRoute { top: -20px; }
+
+  .universeCard {
+    align-self: start;
+    border: 0;
+    border-top: 1px solid rgba(245, 244, 237, .22);
+    border-bottom: 1px solid rgba(245, 244, 237, .14);
+  }
+
+  .universeGaming {
+    min-height: 316px;
+    margin-top: 28px;
+    background: linear-gradient(180deg, rgba(3, 3, 4, .98), rgba(3, 3, 4, .78));
+  }
+
+  .universeStreaming {
+    min-height: 264px;
+    margin-top: 0;
+    background: rgba(3, 3, 4, .64);
+  }
+
+  .universeAi {
+    min-height: 286px;
+    margin-top: 72px;
+    background: rgba(3, 3, 4, .86);
+  }
+
+  .universePrivacy {
+    min-height: 310px;
+    margin-top: 34px;
+    background: linear-gradient(90deg, rgba(3, 3, 4, .94), rgba(7, 29, 247, .12));
+  }
+}
+
+/* Rails now have three commercial tempos: premieres, franchise chapters and
+   quiet discovery rails. Covers remain untreated and carry the recognition. */
+.catalogShelf {
+  content-visibility: auto;
+  contain-intrinsic-size: 500px;
+}
+
+.catalogShelf[data-shelf-theme='featured'] .catalogRail {
+  grid-auto-columns: clamp(232px, 18.2vw, 292px);
+  gap: clamp(22px, 2.25vw, 36px);
+}
+
+.catalogShelf[data-shelf-theme='featured'] .gameCardBody h3 { font-size: 18px; }
+
+.catalogShelf[data-shelf-theme='switch2'] .catalogRail {
+  grid-auto-columns: clamp(218px, 16.8vw, 266px);
+}
+
+.catalogShelf:is([data-shelf-theme='action'], [data-shelf-theme='platform'], [data-shelf-theme='gaming']) .catalogRail {
+  grid-auto-columns: clamp(188px, 14vw, 222px);
+}
+
+@media (min-width: 1051px) {
+  .catalogShelf:is([data-shelf-theme='zelda'], [data-shelf-theme='pokemon']) .shelfHeading {
+    width: 74%;
+    margin-left: auto;
+    text-align: right;
+  }
+
+  .catalogShelf:is([data-shelf-theme='zelda'], [data-shelf-theme='pokemon']) .shelfHeading h3 {
+    margin-left: auto;
+  }
+}
+
+/* Expanded archive: five coherent grammars replace the former repeated
+   fallback. Each blue field and red marker is a different physical region. */
+.catalogShelf:is(
+  [data-shelf-theme='tactical'],
+  [data-shelf-theme='arena'],
+  [data-shelf-theme='velocity'],
+  [data-shelf-theme='nocturne'],
+  [data-shelf-theme='archive']
+) {
+  min-height: 410px;
+}
+
+.catalogShelf[data-shelf-theme='tactical'] .shelfContextBlue {
+  width: min(46vw, 730px);
+  height: 250px;
+  border: 2px solid rgba(49, 80, 255, .72);
+  background-color: rgba(7, 29, 247, .2);
+  background-image:
+    linear-gradient(rgba(49, 80, 255, .3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(49, 80, 255, .3) 1px, transparent 1px),
+    linear-gradient(34deg, transparent 49%, rgba(49, 80, 255, .72) 50%, transparent 51%);
+  background-size: 34px 34px, 34px 34px, 112px 112px;
+  clip-path: polygon(0 8%, 92% 0, 100% 84%, 12% 100%);
+}
+
+.catalogShelf[data-shelf-theme='tactical'] .shelfContextRed {
+  width: min(10vw, 154px);
+  height: 10px;
+  top: 170px;
+  clip-path: polygon(0 0, 100% 8%, 84% 100%, 5% 76%);
+}
+
+.catalogShelf[data-shelf-theme='arena'] .shelfContextBlue {
+  width: min(34vw, 530px);
+  height: 300px;
+  border: 16px solid rgba(7, 29, 247, .76);
+  border-radius: 50%;
+  background: repeating-radial-gradient(circle, transparent 0 31px, rgba(49, 80, 255, .38) 32px 34px, transparent 35px 58px);
+  clip-path: none;
+}
+
+.catalogShelf[data-shelf-theme='arena'] .shelfContextRed {
+  width: min(7vw, 108px);
+  height: 190px;
+  top: 104px;
+  clip-path: polygon(34% 0, 100% 6%, 66% 100%, 0 92%);
+}
+
+.catalogShelf[data-shelf-theme='velocity'] .shelfContextBlue {
+  width: min(55vw, 860px);
+  height: 214px;
+  top: 80px;
+  background-color: transparent;
+  background-image:
+    linear-gradient(-11deg, transparent 0 35%, rgba(7, 29, 247, .88) 36% 50%, transparent 51%),
+    linear-gradient(-11deg, transparent 0 61%, rgba(49, 80, 255, .58) 62% 67%, transparent 68%);
+  clip-path: none;
+}
+
+.catalogShelf[data-shelf-theme='velocity'] .shelfContextRed {
+  width: min(24vw, 372px);
+  height: 9px;
+  top: 151px;
+  transform: translate3d(var(--gm-rail-red-shift), var(--gm-depth-y), 0) rotate(-11deg);
+  clip-path: none;
+}
+
+.catalogShelf[data-shelf-theme='nocturne'] .shelfContextBlue {
+  width: min(47vw, 740px);
+  height: 284px;
+  border: 11px solid rgba(7, 29, 247, .42);
+  border-radius: 52% 48% 43% 57%;
+  background-color: rgba(3, 3, 4, .82);
+  background-image: repeating-radial-gradient(ellipse at 68% 46%, transparent 0 25px, rgba(49, 80, 255, .24) 26px 28px, transparent 29px 52px);
+  clip-path: none;
+  opacity: .72;
+}
+
+.catalogShelf[data-shelf-theme='nocturne'] .shelfContextRed {
+  width: 9px;
+  height: 164px;
+  top: 122px;
+  clip-path: none;
+}
+
+.catalogShelf[data-shelf-theme='archive'] .shelfContextBlue {
+  width: min(43vw, 680px);
+  height: 236px;
+  top: 72px;
+  background-color: rgba(7, 29, 247, .58);
+  background-image:
+    linear-gradient(90deg, rgba(3, 3, 4, .62) 0 10%, transparent 10% 29%, rgba(3, 3, 4, .62) 29% 37%, transparent 37% 69%, rgba(3, 3, 4, .62) 69% 77%, transparent 77%),
+    linear-gradient(rgba(3, 3, 4, .28) 2px, transparent 2px);
+  background-size: 100% 100%, 100% 38px;
+  clip-path: polygon(7% 0, 100% 5%, 91% 100%, 0 88%);
+}
+
+.catalogShelf[data-shelf-theme='archive'] .shelfContextRed {
+  width: min(13vw, 205px);
+  height: 104px;
+  top: 169px;
+  clip-path: polygon(9% 0, 100% 11%, 78% 100%, 0 72%);
+}
+
+.catalogShelf:is(
+  [data-shelf-theme='tactical'],
+  [data-shelf-theme='arena'],
+  [data-shelf-theme='velocity'],
+  [data-shelf-theme='nocturne'],
+  [data-shelf-theme='archive']
+) .catalogRail {
+  grid-auto-columns: clamp(188px, 14vw, 222px);
+}
+
+/* “Explore more” becomes the archive threshold between catalog chapters. */
+.exploreMoreControl {
+  min-height: 218px;
+  padding: 38px clamp(28px, 4vw, 62px);
+  isolation: isolate;
+  border: 0;
+  border-block: 1px solid rgba(245, 244, 237, .2);
+  background: rgba(3, 3, 4, .96);
+  clip-path: none;
+}
+
+.exploreMoreControl::before {
+  z-index: -1;
+  inset: -28% -7% -24% auto;
+  width: 48%;
+  background-color: rgba(7, 29, 247, .76);
+  background-image:
+    linear-gradient(rgba(3, 3, 4, .22) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(3, 3, 4, .22) 2px, transparent 2px);
+  background-size: 42px 42px;
+  clip-path: polygon(14% 0, 100% 8%, 86% 100%, 0 83%, 18% 42%);
+}
+
+.exploreMoreControl::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  width: 10px;
+  height: 82%;
+  right: 17%;
+  bottom: -8%;
+  background: var(--gm-red);
+  transform: rotate(12deg);
+}
+
+.exploreMoreControl > div,
+.exploreMoreControl > button { position: relative; z-index: 2; }
+.exploreMoreControl > div > svg { width: 58px; height: 58px; }
+.exploreMoreControl strong { font-size: clamp(34px, 3.4vw, 52px); }
+.exploreMoreControl button {
+  min-height: 52px;
+  padding-inline: 20px;
+  clip-path: polygon(0 0, 100% 0, 93% 100%, 5% 88%);
+}
+
+/* Privacy gets a deliberate quiet aperture; surrounding black remains the
+   dominant material while its blue lanes carry structure. */
+.servicePrivacy {
+  background: linear-gradient(90deg, rgba(3, 3, 5, .98) 0 48%, rgba(7, 29, 247, .08) 100%);
+}
+
+.serviceScenePrivacy { width: 59%; }
+.serviceScenePrivacy::before {
+  content: '';
+  position: absolute;
+  width: 43%;
+  height: 68%;
+  right: 8%;
+  top: 13%;
+  border: 2px solid rgba(49, 80, 255, .58);
+  clip-path: polygon(18% 0, 100% 9%, 88% 100%, 0 83%);
+}
+
+@media (max-width: 820px) {
+  .siteArtRedFore { opacity: .22; }
+  .servicesAtmosphere { opacity: .22; }
+
+  .heroArt { margin-top: -32px; }
+
+  .universeHeading {
+    border-left-width: 4px;
+    padding-left: 15px;
+  }
+
+  .universeCard:nth-child(n) { min-height: 128px; }
+  .universeStreaming { padding-left: 24px !important; }
+  .universeAi { padding-left: 17px !important; }
+  .universePrivacy { padding-left: 29px !important; }
+  .universeCopy em {
+    max-width: calc(100% - 24px);
+    display: -webkit-box;
+    overflow: hidden;
+    font-size: 10px;
+    line-height: 1.35;
+    white-space: normal;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .universeArrow {
+    display: block;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .universeGrid::after {
+    width: 42%;
+    height: 6px;
+    left: 0;
+    bottom: 3px;
+  }
+
+  .catalogShelf:is([data-shelf-theme='mario'], [data-shelf-theme='pokemon']) .shelfContextBlue {
+    width: 76vw;
+    height: 216px;
+    right: -36vw;
+  }
+
+  .catalogShelf:is([data-shelf-theme='mario'], [data-shelf-theme='pokemon']) .shelfContextRed {
+    width: 24vw;
+    height: 118px;
+    right: -5vw;
+    top: 156px;
+  }
+
+  .catalogShelf:is([data-shelf-theme='shooter'], [data-shelf-theme='indie']) .shelfContextBlue {
+    width: 76vw;
+    height: 174px;
+    right: -42vw;
+    top: 78px;
+    background-color: transparent;
+    background-image:
+      linear-gradient(12deg, transparent 0 46%, rgba(49, 80, 255, .58) 47% 48%, transparent 49%),
+      linear-gradient(-9deg, transparent 0 56%, rgba(7, 29, 247, .42) 57% 58%, transparent 59%);
+    clip-path: none;
+  }
+
+  .catalogShelf:is([data-shelf-theme='shooter'], [data-shelf-theme='indie']) .shelfContextRed {
+    width: 18vw;
+    height: 8px;
+    right: -2vw;
+    top: 166px;
+    clip-path: none;
+  }
+
+  .catalogShelf:is(
+    [data-shelf-theme='tactical'],
+    [data-shelf-theme='arena'],
+    [data-shelf-theme='velocity'],
+    [data-shelf-theme='nocturne'],
+    [data-shelf-theme='archive']
+  ) {
+    min-height: 400px;
+  }
+
+  .catalogShelf:is(
+    [data-shelf-theme='tactical'],
+    [data-shelf-theme='arena'],
+    [data-shelf-theme='velocity'],
+    [data-shelf-theme='nocturne'],
+    [data-shelf-theme='archive']
+  ) .shelfContextBlue {
+    width: 78vw;
+    right: -43vw;
+  }
+
+  .exploreMoreControl {
+    min-height: 250px;
+    padding: 30px 22px;
+  }
+
+  .exploreMoreControl::before { width: 76%; right: -42%; }
+  .exploreMoreControl::after { right: 11%; }
+  .exploreMoreControl strong { font-size: 34px; }
+
+  .serviceCard.serviceGaming {
+    clip-path: polygon(0 0, 94% 0, 100% 8%, 100% 94%, 10% 100%, 0 91%);
+  }
+
+  .serviceCard.serviceStreaming {
+    clip-path: polygon(4% 0, 100% 0, 100% 91%, 92% 100%, 0 100%, 0 8%);
+  }
+
+  .serviceCard.serviceAi {
+    clip-path: polygon(0 6%, 92% 0, 100% 16%, 96% 100%, 5% 94%);
+  }
+
+  .serviceCard.servicePrivacy {
+    border-inline: 0;
+    clip-path: none;
+  }
+
+  .serviceCard > a {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    min-height: 44px;
+    margin-top: 30px;
+    padding: 0 14px;
+    border: 1px solid rgba(245, 244, 237, .34);
+    justify-content: space-between;
+    clip-path: polygon(0 0, 100% 0, 94% 100%, 5% 90%);
+  }
+
+  .serviceScenePrivacy { width: 52%; }
+
+  .gameCardFooter button {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .shelfContextBlue,
+  .shelfContextRed,
+  .shelfContextGlyph { will-change: auto; }
+}
+
+@media (max-width: 430px) {
+  .catalogShelf[data-shelf-theme='featured'] .catalogRail { grid-auto-columns: min(78vw, 292px); }
+  .catalogShelf[data-shelf-theme='switch2'] .catalogRail { grid-auto-columns: min(74vw, 278px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .exploreMoreControl::before,
+  .exploreMoreControl::after,
+  .serviceScenePrivacy::before { transform: none !important; }
+}

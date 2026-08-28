@@ -5,7 +5,23 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import type { Game } from '@/app/data/catalog';
 import { GameCard } from './GameCard';
 
-type ShelfTheme = 'featured' | 'switch2' | 'mario' | 'pokemon' | 'zelda' | 'action' | 'rpg' | 'shooter' | 'platform' | 'indie' | 'gaming';
+type ShelfTheme =
+  | 'featured'
+  | 'switch2'
+  | 'mario'
+  | 'pokemon'
+  | 'zelda'
+  | 'action'
+  | 'rpg'
+  | 'shooter'
+  | 'platform'
+  | 'indie'
+  | 'tactical'
+  | 'arena'
+  | 'velocity'
+  | 'nocturne'
+  | 'archive'
+  | 'gaming';
 
 function resolveShelfTheme(id: string, title: string): { theme: ShelfTheme; label: string } {
   const key = `${id} ${title}`.toLocaleLowerCase('es');
@@ -19,6 +35,19 @@ function resolveShelfTheme(id: string, title: string): { theme: ShelfTheme; labe
   if (key.includes('shooter') || key.includes('disparo')) return { theme: 'shooter', label: 'ACTION // TARGET FIELD' };
   if (key.includes('plataforma')) return { theme: 'platform', label: 'PLATFORM // LEVEL GRID' };
   if (key.includes('indie')) return { theme: 'indie', label: 'INDIE // PIXEL FIELD' };
+  if (key.includes('estrategia') || key.includes('táctica') || key.includes('tactica') || key.includes('puzzle')) {
+    return { theme: 'tactical', label: 'TACTICAL // DECISION MAP' };
+  }
+  if (key.includes('pelea') || key.includes('deporte')) return { theme: 'arena', label: 'ARENA // MATCH FIELD' };
+  if (key.includes('carrera') || key.includes('fiesta') || key.includes('multijugador')) {
+    return { theme: 'velocity', label: 'VELOCITY // PARTY SIGNAL' };
+  }
+  if (key.includes('terror') || key.includes('mundo abierto') || key.includes('sandbox')) {
+    return { theme: 'nocturne', label: 'NIGHT // OPEN TERRITORY' };
+  }
+  if (key.includes('clásico') || key.includes('clasico') || key.includes('remaster') || key.includes('colecciones')) {
+    return { theme: 'archive', label: 'ARCHIVE // RESTORED PLAY' };
+  }
   return { theme: 'gaming', label: 'NINTENDO // DIGITAL FIELD' };
 }
 
