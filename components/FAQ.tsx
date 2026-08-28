@@ -10,9 +10,9 @@ const questions = [
 
 export function FAQ() {
   return (
-    <section className="faqSection sectionShell" id="preguntas" aria-labelledby="faq-title">
+    <section className="faqSection" id="preguntas" aria-labelledby="faq-title">
       <div className="faqHeading">
-        <p className="eyebrow"><span /> RESPUESTAS CLARAS</p>
+        <p className="eyebrow">Respuestas claras</p>
         <h2 id="faq-title">Preguntas<br /><em>frecuentes.</em></h2>
       </div>
       <div className="faqList">

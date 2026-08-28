@@ -26,9 +26,12 @@ export function QuoteBuilder() {
 
   return (
     <section className="quoteSection" id="cotizar" aria-labelledby="quote-title">
-      <div className="sectionShell quoteLayout">
+      <div className="quoteField" aria-hidden="true">
+        <span className="quoteRear" data-gm-depth="0.028" />
+      </div>
+      <div className="quoteLayout">
         <div className="quoteCopy">
-          <p className="eyebrow"><span /> SOLICITUD DIRECTA</p>
+          <p className="eyebrow">Solicitud directa</p>
           <h2 id="quote-title">Tu acceso empieza<br /><em>con una elección.</em></h2>
           <p>Elige un interés, agrega varios juegos si quieres y envía una solicitud con los títulos incluidos.</p>
           <div className="quoteHuman"><MessageCircle aria-hidden="true" /><span><strong>Atención humana</strong><small>Precio y disponibilidad se revisan al momento.</small></span></div>

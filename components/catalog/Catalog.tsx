@@ -1,10 +1,10 @@
 'use client';
 
-import { useMemo, useState } from 'react';
-import { ArrowRight, ChevronDown, Compass, Search } from 'lucide-react';
+import { Fragment, useMemo, useState } from 'react';
+import { ArrowRight, ChevronDown, Search } from 'lucide-react';
 import { catalog, exploreCatalogShelves, homepageCatalogShelves } from '@/app/data/catalog';
 import { toWhatsApp } from '@/lib/contact';
-import { CatalogShelf } from './CatalogShelf';
+import { CatalogShelf, shelfRhythmCycle } from './CatalogShelf';
 import { Filters, type CatalogFilterState } from './Filters';
 import { GameCard } from './GameCard';
 
@@ -20,6 +20,26 @@ const initialFilters: CatalogFilterState = {
   genres: [],
   worlds: [],
   collections: [],
+};
+
+/** Editorial interruptions that break the rail rhythm without adding claims. */
+const interruptions: Record<number, { tone: 'front' | 'rear'; label: string; title: string; line: string; href: string; cta: string }> = {
+  1: {
+    tone: 'front',
+    label: 'Antes de pagar',
+    title: 'Nada se da por hecho.',
+    line: 'Precio, modalidad y disponibilidad se confirman contigo antes de cualquier pago.',
+    href: '#modalidades',
+    cta: 'Ver cómo funciona',
+  },
+  5: {
+    tone: 'rear',
+    label: 'Una sola solicitud',
+    title: 'Agrupa los títulos que te interesan.',
+    line: 'Marca varias portadas con el botón + y envía todo junto en un mismo mensaje.',
+    href: '#cotizar',
+    cta: 'Armar mi solicitud',
+  },
 };
 
 export function Catalog() {
@@ -67,68 +87,103 @@ export function Catalog() {
   );
 
   return (
-    <section className="catalogSection sectionShell" id="catalogo" aria-labelledby="catalog-title">
-      <div className="catalogDepthArt" aria-hidden="true">
-        <span data-gm-depth="0.035" /><span data-gm-depth="-0.075" /><i />
-      </div>
-      <div className="splitHeading catalogHeading">
-        <div>
-          <p className="eyebrow"><span /> BIBLIOTECA NINTENDO DIGITAL</p>
-          <h2 id="catalog-title">Encuentra tu<br /><em>próxima partida.</em></h2>
+    <section className="catalogSection" id="catalogo" aria-labelledby="catalog-title">
+      <div className="catalogOpening">
+        <span className="catalogOpeningWord" aria-hidden="true">BIBLIOTECA</span>
+        <div className="catalogOpeningCopy">
+          <p className="eyebrow">Biblioteca Nintendo digital</p>
+          <h2 id="catalog-title">
+            Encuentra tu<br />
+            <em>próxima partida.</em>
+          </h2>
+          <p>
+            Busca por título o combina plataforma, género, franquicia y colección. La categoría original de los {catalog.length}{' '}
+            registros se conserva intacta.
+          </p>
         </div>
-        <p>Busca por título o combina plataforma, género, franquicia, colección y destacados. La categoría original de los {catalog.length} registros se conserva intacta.</p>
+        <span className="catalogOpeningBlade" data-gm-depth="-0.08" aria-hidden="true" />
       </div>
 
-      <Filters
-        query={query}
-        filters={filters}
-        resultsCount={results.length}
-        filtersOpen={filtersOpen}
-        onQueryChange={setQuery}
-        onPlatformChange={(platform) => setFilters((current) => ({ ...current, platform }))}
-        onFacetToggle={toggleFacet}
-        onFiltersOpenChange={setFiltersOpen}
-        onClear={clearFilters}
-      />
+      <div className="catalogDeck">
+        <Filters
+          query={query}
+          filters={filters}
+          resultsCount={results.length}
+          filtersOpen={filtersOpen}
+          onQueryChange={setQuery}
+          onPlatformChange={(platform) => setFilters((current) => ({ ...current, platform }))}
+          onFacetToggle={toggleFacet}
+          onFiltersOpenChange={setFiltersOpen}
+          onClear={clearFilters}
+        />
 
-      {isExploring ? (
-        results.length ? (
-          <div className="catalogResults">
-            <div className="resultsHeading"><strong>{results.length} {results.length === 1 ? 'resultado' : 'resultados'}</strong><span>Filtros combinados</span></div>
-            <div className="gameGrid">
-              {results.map((game, index) => <GameCard game={game} index={index} key={game.id} />)}
+        {isExploring ? (
+          results.length ? (
+            <div className="catalogResults">
+              <div className="resultsHeading">
+                <strong>{results.length} {results.length === 1 ? 'resultado' : 'resultados'}</strong>
+                <span>Filtros combinados</span>
+              </div>
+              <div className="gameGrid">
+                {results.map((game, index) => <GameCard game={game} index={index} key={game.id} />)}
+              </div>
             </div>
-          </div>
+          ) : (
+            <div className="emptyResults" role="status">
+              <Search aria-hidden="true" />
+              <p className="eyebrow">Búsqueda sin coincidencias</p>
+              <h3>No aparece en esta selección</h3>
+              <p>Prueba otra combinación o consúltanos el título. Nada se presenta como disponible hasta confirmarlo.</p>
+              <div>
+                <button type="button" onClick={clearFilters}>Limpiar filtros</button>
+                <a href={freeSearchUrl} target="_blank" rel="noreferrer">Consultar por WhatsApp <ArrowRight aria-hidden="true" /></a>
+              </div>
+            </div>
+          )
         ) : (
-          <div className="emptyResults" role="status">
-            <Search aria-hidden="true" />
-            <p className="eyebrow">BÚSQUEDA SIN COINCIDENCIAS</p>
-            <h3>No aparece en esta selección</h3>
-            <p>Prueba otra combinación o consúltanos el título. Nada se presenta como disponible hasta confirmarlo.</p>
-            <div><button type="button" onClick={clearFilters}>Limpiar filtros</button><a href={freeSearchUrl} target="_blank" rel="noreferrer">Consultar por WhatsApp <ArrowRight aria-hidden="true" /></a></div>
-          </div>
-        )
-      ) : (
-        <div className="catalogShelves">
-          {homepageCatalogShelves.map((shelf) => <CatalogShelf {...shelf} key={shelf.id} />)}
-          <div className="exploreMoreControl">
-            <div><Compass aria-hidden="true" /><span><strong>Explorar más géneros</strong><small>Estrategia, pelea, carreras, terror, puzzle, mundo abierto y más.</small></span></div>
-            <button type="button" aria-expanded={showExploreMore} aria-controls="explore-more-shelves" onClick={() => setShowExploreMore((current) => !current)}>
-              {showExploreMore ? 'Mostrar menos' : 'Abrir más rails'} <ChevronDown aria-hidden="true" />
-            </button>
-          </div>
-          {showExploreMore && (
-            <div className="exploreMoreShelves" id="explore-more-shelves">
-              {exploreCatalogShelves.map((shelf) => <CatalogShelf {...shelf} key={shelf.id} />)}
+          <div className="catalogShelves">
+            {homepageCatalogShelves.map((shelf, index) => {
+              const interruption = interruptions[index];
+              return (
+                <Fragment key={shelf.id}>
+                  <CatalogShelf {...shelf} order={index} rhythm={shelfRhythmCycle[index % shelfRhythmCycle.length]} />
+                  {interruption && (
+                    <aside className="catalogBreak" data-tone={interruption.tone}>
+                      <div className="catalogBreakArt" data-gm-depth={interruption.tone === 'front' ? '-0.07' : '0.03'} aria-hidden="true" />
+                      <p className="catalogBreakLabel">{interruption.label}</p>
+                      <h3>{interruption.title}</h3>
+                      <p className="catalogBreakLine">{interruption.line}</p>
+                      <a href={interruption.href}>{interruption.cta} <ArrowRight aria-hidden="true" /></a>
+                    </aside>
+                  )}
+                </Fragment>
+              );
+            })}
+
+            <div className="exploreMoreControl">
+              <div>
+                <strong>Explorar más géneros</strong>
+                <small>Estrategia, pelea, carreras, terror, puzzle, mundo abierto y más.</small>
+              </div>
+              <button type="button" aria-expanded={showExploreMore} aria-controls="explore-more-shelves" onClick={() => setShowExploreMore((current) => !current)}>
+                {showExploreMore ? 'Mostrar menos' : 'Abrir más rails'} <ChevronDown aria-hidden="true" />
+              </button>
             </div>
-          )}
-          <div className="catalogOutro" aria-hidden="true">
-            <span>GM / ARCHIVO ABIERTO</span>
-            <strong>ELIGE <i /> AGRUPA <b /> COTIZA</strong>
-            <small>DEL CATÁLOGO A TU CONSOLA</small>
+            {showExploreMore && (
+              <div className="exploreMoreShelves" id="explore-more-shelves">
+                {exploreCatalogShelves.map((shelf, index) => (
+                  <CatalogShelf
+                    {...shelf}
+                    key={shelf.id}
+                    order={homepageCatalogShelves.length + index}
+                    rhythm={shelfRhythmCycle[(index + 3) % shelfRhythmCycle.length]}
+                  />
+                ))}
+              </div>
+            )}
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </section>
   );
 }

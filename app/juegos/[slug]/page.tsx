@@ -89,7 +89,7 @@ export default async function GamePage({ params }: GamePageProps) {
         <section className="detailModes" aria-labelledby="detail-modes-title">
           <div className="sectionShell">
             <div className="detailModesHeading">
-              <p className="eyebrow"><span /> MODALIDADES DE ACCESO</p>
+              <p className="eyebrow">Modalidades de acceso</p>
               <h2 id="detail-modes-title">Principal o Secundaria</h2>
               <p>La opción aplicable se confirma antes de comprar.</p>
             </div>
@@ -101,7 +101,7 @@ export default async function GamePage({ params }: GamePageProps) {
         </section>
 
         <section className="relatedSection sectionShell" aria-labelledby="related-title">
-          <div className="relatedHeading"><div><p className="eyebrow"><span /> SIGUE EXPLORANDO</p><h2 id="related-title">Juegos relacionados</h2></div><Link href="/#catalogo">Ver catálogo completo <ArrowRight aria-hidden="true" /></Link></div>
+          <div className="relatedHeading"><div><p className="eyebrow">Sigue explorando</p><h2 id="related-title">Juegos relacionados</h2></div><Link href="/#catalogo">Ver catálogo completo <ArrowRight aria-hidden="true" /></Link></div>
           <div className="relatedRail" tabIndex={0} aria-label="Juegos relacionados. Desplázate horizontalmente para ver más.">
             {relatedGames.map((related) => (
               <Link className="relatedCard" href={`/juegos/${related.slug}`} key={related.id}>

@@ -5,72 +5,40 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import type { Game } from '@/app/data/catalog';
 import { GameCard } from './GameCard';
 
-type ShelfTheme =
-  | 'featured'
-  | 'switch2'
-  | 'mario'
-  | 'pokemon'
-  | 'zelda'
-  | 'action'
-  | 'rpg'
-  | 'shooter'
-  | 'platform'
-  | 'indie'
-  | 'tactical'
-  | 'arena'
-  | 'velocity'
-  | 'nocturne'
-  | 'archive'
-  | 'gaming';
+/**
+ * Rails keep one interaction model (scroll, arrows, keyboard) so browsing stays
+ * familiar, while the surrounding composition changes rhythm:
+ *
+ *   editorial — oversized heading, blue structure behind the rail (dense);
+ *   open      — full-bleed rail on pure black, no art (calm);
+ *   block     — heading on a solid blue slab the covers occlude (dense);
+ *   hairline  — a single rule and small caps (very calm).
+ */
+export type ShelfRhythm = 'editorial' | 'open' | 'block' | 'hairline';
 
-function resolveShelfTheme(id: string, title: string): { theme: ShelfTheme; label: string } {
-  const key = `${id} ${title}`.toLocaleLowerCase('es');
-  if (key.includes('destacados')) return { theme: 'featured', label: 'GAMEMASTER // EDITORIAL 01' };
-  if (key.includes('switch 2') || key.includes('switch2')) return { theme: 'switch2', label: 'SWITCH 2 // NEXT PLAY' };
-  if (key.includes('mario')) return { theme: 'mario', label: 'MARIO // WORLD GRID' };
-  if (key.includes('pokémon') || key.includes('pokemon')) return { theme: 'pokemon', label: 'POKÉMON // CAPTURE FIELD' };
-  if (key.includes('zelda')) return { theme: 'zelda', label: 'HYRULE // TOPO FIELD' };
-  if (key.includes('acción') || key.includes('accion')) return { theme: 'action', label: 'ACTION // VECTOR ROUTE' };
-  if (key.includes('rpg')) return { theme: 'rpg', label: 'RPG // WORLD MAP' };
-  if (key.includes('shooter') || key.includes('disparo')) return { theme: 'shooter', label: 'ACTION // TARGET FIELD' };
-  if (key.includes('plataforma')) return { theme: 'platform', label: 'PLATFORM // LEVEL GRID' };
-  if (key.includes('indie')) return { theme: 'indie', label: 'INDIE // PIXEL FIELD' };
-  if (key.includes('estrategia') || key.includes('táctica') || key.includes('tactica') || key.includes('puzzle')) {
-    return { theme: 'tactical', label: 'TACTICAL // DECISION MAP' };
-  }
-  if (key.includes('pelea') || key.includes('deporte')) return { theme: 'arena', label: 'ARENA // MATCH FIELD' };
-  if (key.includes('carrera') || key.includes('fiesta') || key.includes('multijugador')) {
-    return { theme: 'velocity', label: 'VELOCITY // PARTY SIGNAL' };
-  }
-  if (key.includes('terror') || key.includes('mundo abierto') || key.includes('sandbox')) {
-    return { theme: 'nocturne', label: 'NIGHT // OPEN TERRITORY' };
-  }
-  if (key.includes('clásico') || key.includes('clasico') || key.includes('remaster') || key.includes('colecciones')) {
-    return { theme: 'archive', label: 'ARCHIVE // RESTORED PLAY' };
-  }
-  return { theme: 'gaming', label: 'NINTENDO // DIGITAL FIELD' };
-}
+export const shelfRhythmCycle: ShelfRhythm[] = ['editorial', 'open', 'block', 'open', 'hairline', 'editorial', 'open', 'block', 'hairline', 'open'];
 
-export function CatalogShelf({ id, title, description, games }: {
+export function CatalogShelf({ id, title, description, games, rhythm = 'open', order }: {
   id: string;
   title: string;
   description: string;
   games: Game[];
+  rhythm?: ShelfRhythm;
+  order?: number;
 }) {
   const railRef = useRef<HTMLDivElement>(null);
   const frameRef = useRef<number>(0);
-  const { theme, label } = resolveShelfTheme(id, title);
 
   const syncRailDepth = (rail: HTMLDivElement) => {
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const maxScroll = Math.max(1, rail.scrollWidth - rail.clientWidth);
     const progress = Math.min(1, Math.max(0, rail.scrollLeft / maxScroll));
-    const amplitude = reducedMotion ? 0 : window.innerWidth <= 720 ? 18 : 82;
+    const amplitude = reducedMotion ? 0 : window.innerWidth <= 760 ? 16 : 74;
     const shift = (progress - 0.5) * amplitude;
     const shelf = rail.closest<HTMLElement>('.catalogShelf');
-    shelf?.style.setProperty('--gm-rail-blue-shift', `${shift * -0.42}px`);
-    shelf?.style.setProperty('--gm-rail-red-shift', `${shift * 0.82}px`);
-    shelf?.style.setProperty('--gm-rail-glyph-shift', `${shift * -0.2}px`);
+    // Rear structure trails the rail, the front marker leads it.
+    shelf?.style.setProperty('--gm-rail-rear', `${(shift * -0.4).toFixed(2)}px`);
+    shelf?.style.setProperty('--gm-rail-front', `${(shift * 0.9).toFixed(2)}px`);
   };
 
   const requestRailDepth = (rail: HTMLDivElement) => {
@@ -98,31 +66,31 @@ export function CatalogShelf({ id, title, description, games }: {
     const rail = railRef.current;
     if (!rail) return;
     rail.scrollBy({
-      left: direction * Math.max(280, rail.clientWidth * 0.78),
+      left: direction * Math.max(280, rail.clientWidth * 0.8),
       behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
     });
   };
 
   return (
-    <section className="catalogShelf" data-shelf-id={id} data-shelf-theme={theme} aria-labelledby={`${id}-title`}>
-      <div className="shelfContextArt" aria-hidden="true">
-        <span className="shelfContextBlue" data-gm-depth="0.018"><i /><i /><i /></span>
-        <span className="shelfContextRed" data-gm-depth="-0.052" />
-        <span className="shelfContextGlyph">{label}</span>
+    <section className="catalogShelf" data-shelf-id={id} data-rhythm={rhythm} aria-labelledby={`${id}-title`}>
+      <div className="shelfStructure" aria-hidden="true">
+        <span className="shelfStructureRear" />
+        <span className="shelfStructureFront" />
       </div>
-      <div className="shelfHeading">
-        <div>
+      <header className="shelfHeading">
+        <p className="shelfIndex" aria-hidden="true">{String((order ?? 0) + 1).padStart(2, '0')}</p>
+        <div className="shelfTitleGroup">
           <h3 id={`${id}-title`}>{title}</h3>
           <p>{description}</p>
         </div>
         <div className="shelfMeta">
           <span>{games.length} títulos</span>
-          <div className="shelfControls" aria-label={`Mover carrusel ${title}`}>
+          <div className="shelfControls">
             <button type="button" onClick={() => moveRail(-1)} aria-label={`Ver títulos anteriores en ${title}`}><ChevronLeft aria-hidden="true" /></button>
             <button type="button" onClick={() => moveRail(1)} aria-label={`Ver más títulos en ${title}`}><ChevronRight aria-hidden="true" /></button>
           </div>
         </div>
-      </div>
+      </header>
       <div
         ref={railRef}
         className="catalogRail"

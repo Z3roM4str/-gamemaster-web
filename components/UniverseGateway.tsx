@@ -1,48 +1,97 @@
-import { ArrowRight, BrainCircuit, Gamepad2, RadioTower, ShieldCheck } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { catalog } from '@/app/data/catalog';
-import { ServiceMark } from './ServiceMark';
+import { HalftoneField, ModuleField, NetworkField, SignalField } from './art/Fields';
+
+/**
+ * Universe index.
+ *
+ * Deliberately not four identical cards: an editorial index of four rows, each
+ * carrying its own structural grammar (modular grid, signal bands, node
+ * network, concentric halftone) inside the shared red/blue/black system.
+ */
+
+const universes = [
+  {
+    id: 'gaming',
+    href: '#catalogo',
+    index: '01',
+    name: 'Gaming',
+    meta: `Nintendo Switch / Switch 2 · ${catalog.length} títulos`,
+    line: 'Biblioteca digital completa, con búsqueda, colecciones y ficha por título.',
+    action: 'Entrar a la biblioteca',
+  },
+  {
+    id: 'streaming',
+    href: '#streaming',
+    index: '02',
+    name: 'Streaming',
+    meta: 'Series, música y anime · Consultar precio',
+    line: 'Familias de servicio para orientar tu búsqueda antes de cotizar.',
+    action: 'Ver familias',
+  },
+  {
+    id: 'ia',
+    href: '#ia',
+    index: '03',
+    name: 'IA',
+    meta: 'ChatGPT + Claude · Consultar precio',
+    line: 'Herramientas de trabajo y creación, cotizadas directamente contigo.',
+    action: 'Ver herramientas',
+  },
+  {
+    id: 'privacidad',
+    href: '#privacidad',
+    index: '04',
+    name: 'Privacidad',
+    meta: 'Proton VPN · Consultar precio',
+    line: 'Familia propia de servicios digitales, separada de streaming e IA.',
+    action: 'Ver servicio',
+  },
+] as const;
+
+const grammars = {
+  gaming: <ModuleField className="universeGrammarArt" />,
+  streaming: <SignalField className="universeGrammarArt" />,
+  ia: <NetworkField className="universeGrammarArt" />,
+  privacidad: <HalftoneField className="universeGrammarArt" />,
+};
 
 export function UniverseGateway() {
   return (
-    <section className="universeSection sectionShell" aria-labelledby="universe-title">
-      <div className="splitHeading universeHeading">
-        <div>
-          <p className="eyebrow"><span /> ELIGE TU UNIVERSO</p>
-          <h2 id="universe-title">Cuatro mundos.<br /><em>Una sola entrada.</em></h2>
-        </div>
-        <p>Gaming es una biblioteca Nintendo digital. Streaming, IA y privacidad son espacios de descubrimiento y cotización directa, sin planes ni precios supuestos.</p>
+    <section className="universeSection" id="universos" aria-labelledby="universe-title">
+      <div className="universeIntro">
+        <p className="eyebrow">Índice de universos</p>
+        <h2 id="universe-title">
+          Cuatro mundos.<br />
+          <em>Una sola entrada.</em>
+        </h2>
+        <p className="universeIntroLede">
+          Gaming es una biblioteca Nintendo digital. Streaming, IA y privacidad son espacios de descubrimiento y cotización
+          directa, sin planes ni precios supuestos.
+        </p>
       </div>
-      <div className="universeGrid" aria-label="Índice de universos GameMaster">
-        <div className="universeRoute" aria-hidden="true"><span>GM</span><i /><b>04</b></div>
-        <a className="universeCard universeGaming" href="#catalogo">
-          <span className="universeIcon"><Gamepad2 aria-hidden="true" /></span>
-          <span className="universeCopy"><small>UNIVERSO 01</small><strong>Gaming</strong><em>Nintendo Switch / Switch 2 · {catalog.length} títulos</em></span>
-          <ArrowRight className="universeArrow" aria-hidden="true" />
-          <span className="universeGamingField" data-gm-depth="-0.052" aria-hidden="true"><i /><i /><i /></span>
-        </a>
-        <a className="universeCard universeStreaming" href="#streaming">
-          <span className="universeBrandStack" aria-hidden="true">
-            <ServiceMark src="/services/netflix.svg" />
-            <ServiceMark src="/services/spotify.svg" />
-            <ServiceMark src="/services/disney-plus.svg" />
-          </span>
-          <span className="universeCopy"><small>UNIVERSO 02</small><strong>Streaming</strong><em>Series, música y anime · Consultar precio</em></span>
-          <ArrowRight className="universeArrow" aria-hidden="true" />
-          <span className="universeSignalField" data-gm-depth="0.022" aria-hidden="true"><RadioTower /></span>
-        </a>
-        <a className="universeCard universeAi" href="#ia">
-          <span className="universeIcon"><BrainCircuit aria-hidden="true" /></span>
-          <span className="universeCopy"><small>UNIVERSO 03</small><strong>IA</strong><em>ChatGPT + Claude · Consultar precio</em></span>
-          <ArrowRight className="universeArrow" aria-hidden="true" />
-          <span className="universeNodeField" data-gm-depth="0.018" aria-hidden="true"><i /><i /><i /><i /><i /></span>
-        </a>
-        <a className="universeCard universePrivacy" href="#privacidad">
-          <span className="universeIcon"><ShieldCheck aria-hidden="true" /></span>
-          <span className="universeCopy"><small>UNIVERSO 04</small><strong>Privacidad</strong><em>Proton VPN · Consultar precio</em></span>
-          <ArrowRight className="universeArrow" aria-hidden="true" />
-          <span className="universePrivacyField" data-gm-depth="0.021" aria-hidden="true"><i /><i /><i /></span>
-        </a>
-      </div>
+
+      <ol className="universeIndex">
+        {universes.map((universe) => (
+          <li key={universe.id}>
+            <a className="universeRow" data-universe={universe.id} href={universe.href}>
+              <span className="universeGrammar" data-gm-depth="0.02" aria-hidden="true">
+                {grammars[universe.id]}
+              </span>
+              <span className="universeNumber" aria-hidden="true">{universe.index}</span>
+              <span className="universeName">{universe.name}</span>
+              <span className="universeText">
+                <em>{universe.meta}</em>
+                <small>{universe.line}</small>
+              </span>
+              <span className="universeAction">
+                {universe.action} <ArrowRight aria-hidden="true" />
+              </span>
+              <span className="universeEdge" aria-hidden="true" />
+            </a>
+          </li>
+        ))}
+      </ol>
     </section>
   );
 }
