@@ -82,9 +82,16 @@
   height: 100%;
 }
 
+/* La masa roja se dibuja en canvas: su forma, grabado, halftone y aperturas
+   viven ahí, no en un clip-path plano. */
 .dw-red {
   z-index: 1;
-  background: var(--red);
+}
+
+.dw-red canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 /* El contenido siempre por encima del rojo: es lo que produce la oclusión. */
@@ -175,7 +182,6 @@
   left: 29vw;
   width: 92vw;
   height: 70vh;
-  clip-path: polygon(14% 8%, 62% 0, 100% 18%, 100% 88%, 46% 100%, 6% 74%, 0 34%);
 }
 
 .dw-hero-copy {
@@ -472,7 +478,6 @@
   left: -10vw;
   width: 86vw;
   height: 300px;
-  clip-path: polygon(0 22%, 34% 0, 76% 12%, 100% 48%, 88% 100%, 30% 88%, 5% 96%);
 }
 
 /* --- Rail B: arquitectura azul dominante, rojo vertical localizado --- */
@@ -494,7 +499,6 @@
   left: 58%;
   width: clamp(120px, 13vw, 200px);
   height: 120vh;
-  clip-path: polygon(24% 0, 100% 6%, 78% 100%, 0 92%);
 }
 
 /* --- Rail C: gran intervención roja atravesando la colección --- */
@@ -516,7 +520,6 @@
   left: -18vw;
   width: 140vw;
   height: clamp(260px, 34vh, 380px);
-  clip-path: polygon(0 34%, 100% 0, 100% 62%, 0 100%);
 }
 
 /* ============ Cierre ============ */
@@ -542,7 +545,6 @@
   right: -22vw;
   width: 70vw;
   height: 60vh;
-  clip-path: polygon(18% 0, 100% 22%, 86% 86%, 30% 100%, 0 44%);
 }
 
 .dw-close-title {

@@ -32,8 +32,118 @@ type FieldOptions = {
   washY?: number;
 };
 
+type Pt = [number, number];
+
+type RedOptions = {
+  shape?: Pt[];
+  engrave?: { angle?: number; spacing?: number; width?: number; edge?: string; from?: number };
+  halftone?: { step?: number; edge?: string; from?: number };
+  apertures?: Pt[][];
+};
+
 const BLUE_DEEP = '28, 59, 255';
 const BLUE_LINE = '74, 99, 255';
+const RED = '#ff1e1e';
+
+function clamp01(v: number) {
+  return v < 0 ? 0 : v > 1 ? 1 : v;
+}
+
+/** smoothstep entre a y b. */
+function smooth(a: number, b: number, t: number) {
+  const x = clamp01((t - a) / (b - a || 1));
+  return x * x * (3 - 2 * x);
+}
+
+/** Progreso hacia un borde: 1 = pegado a ese borde. */
+function edgeProgress(x: number, y: number, W: number, H: number, edge: string) {
+  if (edge === 'left') return 1 - x / W;
+  if (edge === 'right') return x / W;
+  if (edge === 'top') return 1 - y / H;
+  return y / H;
+}
+
+/**
+ * Masa roja trabajada. Sigue siendo UN plano físico opaco con bordes nítidos
+ * —las portadas lo siguen ocluyendo— pero se articula por sustracción:
+ * grabado de líneas, disolución en halftone hacia un borde y aperturas
+ * geométricas por las que se ve el mundo azul que hay detrás.
+ *
+ * Todo se resta con destination-out: no hay copia desplazada ni segunda
+ * geometría en otro color. Es la misma masa, calada.
+ */
+function drawRedMass(
+  ctx: CanvasRenderingContext2D,
+  W: number,
+  H: number,
+  o: Record<string, never> | RedOptions,
+  compact: boolean,
+) {
+  const opt = o as RedOptions;
+  const pts = opt.shape ?? [[0, 0], [1, 0], [1, 1], [0, 1]];
+  const grain = compact ? 1.5 : 1;
+
+  ctx.save();
+  ctx.beginPath();
+  pts.forEach((p, i) => (i ? ctx.lineTo(p[0] * W, p[1] * H) : ctx.moveTo(p[0] * W, p[1] * H)));
+  ctx.closePath();
+  ctx.clip();
+
+  ctx.fillStyle = RED;
+  ctx.fillRect(0, 0, W, H);
+
+  ctx.globalCompositeOperation = 'destination-out';
+  ctx.strokeStyle = '#000';
+  ctx.fillStyle = '#000';
+
+  const e = opt.engrave;
+  if (e) {
+    const spacing = (e.spacing ?? 16) * grain;
+    const ang = ((e.angle ?? 0) * Math.PI) / 180;
+    const dx = Math.cos(ang);
+    const dy = Math.sin(ang);
+    const L = Math.hypot(W, H);
+    const n = Math.ceil((L * 2) / spacing);
+    for (let i = -n; i <= n; i++) {
+      const ox = -dy * i * spacing + W / 2;
+      const oy = dx * i * spacing + H / 2;
+      const k = smooth(e.from ?? 0.3, 1, edgeProgress(ox, oy, W, H, e.edge ?? 'bottom'));
+      if (k <= 0.02) continue;
+      ctx.lineWidth = (e.width ?? 3.4) * grain * k;
+      ctx.beginPath();
+      ctx.moveTo(ox - dx * L, oy - dy * L);
+      ctx.lineTo(ox + dx * L, oy + dy * L);
+      ctx.stroke();
+    }
+  }
+
+  const h = opt.halftone;
+  if (h) {
+    const step = (h.step ?? 22) * grain;
+    for (let y = 0; y <= H + step; y += step) {
+      const row = Math.round(y / step);
+      for (let x = -step; x <= W + step; x += step) {
+        const px = x + (row % 2) * step * 0.5;
+        const k = smooth(h.from ?? 0.42, 1, edgeProgress(px, y, W, H, h.edge ?? 'bottom'));
+        if (k <= 0.03) continue;
+        ctx.beginPath();
+        ctx.arc(px, y, step * 0.7 * k, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+  }
+
+  if (opt.apertures) {
+    for (const a of opt.apertures) {
+      ctx.beginPath();
+      a.forEach((p, i) => (i ? ctx.lineTo(p[0] * W, p[1] * H) : ctx.moveTo(p[0] * W, p[1] * H)));
+      ctx.closePath();
+      ctx.fill();
+    }
+  }
+
+  ctx.restore();
+}
 
 function drawTerrain(ctx: CanvasRenderingContext2D, W: number, H: number, o: FieldOptions, compact: boolean) {
   const cols = Math.round((o.cols ?? 30) * (compact ? 0.55 : 1));
@@ -137,10 +247,12 @@ function drawWash(ctx: CanvasRenderingContext2D, W: number, H: number, amount: n
 }
 
 function paint(canvas: HTMLCanvasElement) {
+  const isRed = canvas.dataset.red !== undefined;
   const kind = canvas.dataset.field ?? 'terrain';
   let opts: FieldOptions = {};
   try {
-    opts = canvas.dataset.opts ? (JSON.parse(canvas.dataset.opts) as FieldOptions) : {};
+    const raw = isRed ? canvas.dataset.red : canvas.dataset.opts;
+    opts = raw ? (JSON.parse(raw) as FieldOptions) : {};
   } catch {
     opts = {};
   }
@@ -158,13 +270,20 @@ function paint(canvas: HTMLCanvasElement) {
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   ctx.clearRect(0, 0, rect.width, rect.height);
 
+  if (isRed) {
+    drawRedMass(ctx, rect.width, rect.height, opts as unknown as RedOptions, compact);
+    return;
+  }
+
   if (opts.wash) drawWash(ctx, rect.width, rect.height, opts.wash, opts.washY ?? 0.1);
   if (kind === 'contour') drawContour(ctx, rect.width, rect.height, opts, compact);
   else drawTerrain(ctx, rect.width, rect.height, opts, compact);
 }
 
 export function mountDepthWorld(root: HTMLElement) {
-  const fields = Array.from(root.querySelectorAll<HTMLCanvasElement>('canvas[data-field]'));
+  const fields = Array.from(
+    root.querySelectorAll<HTMLCanvasElement>('canvas[data-field], canvas[data-red]'),
+  );
   const layers = Array.from(root.querySelectorAll<HTMLElement>('[data-depth]'));
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
 

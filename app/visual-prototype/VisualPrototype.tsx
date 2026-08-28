@@ -90,6 +90,24 @@ function Rail({ ids }: { ids: (keyof typeof COVERS)[] }) {
   );
 }
 
+/* Masas rojas. Cada una es UNA forma calada por sustracción (grabado,
+   halftone, aperturas). Ninguna repite la composición de otra. */
+type Pt = [number, number];
+type RedSpec = {
+  shape: Pt[];
+  engrave?: { angle?: number; spacing?: number; width?: number; edge?: string; from?: number };
+  halftone?: { step?: number; edge?: string; from?: number };
+  apertures?: Pt[][];
+};
+
+function RedMass({ className, depth, spec }: { className: string; depth: number; spec: RedSpec }) {
+  return (
+    <div className={`dw-red ${className}`} data-depth={depth} aria-hidden="true">
+      <canvas data-red={JSON.stringify(spec)} />
+    </div>
+  );
+}
+
 function Field({
   className,
   kind = 'terrain',
@@ -137,9 +155,21 @@ export default function VisualPrototype() {
         <Field
           className="dw-hero-field"
           depth={120}
-          opts={{ horizon: 0.04, reach: 0.92, spread: 1.5, amp: 78, freq: 6.2, phase: 0.4, cols: 34, rows: 24, wash: 0.42, washY: 0.08 }}
+          opts={{ horizon: 0.04, reach: 0.92, spread: 1.5, amp: 78, freq: 6.2, phase: 0.4, cols: 34, rows: 24, wash: 0.78, washY: 0.08 }}
         />
-        <div className="dw-red dw-hero-red" data-depth={-34} aria-hidden="true" />
+        <RedMass
+          className="dw-hero-red"
+          depth={-34}
+          spec={{
+            shape: [[0.14, 0.08], [0.62, 0], [1, 0.18], [1, 0.88], [0.46, 1], [0.06, 0.74], [0, 0.34]],
+            engrave: { angle: 74, spacing: 15, width: 4.2, edge: 'bottom', from: 0.34 },
+            halftone: { step: 26, edge: 'left', from: 0.52 },
+            apertures: [
+              [[0.63, 0.13], [0.9, 0.18], [0.88, 0.3], [0.61, 0.25]],
+              [[0.68, 0.36], [0.95, 0.41], [0.94, 0.47], [0.67, 0.42]],
+            ],
+          }}
+        />
 
         <div className="dw-hero-copy dw-fore" data-depth={-4}>
           <p className="dw-eyebrow">Gaming · Streaming · IA</p>
@@ -171,7 +201,7 @@ export default function VisualPrototype() {
           className="dw-void-field"
           kind="contour"
           depth={150}
-          opts={{ cx: 0.36, cy: 0.52, scale: 1.15, stretch: 1.35, rings: 30, alpha: 0.9, wash: 0.16, washY: 0.2 }}
+          opts={{ cx: 0.36, cy: 0.52, scale: 1.15, stretch: 1.35, rings: 30, alpha: 0.9, wash: 0.5, washY: 0.2 }}
         />
         <div className="dw-fore" data-depth={0} style={{ width: '100%' }}>
           <ul className="dw-universes">
@@ -201,9 +231,16 @@ export default function VisualPrototype() {
           className="dw-railA-field"
           kind="contour"
           depth={110}
-          opts={{ cx: 0.28, cy: 0.48, scale: 1.05, stretch: 1.5, rings: 28, wash: 0.3, washY: 0.05 }}
+          opts={{ cx: 0.28, cy: 0.48, scale: 1.05, stretch: 1.5, rings: 28, wash: 0.66, washY: 0.05 }}
         />
-        <div className="dw-red dw-railA-red" data-depth={-30} aria-hidden="true" />
+        <RedMass
+          className="dw-railA-red"
+          depth={-30}
+          spec={{
+            shape: [[0, 0.22], [0.34, 0], [0.76, 0.12], [1, 0.48], [0.88, 1], [0.3, 0.88], [0.05, 0.96]],
+            halftone: { step: 31, edge: 'bottom', from: 0.6 },
+          }}
+        />
         <div className="dw-fore" data-depth={-2}>
           <div className="dw-rail-head">
             <h2>Destacados Switch 2</h2>
@@ -218,7 +255,7 @@ export default function VisualPrototype() {
         <Field
           className="dw-void-field"
           depth={165}
-          opts={{ horizon: 0.3, reach: 0.7, spread: 1.9, amp: 52, freq: 4.4, phase: 2.1, cols: 30, rows: 18, alpha: 0.45 }}
+          opts={{ horizon: 0.3, reach: 0.7, spread: 1.9, amp: 52, freq: 4.4, phase: 2.1, cols: 30, rows: 18, alpha: 0.6, wash: 0.4, washY: 0.28 }}
         />
         <h2 className="dw-void-title dw-display dw-fore" data-depth={0}>
           Detrás de cada portada hay <i>un catálogo entero</i>
@@ -230,9 +267,21 @@ export default function VisualPrototype() {
         <Field
           className="dw-railB-field"
           depth={95}
-          opts={{ horizon: 0.02, reach: 1, spread: 1.35, amp: 92, freq: 7.4, phase: 1.2, cols: 36, rows: 26, wash: 0.36, washY: 0.02 }}
+          opts={{ horizon: 0.02, reach: 1, spread: 1.35, amp: 92, freq: 7.4, phase: 1.2, cols: 36, rows: 26, wash: 0.82, washY: 0.02 }}
         />
-        <div className="dw-red dw-railB-red" data-depth={-26} aria-hidden="true" />
+        <RedMass
+          className="dw-railB-red"
+          depth={-26}
+          spec={{
+            shape: [[0.24, 0], [1, 0.06], [0.78, 1], [0, 0.92]],
+            engrave: { angle: 90, spacing: 20, width: 5, edge: 'top', from: 0.68 },
+            apertures: [
+              [[0.1, 0.42], [0.92, 0.44], [0.92, 0.47], [0.1, 0.45]],
+              [[0.12, 0.55], [0.9, 0.57], [0.9, 0.61], [0.12, 0.59]],
+              [[0.14, 0.7], [0.88, 0.72], [0.88, 0.74], [0.14, 0.72]],
+            ],
+          }}
+        />
         <div className="dw-fore" data-depth={-2}>
           <div className="dw-rail-head">
             <h2>Mundo Mario</h2>
@@ -248,9 +297,17 @@ export default function VisualPrototype() {
           className="dw-railC-field"
           kind="contour"
           depth={155}
-          opts={{ cx: 0.72, cy: 0.42, scale: 1.1, stretch: 1.6, rings: 26, alpha: 0.6, wash: 0.15, washY: 0.25 }}
+          opts={{ cx: 0.72, cy: 0.42, scale: 1.1, stretch: 1.6, rings: 26, alpha: 0.6, wash: 0.46, washY: 0.25 }}
         />
-        <div className="dw-red dw-railC-red" data-depth={-24} aria-hidden="true" />
+        <RedMass
+          className="dw-railC-red"
+          depth={-24}
+          spec={{
+            shape: [[0, 0.34], [1, 0], [1, 0.62], [0, 1]],
+            engrave: { angle: 18, spacing: 18, width: 3.6, edge: 'bottom', from: 0.8 },
+            halftone: { step: 28, edge: 'top', from: 0.82 },
+          }}
+        />
         <div className="dw-fore" data-depth={-2}>
           <div className="dw-rail-head">
             <h2>RPG y aventuras</h2>
@@ -265,9 +322,18 @@ export default function VisualPrototype() {
         <Field
           className="dw-close-field"
           depth={125}
-          opts={{ horizon: 0.06, reach: 0.95, spread: 1.6, amp: 70, freq: 5.6, phase: 3.1, cols: 32, rows: 22, wash: 0.3, washY: 0.1 }}
+          opts={{ horizon: 0.06, reach: 0.95, spread: 1.6, amp: 70, freq: 5.6, phase: 3.1, cols: 32, rows: 22, wash: 0.66, washY: 0.1 }}
         />
-        <div className="dw-red dw-close-red" data-depth={-28} aria-hidden="true" />
+        <RedMass
+          className="dw-close-red"
+          depth={-28}
+          spec={{
+            shape: [[0.18, 0], [1, 0.22], [0.86, 0.86], [0.3, 1], [0, 0.44]],
+            engrave: { angle: 118, spacing: 17, width: 4, edge: 'right', from: 0.5 },
+            halftone: { step: 26, edge: 'bottom', from: 0.5 },
+            apertures: [[[0.34, 0.3], [0.62, 0.35], [0.58, 0.6], [0.31, 0.55]]],
+          }}
+        />
         <div className="dw-fore" data-depth={-4}>
           <h2 className="dw-close-title dw-display">
             Dinos qué buscas y te decimos si lo tenemos
