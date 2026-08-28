@@ -108,7 +108,7 @@ function halftoneRows({ cols, rows, width, height, seed }) {
       const x = ((col + (row % 2 ? 0.5 : 0)) / cols) * width;
       const y = (row / rows) * height;
       const density = fbm(col / 4.5, row / 4.5, seed, 3);
-      const r = round(Math.max(0, density - 0.28) * 9.5);
+      const r = round(Math.max(0, density - 0.3) * 13);
       if (r > 0.6) dots.push([round(x), round(y), r]);
     }
   }
@@ -121,7 +121,7 @@ const geometry = {
   ridges: ridgeLines({ count: 13, width: 1600, height: 620, seed: 4242, amplitude: 190 }),
   strata: ridgeLines({ count: 9, width: 1600, height: 420, seed: 991, amplitude: 96 }),
   network: nodeNetwork({ count: 30, width: 1200, height: 760, seed: 616, radius: 268 }),
-  halftone: halftoneRows({ cols: 34, rows: 22, width: 680, height: 440, seed: 73 }),
+  halftone: halftoneRows({ cols: 22, rows: 15, width: 680, height: 440, seed: 73 }),
 };
 
 const file = `// GENERATED FILE — run \`node scripts/generate-art-geometry.mjs\` to rebuild.

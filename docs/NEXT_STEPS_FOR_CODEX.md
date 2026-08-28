@@ -2,153 +2,99 @@
 
 Start by reading `AGENTS.md` and `docs/CODEX_HANDOFF.md`.
 
-This file describes the **current** next stage. Earlier anti-anaglyph cleanup has already been substantially implemented; do not restart from an old baseline.
-
 ## Current starting point
 
 Work from the latest `main`.
 
-The visual baseline immediately before this handoff refresh was:
+The front end was rebuilt as one page-scale composition (see the architecture section in `docs/CODEX_HANDOFF.md`). Claude Code currently leads art direction, composition, front end, motion and responsive work; Codex leads architecture, data, integrations, debugging, audits and heavy technical work.
 
-- `05e2245d7b8aa860a82ddc7a5ab14f81e32c8757` — `Strengthen contextual chromostereoscopic depth`
+Always inspect the latest `main` before editing. Do not restart from an older baseline.
 
-A handoff refresh was committed after that. Always inspect the latest `main` before editing.
+## Technical items handed over
 
-## Current priority — Art direction at page scale
+These were identified during the composition rebuild and are deliberately left for a technical pass. None of them block the current visual direction.
 
-The site is functional enough to support the next design pass. The priority now is to make it feel like a distinctive premium entertainment experience rather than another incremental UI variation.
+### 1. Homepage DOM and payload weight
 
-Target synthesis:
+Measured on the homepage at 1440px (dev server):
 
-- STYLITES → large-scale art composition, depth, motion, asymmetry;
-- Game Pass → discovery-first catalog and rails;
-- Netflix → cinematic hierarchy and browsing clarity;
-- GameMaster → chromostereopsis through independent red / blue / black regions.
+- ~7,000 DOM nodes;
+- 197 game cards across 10 homepage rails;
+- 202 `<img>` elements (browser lazy-loading keeps the initial requests to ~20);
+- ~1.0 MB of server-rendered HTML.
 
-Do not copy any reference literally.
+Every rail renders its full set of games even though only a few cards are visible. Worth evaluating:
 
-## Phase 1 — Inspect the current implementation
+- mounting rails on intersection, or capping each rail and linking to a filtered view;
+- whether `exploreCatalogShelves` should be code-split rather than rendered on toggle;
+- measuring real LCP/TBT on a mid-range phone before optimizing anything.
 
-Before changing anything:
+Do not solve this by deleting rails: the discovery architecture is a commercial requirement.
 
-- read the mandatory documents in `AGENTS.md`;
-- inspect the latest page/component/CSS implementation;
-- inspect the most recent commits;
-- identify what already works visually and commercially;
-- preserve functioning catalog, search, filters, detail/modal, WhatsApp, Facebook and accessibility behavior.
+### 2. Generated art geometry payload
 
-Do not undo working functionality to make visual experimentation easier.
+`components/art/geometry.ts` is ~36 KB of path data. It is server-only, so it never reaches the client bundle, but it is inlined into the rendered HTML wherever a field is used (the terrain appears twice on the homepage).
 
-## Phase 2 — Strengthen the hero
+If HTML size becomes a real problem, evaluate emitting the fields as static `.svg` files under `public/art/` and referencing them from CSS, weighing that against losing per-path CSS control (`--i` / `--n` opacity ramps) and the extra requests.
 
-The hero should be the clearest expression of the GameMaster visual system.
+### 3. Sticky offset coupling
 
-Improve the existing layered model rather than replacing it with chromatic duplicates:
+`.catalogControls` sticks at `top: 76px`, which is hard-coded to match `.siteHeader`'s `min-height`. Promote the header height to a CSS custom property so the two cannot drift apart.
 
-- near-black neutral base;
-- substantial blue rear artistic/technical environment;
-- one sparse but dominant red foreground/focal intervention;
-- normal full-color game artwork above decorative planes;
-- stronger editorial asymmetry and scale;
-- clear proposition and CTAs;
-- desktop and mobile compositions designed independently.
+### 4. Cover asset normalization
 
-Avoid decorative clutter that weakens the hierarchy.
+Several covers in `public/games/` carry baked-in borders or letterboxing (visible as a frame inside the card). This is an asset/data problem, not a CSS one. A pass over `scripts/sync-game-images.mjs` that normalizes aspect ratio and trims uniform borders would improve the whole catalog at once.
 
-## Phase 3 — Make the full page one composition
+Keep covers in their original colours — no tinting, posterizing or channel effects.
 
-Reduce the feeling of vertically stacked independent components.
+### 5. DepthDriver observer scope
 
-Use:
+`components/art/DepthDriver.tsx` observes `document.body` with `{ childList: true, subtree: true }` and re-queries every `[data-gm-depth]` element on any mutation. It is cheap today (17 layers), but it will react to unrelated DOM churn. Scope it to the containers that can gain art layers, or expose a registration API.
 
-- art fields that continue across section boundaries;
-- black negative space as deliberate relief;
-- contextual blue rear structures;
-- red foreground interventions at selected moments;
-- visual rhythm between dense and calm zones;
-- transitions that make Gaming / Streaming / IA feel related without identical shells.
+### 6. Conversion instrumentation
 
-The page should remain legible and commercially clear.
+The quote funnel still has no measurable events. `AGENTS.md`'s business backlog asks for this. Useful first events, all already available in `components/experience/useExperience.ts` and the WhatsApp helpers in `lib/contact.ts`:
 
-## Phase 4 — Refine discovery rails
+- game added/removed from the request;
+- interest family selected;
+- quick-view opened;
+- WhatsApp CTA followed (which surface it came from);
+- search performed with zero results (this one is directly actionable for catalog gaps).
 
-Keep the familiar horizontal discovery mechanics but make their surrounding compositions more authored.
+Keep business facts sourced: an event stream must never become a place where prices or availability are invented.
 
-- retain normal recognizable covers;
-- allow collection/genre-specific contextual art;
-- avoid identical container treatments for every rail;
-- keep controls, headings and cards above decorative layers;
-- use motion decoratively, never in a way that harms browsing.
-
-Do not invent catalog data or prices.
-
-## Phase 5 — Distinguish the three universes
-
-Use one GameMaster system with different supporting grammars:
-
-- Gaming → circuits, modular grids, controller/game geometry, controlled halftone/tessellation;
-- Streaming → cinematic apertures, signal bands, frame systems, waveforms;
-- IA → node networks, vector fields, topology/scientific/data-flow structures.
-
-All three still obey the red / blue / black spatial model.
-
-## Phase 6 — Mobile recomposition
-
-At ~390px and ~430px:
-
-- recompose hero art rather than cropping desktop blindly;
-- reduce decorative density;
-- simplify parallax;
-- preserve tap targets and hierarchy;
-- remove horizontal overflow;
-- keep catalog exploration fast and natural.
-
-Mobile is a first-class design target.
-
-## Phase 7 — Motion and polish
-
-Only after the composition works:
-
-- refine differential parallax;
-- tune typography and vertical rhythm;
-- refine hover/focus states;
-- optimize generated/procedural art assets;
-- reduce any fatigue from excessive blue/red intensity;
-- keep long reading/catalog regions calmer than hero/editorial moments.
-
-Respect `prefers-reduced-motion`.
-
-## Forbidden regression
+## Visual constraints Codex must not regress
 
 Do not reintroduce:
 
 - red/blue text ghosting;
 - RGB split;
 - chromatic aberration;
-- paired red/blue shadows as depth;
+- paired red/blue shadows used as depth;
 - duplicated red/cyan geometry;
-- offset duplicate covers/cards/logos;
+- offset duplicate covers, cards or logos;
 - generic neon cyberpunk blur;
 - purple overlap as the main spatial device.
 
-## Definition of done for this iteration
+And do not:
 
-A major revision is complete only when:
+- wrap every rail in the same container treatment again;
+- add a fourth CSS file that overrides the other three;
+- cross a game cover through its middle with a red element;
+- publish a price, plan, duration, benefit or availability claim without a canonical source.
 
-- it looks intentionally composed at ~1440px, ~430px and ~390px;
-- the hero is materially stronger than the current baseline;
-- the page reads as one composition rather than stacked sections;
-- black remains meaningful negative/neutral space;
-- blue has strong rear-world presence without exhausting the page;
-- red remains a selective focal/front plane;
-- catalog items remain easy to discover;
-- original covers remain recognizable;
-- WhatsApp conversion still works;
-- unknown prices/availability remain unknown;
-- `npm run lint` passes;
-- `npm run build` passes;
-- no important object exists as displaced red/blue duplicates;
-- the page does not resemble an anaglyph/RGB-glitch demo;
-- reduced motion and accessibility remain intact.
+## Validation before finishing any pass
+
+- `npm run lint`;
+- `npm run build`;
+- desktop review around 1440px;
+- mobile review around 390px and 430px;
+- no horizontal overflow;
+- keyboard focus and modal behaviour still work;
+- `prefers-reduced-motion` still zeroes every parallax offset;
+- body text remains readable on neutral surfaces;
+- covers remain recognizable and untinted;
+- the page still works if chromostereopsis is perceived weakly or inverted;
+- the result does not resemble an anaglyph/RGB-glitch demo.
 
 After completion, commit/push the work and report the resulting SHA.

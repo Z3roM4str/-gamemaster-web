@@ -6,11 +6,45 @@ Use this file when starting the next Codex session.
 
 Continue from the latest `main`. Do **not** reset to an older visual baseline and do not rebuild from memory.
 
-Current reference commit when this handoff was refreshed:
+The front end was rebuilt as a single page-scale composition in the pass that refreshed this handoff. That rebuild is the current starting point, not a disposable prototype.
 
-- `05e2245d7b8aa860a82ddc7a5ab14f81e32c8757` — `Strengthen contextual chromostereoscopic depth`
+## Division of work
 
-That pass already strengthens the blue rear world, red foreground plane, contextual rail art and differential motion. Treat it as the current starting point, not as a disposable prototype.
+- **Claude Code** currently leads front end, UX/UI, art direction, composition, motion and responsive behaviour.
+- **Codex** leads architecture, data, integrations, debugging, audits, refactors and heavy technical work.
+
+Either agent may touch any file when necessary, but avoid re-litigating the other's current pass without a concrete reason. `docs/NEXT_STEPS_FOR_CODEX.md` lists the technical items handed over explicitly.
+
+## Current front-end architecture
+
+### CSS
+
+The old four-file cascade (`globals.css` + `art-direction.css` + `art-fixes.css` + `art-pass-v2.css`, ~5,000 lines of mutual overrides) was removed. Three files now own separate layers and must not override each other:
+
+- `app/globals.css` — tokens, reset, typographic primitives, controls, persistent chrome (header, footer, mobile quote bar, product modal).
+- `app/composition.css` — the fixed rear world, the navigation spine, the shared art primitives and the parallax helpers.
+- `app/sections.css` — per-section layout and local planes.
+
+If a fix needs a fourth file, the architecture is drifting again. Put it in the layer that owns the concern instead.
+
+### Art system
+
+- `scripts/generate-art-geometry.mjs` deterministically generates `components/art/geometry.ts` (topographic contours, ridge/strata profiles, a node network and a halftone field). Re-run the script rather than hand-editing the generated file.
+- `components/art/Fields.tsx` exposes those as server components (`TerrainField`, `BasinField`, `RidgeField`, `StrataField`, `NetworkField`, `HalftoneField`, `ModuleField`, `SignalField`). They are server-only so the geometry never enters the client bundle.
+- The same terrain is sampled at different crops and scales across the page. That is what makes the site read as one continuous artwork; do not replace a section's field with unrelated decoration.
+- `components/SiteArt.tsx` renders the fixed rear world plus `components/art/DepthDriver.tsx`, the only client code driving motion.
+
+### Motion contract
+
+`DepthDriver` writes `--gm-progress`, `--gm-pointer-x`, `--gm-pointer-y` on the root and `--gm-depth-y` on every `[data-gm-depth]` element.
+
+- Positive `data-gm-depth` = rear plane, trails the scroll.
+- Negative `data-gm-depth` = front plane, leads the scroll.
+- Under `prefers-reduced-motion` every offset is zeroed in both JS and CSS.
+
+### Catalog rhythm
+
+`CatalogShelf` accepts a `rhythm` prop (`editorial`, `open`, `block`, `hairline`) cycled by `shelfRhythmCycle`. Interaction is identical across rhythms; only the surrounding composition changes. `Catalog` also injects two editorial interruptions between rails. Adding rails does not require new CSS — extend the cycle.
 
 ## Mandatory first step
 
@@ -108,15 +142,13 @@ At ~390px and ~430px:
 - prevent horizontal overflow;
 - keep key catalog actions immediately usable.
 
-## Reference behavior to retain from the latest pass
+## Behaviour to retain from the current composition
 
-The latest implementation intentionally strengthened:
-
-- blue rear-world presence;
-- red as a coherent foreground plane rather than ghost outline;
-- game covers / functional UI above decorative color planes;
-- independent blue/red motion in contextual catalog rails;
-- black as a neutral visual layer rather than eliminating it.
+- black dominant, blue as a rear structural world, red as a scarce front plane;
+- depth from occlusion between materially different objects (blue mass, black aperture, full-colour cover, red blade), never from duplicated contours;
+- full-colour covers always above decorative planes and never crossed through the middle by a red element;
+- alternating dense and calm zones down the page;
+- mobile recomposed, not scaled.
 
 Improve these ideas rather than reverting to duplicated chromatic effects.
 
