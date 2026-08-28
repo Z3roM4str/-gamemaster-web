@@ -385,7 +385,9 @@ function paint(canvas: HTMLCanvasElement) {
   off.height = vh;
   const octx = off.getContext('2d');
   if (!octx) return;
-  octx.putImageData(new ImageData(bmp.data, vw, vh), 0, 0);
+  const img = octx.createImageData(vw, vh);
+  img.data.set(bmp.data);
+  octx.putImageData(img, 0, 0);
 
   const dpr = Math.min(window.devicePixelRatio || 1, 2);
   canvas.width = Math.round(rect.width * dpr);
