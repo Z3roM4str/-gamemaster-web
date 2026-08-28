@@ -98,6 +98,7 @@
 .dw-art,
 .dw-red {
   position: absolute;
+  inset: -12% -14%;
   pointer-events: none;
   will-change: transform;
 }
@@ -223,20 +224,6 @@
   align-items: center;
   column-gap: clamp(28px, 4vw, 70px);
   padding-block: clamp(30px, 5vw, 60px) clamp(56px, 7vw, 96px);
-}
-
-.dw-hero-art {
-  top: -16vh;
-  left: -22vw;
-  width: 140vw;
-  height: 142vh;
-}
-
-.dw-hero-red {
-  top: 15vh;
-  left: 40vw;
-  width: 62vw;
-  height: 54vh;
 }
 
 .dw-hero-copy {
@@ -476,13 +463,6 @@
   padding-block: clamp(80px, 10vw, 140px) clamp(40px, 5vw, 70px);
 }
 
-.dw-index-art {
-  top: -12vh;
-  left: -16vw;
-  width: 130vw;
-  height: 120vh;
-}
-
 .dw-index-head {
   display: flex;
   align-items: baseline;
@@ -501,6 +481,7 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  max-width: 74%;
 }
 
 .dw-row {
@@ -559,7 +540,7 @@
 
 .dw-rail-sec {
   position: relative;
-  padding-block: clamp(48px, 6vw, 92px);
+  padding-block: clamp(72px, 8.5vw, 136px) clamp(48px, 6vw, 92px);
 }
 
 .dw-rail-head {
@@ -671,13 +652,6 @@
   padding-block: clamp(60px, 8vw, 110px);
 }
 
-.dw-quote-art {
-  top: -12vh;
-  left: -16vw;
-  width: 132vw;
-  height: 122vh;
-}
-
 .dw-quote-inner {
   max-width: min(720px, 58%);
   margin-left: auto;
@@ -715,20 +689,6 @@
   flex-direction: column;
   justify-content: center;
   padding-block: clamp(70px, 9vw, 130px);
-}
-
-.dw-close-art {
-  top: -14vh;
-  left: -12vw;
-  width: 124vw;
-  height: 126vh;
-}
-
-.dw-close-red {
-  top: 18%;
-  right: -16vw;
-  width: 62vw;
-  height: 58vh;
 }
 
 .dw-close h2 {
@@ -866,21 +826,7 @@
     padding-block: 16px 60px;
   }
 
-  .dw-hero-art {
-    top: -14vh;
-    left: -50vw;
-    width: 200vw;
-    height: 122vh;
-  }
-
-  .dw-hero-red {
-    top: 4vh;
-    left: -18vw;
-    width: 122vw;
-    height: 44vh;
-  }
-
-  .dw-hero-stage {
+      .dw-hero-stage {
     width: min(212px, 56vw);
   }
 
@@ -907,11 +853,8 @@
     padding-block: 64px;
   }
 
-  .dw-index-art {
-    top: -8vh;
-    left: -46vw;
-    width: 200vw;
-    height: 104vh;
+    .dw-rows {
+    max-width: none;
   }
 
   .dw-row {
@@ -928,14 +871,7 @@
     min-height: 56svh;
   }
 
-  .dw-quote-art {
-    top: -10vh;
-    left: -50vw;
-    width: 200vw;
-    height: 100vh;
-  }
-
-  .dw-quote-inner {
+    .dw-quote-inner {
     max-width: 14ch;
   }
 
@@ -960,21 +896,7 @@
     min-height: 62svh;
   }
 
-  .dw-close-art {
-    top: -10vh;
-    left: -46vw;
-    width: 200vw;
-    height: 104vh;
-  }
-
-  .dw-close-red {
-    top: 12%;
-    right: -34vw;
-    width: 108vw;
-    height: 40vh;
-  }
-
-  .dw-footer nav {
+      .dw-footer nav {
     margin-left: 0;
     flex-wrap: wrap;
   }

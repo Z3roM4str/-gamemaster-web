@@ -94,19 +94,22 @@ function Item({ id }: { id: CoverId }) {
 /* Escena azul: se compone por capas. Zonas densas, zonas tenues y vacío. */
 type Layer = Record<string, number | string | undefined>;
 
-function Art({ className, depth, layers }: { className: string; depth: number; layers: Layer[] }) {
+type Mass = { c?: string; shape: number[][]; mshape?: number[][]; inner?: Layer[]; holes?: number[][][]; mholes?: number[][][] };
+type Scene = { masses?: Mass[]; layers?: Layer[] };
+
+function Art({ className, depth, scene }: { className: string; depth: number; scene: Scene }) {
   return (
     <div className={`dw-art ${className}`} data-depth={depth} aria-hidden="true">
-      <canvas data-art={JSON.stringify({ layers })} />
+      <canvas data-art={JSON.stringify(scene)} />
     </div>
   );
 }
 
 /* Pieza roja: sistema modular de placas, ranuras, rampas y satélites. */
-function Red({ className, depth, layers }: { className: string; depth: number; layers: Layer[] }) {
+function Red({ className, depth, scene }: { className: string; depth: number; scene: Scene }) {
   return (
     <div className={`dw-red ${className}`} data-depth={depth} aria-hidden="true">
-      <canvas data-red={JSON.stringify({ layers })} />
+      <canvas data-red={JSON.stringify(scene)} />
     </div>
   );
 }
@@ -159,30 +162,56 @@ export default function VisualPrototype() {
       <section className="dw-ch dw-hero">
         <Art
           className="dw-hero-art"
-          depth={64}
-          layers={[
-            { t: 'grid', cols: 30, rows: 20, horizon: 0.52, depth: 0.5, spread: 2.3, warp: 30, freq: 2.4, phase: 0.5, alpha: 0.95 },
-            { t: 'arcs', count: 5, cx: 0.63, cy: 0.44, r: 0.3, step: 0.26, squash: 0.5, rot: -14, alpha: 0.9 },
-            { t: 'nodes', count: 26, seed: 11, x: 0.44, y: 0.06, w: 0.42, h: 0.34, link: 0.3, alpha: 0.85, dense: 1 },
-            { t: 'rules', x: 0.06, y: 0.2, len: 0.5, pitch: 11, size: 7, vertical: 1, alpha: 0.8, dense: 1 },
-          ]}
+          depth={58}
+          scene={{
+            /* Arquitectura azul: nace fuera del viewport por arriba y por la
+               derecha. La retícula va tallada en negro dentro de la masa. */
+            masses: [
+              {
+                c: 'blue',
+                shape: [[0.52, -0.05], [1.1, -0.05], [1.1, 0.72], [0.95, 0.72], [0.95, 0.6], [0.74, 0.6], [0.74, 0.68], [0.52, 0.64], [0.46, 0.3]],
+                mshape: [[0.34, -0.06], [1.12, -0.06], [1.12, 0.4], [0.72, 0.45], [0.3, 0.24]],
+                mholes: [[[0.74, 0.06], [1.0, 0.05], [1.0, 0.13], [0.74, 0.14]]],
+                inner: [
+                  { t: 'grid', ink: 'black', cols: 26, rows: 18, horizon: 0.4, depth: 0.5, spread: 2.2, warp: 26, freq: 2.2, alpha: 1.5 },
+                  { t: 'route', ink: 'black', cols: 6, rows: 4, x: 0.48, y: 0.02, w: 0.6, h: 0.5, seed: 12, alpha: 1.1 },
+                ],
+                holes: [
+                  [[0.66, 0.1], [0.84, 0.1], [0.84, 0.17], [0.66, 0.17]],
+                  [[0.56, 0.42], [0.7, 0.42], [0.7, 0.46], [0.56, 0.46]],
+                ],
+              },
+            ],
+            layers: [
+              { t: 'arcs', count: 5, cx: 0.5, cy: 0.7, r: 0.34, step: 0.24, squash: 0.5, rot: -12, alpha: 0.85 },
+              { t: 'route', cols: 5, rows: 3, x: 0.06, y: 0.62, w: 0.34, h: 0.28, seed: 21, alpha: 0.55, dense: 1 },
+              { t: 'rules', x: 0.06, y: 0.2, len: 0.34, pitch: 11, size: 7, vertical: 1, alpha: 0.7, dense: 1 },
+            ],
+          }}
         />
         <Red
           className="dw-hero-red"
           depth={-22}
-          layers={[
-            /* Ensamblaje, no mancha: placa principal bajo los objetos, una
-               pieza secundaria desfasada y satélites que la vinculan. */
-            { t: 'plate', x: 0.4, y: 0.16, w: 0.5, h: 0.62, chamfer: 0.055, notch: 0.16 },
-            { t: 'slots', x: 0.42, y: 0.2, w: 0.13, count: 8, gap: 6, thickness: 1.6 },
-            { t: 'ramp', x: 0.4, y: 0.58, w: 0.5, h: 0.2, count: 20, dir: 'down' },
-            { t: 'aperture', x: 0.76, y: 0.24, w: 0.1, h: 0.05, chamfer: 0.22 },
-            { t: 'plate', x: 0.2, y: 0.52, w: 0.14, h: 0.16, chamfer: 0.14, notch: 0 },
-            { t: 'ramp', x: 0.2, y: 0.62, w: 0.14, h: 0.06, count: 8, dir: 'down' },
-            { t: 'bar', x: 0.06, y: 0.44, w: 0.11, h: 1.6 },
-            { t: 'bar', x: 0.1, y: 0.472, w: 0.06, h: 1.6 },
-            { t: 'ticks', x: 0.14, y: 0.3, count: 14, pitch: 7, size: 5 },
-          ]}
+          scene={{
+            /* Banda roja que cruza por detrás de las portadas y sale del
+               viewport por la derecha. */
+            masses: [
+              {
+                c: 'red',
+                shape: [[0.41, 0.44], [1.08, 0.32], [1.08, 0.6], [0.45, 0.68]],
+                mshape: [[0.18, 0.26], [1.12, 0.19], [1.12, 0.38], [0.22, 0.44]],
+                mholes: [[[0.8, 0.23], [1.02, 0.22], [1.02, 0.28], [0.8, 0.29]]],
+                inner: [{ t: 'rules', ink: 'black', x: 0.44, y: 0.46, len: 0.5, pitch: 13, size: 9, alpha: 1.3 }],
+                holes: [[[0.78, 0.36], [0.95, 0.34], [0.95, 0.4], [0.78, 0.42]]],
+              },
+            ],
+            layers: [
+              { t: 'plate', x: 0.53, y: 0.14, w: 0.22, h: 0.22, chamfer: 0.08, notch: 0.16 },
+              { t: 'slots', x: 0.55, y: 0.18, w: 0.08, count: 6, gap: 6, thickness: 1.6 },
+              { t: 'ramp', x: 0.53, y: 0.29, w: 0.22, h: 0.07, count: 12, dir: 'down' },
+              { t: 'ticks', x: 0.46, y: 0.72, count: 12, pitch: 8, size: 5 },
+            ],
+          }}
         />
 
         <div className="dw-hero-copy dw-fore" data-depth={-4} data-reveal>
@@ -235,11 +264,29 @@ export default function VisualPrototype() {
         <Art
           className="dw-index-art"
           depth={78}
-          layers={[
-            { t: 'contour', rings: 18, cx: 0.78, cy: 0.6, r: 0.42, stretch: 1.5, seed: 5, alpha: 0.95 },
-            { t: 'scan', x: 0.02, y: 0.06, w: 0.3, h: 0.34, count: 34, alpha: 0.65, dense: 1 },
-            { t: 'rules', x: 0.38, y: 0.9, len: 0.4, pitch: 10, size: 6, alpha: 0.6, dense: 1 },
-          ]}
+          scene={{
+            /* Gran territorio azul bajo el índice, con mapa de rutas tallado:
+               es el capítulo "mapa de mundos". El texto queda sobre negro. */
+            masses: [
+              {
+                c: 'blue',
+                shape: [[0.66, 0.18], [1.08, 0.12], [1.08, 0.92], [0.78, 1.0], [0.62, 0.6]],
+                mshape: [[-0.1, 0.8], [1.12, 0.75], [1.12, 0.94], [-0.1, 0.96]],
+                mholes: [[[0.06, 0.84], [0.42, 0.825], [0.42, 0.9], [0.06, 0.915]]],
+                inner: [
+                  { t: 'route', ink: 'black', cols: 4, rows: 6, x: 0.64, y: 0.16, w: 0.44, h: 0.8, seed: 8, alpha: 1.3 },
+                  { t: 'rules', ink: 'black', vertical: 1, x: 0.68, y: 0.24, len: 0.6, pitch: 13, size: 9, alpha: 1.3 },
+                ],
+                holes: [
+                  [[0.7, 0.26], [0.94, 0.23], [0.94, 0.31], [0.7, 0.34]],
+                  [[0.72, 0.64], [0.98, 0.62], [0.98, 0.69], [0.72, 0.71]],
+                ],
+              },
+            ],
+            layers: [
+              { t: 'contour', rings: 12, cx: 0.3, cy: 0.72, r: 0.22, stretch: 1.6, seed: 5, alpha: 0.6, dense: 1 },
+            ],
+          }}
         />
         <div className="dw-fore" data-depth={-2} data-reveal>
           <div className="dw-index-head">
@@ -270,21 +317,46 @@ export default function VisualPrototype() {
         <Art
           className="dw-index-art"
           depth={70}
-          layers={[
-            { t: 'grid', cols: 26, rows: 16, horizon: 0.06, depth: 0.86, spread: 2, warp: 22, freq: 1.8, phase: 1.4, alpha: 0.85 },
-            { t: 'rules', x: 0.03, y: 0.12, len: 0.42, pitch: 10, size: 6, vertical: 1, alpha: 0.7, dense: 1 },
-          ]}
+          scene={{
+            /* Campo azul continuo detrás de todo el rail: las portadas se
+               apoyan sobre él y el rojo queda en medio. */
+            masses: [
+              {
+                c: 'blue',
+                shape: [[-0.08, 0.29], [0.5, 0.265], [1.08, 0.285], [1.08, 0.9], [0.46, 0.97], [-0.08, 0.93]],
+                mshape: [[-0.1, 0.29], [1.12, 0.27], [1.12, 0.94], [-0.1, 0.98]],
+                mholes: [[[0.05, 0.85], [0.44, 0.845], [0.44, 0.93], [0.05, 0.935]]],
+                inner: [
+                  { t: 'grid', ink: 'black', cols: 30, rows: 16, horizon: 0.26, depth: 0.72, spread: 2.4, warp: 20, freq: 1.8, alpha: 1.6 },
+                  { t: 'nodes', ink: 'black', count: 24, seed: 14, x: 0.05, y: 0.8, w: 0.9, h: 0.16, link: 0.3, alpha: 1.3, dense: 1 },
+                ],
+                holes: [
+                  [[0.03, 0.83], [0.22, 0.825], [0.22, 0.91], [0.03, 0.915]],
+                  [[0.78, 0.8], [0.99, 0.795], [0.99, 0.87], [0.78, 0.875]],
+                ],
+              },
+            ],
+          }}
         />
         <Red
           className="dw-hero-red"
           depth={-19}
-          layers={[
-            { t: 'plate', x: 0.04, y: 0.34, w: 0.82, h: 0.3, chamfer: 0.22, notch: 0.1 },
-            { t: 'slots', x: 0.06, y: 0.38, w: 0.16, count: 5, gap: 7, thickness: 1.8 },
-            { t: 'ramp', x: 0.04, y: 0.52, w: 0.82, h: 0.12, count: 16, dir: 'down' },
-            { t: 'ticks', x: 0.62, y: 0.36, count: 16, pitch: 8, size: 5 },
-            { t: 'bar', x: 0.88, y: 0.42, w: 0.1, h: 2 },
-          ]}
+          scene={{
+            masses: [
+              {
+                c: 'red',
+                shape: [[-0.06, 0.45], [0.66, 0.41], [0.8, 0.53], [0.64, 0.65], [-0.06, 0.69]],
+                mshape: [[-0.1, 0.46], [0.78, 0.42], [0.9, 0.55], [-0.1, 0.66]],
+                inner: [{ t: 'rules', ink: 'black', x: 0.02, y: 0.49, len: 0.55, pitch: 12, size: 9, alpha: 1.4 }],
+                holes: [[[0.46, 0.45], [0.62, 0.44], [0.62, 0.49], [0.46, 0.5]]],
+              },
+            ],
+            layers: [
+              { t: 'ramp', x: -0.06, y: 0.6, w: 0.72, h: 0.09, count: 14, dir: 'down' },
+              { t: 'ticks', x: 0.78, y: 0.56, count: 12, pitch: 8, size: 5 },
+              { t: 'bar', x: 0.88, y: 0.48, w: 0.1, h: 1.8 },
+            ],
+          }}
         />
         <div className="dw-fore" data-depth={-2} data-reveal>
           <RailHead n="01" title="Destacados Switch 2" more="Ver los 24" />
@@ -308,10 +380,26 @@ export default function VisualPrototype() {
         <Art
           className="dw-quote-art"
           depth={92}
-          layers={[
-            { t: 'nodes', count: 30, seed: 21, x: 0.05, y: 0.2, w: 0.4, h: 0.5, link: 0.24, alpha: 0.9 },
-            { t: 'arcs', count: 3, cx: 0.2, cy: 0.5, r: 0.28, step: 0.3, squash: 0.55, rot: 8, alpha: 0.55 },
-          ]}
+          scene={{
+            masses: [
+              {
+                c: 'red',
+                shape: [[-0.08, 0.8], [1.08, 0.68], [1.08, 0.99], [-0.08, 0.99]],
+                mshape: [[-0.1, 0.82], [1.12, 0.76], [1.12, 0.99], [-0.1, 0.99]],
+                inner: [
+                  { t: 'signal', ink: 'black', x: 0.02, y: 0.86, w: 0.7, h: 0.15, lanes: 3, pitch: 14, seed: 9, alpha: 1.3 },
+                ],
+                holes: [
+                  [[0.16, 0.88], [0.38, 0.86], [0.38, 0.93], [0.16, 0.95]],
+                  [[0.72, 0.8], [0.96, 0.77], [0.96, 0.83], [0.72, 0.86]],
+                ],
+              },
+            ],
+            layers: [
+              { t: 'nodes', count: 26, seed: 21, x: 0.04, y: 0.16, w: 0.38, h: 0.44, link: 0.26, alpha: 0.9 },
+              { t: 'arcs', count: 3, cx: 0.22, cy: 0.3, r: 0.24, step: 0.3, squash: 0.55, rot: 8, alpha: 0.5, dense: 1 },
+            ],
+          }}
         />
         <div className="dw-quote-inner dw-fore" data-depth={-3} data-reveal>
           <h2 className="dw-display">
@@ -329,20 +417,49 @@ export default function VisualPrototype() {
         <Art
           className="dw-index-art"
           depth={58}
-          layers={[
-            { t: 'grid', cols: 32, rows: 22, horizon: 0.02, depth: 0.95, spread: 1.7, warp: 34, freq: 2.6, phase: 2.2, alpha: 1 },
-            { t: 'nodes', count: 18, seed: 33, x: 0.56, y: 0.04, w: 0.4, h: 0.3, link: 0.32, alpha: 0.7, dense: 1 },
-          ]}
+          scene={{
+            masses: [
+              {
+                c: 'blue',
+                shape: [[0.58, 0.29], [1.08, 0.255], [1.08, 0.9], [0.68, 0.95], [0.52, 0.6]],
+                mshape: [[-0.1, 0.3], [1.12, 0.27], [1.12, 0.9], [-0.1, 0.95]],
+                mholes: [[[0.58, 0.82], [1.0, 0.815], [1.0, 0.89], [0.58, 0.895]]],
+                inner: [
+                  { t: 'grid', ink: 'black', cols: 24, rows: 16, horizon: 0.26, depth: 0.68, spread: 1.9, warp: 22, freq: 2.4, alpha: 1.6 },
+                  { t: 'signal', ink: 'black', x: 0.6, y: 0.79, w: 0.44, h: 0.13, lanes: 3, pitch: 13, seed: 17, alpha: 1.2, dense: 1 },
+                ],
+                holes: [
+                  [[0.63, 0.32], [0.86, 0.31], [0.86, 0.38], [0.63, 0.39]],
+                  [[0.72, 0.82], [0.98, 0.81], [0.98, 0.88], [0.72, 0.89]],
+                ],
+              },
+            ],
+            layers: [
+              { t: 'route', cols: 5, rows: 3, x: 0.08, y: 0.5, w: 0.32, h: 0.28, seed: 33, alpha: 0.6, dense: 1 },
+            ],
+          }}
         />
         <Red
           className="dw-close-red"
           depth={-17}
-          layers={[
-            { t: 'plate', x: 0.44, y: 0.04, w: 0.12, h: 0.92, chamfer: 0.12, notch: 0 },
-            { t: 'slots', x: 0.455, y: 0.42, w: 0.09, count: 7, gap: 9, thickness: 1.8 },
-            { t: 'ramp', x: 0.44, y: 0.04, w: 0.12, h: 0.16, count: 12, dir: 'up' },
-            { t: 'ticks', x: 0.62, y: 0.5, count: 9, pitch: 9, size: 6 },
-          ]}
+          scene={{
+            masses: [
+              {
+                c: 'red',
+                shape: [[0.36, 0.28], [0.53, 0.26], [0.49, 0.84], [0.32, 0.82]],
+                mshape: [[0.2, 0.29], [0.42, 0.275], [0.38, 0.87], [0.16, 0.855]],
+                inner: [{ t: 'rules', ink: 'black', vertical: 1, x: 0.37, y: 0.32, len: 0.48, pitch: 12, size: 10, alpha: 1.4 }],
+                holes: [
+                  [[0.33, 0.45], [0.52, 0.445], [0.52, 0.49], [0.33, 0.495]],
+                  [[0.33, 0.65], [0.51, 0.645], [0.51, 0.685], [0.33, 0.69]],
+                ],
+              },
+            ],
+            layers: [
+              { t: 'ramp', x: 0.32, y: 0.26, w: 0.21, h: 0.11, count: 12, dir: 'up' },
+              { t: 'ticks', x: 0.58, y: 0.5, count: 9, pitch: 9, size: 6 },
+            ],
+          }}
         />
         <div className="dw-fore" data-depth={-2} data-reveal>
           <RailHead n="02" title="Mundo Mario" more="Ver los 18" />
@@ -359,21 +476,36 @@ export default function VisualPrototype() {
         <Art
           className="dw-quote-art"
           depth={104}
-          layers={[
-            { t: 'contour', rings: 14, cx: 0.24, cy: 0.5, r: 0.3, stretch: 1.9, seed: 9, alpha: 0.6 },
-            { t: 'scan', x: 0.6, y: 0.5, w: 0.38, h: 0.4, count: 30, alpha: 0.5, dense: 1 },
-          ]}
+          scene={{
+            layers: [
+              { t: 'contour', rings: 14, cx: 0.2, cy: 0.5, r: 0.28, stretch: 1.9, seed: 9, alpha: 0.6 },
+              { t: 'signal', x: 0.58, y: 0.52, w: 0.4, h: 0.3, lanes: 5, pitch: 9, seed: 4, alpha: 0.55, dense: 1 },
+            ],
+          }}
         />
         <Red
           className="dw-hero-red"
           depth={-15}
-          layers={[
-            { t: 'plate', x: 0.02, y: 0.3, w: 0.9, h: 0.17, chamfer: 0.09, notch: 0.07 },
-            { t: 'ramp', x: 0.02, y: 0.4, w: 0.9, h: 0.07, count: 12, dir: 'down' },
-            { t: 'slots', x: 0.7, y: 0.32, w: 0.2, count: 4, gap: 6, thickness: 1.6 },
-            { t: 'ticks', x: 0.06, y: 0.5, count: 18, pitch: 7, size: 5 },
-            { t: 'bar', x: 0.94, y: 0.34, w: 0.05, h: 1.6 },
-          ]}
+          scene={{
+            masses: [
+              {
+                c: 'red',
+                shape: [[-0.08, 0.34], [1.08, 0.325], [1.08, 0.66], [-0.08, 0.74]],
+                mshape: [[-0.1, 0.35], [1.12, 0.33], [1.12, 0.64], [-0.1, 0.7]],
+                inner: [
+                  { t: 'route', ink: 'black', cols: 10, rows: 3, x: -0.05, y: 0.36, w: 1.1, h: 0.34, seed: 27, alpha: 1.2 },
+                ],
+                holes: [
+                  [[0.08, 0.37], [0.28, 0.368], [0.28, 0.43], [0.08, 0.432]],
+                  [[0.72, 0.36], [0.94, 0.358], [0.94, 0.41], [0.72, 0.412]],
+                ],
+              },
+            ],
+            layers: [
+              { t: 'ramp', x: -0.08, y: 0.62, w: 1.16, h: 0.11, count: 14, dir: 'down' },
+              { t: 'ticks', x: 0.3, y: 0.75, count: 20, pitch: 8, size: 5 },
+            ],
+          }}
         />
         <div className="dw-fore" data-depth={-2} data-reveal>
           <RailHead n="03" title="RPG y aventuras" more="Ver los 31" />
@@ -392,24 +524,43 @@ export default function VisualPrototype() {
         <Art
           className="dw-close-art"
           depth={74}
-          layers={[
-            { t: 'grid', cols: 28, rows: 18, horizon: 0.5, depth: 0.46, spread: 2.1, warp: 26, freq: 2, phase: 3.1, alpha: 0.9 },
-            { t: 'arcs', count: 4, cx: 0.34, cy: 0.5, r: 0.32, step: 0.24, squash: 0.46, rot: 10, alpha: 0.7 },
-            { t: 'rules', x: 0.92, y: 0.24, len: 0.44, pitch: 10, size: 6, vertical: 1, alpha: 0.65, dense: 1 },
-          ]}
+          scene={{
+            masses: [
+              {
+                c: 'blue',
+                shape: [[0.64, 0.14], [1.08, 0.08], [1.08, 0.98], [0.74, 1.04], [0.6, 0.5]],
+                mshape: [[-0.1, 0.76], [1.12, 0.72], [1.12, 1.08], [-0.1, 1.08]],
+                inner: [
+                  { t: 'grid', ink: 'black', cols: 22, rows: 16, horizon: 0.16, depth: 0.8, spread: 1.6, warp: 22, freq: 2, alpha: 1.6 },
+                  { t: 'nodes', ink: 'black', count: 20, seed: 41, x: 0.62, y: 0.2, w: 0.44, h: 0.7, link: 0.22, alpha: 1.3, dense: 1 },
+                ],
+                holes: [[[0.68, 0.3], [0.92, 0.27], [0.92, 0.36], [0.68, 0.39]]],
+              },
+            ],
+            layers: [
+              { t: 'arcs', count: 4, cx: 0.24, cy: 0.72, r: 0.26, step: 0.26, squash: 0.46, rot: 10, alpha: 0.6, dense: 1 },
+            ],
+          }}
         />
         <Red
           className="dw-close-red"
           depth={-20}
-          layers={[
-            { t: 'plate', x: 0.38, y: 0.14, w: 0.3, h: 0.44, chamfer: 0.08, notch: 0 },
-            { t: 'aperture', x: 0.47, y: 0.26, w: 0.13, h: 0.05, chamfer: 0.2 },
-            { t: 'slots', x: 0.4, y: 0.18, w: 0.09, count: 7, gap: 6, thickness: 1.6 },
-            { t: 'ramp', x: 0.38, y: 0.44, w: 0.3, h: 0.14, count: 15, dir: 'down' },
-            { t: 'plate', x: 0.14, y: 0.56, w: 0.11, h: 0.11, chamfer: 0.16, notch: 0 },
-            { t: 'bar', x: 0.78, y: 0.2, w: 0.09, h: 1.6 },
-            { t: 'ticks', x: 0.2, y: 0.3, count: 11, pitch: 8, size: 5 },
-          ]}
+          scene={{
+            masses: [
+              {
+                c: 'red',
+                shape: [[0.52, 0.36], [0.84, 0.3], [0.86, 0.62], [0.56, 0.68], [0.5, 0.5]],
+                mshape: [[0.5, 0.78], [0.98, 0.73], [1.0, 0.95], [0.54, 1.0]],
+                inner: [{ t: 'signal', ink: 'black', x: 0.53, y: 0.4, w: 0.3, h: 0.16, lanes: 3, pitch: 12, seed: 11, alpha: 1.4 }],
+                holes: [[[0.6, 0.56], [0.8, 0.53], [0.8, 0.59], [0.6, 0.62]]],
+              },
+            ],
+            layers: [
+              { t: 'ramp', x: 0.5, y: 0.56, w: 0.37, h: 0.12, count: 14, dir: 'down' },
+              { t: 'plate', x: 0.88, y: 0.42, w: 0.08, h: 0.08, chamfer: 0.16, notch: 0 },
+              { t: 'ticks', x: 0.53, y: 0.72, count: 11, pitch: 8, size: 5 },
+            ],
+          }}
         />
         <div className="dw-fore" data-depth={-4} data-reveal>
           <h2 className="dw-display">Dinos qué buscas y te decimos si lo tenemos</h2>
