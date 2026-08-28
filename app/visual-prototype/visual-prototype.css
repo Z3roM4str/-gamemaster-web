@@ -1,26 +1,28 @@
-/* GameMaster — Prototipo visual v2 (experimento aislado)
+/* GameMaster — Prototipo visual v3
  *
- * Tesis: no es una página negra decorada con rojo y azul. Es un espacio
- * cromoestereoscópico dentro del cual vive la interfaz.
+ * De "sitio experimental con rojo/azul" a plataforma premium cuya identidad
+ * ES la profundidad rojo/azul. El negro domina; el color aparece como
+ * arquitectura dentro del negro, nunca como superficie.
  *
- *   negro (vacío)  <-  AZUL (mundo posterior)  <-  ROJO (plano intermedio)
- *   <-  PORTADAS / CONTENIDO (plano más cercano, ocluye al rojo)
- *
- * Invariante anti-anaglifo: cada objeto existe una sola vez. Ninguna forma
- * se duplica ni se desplaza en dos colores. La profundidad viene de
- * oclusión, escala, contraste y movimiento diferencial entre geometrías
- * que son materialmente distintas entre sí.
+ * Planos: negro (vacío) <- AZUL (fondo) <- ROJO (intermedio) <- portadas.
+ * Invariante anti-anaglifo: cada objeto existe una sola vez. Nada se duplica
+ * ni se desplaza en dos colores; la profundidad viene de oclusión, escala,
+ * posición y movimiento relativo.
  */
 
 .dw {
-  --black: #050505;
-  --red: #ff1e1e;
-  --red-deep: #d10f0f;
-  --blue: #1616ff;
-  --white: #f4f4ef;
-  --muted: #91919b;
+  --black: #040405;
+  --ink: #08080b;
+  --red: #ff2020;
+  --blue: #1b34ff;
+  --blue-hi: #5c7aff;
+  --white: #f2f2ee;
+  --muted: #8b8b95;
+  --dim: #5c5c66;
+  --line: rgba(242, 242, 238, 0.11);
 
-  --gutter: clamp(20px, 4.4vw, 72px);
+  --gutter: clamp(20px, 4.2vw, 76px);
+  --rail-gap: clamp(14px, 1.5vw, 22px);
 
   position: relative;
   background: var(--black);
@@ -42,195 +44,266 @@
 }
 
 .dw :focus-visible {
-  outline: 2px solid var(--red);
-  outline-offset: 3px;
+  outline: 1px solid var(--red);
+  outline-offset: 4px;
 }
+
+/* Retícula de columnas fija: hilo conductor de toda la página, hace que el
+   producto se lea como un sistema y no como secciones sueltas. */
+.dw-frame {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  padding-inline: var(--gutter);
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.dw-frame span {
+  border-left: 1px solid rgba(27, 52, 255, 0.075);
+}
+
+.dw-frame span:last-child {
+  border-right: 1px solid rgba(27, 52, 255, 0.075);
+}
+
+/* ---------- tipografía ---------- */
 
 .dw-display {
   font-family: var(--font-display, system-ui, sans-serif);
   text-transform: uppercase;
-  line-height: 0.86;
-  letter-spacing: -0.005em;
+  line-height: 0.84;
+  letter-spacing: -0.012em;
   text-wrap: balance;
   margin: 0;
 }
 
-/* ============ Chapters: una sola pieza vertical ============ */
+.dw-mono {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+  color: var(--dim);
+}
+
+/* ---------- capas ---------- */
 
 .dw-ch {
   position: relative;
+  z-index: 1;
   padding-inline: var(--gutter);
 }
 
-/* Los campos azules y las masas rojas se salen deliberadamente de su
-   capítulo: el arte no termina donde termina un componente. */
-.dw-field,
+.dw-art,
 .dw-red {
   position: absolute;
   pointer-events: none;
   will-change: transform;
 }
 
-.dw-field {
+.dw-art {
   z-index: 0;
 }
 
-.dw-field canvas {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-/* La masa roja se dibuja en canvas: su forma, grabado, halftone y aperturas
-   viven ahí, no en un clip-path plano. */
 .dw-red {
   z-index: 1;
 }
 
+.dw-art canvas,
 .dw-red canvas {
   display: block;
   width: 100%;
   height: 100%;
 }
 
-/* El contenido siempre por encima del rojo: es lo que produce la oclusión. */
 .dw-fore {
   position: relative;
   z-index: 2;
   will-change: transform;
 }
 
-/* ============ Nav ============ */
+/* Revelado: la página entra por continuidad, no por bloques. */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 900ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- nav ---------- */
 
 .dw-nav {
   position: sticky;
   top: 0;
-  z-index: 30;
+  z-index: 40;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 22px var(--gutter);
-  background: linear-gradient(to bottom, rgba(5, 5, 5, 0.96) 38%, rgba(5, 5, 5, 0));
+  gap: clamp(20px, 3vw, 44px);
+  padding: 18px var(--gutter);
+  background: linear-gradient(to bottom, rgba(4, 4, 5, 0.97) 40%, rgba(4, 4, 5, 0));
 }
 
 .dw-logo {
   font-family: var(--font-display, system-ui, sans-serif);
-  font-size: 21px;
-  letter-spacing: 0.05em;
+  font-size: 20px;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.dw-logo b {
-  color: var(--red);
-  font-weight: inherit;
+.dw-logo i {
+  width: 6px;
+  height: 6px;
+  background: var(--red);
+  font-style: normal;
 }
 
 .dw-nav-links {
   display: flex;
   align-items: center;
-  gap: clamp(18px, 2.6vw, 34px);
-  font-size: 12px;
-  letter-spacing: 0.14em;
+  gap: clamp(16px, 2.2vw, 30px);
+  font-size: 11.5px;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--muted);
+  margin-left: auto;
+}
+
+.dw-nav-links a {
+  position: relative;
+  padding-block: 4px;
+  transition: color 240ms ease;
 }
 
 .dw-nav-links a:hover {
   color: var(--white);
 }
 
-.dw-nav-links .is-cta {
+.dw-nav-links a.is-on {
   color: var(--white);
-  border-bottom: 2px solid var(--red);
-  padding-bottom: 3px;
 }
 
-.dw-flag {
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--muted);
-  white-space: nowrap;
-  opacity: 0.75;
+.dw-nav-links a.is-on::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 1px;
+  background: var(--red);
 }
 
-/* ============ 1. HERO ============ */
+.dw-nav-meta {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.dw-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--red);
+}
+
+/* ---------- hero ---------- */
 
 .dw-hero {
-  min-height: 104svh;
+  min-height: 100svh;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
   align-items: center;
-  gap: clamp(24px, 4vw, 64px);
-  padding-block: clamp(40px, 7vw, 90px) clamp(80px, 12vw, 150px);
+  column-gap: clamp(28px, 4vw, 70px);
+  padding-block: clamp(30px, 5vw, 60px) clamp(56px, 7vw, 96px);
 }
 
-/* Mundo azul: entorno completo, sangra por los cuatro lados. */
-.dw-hero-field {
-  top: -26vh;
-  left: -26vw;
-  width: 152vw;
-  height: 172vh;
+.dw-hero-art {
+  top: -16vh;
+  left: -22vw;
+  width: 140vw;
+  height: 142vh;
 }
 
-/* Masa roja: ocupa el costado derecho, por detrás de los objetos.
-   La tipografía queda a la izquierda sobre negro. */
 .dw-hero-red {
-  top: 10vh;
-  left: 29vw;
-  width: 92vw;
-  height: 70vh;
+  top: 15vh;
+  left: 40vw;
+  width: 62vw;
+  height: 54vh;
 }
 
 .dw-hero-copy {
   grid-column: 1;
-  max-width: 24ch;
-}
-
-.dw-hero-title em {
-  color: var(--red);
+  max-width: 38ch;
 }
 
 .dw-eyebrow {
-  font-size: 11px;
-  letter-spacing: 0.28em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 clamp(18px, 2.4vw, 30px);
+  font-size: 10.5px;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--muted);
-  margin: 0 0 22px;
+}
+
+.dw-eyebrow b {
+  font-weight: 400;
+  color: var(--white);
+}
+
+.dw-eyebrow s {
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+  text-decoration: none;
+  max-width: 90px;
 }
 
 .dw-hero-title {
-  font-size: clamp(60px, 9.4vw, 168px);
+  font-size: clamp(44px, 5.7vw, 98px);
 }
 
 .dw-hero-title em {
   display: block;
   font-style: normal;
+  color: var(--red);
 }
 
-.dw-hero-copy p {
-  font-size: clamp(14px, 1.15vw, 17px);
-  line-height: 1.55;
+.dw-hero-lede {
+  font-size: clamp(13px, 0.98vw, 15.5px);
+  line-height: 1.65;
   color: var(--muted);
-  max-width: 34ch;
-  margin: 28px 0 32px;
+  max-width: 42ch;
+  margin: clamp(18px, 2vw, 26px) 0 clamp(20px, 2.2vw, 28px);
 }
 
 .dw-cta {
   display: flex;
-  gap: 12px;
+  gap: 10px;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .dw-btn {
   display: inline-flex;
   align-items: center;
-  padding: 13px 24px;
-  font-size: 12px;
-  letter-spacing: 0.12em;
+  gap: 10px;
+  padding: 13px 22px;
+  font-size: 11.5px;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  transition: transform 200ms ease;
+  border: 1px solid transparent;
+  transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1), background 240ms ease,
+    border-color 240ms ease;
 }
 
 .dw-btn:hover {
@@ -245,62 +318,116 @@
   font-weight: 600;
 }
 
-.dw-btn--ghost {
-  border: 1px solid rgba(244, 244, 239, 0.28);
+.dw .dw-btn--solid:hover {
+  background: var(--red);
+  color: var(--white);
 }
 
-/* Los objetos destacados: por delante del rojo, tapándolo. */
-.dw-hero-object {
+.dw-btn--line {
+  border-color: rgba(242, 242, 238, 0.24);
+  color: var(--white);
+}
+
+.dw-btn--line:hover {
+  border-color: var(--red);
+}
+
+/* Tira de especificaciones: da lectura técnica sin ruido. */
+.dw-spec {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(16px, 2vw, 34px);
+  margin-top: clamp(26px, 3.2vw, 44px);
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+
+.dw-spec div {
+  min-width: 84px;
+}
+
+.dw-spec dt {
+  font-size: 9.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin-bottom: 6px;
+}
+
+.dw-spec dd {
+  margin: 0;
+  font-size: 15px;
+  font-variant-numeric: tabular-nums;
+}
+
+.dw-spec dd b {
+  font-weight: 500;
+}
+
+/* Objetos del hero: delante del rojo, tapándolo. */
+.dw-hero-stage {
   position: relative;
   grid-column: 2;
-  justify-self: center;
-  width: min(320px, 28vw);
+  justify-self: end;
+  width: min(390px, 34vw);
 }
 
-/* Segundo objeto, descolgado: refuerza que el rojo es un plano físico
-   detrás de varios objetos, no un adorno de uno solo. */
-.dw-hero-object-second {
+.dw-hero-tag {
   position: absolute;
-  left: -46%;
-  bottom: -22%;
-  width: 62%;
+  top: -30px;
+  left: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
 }
 
-/* ============ Portadas: plano más cercano ============ */
+.dw-hero-tag b {
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--red);
+  font-variant-numeric: tabular-nums;
+}
+
+.dw-hero-second {
+  position: absolute;
+  left: -44%;
+  bottom: -22%;
+  width: 44%;
+}
+
+/* ---------- portadas ---------- */
 
 .dw-cover {
   position: relative;
   display: block;
   width: 100%;
   aspect-ratio: 3 / 4;
-  background: linear-gradient(158deg, var(--c1) 0%, var(--c2) 78%);
+  background:
+    radial-gradient(120% 90% at 22% 12%, var(--c1) 0%, transparent 62%),
+    linear-gradient(168deg, var(--c1) 0%, var(--c2) 72%);
   /* Sombra neutra, nunca cromática: sostiene la oclusión sobre el rojo. */
-  box-shadow: 0 24px 48px -18px rgba(0, 0, 0, 0.9), 0 2px 0 0 rgba(0, 0, 0, 0.6);
+  box-shadow: 0 26px 54px -22px rgba(0, 0, 0, 0.95);
   overflow: hidden;
-  transition: transform 220ms ease;
+  transition: transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.dw-cover::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(200deg, rgba(255, 255, 255, 0.07), transparent 46%);
+.dw-cover--wide {
+  aspect-ratio: 16 / 9;
 }
 
 .dw-cover::after {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: rgba(244, 244, 239, 0.16);
+  inset: 0;
+  border: 1px solid rgba(242, 242, 238, 0.1);
 }
 
 .dw-cover-mark {
   position: absolute;
   inset: 0;
-  opacity: 0.5;
+  opacity: 0.44;
 }
 
 .dw-cover-mark svg {
@@ -313,136 +440,178 @@
   left: 0;
   right: 0;
   bottom: 0;
-  padding: 14px 14px 13px;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.86) 42%, transparent);
+  padding: 30px 14px 12px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 34%, transparent);
 }
 
 .dw-cover-meta strong {
   display: block;
   font-size: 13px;
   font-weight: 500;
-  line-height: 1.25;
+  line-height: 1.22;
 }
 
 .dw-cover-meta span {
   display: block;
-  margin-top: 4px;
-  font-size: 10px;
-  letter-spacing: 0.12em;
+  margin-top: 5px;
+  font-size: 9.5px;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--muted);
 }
 
-.dw-item:hover .dw-cover {
-  transform: translateY(-6px);
+.dw-item {
+  flex: 0 0 auto;
+  width: var(--cw, 190px);
 }
 
-/* ============ 2. VACÍO: estructura azul cruzando el negro ============ */
+.dw-item:hover .dw-cover,
+.dw-item:focus-within .dw-cover {
+  transform: translateY(-8px);
+}
 
-.dw-void {
-  min-height: 82svh;
+/* ---------- índice de universos ---------- */
+
+.dw-index {
+  padding-block: clamp(80px, 10vw, 140px) clamp(40px, 5vw, 70px);
+}
+
+.dw-index-art {
+  top: -12vh;
+  left: -16vw;
+  width: 130vw;
+  height: 120vh;
+}
+
+.dw-index-head {
   display: flex;
-  align-items: center;
+  align-items: baseline;
+  gap: 18px;
+  margin-bottom: clamp(26px, 3.4vw, 46px);
 }
 
-.dw-void-field {
-  top: -26vh;
-  left: -22vw;
-  width: 150vw;
-  height: 132vh;
-  opacity: 0.9;
+.dw-index-head s {
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+  text-decoration: none;
 }
 
-.dw-void-title {
-  font-size: clamp(44px, 8.6vw, 150px);
-  max-width: 15ch;
-}
-
-.dw-void-title i {
-  font-style: normal;
-  color: var(--red);
-}
-
-.dw-void--right {
-  justify-content: flex-end;
-  text-align: right;
-}
-
-.dw-void--right .dw-void-title {
-  max-width: 13ch;
-}
-
-/* Lista monumental de universos: tipografía, no tarjetas. */
-.dw-universes {
+.dw-rows {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
 }
 
-.dw-universes li {
-  display: flex;
+.dw-row {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr) minmax(0, 0.9fr) auto;
   align-items: baseline;
-  gap: clamp(14px, 2vw, 32px);
-  padding: clamp(8px, 1.1vw, 15px) 0;
-  border-bottom: 1px solid rgba(244, 244, 239, 0.1);
+  gap: clamp(14px, 2vw, 34px);
+  padding-block: clamp(14px, 1.8vw, 24px);
+  border-top: 1px solid var(--line);
+  transition: border-color 300ms ease;
 }
 
-.dw-universes .u-name {
+.dw-row:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.dw-row:hover {
+  border-top-color: rgba(255, 32, 32, 0.55);
+}
+
+.dw-row-n {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: var(--dim);
+  font-variant-numeric: tabular-nums;
+}
+
+.dw-row-name {
   font-family: var(--font-display, system-ui, sans-serif);
   text-transform: uppercase;
-  font-size: clamp(30px, 5.4vw, 82px);
+  font-size: clamp(26px, 3.6vw, 58px);
   line-height: 0.9;
+  transition: color 300ms ease;
 }
 
-.dw-universes li:nth-child(3) .u-name {
+.dw-row:hover .dw-row-name {
   color: var(--red);
 }
 
-.dw-universes .u-note {
-  font-size: 12px;
+.dw-row-note {
+  font-size: 12.5px;
+  line-height: 1.5;
   color: var(--muted);
-  letter-spacing: 0.04em;
-  margin-left: auto;
-  text-align: right;
-  max-width: 26ch;
 }
 
-/* ============ 3. RAILS ============ */
+.dw-row-count {
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--dim);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* ---------- rails ---------- */
+
+.dw-rail-sec {
+  position: relative;
+  padding-block: clamp(48px, 6vw, 92px);
+}
 
 .dw-rail-head {
   display: flex;
   align-items: baseline;
-  justify-content: space-between;
-  gap: 20px;
-  margin-bottom: clamp(20px, 2.6vw, 34px);
+  gap: clamp(12px, 1.6vw, 22px);
+  margin-bottom: clamp(20px, 2.4vw, 32px);
+}
+
+.dw-rail-n {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: var(--red);
+  font-variant-numeric: tabular-nums;
 }
 
 .dw-rail-head h2 {
   font-family: var(--font-display, system-ui, sans-serif);
   text-transform: uppercase;
-  font-size: clamp(24px, 3.4vw, 46px);
+  font-size: clamp(21px, 2.5vw, 36px);
+  line-height: 0.95;
   margin: 0;
-  line-height: 0.92;
 }
 
-.dw-rail-head span {
-  font-size: 11px;
-  letter-spacing: 0.14em;
+.dw-rail-head s {
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+  text-decoration: none;
+}
+
+.dw-rail-head .dw-more {
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--muted);
   white-space: nowrap;
+  transition: color 240ms ease;
 }
 
-/* El rail sangra hasta el borde del viewport: el arte no se encierra. */
+.dw-rail-head .dw-more:hover {
+  color: var(--red);
+}
+
 .dw-rail {
   display: flex;
-  gap: clamp(20px, 2.4vw, 34px);
+  gap: var(--rail-gap);
   overflow-x: auto;
   scroll-snap-type: x proximity;
+  scroll-padding-left: var(--gutter);
   margin-inline: calc(var(--gutter) * -1);
-  padding: 8px var(--gutter) 30px;
+  padding: 10px var(--gutter) 26px;
   scrollbar-width: none;
 }
 
@@ -450,145 +619,164 @@
   display: none;
 }
 
-.dw-item {
-  flex: 0 0 auto;
-  width: clamp(148px, 15.5vw, 218px);
+.dw-rail > * {
   scroll-snap-align: start;
 }
 
-/* --- Rail A: placa roja irregular por detrás de varias portadas --- */
-
-.dw-railA {
-  padding-block: clamp(60px, 8vw, 110px) clamp(40px, 6vw, 80px);
+/* Rail tipo A: pieza destacada 16:9 + pósters. Rompe la monotonía. */
+.dw-feature {
+  flex: 0 0 auto;
+  width: min(560px, 46vw);
 }
 
-.dw-railA-field {
-  top: -18vh;
-  left: -30vw;
-  width: 145vw;
-  height: 128vh;
-  opacity: 0.95;
+.dw-feature-body {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-top: 14px;
 }
 
-.dw-railA-red {
-  /* Cruza el rail a la altura del cuerpo de las portadas: se ve en los
-     huecos entre ellas y sobresale por los extremos. */
-  top: calc(50% - 40px);
-  left: -10vw;
-  width: 86vw;
-  height: 300px;
+.dw-feature-body h3 {
+  font-family: var(--font-display, system-ui, sans-serif);
+  text-transform: uppercase;
+  font-size: clamp(19px, 2vw, 28px);
+  margin: 0;
+  line-height: 0.95;
 }
 
-/* --- Rail B: arquitectura azul dominante, rojo vertical localizado --- */
-
-.dw-railB {
-  padding-block: clamp(70px, 9vw, 120px);
+.dw-feature-body p {
+  margin: 0;
+  font-size: 12px;
+  color: var(--muted);
+  max-width: 30ch;
+  line-height: 1.5;
 }
 
-.dw-railB-field {
-  top: -30vh;
-  right: -34vw;
-  width: 132vw;
-  height: 172vh;
+/* Rail tipo C: compacto y denso. */
+.dw-rail--dense {
+  --cw: clamp(112px, 11vw, 150px);
 }
 
-.dw-railB-red {
-  /* Columna vertical que desaparece por detrás de las portadas. */
-  top: -14vh;
-  left: 58%;
-  width: clamp(120px, 13vw, 200px);
-  height: 120vh;
+.dw-rail--tall {
+  --cw: clamp(160px, 16vw, 226px);
 }
 
-/* --- Rail C: gran intervención roja atravesando la colección --- */
+/* ---------- transición editorial ---------- */
 
-.dw-railC {
-  padding-block: clamp(70px, 9vw, 120px) clamp(80px, 11vw, 150px);
+.dw-quote {
+  position: relative;
+  min-height: 74svh;
+  display: flex;
+  align-items: center;
+  padding-block: clamp(60px, 8vw, 110px);
 }
 
-.dw-railC-field {
+.dw-quote-art {
   top: -12vh;
-  left: -18vw;
-  width: 140vw;
-  height: 116vh;
-  opacity: 0.55;
+  left: -16vw;
+  width: 132vw;
+  height: 122vh;
 }
 
-.dw-railC-red {
-  top: 30%;
-  left: -18vw;
-  width: 140vw;
-  height: clamp(260px, 34vh, 380px);
+.dw-quote-inner {
+  max-width: min(720px, 58%);
+  margin-left: auto;
+  text-align: right;
 }
 
-/* ============ Cierre ============ */
+.dw-quote-inner h2 {
+  font-family: var(--font-display, system-ui, sans-serif);
+  text-transform: uppercase;
+  font-size: clamp(38px, 6.4vw, 106px);
+  line-height: 0.86;
+  margin: 0;
+}
+
+.dw-quote-inner h2 i {
+  font-style: normal;
+  color: var(--red);
+}
+
+.dw-quote-inner p {
+  margin: clamp(18px, 2.2vw, 28px) 0 0;
+  max-width: 36ch;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--muted);
+  margin-left: auto;
+}
+
+/* ---------- cierre ---------- */
 
 .dw-close {
+  position: relative;
   min-height: 78svh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-block: clamp(60px, 9vw, 120px);
+  padding-block: clamp(70px, 9vw, 130px);
 }
 
-.dw-close-field {
-  top: -22vh;
-  left: -10vw;
+.dw-close-art {
+  top: -14vh;
+  left: -12vw;
   width: 124vw;
-  height: 142vh;
-  opacity: 0.85;
+  height: 126vh;
 }
 
 .dw-close-red {
-  top: 24%;
-  right: -22vw;
-  width: 70vw;
-  height: 60vh;
+  top: 18%;
+  right: -16vw;
+  width: 62vw;
+  height: 58vh;
 }
 
-.dw-close-title {
-  font-size: clamp(42px, 7.6vw, 128px);
-  max-width: 16ch;
-}
-
-.dw-close-lines {
-  display: flex;
-  flex-wrap: wrap;
-  gap: clamp(24px, 4vw, 64px);
-  margin-top: clamp(30px, 4vw, 52px);
-}
-
-.dw-close-lines div {
-  min-width: 160px;
-}
-
-.dw-close-lines strong {
-  display: block;
+.dw-close h2 {
   font-family: var(--font-display, system-ui, sans-serif);
   text-transform: uppercase;
-  font-size: 19px;
-  font-weight: 400;
-  margin-bottom: 5px;
-}
-
-.dw-close-lines p {
+  font-size: clamp(38px, 6vw, 104px);
+  line-height: 0.86;
   margin: 0;
-  font-size: 12px;
-  color: var(--muted);
-  line-height: 1.5;
+  max-width: 15ch;
 }
 
-.dw-close-lines em {
-  display: block;
-  margin-top: 8px;
-  font-style: normal;
-  font-size: 11px;
-  letter-spacing: 0.14em;
+.dw-close-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: clamp(20px, 2.6vw, 40px);
+  margin-top: clamp(34px, 4.4vw, 62px);
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  max-width: 900px;
+}
+
+.dw-close-grid h3 {
+  font-family: var(--font-display, system-ui, sans-serif);
+  text-transform: uppercase;
+  font-size: 17px;
+  font-weight: 400;
+  margin: 0 0 6px;
+}
+
+.dw-close-grid p {
+  margin: 0 0 10px;
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.dw-close-grid span {
+  font-size: 10px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--red);
 }
 
-/* ============ Footer ============ */
+.dw-close .dw-cta {
+  margin-top: clamp(30px, 3.6vw, 48px);
+}
+
+/* ---------- footer ---------- */
 
 .dw-footer {
   position: relative;
@@ -596,201 +784,198 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-  padding: 34px var(--gutter) 52px;
-  border-top: 1px solid rgba(244, 244, 239, 0.1);
-  font-size: 12px;
-  color: var(--muted);
+  gap: 16px 30px;
+  padding: 30px var(--gutter) 48px;
+  border-top: 1px solid var(--line);
+  font-size: 11px;
+  color: var(--dim);
 }
 
 .dw-footer nav {
   display: flex;
-  gap: 20px;
-  letter-spacing: 0.12em;
+  gap: 18px;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
+  margin-left: auto;
+}
+
+.dw-footer nav a:hover {
+  color: var(--white);
 }
 
 .dw-footer p {
   width: 100%;
   margin: 0;
-  font-size: 11px;
-  opacity: 0.65;
-  max-width: 76ch;
+  font-size: 10.5px;
+  line-height: 1.6;
+  max-width: 82ch;
+  opacity: 0.75;
 }
 
-/* ============ Reduced motion ============ */
+/* ---------- reduced motion ---------- */
 
 @media (prefers-reduced-motion: reduce) {
-  .dw-field,
+  .dw-art,
   .dw-red,
   .dw-fore {
     transform: none !important;
     will-change: auto;
   }
   .dw-btn,
-  .dw-cover {
+  .dw-cover,
+  [data-reveal] {
     transition: none;
+  }
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
   }
 }
 
-/* ============ Mobile: se recompone, no se encoge ============
-   Menos capas, relaciones espaciales más grandes y más claras:
-   un campo azul + una masa roja + una portada delante. */
+/* ---------- móvil: recomposición ---------- */
+
+@media (max-width: 860px) {
+  .dw-hero {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .dw-hero-stage {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+  }
+  .dw-hero-copy {
+    grid-column: 1;
+    grid-row: 2;
+  }
+}
 
 @media (max-width: 720px) {
-  .dw-nav {
-    padding-block: 16px;
+  .dw-frame {
+    grid-template-columns: repeat(4, 1fr);
   }
 
   .dw-nav-links,
-  .dw-flag {
+  .dw-nav-meta {
     display: none;
   }
 
   .dw-hero {
     min-height: 100svh;
-    grid-template-columns: minmax(0, 1fr);
     align-content: center;
-    gap: clamp(28px, 7vw, 44px);
-    padding-block: 20px 70px;
+    row-gap: clamp(30px, 7vw, 46px);
+    padding-block: 16px 60px;
   }
 
-  .dw-hero-field {
-    top: -18vh;
-    right: -46vw;
-    width: 190vw;
-    height: 128vh;
+  .dw-hero-art {
+    top: -14vh;
+    left: -50vw;
+    width: 200vw;
+    height: 122vh;
   }
 
   .dw-hero-red {
-    top: 1vh;
-    left: -30vw;
-    width: 132vw;
-    height: 49vh;
+    top: 4vh;
+    left: -18vw;
+    width: 122vw;
+    height: 44vh;
+  }
+
+  .dw-hero-stage {
+    width: min(212px, 56vw);
+  }
+
+  .dw-hero-tag {
+    top: -26px;
+  }
+
+  .dw-hero-second {
+    right: -34%;
+    bottom: -12%;
+    width: 44%;
   }
 
   .dw-hero-copy {
-    grid-column: 1;
-    grid-row: 2;
     max-width: none;
   }
 
-  .dw-hero-copy p {
-    max-width: 40ch;
-    margin-block: 20px 26px;
+  .dw-spec {
+    gap: 18px 30px;
+    margin-top: 28px;
   }
 
-  .dw-hero-object {
-    grid-column: 1;
-    grid-row: 1;
-    justify-self: start;
-    width: min(210px, 52vw);
+  .dw-index {
+    padding-block: 64px;
   }
 
-  /* En móvil el segundo objeto se descuelga hacia dentro del viewport,
-     nunca fuera del borde izquierdo. */
-  .dw-hero-object-second {
-    left: 72%;
-    bottom: -18%;
-    width: 60%;
-  }
-
-  .dw-void {
-    min-height: 60svh;
-  }
-
-  .dw-void-field {
-    top: -14vh;
-    left: -40vw;
-    width: 190vw;
-    height: 100vh;
-  }
-
-  .dw-void--right {
-    text-align: left;
-    justify-content: flex-start;
-  }
-
-  .dw-universes li {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 5px;
-    padding-block: 13px;
-  }
-
-  .dw-universes .u-note {
-    margin-left: 0;
-    text-align: left;
-    max-width: 34ch;
-  }
-
-  .dw-rail {
-    gap: 16px;
-    padding-bottom: 22px;
-  }
-
-  .dw-item {
-    width: 152px;
-  }
-
-  .dw-railA-field {
-    top: -10vh;
-    left: -50vw;
+  .dw-index-art {
+    top: -8vh;
+    left: -46vw;
     width: 200vw;
     height: 104vh;
   }
 
-  .dw-railA-red {
-    top: calc(50% - 20px);
-    left: -24vw;
-    width: 150vw;
-    height: 190px;
+  .dw-row {
+    grid-template-columns: 30px minmax(0, 1fr) auto;
+    row-gap: 4px;
   }
 
-  .dw-railB-field {
-    top: -18vh;
-    right: -60vw;
-    width: 210vw;
-    height: 120vh;
+  .dw-row-note {
+    grid-column: 2 / -1;
+    font-size: 11.5px;
   }
 
-  .dw-railB-red {
-    top: -8vh;
-    left: 46%;
-    width: 116px;
-    height: 96vh;
+  .dw-quote {
+    min-height: 56svh;
   }
 
-  .dw-railC-field {
-    top: -8vh;
-    left: -40vw;
-    width: 190vw;
-    height: 96vh;
+  .dw-quote-art {
+    top: -10vh;
+    left: -50vw;
+    width: 200vw;
+    height: 100vh;
   }
 
-  .dw-railC-red {
-    top: 26%;
-    left: -30vw;
-    width: 170vw;
-    height: 210px;
+  .dw-quote-inner {
+    max-width: 14ch;
+  }
+
+  .dw-feature {
+    width: 80vw;
+  }
+
+  .dw-feature-body {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .dw-rail--tall {
+    --cw: 154px;
+  }
+
+  .dw-rail--dense {
+    --cw: 112px;
   }
 
   .dw-close {
-    min-height: 64svh;
+    min-height: 62svh;
   }
 
-  .dw-close-field {
-    top: -14vh;
-    left: -40vw;
-    width: 190vw;
+  .dw-close-art {
+    top: -10vh;
+    left: -46vw;
+    width: 200vw;
     height: 104vh;
   }
 
   .dw-close-red {
-    top: 16%;
-    right: -40vw;
-    width: 120vw;
-    height: 44vh;
+    top: 12%;
+    right: -34vw;
+    width: 108vw;
+    height: 40vh;
+  }
+
+  .dw-footer nav {
+    margin-left: 0;
+    flex-wrap: wrap;
   }
 }
